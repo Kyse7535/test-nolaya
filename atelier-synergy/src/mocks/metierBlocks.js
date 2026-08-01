@@ -36,8 +36,8 @@ export const metierBlocks = [
     order: '3',
     title: 'Validation faisabilité',
     description: 'Confirmer que la prestation est réalisable.',
-    routeName: null,
-    status: 'soon',
+    routeName: 'proposal-accueil',
+    status: 'ready',
   },
   {
     id: 'etape-4',

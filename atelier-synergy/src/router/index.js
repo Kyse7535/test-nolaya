@@ -2,10 +2,12 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { CapacityStatus } from '../domain/capacity/model'
 import { DemandStatus } from '../domain/demand/model'
 import { CampaignStatus, DemoRole } from '../domain/matching/model'
+import { ProposalStatus } from '../domain/proposal/model'
 import { useCapacityStore } from '../stores/capacity'
 import { useDemandStore } from '../stores/demand'
 import { useFrameworkStore } from '../stores/framework'
 import { useMatchingStore } from '../stores/matching'
+import { useProposalStore } from '../stores/proposal'
 import HomeView from '../views/HomeView.vue'
 import FrameworkAccueilView from '../views/framework/FrameworkAccueilView.vue'
 import FrameworkContextesView from '../views/framework/FrameworkContextesView.vue'
@@ -37,6 +39,13 @@ import MatchingCampagneView from '../views/matching/MatchingCampagneView.vue'
 import MatchingInvitationView from '../views/matching/MatchingInvitationView.vue'
 import MatchingSuiviView from '../views/matching/MatchingSuiviView.vue'
 import MatchingShortlistView from '../views/matching/MatchingShortlistView.vue'
+import ProposalAccueilView from '../views/proposal/ProposalAccueilView.vue'
+import ProposalSyntheseView from '../views/proposal/ProposalSyntheseView.vue'
+import ProposalFaisabiliteView from '../views/proposal/ProposalFaisabiliteView.vue'
+import ProposalOffreView from '../views/proposal/ProposalOffreView.vue'
+import ProposalRecapView from '../views/proposal/ProposalRecapView.vue'
+import ProposalSuccesView from '../views/proposal/ProposalSuccesView.vue'
+import ProposalOffreClienteView from '../views/proposal/ProposalOffreClienteView.vue'
 
 const frameworkDraftNames = new Set([
   'framework-accueil',
@@ -74,6 +83,15 @@ const matchingNeedsCampaign = new Set([
 ])
 
 const matchingUpstreamWhenShortlist = new Set(['matching-accueil', 'matching-lance'])
+
+const proposalWizardNames = new Set([
+  'proposal-synthese',
+  'proposal-faisabilite',
+  'proposal-offre',
+  'proposal-recap',
+])
+
+const proposalFirmOnlyNames = new Set(['proposal-succes', 'proposal-offre-cliente'])
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -233,6 +251,41 @@ const router = createRouter({
       name: 'matching-shortlist',
       component: MatchingShortlistView,
     },
+    {
+      path: '/proposition',
+      name: 'proposal-accueil',
+      component: ProposalAccueilView,
+    },
+    {
+      path: '/proposition/synthese',
+      name: 'proposal-synthese',
+      component: ProposalSyntheseView,
+    },
+    {
+      path: '/proposition/faisabilite',
+      name: 'proposal-faisabilite',
+      component: ProposalFaisabiliteView,
+    },
+    {
+      path: '/proposition/offre',
+      name: 'proposal-offre',
+      component: ProposalOffreView,
+    },
+    {
+      path: '/proposition/recapitulatif',
+      name: 'proposal-recap',
+      component: ProposalRecapView,
+    },
+    {
+      path: '/proposition/succes',
+      name: 'proposal-succes',
+      component: ProposalSuccesView,
+    },
+    {
+      path: '/proposition/offre-recue',
+      name: 'proposal-offre-cliente',
+      component: ProposalOffreClienteView,
+    },
   ],
   scrollBehavior() {
     return { top: 0 }
@@ -281,6 +334,27 @@ router.beforeEach((to) => {
     campaign.status !== CampaignStatus.SHORTLIST_READY
   ) {
     return { name: 'matching-suivi' }
+  }
+
+  const proposalStore = useProposalStore()
+  const proposal = proposalStore.currentProposal
+
+  if (proposalWizardNames.has(to.name) && !proposal) {
+    return { name: 'proposal-accueil' }
+  }
+
+  if (
+    proposal?.status === ProposalStatus.FIRM &&
+    proposalWizardNames.has(to.name)
+  ) {
+    return { name: 'proposal-succes' }
+  }
+
+  if (
+    proposalFirmOnlyNames.has(to.name) &&
+    (!proposal || proposal.status !== ProposalStatus.FIRM)
+  ) {
+    return { name: 'proposal-accueil' }
   }
 
   return true

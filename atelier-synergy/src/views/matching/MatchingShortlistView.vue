@@ -32,8 +32,8 @@ function goBack() {
   router.push({ name: 'matching-suivi' })
 }
 
-function goHome() {
-  router.push({ name: 'home' })
+function goProposal() {
+  router.push({ name: 'proposal-accueil' })
 }
 
 function goSuivi() {
@@ -182,7 +182,7 @@ function goSuivi() {
           <button
             type="button"
             class="w-full bg-primary-container text-on-primary py-[16px] px-lg rounded font-label-sm text-label-sm uppercase tracking-widest hover:opacity-90 active:scale-[0.98] transition-all flex justify-center items-center gap-sm"
-            @click="goHome"
+            @click="goProposal"
           >
             Continuer vers l’offre ferme
             <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
