@@ -76,7 +76,7 @@ export const metierBlocks = [
     order: '8',
     title: 'Produire la preuve',
     description: 'Documenter la fin de prestation.',
-    routeName: null,
-    status: 'soon',
+    routeName: 'experience-accueil',
+    status: 'ready',
   },
 ]

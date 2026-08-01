@@ -15,6 +15,8 @@ import { useMatchingStore } from '../stores/matching'
 import { useProposalStore } from '../stores/proposal'
 import { useSettlementStore } from '../stores/settlement'
 import { SettlementStatus } from '../domain/settlement/model'
+import { useExperienceStore } from '../stores/experience'
+import { ExperienceStatus } from '../domain/experience/model'
 import HomeView from '../views/HomeView.vue'
 import FrameworkAccueilView from '../views/framework/FrameworkAccueilView.vue'
 import FrameworkContextesView from '../views/framework/FrameworkContextesView.vue'
@@ -74,6 +76,12 @@ import SettlementAccueilView from '../views/settlement/SettlementAccueilView.vue
 import SettlementPaiementView from '../views/settlement/SettlementPaiementView.vue'
 import SettlementRevenuView from '../views/settlement/SettlementRevenuView.vue'
 import SettlementSuccesView from '../views/settlement/SettlementSuccesView.vue'
+import ExperienceAccueilView from '../views/experience/ExperienceAccueilView.vue'
+import ExperienceConfirmationView from '../views/experience/ExperienceConfirmationView.vue'
+import ExperienceAvisView from '../views/experience/ExperienceAvisView.vue'
+import ExperienceTemoignageView from '../views/experience/ExperienceTemoignageView.vue'
+import ExperienceHistoriqueView from '../views/experience/ExperienceHistoriqueView.vue'
+import ExperienceSuccesView from '../views/experience/ExperienceSuccesView.vue'
 
 const frameworkDraftNames = new Set([
   'framework-accueil',
@@ -172,6 +180,20 @@ const settlementRouteNames = new Set([
 const settlementUpstreamNames = new Set([
   'settlement-accueil',
   'settlement-solde',
+])
+
+const experienceRouteNames = new Set([
+  'experience-accueil',
+  'experience-confirmation',
+  'experience-avis',
+  'experience-temoignage',
+  'experience-historique',
+  'experience-succes',
+])
+
+const experienceUpstreamNames = new Set([
+  'experience-accueil',
+  'experience-confirmation',
 ])
 
 const router = createRouter({
@@ -472,6 +494,36 @@ const router = createRouter({
       name: 'settlement-succes',
       component: SettlementSuccesView,
     },
+    {
+      path: '/preuve',
+      name: 'experience-accueil',
+      component: ExperienceAccueilView,
+    },
+    {
+      path: '/preuve/confirmation',
+      name: 'experience-confirmation',
+      component: ExperienceConfirmationView,
+    },
+    {
+      path: '/preuve/avis',
+      name: 'experience-avis',
+      component: ExperienceAvisView,
+    },
+    {
+      path: '/preuve/temoignage',
+      name: 'experience-temoignage',
+      component: ExperienceTemoignageView,
+    },
+    {
+      path: '/preuve/historique',
+      name: 'experience-historique',
+      component: ExperienceHistoriqueView,
+    },
+    {
+      path: '/preuve/succes',
+      name: 'experience-succes',
+      component: ExperienceSuccesView,
+    },
   ],
   scrollBehavior() {
     return { top: 0 }
@@ -689,6 +741,49 @@ router.beforeEach((to) => {
     settlement?.status !== SettlementStatus.SETTLED
   ) {
     return { name: 'settlement-accueil' }
+  }
+
+  const experienceStore = useExperienceStore()
+
+  if (experienceRouteNames.has(to.name)) {
+    if (!settlementStore.settled) {
+      settlementStore.ensureDemoSeed()
+    }
+    if (!settlementStore.settled) {
+      return settlementStore.settlement
+        ? { name: 'settlement-accueil' }
+        : { name: 'home' }
+    }
+    experienceStore.ensureDemoSeed()
+  }
+
+  const experience = experienceStore.currentExperience
+
+  if (
+    experience?.status === ExperienceStatus.EXPERIENCE_RECORDED &&
+    experienceUpstreamNames.has(to.name)
+  ) {
+    return { name: 'experience-succes' }
+  }
+
+  if (
+    (to.name === 'experience-succes' || to.name === 'experience-historique') &&
+    experience?.status !== ExperienceStatus.EXPERIENCE_RECORDED
+  ) {
+    return { name: 'experience-accueil' }
+  }
+
+  if (
+    to.name === 'experience-avis' &&
+    experience?.status !== ExperienceStatus.EXPERIENCE_RECORDED
+  ) {
+    return { name: 'experience-confirmation' }
+  }
+
+  if (to.name === 'experience-temoignage' && !experienceStore.publishedReview) {
+    return experience?.status === ExperienceStatus.EXPERIENCE_RECORDED
+      ? { name: 'experience-succes' }
+      : { name: 'experience-accueil' }
   }
 
   return true

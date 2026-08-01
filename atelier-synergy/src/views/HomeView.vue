@@ -18,6 +18,8 @@ import { useMatchingStore } from '../stores/matching'
 import { useProposalStore } from '../stores/proposal'
 import { useSettlementStore } from '../stores/settlement'
 import { SettlementStatus } from '../domain/settlement/model'
+import { useExperienceStore } from '../stores/experience'
+import { ExperienceStatus } from '../domain/experience/model'
 
 const router = useRouter()
 const frameworkStore = useFrameworkStore()
@@ -29,6 +31,7 @@ const engagementStore = useEngagementStore()
 const appointmentStore = useAppointmentStore()
 const executionStore = useExecutionStore()
 const settlementStore = useSettlementStore()
+const experienceStore = useExperienceStore()
 
 const capacityCountLabel = computed(() => {
   const open = capacityStore.openCapacities.length
@@ -148,6 +151,18 @@ const settlementCountLabel = computed(() => {
   return 'dossier'
 })
 
+const hasExperience = computed(() => Boolean(experienceStore.currentExperience))
+
+const experienceCountLabel = computed(() => {
+  const experience = experienceStore.currentExperience
+  if (!experience) return 'aucune'
+  if (experience.status === ExperienceStatus.EXPERIENCE_RECORDED) {
+    return experienceStore.publishedReview ? 'enregistrée · avis' : 'enregistrée'
+  }
+  if (experience.status === ExperienceStatus.PROOF_PENDING) return 'preuve'
+  return 'dossier'
+})
+
 function openBlock(block) {
   if (block.status !== 'ready' || !block.routeName) return
   if (block.id === 'etape-0' && hasCapacities.value) {
@@ -245,6 +260,20 @@ function openBlock(block) {
     router.push({ name: 'settlement-accueil' })
     return
   }
+  if (block.id === 'etape-8') {
+    settlementStore.ensureDemoSeed()
+    if (!settlementStore.settled) {
+      router.push({ name: 'settlement-accueil' })
+      return
+    }
+    experienceStore.ensureDemoSeed()
+    if (experienceStore.recorded) {
+      router.push({ name: 'experience-succes' })
+      return
+    }
+    router.push({ name: 'experience-accueil' })
+    return
+  }
   router.push({ name: block.routeName })
 }
 
@@ -282,7 +311,12 @@ function resetExecutionDemo() {
 }
 
 function resetSettlementDemo() {
+  experienceStore.resetDemo()
   settlementStore.resetDemo()
+}
+
+function resetExperienceDemo() {
+  experienceStore.resetDemo()
 }
 
 function goCapacityListe() {
@@ -573,6 +607,30 @@ function goDemandStart() {
         </p>
       </div>
 
+      <div
+        v-if="hasExperience"
+        class="mb-lg p-md rounded-xl border border-surface-container bg-surface-container-low flex flex-col gap-sm"
+      >
+        <div class="flex items-center justify-between gap-sm">
+          <span
+            class="font-label-mono text-label-mono bg-surface-container text-on-surface-variant px-2 py-1 rounded uppercase"
+          >
+            Preuve · {{ experienceCountLabel }}
+          </span>
+          <button
+            type="button"
+            class="font-button-text text-button-text text-secondary underline-offset-2 hover:underline"
+            @click="resetExperienceDemo"
+          >
+            Réinitialiser
+          </button>
+        </div>
+        <p class="font-body-sm text-body-sm text-on-surface-variant">
+          Persisté dans localStorage (`as.mvp.experiences`, `as.mvp.feedbacks`,
+          `as.mvp.reviews`, `as.mvp.history`, `as.mvp.repeatDraft`).
+        </p>
+      </div>
+
       <ul class="flex flex-col gap-md">
         <li v-for="block in metierBlocks" :key="block.id">
           <button
@@ -622,7 +680,11 @@ function goDemandStart() {
                             ? `État : ${appointmentCountLabel}.`
                             : block.id === 'etape-6' && hasExecution
                               ? `État : ${executionCountLabel}.`
-                              : block.description
+                              : block.id === 'etape-7' && hasSettlement
+                                ? `État : ${settlementCountLabel}.`
+                                : block.id === 'etape-8' && hasExperience
+                                  ? `État : ${experienceCountLabel}.`
+                                  : block.description
               }}
             </p>
           </button>

@@ -32,6 +32,10 @@ function goHome() {
   router.push({ name: 'home' })
 }
 
+function goExperience() {
+  router.push({ name: 'experience-accueil' })
+}
+
 function goRevenu() {
   settlementStore.setDemoRole(settlementStore.DemoRole.PRO)
   router.push({ name: 'settlement-revenu' })
@@ -184,7 +188,7 @@ function goBack() {
         <button
           type="button"
           class="w-full bg-primary text-on-primary h-14 rounded-lg font-headline-sm text-headline-sm flex items-center justify-center transition-transform active:scale-[0.98]"
-          @click="goHome"
+          @click="goExperience"
         >
           Continuer vers la preuve d’expérience
         </button>
