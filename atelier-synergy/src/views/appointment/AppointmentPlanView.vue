@@ -8,7 +8,6 @@ import {
   ownerLabel,
 } from '../../domain/appointment/labels'
 import { ActionOwner, AppointmentStatus } from '../../domain/appointment/model'
-import AppointmentDemoRoleBar from '../../components/appointment/AppointmentDemoRoleBar.vue'
 import { useAppointmentStore } from '../../stores/appointment'
 
 const router = useRouter()
@@ -65,8 +64,6 @@ function goProChecklist() {
     </header>
 
     <main class="px-margin-mobile pt-stack-md flex flex-col gap-stack-lg max-w-3xl mx-auto">
-      <AppointmentDemoRoleBar />
-
       <section class="flex flex-col gap-stack-sm">
         <div class="flex items-center justify-between gap-2 flex-wrap">
           <h2 class="font-display-lg text-display-lg text-primary">Plan de préparation</h2>

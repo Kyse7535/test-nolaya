@@ -1,7 +1,6 @@
 <script setup>
 import { computed, onMounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
-import SettlementDemoRoleBar from '../../components/settlement/SettlementDemoRoleBar.vue'
 import { commissionRateLabel } from '../../domain/settlement/labels'
 import { formatEuro } from '../../domain/settlement/model'
 import { SETTLEMENT_PRO_AVATAR_REVENU } from '../../mocks/settlementSeed'
@@ -79,8 +78,6 @@ function downloadReleve() {
       v-if="settlement && payout"
       class="pt-24 pb-32 px-margin-mobile flex-1 flex flex-col gap-xl max-w-md mx-auto w-full"
     >
-      <SettlementDemoRoleBar />
-
       <section class="flex flex-col items-center text-center">
         <div
           class="inline-flex items-center gap-2 bg-secondary-container/10 px-3 py-1 rounded mb-4"

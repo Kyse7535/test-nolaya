@@ -1,7 +1,6 @@
 <script setup>
 import { computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-import ExecutionDemoRoleBar from '../../components/execution/ExecutionDemoRoleBar.vue'
 import { AppointmentStatus } from '../../domain/appointment/model'
 import { DemoRole } from '../../domain/execution/model'
 import { EXECUTION_HERO_SUIVI } from '../../mocks/executionSeed'
@@ -102,8 +101,6 @@ function goDemarrer() {
     </header>
 
     <main class="px-margin-mobile pt-lg flex flex-col gap-xl max-w-lg mx-auto">
-      <ExecutionDemoRoleBar />
-
       <section>
         <p class="font-body-lg text-body-lg text-on-surface-variant">
           Déclarez votre arrivée. Ces événements comptent pour l’exécution.

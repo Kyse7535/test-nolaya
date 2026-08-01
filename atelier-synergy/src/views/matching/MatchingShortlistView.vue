@@ -2,7 +2,6 @@
 import { computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
-import MatchingDemoRoleBar from '../../components/matching/MatchingDemoRoleBar.vue'
 import { demandResultLabel } from '../../domain/matching/labels'
 import { CampaignStatus } from '../../domain/matching/model'
 import { useMatchingStore } from '../../stores/matching'
@@ -64,7 +63,6 @@ function goSuivi() {
 
     <main class="w-full max-w-[390px] mx-auto flex-1 pb-2xl">
       <div class="px-margin-mobile pt-md">
-        <MatchingDemoRoleBar />
       </div>
 
       <section

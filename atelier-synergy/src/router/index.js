@@ -1,13 +1,15 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { CapacityStatus } from '../domain/capacity/model'
 import { DemandStatus } from '../domain/demand/model'
-import { CampaignStatus, DemoRole } from '../domain/matching/model'
+import { DemoRole } from '../domain/demoRole'
+import { CampaignStatus } from '../domain/matching/model'
 import { AppointmentStatus } from '../domain/appointment/model'
 import { EngagementStatus } from '../domain/engagement/model'
 import { ProposalStatus } from '../domain/proposal/model'
 import { useAppointmentStore } from '../stores/appointment'
 import { useCapacityStore } from '../stores/capacity'
 import { useDemandStore } from '../stores/demand'
+import { useDemoRoleStore } from '../stores/demoRole'
 import { useEngagementStore } from '../stores/engagement'
 import { useExecutionStore } from '../stores/execution'
 import { useFrameworkStore } from '../stores/framework'
@@ -606,7 +608,13 @@ router.beforeEach((to) => {
     engagement?.status === EngagementStatus.COMMITTED &&
     engagementWizardNames.has(to.name)
   ) {
-    return { name: 'engagement-confirmation' }
+    const demoRoleStore = useDemoRoleStore()
+    return {
+      name:
+        demoRoleStore.demoRole === DemoRole.PRO
+          ? 'engagement-confirmation-pro'
+          : 'engagement-confirmation',
+    }
   }
 
   if (

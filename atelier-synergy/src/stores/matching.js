@@ -1,17 +1,16 @@
 import { computed, ref, watch } from 'vue'
-import { defineStore } from 'pinia'
+import { defineStore, storeToRefs } from 'pinia'
 import { DemandStatus } from '../domain/demand/model'
 import { CapacityStatus } from '../domain/capacity/model'
+import { DemoRole } from '../domain/demoRole'
 import {
   CampaignStatus,
   DEFAULT_THRESHOLD,
-  DemoRole,
   InvitationStatus,
   POOL_SIZE,
   ResponseType,
   STORAGE_KEY_CAMPAIGNS,
   STORAGE_KEY_CURRENT_CAMPAIGN_ID,
-  STORAGE_KEY_DEMO_ROLE,
   WAVE_1_SIZE,
   createCampaign,
   createDemandSnapshot,
@@ -25,9 +24,13 @@ import {
   MATCHING_POOL_PROFILES,
   buildSeedOpenCapacity,
   buildSeedQualifiedDemand,
+  isSeedCapacityId,
   poolEntryFromProfile,
+  poolEntryFromUserCapacity,
 } from '../mocks/matchingPool'
+import { mockClient, mockProfessional } from '../mocks/platform'
 import { useCapacityStore } from './capacity'
+import { useDemoRoleStore } from './demoRole'
 import { useDemandStore } from './demand'
 
 function readCampaigns() {
@@ -49,16 +52,6 @@ function readCurrentId() {
   }
 }
 
-function readDemoRole() {
-  try {
-    const value = localStorage.getItem(STORAGE_KEY_DEMO_ROLE)
-    if (value === DemoRole.PRO || value === DemoRole.CLIENT) return value
-    return DemoRole.CLIENT
-  } catch {
-    return DemoRole.CLIENT
-  }
-}
-
 function writeCampaigns(list) {
   localStorage.setItem(STORAGE_KEY_CAMPAIGNS, JSON.stringify(list))
 }
@@ -68,14 +61,11 @@ function writeCurrentId(id) {
   else localStorage.removeItem(STORAGE_KEY_CURRENT_CAMPAIGN_ID)
 }
 
-function writeDemoRole(role) {
-  localStorage.setItem(STORAGE_KEY_DEMO_ROLE, role)
-}
-
 export const useMatchingStore = defineStore('matching', () => {
   const campaigns = ref(readCampaigns())
   const currentCampaignId = ref(readCurrentId())
-  const demoRole = ref(readDemoRole())
+  const demoRoleStore = useDemoRoleStore()
+  const { demoRole } = storeToRefs(demoRoleStore)
 
   watch(
     campaigns,
@@ -87,10 +77,6 @@ export const useMatchingStore = defineStore('matching', () => {
 
   watch(currentCampaignId, (value) => {
     writeCurrentId(value)
-  })
-
-  watch(demoRole, (value) => {
-    writeDemoRole(value)
   })
 
   const currentCampaign = computed(() => {
@@ -126,13 +112,11 @@ export const useMatchingStore = defineStore('matching', () => {
   }
 
   function setDemoRole(role) {
-    if (role !== DemoRole.CLIENT && role !== DemoRole.PRO) return
-    demoRole.value = role
+    demoRoleStore.setDemoRole(role)
   }
 
   function toggleDemoRole() {
-    demoRole.value =
-      demoRole.value === DemoRole.PRO ? DemoRole.CLIENT : DemoRole.PRO
+    demoRoleStore.toggleDemoRole()
   }
 
   /**
@@ -180,46 +164,10 @@ export const useMatchingStore = defineStore('matching', () => {
   }
 
   function buildPoolAndInvitations(openCapacities) {
-    const byId = new Map(openCapacities.map((c) => [c.id, c]))
     const pool = []
     const invitations = []
-
-    // Prefer seed profiles; map to existing open capacities by seed id, else by order.
-    const available = [...openCapacities]
-    const takeCapacity = (preferredId) => {
-      const exact = available.findIndex((c) => c.id === preferredId)
-      if (exact !== -1) return available.splice(exact, 1)[0]
-      return available.shift() ?? null
-    }
-
-    for (const profile of MATCHING_POOL_PROFILES) {
-      const capacity = takeCapacity(profile.capacityId)
-      if (!capacity) break
-      const entry = poolEntryFromProfile(profile, capacity.id)
-      // Prefer capacity prestation label when seeded from real data without displayName
-      if (capacity.displayName) entry.displayName = capacity.displayName
-      else if (capacity.prestation?.label && !byId.get(profile.capacityId)) {
-        // keep profile displayName for demo characters
-      }
-      pool.push(entry)
-      if (profile.wave === 1 && invitations.length < WAVE_1_SIZE) {
-        invitations.push(
-          createInvitation({
-            capacityId: capacity.id,
-            displayName: entry.displayName,
-            styleTag: entry.styleTag,
-            avatarUrl: entry.avatarUrl,
-            distanceKm: entry.distanceKm,
-          }),
-        )
-      }
-    }
-
-    // Ensure wave 1 size if pool has enough
-    while (invitations.length < WAVE_1_SIZE && invitations.length < pool.length) {
-      const entry = pool[invitations.length]
-      if (!entry) break
-      entry.wave = 1
+    const pushInvitation = (entry) => {
+      if (invitations.length >= WAVE_1_SIZE) return
       invitations.push(
         createInvitation({
           capacityId: entry.capacityId,
@@ -229,6 +177,46 @@ export const useMatchingStore = defineStore('matching', () => {
           distanceKm: entry.distanceKm,
         }),
       )
+    }
+
+    const userCapacities = openCapacities.filter((c) => !isSeedCapacityId(c.id))
+    const seedCapacities = openCapacities.filter((c) => isSeedCapacityId(c.id))
+
+    // Wave 1 first: real coiffeuse capacities (so client demand reaches the pro tab).
+    for (const capacity of userCapacities) {
+      const entry = poolEntryFromUserCapacity(capacity, {
+        displayName: `${mockProfessional.firstName} · vous`,
+        avatarUrl: mockProfessional.avatarUrl,
+        distanceKm: 2.5,
+        wave: 1,
+      })
+      if (capacity.displayName) entry.displayName = capacity.displayName
+      pool.push(entry)
+      pushInvitation(entry)
+    }
+
+    // Pad pool / wave 1 with seed vivier profiles.
+    const availableSeeds = [...seedCapacities]
+    const takeSeed = (preferredId) => {
+      const exact = availableSeeds.findIndex((c) => c.id === preferredId)
+      if (exact !== -1) return availableSeeds.splice(exact, 1)[0]
+      return availableSeeds.shift() ?? null
+    }
+
+    for (const profile of MATCHING_POOL_PROFILES) {
+      const capacity = takeSeed(profile.capacityId)
+      if (!capacity) continue
+      const entry = poolEntryFromProfile(profile, capacity.id)
+      if (capacity.displayName) entry.displayName = capacity.displayName
+      pool.push(entry)
+      if (profile.wave === 1) pushInvitation(entry)
+    }
+
+    while (invitations.length < WAVE_1_SIZE && invitations.length < pool.length) {
+      const entry = pool[invitations.length]
+      if (!entry) break
+      entry.wave = 1
+      pushInvitation(entry)
     }
 
     return { pool, invitations }
@@ -269,7 +257,7 @@ export const useMatchingStore = defineStore('matching', () => {
 
     const campaign = createCampaign({
       demandId: demand.id,
-      demandSnapshot: createDemandSnapshot(demand),
+      demandSnapshot: createDemandSnapshot(demand, mockClient),
       pool,
       invitations,
       threshold: DEFAULT_THRESHOLD,
@@ -323,7 +311,6 @@ export const useMatchingStore = defineStore('matching', () => {
   function resetDemo() {
     campaigns.value = []
     currentCampaignId.value = null
-    demoRole.value = DemoRole.CLIENT
   }
 
   return {
@@ -346,5 +333,6 @@ export const useMatchingStore = defineStore('matching', () => {
     acceptExact,
     getInvitation,
     resetDemo,
+    DemoRole,
   }
 })

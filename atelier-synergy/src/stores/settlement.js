@@ -1,11 +1,10 @@
 import { computed, ref, watch } from 'vue'
-import { defineStore } from 'pinia'
+import { defineStore, storeToRefs } from 'pinia'
+import { DemoRole } from '../domain/demoRole'
 import {
-  DemoRole,
   STORAGE_KEY_LEDGER_LINES,
   STORAGE_KEY_PAYOUT,
   STORAGE_KEY_SETTLEMENT,
-  STORAGE_KEY_SETTLEMENT_DEMO_ROLE,
   SettlementStatus,
   TIP_OPTIONS,
   applyTip,
@@ -22,6 +21,7 @@ import {
   settlementStatusCode,
 } from '../domain/settlement/labels'
 import { useAppointmentStore } from './appointment'
+import { useDemoRoleStore } from './demoRole'
 import { useExecutionStore } from './execution'
 
 function readJsonObject(key) {
@@ -48,30 +48,17 @@ function readJsonArray(key) {
   }
 }
 
-function readDemoRole() {
-  try {
-    const value = localStorage.getItem(STORAGE_KEY_SETTLEMENT_DEMO_ROLE)
-    if (value === DemoRole.PRO || value === DemoRole.CLIENT) return value
-    return DemoRole.CLIENT
-  } catch {
-    return DemoRole.CLIENT
-  }
-}
-
 function writeJson(key, value) {
   if (value == null) localStorage.removeItem(key)
   else localStorage.setItem(key, JSON.stringify(value))
-}
-
-function writeDemoRole(role) {
-  localStorage.setItem(STORAGE_KEY_SETTLEMENT_DEMO_ROLE, role)
 }
 
 export const useSettlementStore = defineStore('settlement', () => {
   const settlement = ref(readJsonObject(STORAGE_KEY_SETTLEMENT))
   const ledgerLines = ref(readJsonArray(STORAGE_KEY_LEDGER_LINES))
   const payout = ref(readJsonObject(STORAGE_KEY_PAYOUT))
-  const demoRole = ref(readDemoRole())
+  const demoRoleStore = useDemoRoleStore()
+  const { demoRole } = storeToRefs(demoRoleStore)
   const downloadNote = ref(null)
 
   watch(
@@ -89,7 +76,6 @@ export const useSettlementStore = defineStore('settlement', () => {
     (value) => writeJson(STORAGE_KEY_PAYOUT, value),
     { deep: true },
   )
-  watch(demoRole, (value) => writeDemoRole(value))
 
   const appointmentStore = useAppointmentStore()
   const executionStore = useExecutionStore()
@@ -150,9 +136,7 @@ export const useSettlementStore = defineStore('settlement', () => {
   }
 
   function setDemoRole(role) {
-    if (role === DemoRole.CLIENT || role === DemoRole.PRO) {
-      demoRole.value = role
-    }
+    demoRoleStore.setDemoRole(role)
   }
 
   function setTip(amount) {
@@ -191,13 +175,11 @@ export const useSettlementStore = defineStore('settlement', () => {
     settlement.value = null
     ledgerLines.value = []
     payout.value = null
-    demoRole.value = DemoRole.CLIENT
     downloadNote.value = null
     try {
       localStorage.removeItem(STORAGE_KEY_SETTLEMENT)
       localStorage.removeItem(STORAGE_KEY_LEDGER_LINES)
       localStorage.removeItem(STORAGE_KEY_PAYOUT)
-      localStorage.removeItem(STORAGE_KEY_SETTLEMENT_DEMO_ROLE)
     } catch {
       /* ignore */
     }

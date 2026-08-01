@@ -188,3 +188,29 @@ export function poolEntryFromProfile(profile, capacityId = profile.capacityId) {
     avatarUrl: profile.avatarUrl,
   }
 }
+
+export function isSeedCapacityId(capacityId) {
+  if (!capacityId || typeof capacityId !== 'string') return false
+  return (
+    capacityId.startsWith('cap_seed_') || MATCHING_POOL_PROFILES.some((p) => p.capacityId === capacityId)
+  )
+}
+
+/**
+ * Pool entry for a user-created (non-seed) OPEN capacity — the demo coiffeuse.
+ * @param {object} capacity
+ * @param {{ displayName: string, avatarUrl?: string | null, distanceKm?: number, wave?: number | null }} identity
+ */
+export function poolEntryFromUserCapacity(capacity, identity) {
+  const label = capacity?.prestation?.label || 'Prestation ouverte'
+  const gallerySrc = capacity?.gallery?.[0]?.src ?? null
+  return {
+    capacityId: capacity.id,
+    displayName: identity.displayName,
+    styleTag: label,
+    styleDetail: label,
+    distanceKm: identity.distanceKm ?? 2.5,
+    wave: identity.wave ?? 1,
+    avatarUrl: gallerySrc || identity.avatarUrl || null,
+  }
+}

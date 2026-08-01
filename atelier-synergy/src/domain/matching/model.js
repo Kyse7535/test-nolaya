@@ -12,14 +12,10 @@ export const ResponseType = {
   ACCEPT_EXACT: 'ACCEPT_EXACT',
 }
 
-export const DemoRole = {
-  CLIENT: 'client',
-  PRO: 'pro',
-}
+export { DemoRole, STORAGE_KEY_DEMO_ROLE } from '../demoRole'
 
 export const STORAGE_KEY_CAMPAIGNS = 'as.mvp.campaigns'
 export const STORAGE_KEY_CURRENT_CAMPAIGN_ID = 'as.mvp.currentCampaignId'
-export const STORAGE_KEY_DEMO_ROLE = 'as.mvp.demoRole'
 
 export const DEFAULT_THRESHOLD = 2
 export const WAVE_1_SIZE = 3
@@ -33,11 +29,18 @@ export function createInvitationId() {
   return `inv_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 7)}`
 }
 
-/** Snapshot of a qualified demand for campaign display. */
-export function createDemandSnapshot(demand) {
+/**
+ * Snapshot of a qualified demand for campaign display.
+ * @param {object} demand
+ * @param {{ clientName?: string, clientAvatarUrl?: string } | null} [client]
+ */
+export function createDemandSnapshot(demand, client = null) {
   if (!demand) return null
   return {
     id: demand.id,
+    clientName: demand.clientName ?? client?.firstName ?? client?.clientName ?? null,
+    clientAvatarUrl:
+      demand.clientAvatarUrl ?? client?.avatarUrl ?? client?.clientAvatarUrl ?? null,
     resultLabel: demand.result?.label ?? null,
     variante: demand.result?.variante ?? null,
     preferredDate: demand.timing?.preferredDate ?? null,

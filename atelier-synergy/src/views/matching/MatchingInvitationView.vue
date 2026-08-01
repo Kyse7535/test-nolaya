@@ -1,8 +1,7 @@
 <script setup>
-import { computed, onMounted } from 'vue'
+import { computed, onMounted, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
-import MatchingDemoRoleBar from '../../components/matching/MatchingDemoRoleBar.vue'
 import {
   capacityLinkLine,
   demandBudgetLine,
@@ -48,6 +47,12 @@ onMounted(() => {
   }
 })
 
+watch(demoRole, (role) => {
+  if (role !== DemoRole.PRO) {
+    router.replace({ name: 'matching-suivi' })
+  }
+})
+
 function goBack() {
   router.push({ name: 'matching-suivi' })
 }
@@ -84,8 +89,6 @@ function accept() {
     </header>
 
     <main class="flex-grow px-margin-mobile pt-lg flex flex-col gap-xl">
-      <MatchingDemoRoleBar />
-
       <section class="flex flex-col gap-sm">
         <div class="flex items-center gap-sm">
           <span
@@ -98,7 +101,13 @@ function accept() {
           </span>
         </div>
         <p class="font-body-lg text-body-lg text-on-background mt-2">
-          Une cliente vous propose une prestation alignée avec votre capacité ouverte.
+          <template v-if="snapshot?.clientName">
+            {{ snapshot.clientName }} vous propose une prestation alignée avec votre capacité
+            ouverte.
+          </template>
+          <template v-else>
+            Une cliente vous propose une prestation alignée avec votre capacité ouverte.
+          </template>
         </p>
         <p class="font-body-sm text-body-sm text-on-surface-variant">
           Destinataire démo : {{ invitation.displayName }}

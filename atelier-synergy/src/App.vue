@@ -1,7 +1,10 @@
 <script setup>
+import DemoRoleSwitch from './components/DemoRoleSwitch.vue'
 </script>
 
 <template>
-  <RouterView />
+  <div class="as-app-shell">
+    <DemoRoleSwitch />
+    <RouterView />
+  </div>
 </template>
-

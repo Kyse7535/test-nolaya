@@ -1,7 +1,6 @@
 <script setup>
 import { onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-import SettlementDemoRoleBar from '../../components/settlement/SettlementDemoRoleBar.vue'
 import {
   SETTLEMENT_HERO_ACCUEIL,
   SETTLEMENT_PILLARS,
@@ -52,7 +51,6 @@ function openDecompte() {
 
     <main class="flex-1 mt-16 px-margin-mobile pb-32">
       <div class="mt-lg">
-        <SettlementDemoRoleBar class="mb-md" />
         <div
           class="inline-flex items-center px-sm py-xs bg-secondary-fixed/20 rounded"
         >

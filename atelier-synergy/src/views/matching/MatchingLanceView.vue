@@ -2,7 +2,6 @@
 import { computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
-import MatchingDemoRoleBar from '../../components/matching/MatchingDemoRoleBar.vue'
 import {
   demandBudgetLine,
   demandResultLabel,
@@ -81,8 +80,6 @@ function goDemand() {
     </header>
 
     <main class="pt-24 px-margin-mobile max-w-screen-md mx-auto">
-      <MatchingDemoRoleBar class="mb-lg" />
-
       <div class="flex flex-col items-center text-center mb-xl">
         <div
           class="inline-flex items-center px-3 py-1 mb-md bg-secondary-fixed text-on-secondary-fixed-variant rounded font-label-mono text-label-mono uppercase tracking-widest border border-secondary-container"

@@ -22,16 +22,12 @@ export const ActionOwner = {
   PRO: 'PRO',
 }
 
-export const DemoRole = {
-  CLIENT: 'client',
-  PRO: 'pro',
-}
+export { DemoRole } from '../demoRole'
 
 export const STORAGE_KEY_APPOINTMENTS = 'as.mvp.appointments'
 export const STORAGE_KEY_PREP_PLANS = 'as.mvp.prepPlans'
 export const STORAGE_KEY_PREP_TEMPLATES = 'as.mvp.prepTemplates'
 export const STORAGE_KEY_CURRENT_APPOINTMENT_ID = 'as.mvp.currentAppointmentId'
-export const STORAGE_KEY_APPOINTMENT_DEMO_ROLE = 'as.mvp.appointmentDemoRole'
 
 export function createAppointmentId() {
   return `appt_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 7)}`

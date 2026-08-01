@@ -1,7 +1,6 @@
 <script setup>
 import { computed, onMounted, reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
-import ExperienceDemoRoleBar from '../../components/experience/ExperienceDemoRoleBar.vue'
 import { emptyRatings, hasAnyRating } from '../../domain/experience/model'
 import { feedbackDimensionRows } from '../../domain/experience/labels'
 import {
@@ -88,8 +87,6 @@ function skip() {
     </header>
 
     <main v-if="experience" class="pt-24 px-margin-mobile max-w-lg mx-auto">
-      <ExperienceDemoRoleBar class="mb-lg" />
-
       <section class="flex flex-col items-center mb-xl text-center">
         <div class="relative w-20 h-20 mb-md">
           <img

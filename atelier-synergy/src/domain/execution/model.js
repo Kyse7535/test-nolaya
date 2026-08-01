@@ -8,14 +8,10 @@ export const ExecutionEventType = {
   CLIENT_CONFIRM: 'CLIENT_CONFIRM',
 }
 
-export const DemoRole = {
-  CLIENT: 'client',
-  PRO: 'pro',
-}
+export { DemoRole } from '../demoRole'
 
 export const STORAGE_KEY_EXECUTION_EVENTS = 'as.mvp.executionEvents'
 export const STORAGE_KEY_EXECUTION_DOSSIER = 'as.mvp.executionDossier'
-export const STORAGE_KEY_EXECUTION_DEMO_ROLE = 'as.mvp.executionDemoRole'
 
 export function createEventId() {
   return `evt_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 7)}`

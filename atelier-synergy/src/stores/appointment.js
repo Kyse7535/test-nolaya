@@ -1,12 +1,10 @@
 import { computed, ref, watch } from 'vue'
-import { defineStore } from 'pinia'
+import { defineStore, storeToRefs } from 'pinia'
 import {
   ActionOwner,
   ActionStatus,
   AppointmentStatus,
-  DemoRole,
   STORAGE_KEY_APPOINTMENTS,
-  STORAGE_KEY_APPOINTMENT_DEMO_ROLE,
   STORAGE_KEY_CURRENT_APPOINTMENT_ID,
   STORAGE_KEY_PREP_PLANS,
   STORAGE_KEY_PREP_TEMPLATES,
@@ -20,7 +18,9 @@ import {
   ownerBlockingProgress,
   remainingBlockingActions,
 } from '../domain/appointment/model'
+import { DemoRole } from '../domain/demoRole'
 import { buildKnotlessPrepTemplate } from '../mocks/appointmentSeed'
+import { useDemoRoleStore } from './demoRole'
 import { useEngagementStore } from './engagement'
 
 function readJsonArray(key) {
@@ -42,16 +42,6 @@ function readCurrentId() {
   }
 }
 
-function readDemoRole() {
-  try {
-    const value = localStorage.getItem(STORAGE_KEY_APPOINTMENT_DEMO_ROLE)
-    if (value === DemoRole.PRO || value === DemoRole.CLIENT) return value
-    return DemoRole.CLIENT
-  } catch {
-    return DemoRole.CLIENT
-  }
-}
-
 function writeJson(key, value) {
   localStorage.setItem(key, JSON.stringify(value))
 }
@@ -61,16 +51,13 @@ function writeCurrentId(id) {
   else localStorage.removeItem(STORAGE_KEY_CURRENT_APPOINTMENT_ID)
 }
 
-function writeDemoRole(role) {
-  localStorage.setItem(STORAGE_KEY_APPOINTMENT_DEMO_ROLE, role)
-}
-
 export const useAppointmentStore = defineStore('appointment', () => {
   const appointments = ref(readJsonArray(STORAGE_KEY_APPOINTMENTS))
   const prepPlans = ref(readJsonArray(STORAGE_KEY_PREP_PLANS))
   const prepTemplates = ref(readJsonArray(STORAGE_KEY_PREP_TEMPLATES))
   const currentAppointmentId = ref(readCurrentId())
-  const demoRole = ref(readDemoRole())
+  const demoRoleStore = useDemoRoleStore()
+  const { demoRole } = storeToRefs(demoRoleStore)
 
   watch(appointments, (value) => writeJson(STORAGE_KEY_APPOINTMENTS, value), {
     deep: true,
@@ -82,7 +69,6 @@ export const useAppointmentStore = defineStore('appointment', () => {
     deep: true,
   })
   watch(currentAppointmentId, (value) => writeCurrentId(value))
-  watch(demoRole, (value) => writeDemoRole(value))
 
   const currentAppointment = computed(() => {
     if (!currentAppointmentId.value) return null
@@ -176,9 +162,7 @@ export const useAppointmentStore = defineStore('appointment', () => {
   }
 
   function setDemoRole(role) {
-    if (role === DemoRole.CLIENT || role === DemoRole.PRO) {
-      demoRole.value = role
-    }
+    demoRoleStore.setDemoRole(role)
   }
 
   /** Ensure a READY appointment with snapshot (for étape 6 demo autonomy). */
@@ -353,13 +337,11 @@ export const useAppointmentStore = defineStore('appointment', () => {
     prepPlans.value = []
     prepTemplates.value = []
     currentAppointmentId.value = null
-    demoRole.value = DemoRole.CLIENT
     try {
       localStorage.removeItem(STORAGE_KEY_APPOINTMENTS)
       localStorage.removeItem(STORAGE_KEY_PREP_PLANS)
       localStorage.removeItem(STORAGE_KEY_PREP_TEMPLATES)
       localStorage.removeItem(STORAGE_KEY_CURRENT_APPOINTMENT_ID)
-      localStorage.removeItem(STORAGE_KEY_APPOINTMENT_DEMO_ROLE)
     } catch {
       /* ignore */
     }

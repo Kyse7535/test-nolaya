@@ -1,8 +1,7 @@
 import { computed, ref, watch } from 'vue'
-import { defineStore } from 'pinia'
+import { defineStore, storeToRefs } from 'pinia'
+import { DemoRole } from '../domain/demoRole'
 import {
-  DemoRole,
-  STORAGE_KEY_EXPERIENCE_DEMO_ROLE,
   STORAGE_KEY_EXPERIENCES,
   STORAGE_KEY_FEEDBACKS,
   STORAGE_KEY_HISTORY,
@@ -27,6 +26,7 @@ import {
 } from '../domain/experience/labels'
 import { DemandStatus, EntryPath, createDefaultDemand } from '../domain/demand/model'
 import { mockClient } from '../mocks/platform'
+import { useDemoRoleStore } from './demoRole'
 import { useDemandStore } from './demand'
 import { useSettlementStore } from './settlement'
 
@@ -54,23 +54,9 @@ function readJsonArray(key) {
   }
 }
 
-function readDemoRole() {
-  try {
-    const value = localStorage.getItem(STORAGE_KEY_EXPERIENCE_DEMO_ROLE)
-    if (value === DemoRole.PRO || value === DemoRole.CLIENT) return value
-    return DemoRole.CLIENT
-  } catch {
-    return DemoRole.CLIENT
-  }
-}
-
 function writeJson(key, value) {
   if (value == null) localStorage.removeItem(key)
   else localStorage.setItem(key, JSON.stringify(value))
-}
-
-function writeDemoRole(role) {
-  localStorage.setItem(STORAGE_KEY_EXPERIENCE_DEMO_ROLE, role)
 }
 
 export const useExperienceStore = defineStore('experience', () => {
@@ -79,7 +65,8 @@ export const useExperienceStore = defineStore('experience', () => {
   const reviews = ref(readJsonArray(STORAGE_KEY_REVIEWS))
   const history = ref(readJsonArray(STORAGE_KEY_HISTORY))
   const repeatDraft = ref(readJsonObject(STORAGE_KEY_REPEAT_DRAFT))
-  const demoRole = ref(readDemoRole())
+  const demoRoleStore = useDemoRoleStore()
+  const { demoRole } = storeToRefs(demoRoleStore)
   const repeatPanelOpen = ref(false)
 
   watch(
@@ -107,7 +94,6 @@ export const useExperienceStore = defineStore('experience', () => {
     (value) => writeJson(STORAGE_KEY_REPEAT_DRAFT, value),
     { deep: true },
   )
-  watch(demoRole, (value) => writeDemoRole(value))
 
   const settlementStore = useSettlementStore()
 
@@ -194,9 +180,7 @@ export const useExperienceStore = defineStore('experience', () => {
   }
 
   function setDemoRole(role) {
-    if (role === DemoRole.CLIENT || role === DemoRole.PRO) {
-      demoRole.value = role
-    }
+    demoRoleStore.setDemoRole(role)
   }
 
   function confirmOutcome() {
@@ -330,7 +314,6 @@ export const useExperienceStore = defineStore('experience', () => {
     reviews.value = []
     history.value = []
     repeatDraft.value = null
-    demoRole.value = DemoRole.CLIENT
     repeatPanelOpen.value = false
     try {
       localStorage.removeItem(STORAGE_KEY_EXPERIENCES)
@@ -338,7 +321,6 @@ export const useExperienceStore = defineStore('experience', () => {
       localStorage.removeItem(STORAGE_KEY_REVIEWS)
       localStorage.removeItem(STORAGE_KEY_HISTORY)
       localStorage.removeItem(STORAGE_KEY_REPEAT_DRAFT)
-      localStorage.removeItem(STORAGE_KEY_EXPERIENCE_DEMO_ROLE)
     } catch {
       /* ignore */
     }

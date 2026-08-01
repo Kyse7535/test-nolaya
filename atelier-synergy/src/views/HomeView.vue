@@ -1,16 +1,19 @@
 <script setup>
 import { computed } from 'vue'
+import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
 import { AppointmentStatus } from '../domain/appointment/model'
+import { DemoRole } from '../domain/demoRole'
 import { DemandStatus } from '../domain/demand/model'
 import { EngagementStatus } from '../domain/engagement/model'
 import { CampaignStatus } from '../domain/matching/model'
 import { ProposalStatus } from '../domain/proposal/model'
-import { metierBlocks } from '../mocks/metierBlocks'
-import { mockProfessional } from '../mocks/platform'
+import { metierBlocksForRole } from '../mocks/metierBlocks'
+import { mockClient, mockProfessional } from '../mocks/platform'
 import { useAppointmentStore } from '../stores/appointment'
 import { useCapacityStore } from '../stores/capacity'
 import { useDemandStore } from '../stores/demand'
+import { useDemoRoleStore } from '../stores/demoRole'
 import { useEngagementStore } from '../stores/engagement'
 import { useExecutionStore } from '../stores/execution'
 import { useFrameworkStore } from '../stores/framework'
@@ -22,6 +25,8 @@ import { useExperienceStore } from '../stores/experience'
 import { ExperienceStatus } from '../domain/experience/model'
 
 const router = useRouter()
+const demoRoleStore = useDemoRoleStore()
+const { demoRole, isClient, isPro } = storeToRefs(demoRoleStore)
 const frameworkStore = useFrameworkStore()
 const capacityStore = useCapacityStore()
 const demandStore = useDemandStore()
@@ -32,6 +37,22 @@ const appointmentStore = useAppointmentStore()
 const executionStore = useExecutionStore()
 const settlementStore = useSettlementStore()
 const experienceStore = useExperienceStore()
+
+const visibleBlocks = computed(() => metierBlocksForRole(demoRole.value))
+
+const persona = computed(() =>
+  demoRole.value === DemoRole.PRO ? mockProfessional : mockClient,
+)
+
+const homeIntro = computed(() =>
+  demoRole.value === DemoRole.PRO
+    ? 'Parcours coiffeuse : cadre, capacité, puis les étapes partagées jusqu’à la preuve.'
+    : 'Parcours cliente : qualifier le besoin, puis les étapes partagées jusqu’à la preuve.',
+)
+
+const personaOppositeName = computed(() =>
+  demoRole.value === DemoRole.PRO ? mockClient.firstName : mockProfessional.firstName,
+)
 
 const capacityCountLabel = computed(() => {
   const open = capacityStore.openCapacities.length
@@ -188,14 +209,27 @@ function openBlock(block) {
       return
     }
     if (campaign?.status === CampaignStatus.OPEN) {
-      router.push({ name: 'matching-lance' })
+      router.push({
+        name: isPro.value ? 'matching-suivi' : 'matching-lance',
+      })
       return
     }
   }
   if (block.id === 'etape-3') {
     const proposal = proposalStore.currentProposal
     if (proposal?.status === ProposalStatus.FIRM) {
-      router.push({ name: 'proposal-succes' })
+      router.push({
+        name: isClient.value ? 'proposal-offre-cliente' : 'proposal-succes',
+      })
+      return
+    }
+    if (isClient.value) {
+      // Offre cliente only once FIRM; meanwhile follow matching shortlist.
+      router.push({
+        name: matchingStore.hasShortlistReady
+          ? 'matching-shortlist'
+          : 'matching-accueil',
+      })
       return
     }
     if (proposal?.status === ProposalStatus.PENDING) {
@@ -206,11 +240,17 @@ function openBlock(block) {
   if (block.id === 'etape-4') {
     const engagement = engagementStore.currentEngagement
     if (engagement?.status === EngagementStatus.COMMITTED) {
-      router.push({ name: 'engagement-confirmation' })
+      router.push({
+        name: isPro.value
+          ? 'engagement-confirmation-pro'
+          : 'engagement-confirmation',
+      })
       return
     }
     if (engagement?.status === EngagementStatus.AWAITING_PAYMENT) {
-      router.push({ name: 'engagement-paiement' })
+      router.push({
+        name: isPro.value ? 'engagement-accueil' : 'engagement-paiement',
+      })
       return
     }
     if (engagement?.status === EngagementStatus.AWAITING_CLIENT_ACCEPTANCE) {
@@ -233,7 +273,11 @@ function openBlock(block) {
       return
     }
     if (appointment?.status === AppointmentStatus.READINESS_PENDING) {
-      router.push({ name: 'appointment-plan' })
+      router.push({
+        name: isPro.value
+          ? 'appointment-checklist-coiffeuse'
+          : 'appointment-checklist-cliente',
+      })
       return
     }
   }
@@ -254,7 +298,9 @@ function openBlock(block) {
   if (block.id === 'etape-7') {
     settlementStore.ensureDemoSeed()
     if (settlementStore.settled) {
-      router.push({ name: 'settlement-succes' })
+      router.push({
+        name: isPro.value ? 'settlement-revenu' : 'settlement-succes',
+      })
       return
     }
     router.push({ name: 'settlement-accueil' })
@@ -352,16 +398,21 @@ function goDemandStart() {
     <main class="max-w-lg mx-auto w-full px-margin-mobile py-xl pb-3xl">
       <div class="flex items-center gap-md mb-lg">
         <img
-          :src="mockProfessional.avatarUrl"
+          :src="persona.avatarUrl"
           alt=""
           class="w-12 h-12 rounded-full object-cover border border-surface-container"
         />
         <div>
           <p class="font-headline-sm text-headline-sm text-primary">
-            {{ mockProfessional.firstName }}
+            {{ persona.firstName }}
           </p>
           <p class="font-body-sm text-body-sm text-on-surface-variant">
-            {{ mockProfessional.role }} · {{ mockProfessional.specialty }}
+            <template v-if="isPro">
+              {{ persona.role }} · {{ persona.specialty }}
+            </template>
+            <template v-else>
+              {{ persona.role }} · {{ persona.zoneLabel }}
+            </template>
           </p>
         </div>
       </div>
@@ -370,11 +421,11 @@ function goDemandStart() {
         Blocs métier
       </h1>
       <p class="font-body-md text-body-md text-on-surface-variant mb-xl">
-        Parcours MVP démontrable, bloc par bloc. Cadre, capacité, puis besoin cliente.
+        {{ homeIntro }}
       </p>
 
       <div
-        v-if="frameworkStore.isActive"
+        v-if="isPro && frameworkStore.isActive"
         class="mb-lg p-md rounded-xl border border-secondary-container bg-secondary-container/30 flex flex-col gap-sm"
       >
         <div class="flex items-center justify-between gap-sm">
@@ -397,7 +448,7 @@ function goDemandStart() {
       </div>
 
       <div
-        v-if="hasCapacities"
+        v-if="isPro && hasCapacities"
         class="mb-lg p-md rounded-xl border border-surface-container bg-surface-container-low flex flex-col gap-sm"
       >
         <div class="flex items-center justify-between gap-sm">
@@ -436,7 +487,7 @@ function goDemandStart() {
       </div>
 
       <div
-        v-if="hasDemands"
+        v-if="isClient && hasDemands"
         class="mb-lg p-md rounded-xl border border-surface-container bg-surface-container-low flex flex-col gap-sm"
       >
         <div class="flex items-center justify-between gap-sm">
@@ -465,6 +516,36 @@ function goDemandStart() {
             Continuer / ouvrir
           </button>
         </div>
+      </div>
+
+      <!-- Données de l’autre rôle (lecture seule) -->
+      <div
+        v-if="isPro && hasDemands"
+        class="mb-lg p-md rounded-xl border border-outline-variant bg-surface-container-lowest flex flex-col gap-sm"
+      >
+        <span
+          class="font-label-mono text-label-mono bg-surface-container text-on-surface-variant px-2 py-1 rounded uppercase self-start"
+        >
+          Demande cliente · {{ demandCountLabel }}
+        </span>
+        <p class="font-body-sm text-body-sm text-on-surface-variant">
+          La demande qualifiée de {{ personaOppositeName }} est visible dans votre parcours
+          (appariement → offre).
+        </p>
+      </div>
+
+      <div
+        v-if="isClient && hasCapacities"
+        class="mb-lg p-md rounded-xl border border-outline-variant bg-surface-container-lowest flex flex-col gap-sm"
+      >
+        <span
+          class="font-label-mono text-label-mono bg-surface-container text-on-surface-variant px-2 py-1 rounded uppercase self-start"
+        >
+          Capacité coiffeuse · {{ capacityCountLabel }}
+        </span>
+        <p class="font-body-sm text-body-sm text-on-surface-variant">
+          Les capacités ouvertes de {{ personaOppositeName }} alimentent le vivier d’appariement.
+        </p>
       </div>
 
       <div
@@ -632,7 +713,7 @@ function goDemandStart() {
       </div>
 
       <ul class="flex flex-col gap-md">
-        <li v-for="block in metierBlocks" :key="block.id">
+        <li v-for="block in visibleBlocks" :key="block.id">
           <button
             type="button"
             class="w-full text-left rounded-xl border p-lg transition-colors"

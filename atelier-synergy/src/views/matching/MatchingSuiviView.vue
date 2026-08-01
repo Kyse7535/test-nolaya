@@ -2,7 +2,6 @@
 import { computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
-import MatchingDemoRoleBar from '../../components/matching/MatchingDemoRoleBar.vue'
 import { invitationStatusLabel } from '../../domain/matching/labels'
 import { CampaignStatus, DemoRole, InvitationStatus } from '../../domain/matching/model'
 import { useMatchingStore } from '../../stores/matching'
@@ -72,8 +71,6 @@ function isAccepted(invitation) {
     </header>
 
     <main class="w-full max-w-7xl mx-auto px-margin-mobile pt-lg pb-2xl">
-      <MatchingDemoRoleBar class="mb-lg" />
-
       <div class="flex flex-col gap-sm mb-xl">
         <div class="flex items-center justify-between w-full">
           <span

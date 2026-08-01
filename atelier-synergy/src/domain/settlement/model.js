@@ -13,10 +13,7 @@ export const PayoutStatus = {
   PAID_OUT: 'PAID_OUT',
 }
 
-export const DemoRole = {
-  CLIENT: 'client',
-  PRO: 'pro',
-}
+export { DemoRole } from '../demoRole'
 
 /** Fixed tip chips (€). */
 export const TIP_OPTIONS = [0, 5, 10, 15]
@@ -31,7 +28,6 @@ export const DEFAULT_DEPOSIT = 66
 export const STORAGE_KEY_SETTLEMENT = 'as.mvp.settlement'
 export const STORAGE_KEY_LEDGER_LINES = 'as.mvp.ledgerLines'
 export const STORAGE_KEY_PAYOUT = 'as.mvp.payout'
-export const STORAGE_KEY_SETTLEMENT_DEMO_ROLE = 'as.mvp.settlementDemoRole'
 
 export function createSettlementId() {
   return `set_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 7)}`

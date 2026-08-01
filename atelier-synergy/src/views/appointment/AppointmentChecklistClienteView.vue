@@ -11,7 +11,6 @@ import {
   ActionStatus,
   AppointmentStatus,
 } from '../../domain/appointment/model'
-import AppointmentDemoRoleBar from '../../components/appointment/AppointmentDemoRoleBar.vue'
 import { APPOINTMENT_CHECKLIST_CLIENT_HERO } from '../../mocks/appointmentSeed'
 import { useAppointmentStore } from '../../stores/appointment'
 
@@ -78,7 +77,6 @@ function confirm(actionId) {
 
     <main class="pt-20 px-margin-mobile max-w-lg mx-auto flex flex-col">
       <div class="mb-stack-md">
-        <AppointmentDemoRoleBar />
       </div>
 
       <p class="font-body-md text-body-md text-on-surface-variant mt-2">

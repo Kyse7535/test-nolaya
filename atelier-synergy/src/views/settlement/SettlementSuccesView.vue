@@ -1,7 +1,6 @@
 <script setup>
 import { computed, onMounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
-import SettlementDemoRoleBar from '../../components/settlement/SettlementDemoRoleBar.vue'
 import { tipDisplay } from '../../domain/settlement/labels'
 import { formatEuro } from '../../domain/settlement/model'
 import { SETTLEMENT_HERO_SUCCES } from '../../mocks/settlementSeed'
@@ -71,8 +70,6 @@ function goBack() {
       v-if="settlement"
       class="flex-grow px-margin-mobile pt-lg pb-[200px] space-y-xl max-w-md mx-auto w-full"
     >
-      <SettlementDemoRoleBar />
-
       <section class="flex flex-col items-center text-center space-y-md">
         <div
           class="w-full aspect-[4/3] rounded-xl overflow-hidden bg-surface-container-low mb-sm"

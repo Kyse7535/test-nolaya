@@ -1,7 +1,6 @@
 <script setup>
 import { computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-import SettlementDemoRoleBar from '../../components/settlement/SettlementDemoRoleBar.vue'
 import { tipChipLabel } from '../../domain/settlement/labels'
 import { formatEuro } from '../../domain/settlement/model'
 import { SETTLEMENT_PRO_AVATAR } from '../../mocks/settlementSeed'
@@ -62,8 +61,6 @@ function pay() {
       v-if="settlement"
       class="pt-24 px-margin-mobile max-w-md mx-auto flex flex-col gap-xl"
     >
-      <SettlementDemoRoleBar />
-
       <section class="flex flex-col gap-md">
         <div class="flex flex-col gap-xs">
           <span

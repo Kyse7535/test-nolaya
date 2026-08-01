@@ -1,7 +1,6 @@
 <script setup>
 import { computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-import ExperienceDemoRoleBar from '../../components/experience/ExperienceDemoRoleBar.vue'
 import { formatEuro } from '../../domain/experience/model'
 import {
   EXPERIENCE_HERO_CONFIRMATION,
@@ -71,8 +70,6 @@ function skipReview() {
       v-if="experience"
       class="flex-1 pt-20 px-margin-mobile pb-[140px] max-w-lg mx-auto w-full"
     >
-      <ExperienceDemoRoleBar class="mb-md" />
-
       <div class="mb-lg">
         <span
           class="inline-block bg-surface-container-high px-2 py-1 rounded font-label-mono text-label-mono text-on-background uppercase tracking-widest mb-sm"

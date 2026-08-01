@@ -1,10 +1,9 @@
 import { computed, ref, watch } from 'vue'
-import { defineStore } from 'pinia'
+import { defineStore, storeToRefs } from 'pinia'
 import { AppointmentStatus } from '../domain/appointment/model'
+import { DemoRole } from '../domain/demoRole'
 import {
-  DemoRole,
   ExecutionEventType,
-  STORAGE_KEY_EXECUTION_DEMO_ROLE,
   STORAGE_KEY_EXECUTION_DOSSIER,
   STORAGE_KEY_EXECUTION_EVENTS,
   createEvent,
@@ -22,6 +21,7 @@ import {
   executionStatusCode,
 } from '../domain/execution/labels'
 import { useAppointmentStore } from './appointment'
+import { useDemoRoleStore } from './demoRole'
 
 function readJsonArray(key) {
   try {
@@ -47,28 +47,15 @@ function readJsonObject(key) {
   }
 }
 
-function readDemoRole() {
-  try {
-    const value = localStorage.getItem(STORAGE_KEY_EXECUTION_DEMO_ROLE)
-    if (value === DemoRole.PRO || value === DemoRole.CLIENT) return value
-    return DemoRole.CLIENT
-  } catch {
-    return DemoRole.CLIENT
-  }
-}
-
 function writeJson(key, value) {
   localStorage.setItem(key, JSON.stringify(value))
-}
-
-function writeDemoRole(role) {
-  localStorage.setItem(STORAGE_KEY_EXECUTION_DEMO_ROLE, role)
 }
 
 export const useExecutionStore = defineStore('execution', () => {
   const events = ref(readJsonArray(STORAGE_KEY_EXECUTION_EVENTS))
   const dossier = ref(readJsonObject(STORAGE_KEY_EXECUTION_DOSSIER))
-  const demoRole = ref(readDemoRole())
+  const demoRoleStore = useDemoRoleStore()
+  const { demoRole } = storeToRefs(demoRoleStore)
 
   watch(events, (value) => writeJson(STORAGE_KEY_EXECUTION_EVENTS, value), {
     deep: true,
@@ -81,7 +68,6 @@ export const useExecutionStore = defineStore('execution', () => {
     },
     { deep: true },
   )
-  watch(demoRole, (value) => writeDemoRole(value))
 
   const appointmentStore = useAppointmentStore()
 
@@ -175,9 +161,7 @@ export const useExecutionStore = defineStore('execution', () => {
   }
 
   function setDemoRole(role) {
-    if (role === DemoRole.CLIENT || role === DemoRole.PRO) {
-      demoRole.value = role
-    }
+    demoRoleStore.setDemoRole(role)
   }
 
   function appendEvent(type, actorRole, note = null) {
@@ -263,11 +247,9 @@ export const useExecutionStore = defineStore('execution', () => {
   function resetDemo() {
     events.value = []
     dossier.value = null
-    demoRole.value = DemoRole.CLIENT
     try {
       localStorage.removeItem(STORAGE_KEY_EXECUTION_EVENTS)
       localStorage.removeItem(STORAGE_KEY_EXECUTION_DOSSIER)
-      localStorage.removeItem(STORAGE_KEY_EXECUTION_DEMO_ROLE)
     } catch {
       /* ignore */
     }

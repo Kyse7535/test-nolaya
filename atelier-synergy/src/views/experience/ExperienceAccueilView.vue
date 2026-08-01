@@ -1,7 +1,6 @@
 <script setup>
 import { onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-import ExperienceDemoRoleBar from '../../components/experience/ExperienceDemoRoleBar.vue'
 import {
   EXPERIENCE_HERO_ACCUEIL,
   EXPERIENCE_PILLARS,
@@ -60,8 +59,6 @@ function confirmExperience() {
     <main
       class="flex-1 pt-[88px] pb-[140px] px-margin-mobile flex flex-col gap-xl max-w-2xl mx-auto w-full"
     >
-      <ExperienceDemoRoleBar />
-
       <section class="flex flex-col gap-sm">
         <div class="flex items-center gap-sm mb-2 flex-wrap">
           <span

@@ -2,7 +2,6 @@
 import { computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
-import MatchingDemoRoleBar from '../../components/matching/MatchingDemoRoleBar.vue'
 import { campaignStatusChip, poolWaveLabel } from '../../domain/matching/labels'
 import { CampaignStatus } from '../../domain/matching/model'
 import { useMatchingStore } from '../../stores/matching'
@@ -59,8 +58,6 @@ function initial(name) {
     </header>
 
     <main class="pt-24 px-margin-mobile max-w-screen-md mx-auto">
-      <MatchingDemoRoleBar class="mb-lg" />
-
       <section class="mb-xl">
         <div class="flex items-center gap-sm mb-4">
           <span

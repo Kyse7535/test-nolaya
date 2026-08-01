@@ -1,7 +1,6 @@
 <script setup>
 import { computed, onMounted, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
-import ExperienceDemoRoleBar from '../../components/experience/ExperienceDemoRoleBar.vue'
 import { averageRating, DemoRole } from '../../domain/experience/model'
 import {
   DEFAULT_STYLIST_REPLY,
@@ -97,8 +96,6 @@ function goSucces() {
       v-if="experience && review"
       class="flex-grow pt-[112px] pb-[140px] px-margin-mobile max-w-lg mx-auto w-full"
     >
-      <ExperienceDemoRoleBar class="mb-lg" />
-
       <div class="mb-lg space-y-sm">
         <span
           class="inline-flex items-center px-3 py-1 rounded bg-surface-container text-primary font-label-sm text-label-sm uppercase"

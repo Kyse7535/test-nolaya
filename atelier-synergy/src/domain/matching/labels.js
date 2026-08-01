@@ -36,10 +36,7 @@ export function responseTypeLabel(type) {
   return type ?? '—'
 }
 
-export function demoRoleLabel(role) {
-  if (role === 'pro') return 'Coiffeuse'
-  return 'Cliente'
-}
+export { demoRoleLabel } from '../demoRole'
 
 export function poolWaveLabel(wave) {
   if (wave === 1) return 'Vague 1 — invitée'

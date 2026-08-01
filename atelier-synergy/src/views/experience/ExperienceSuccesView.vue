@@ -1,7 +1,6 @@
 <script setup>
 import { computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-import ExperienceDemoRoleBar from '../../components/experience/ExperienceDemoRoleBar.vue'
 import {
   EXPERIENCE_HERO_SUCCES,
   EXPERIENCE_TEXTURE_THUMB,
@@ -76,8 +75,6 @@ function goRepeat() {
       </div>
 
       <div class="px-margin-mobile flex flex-col gap-lg -mt-4 relative z-10">
-        <ExperienceDemoRoleBar />
-
         <div class="flex flex-col items-center text-center gap-sm mt-2">
           <div
             class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary text-on-primary mb-2"

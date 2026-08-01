@@ -15,6 +15,7 @@
     @apply relative min-h-screen w-full max-w-[672px] mx-auto p-0 text-left;
     /* Keep position:fixed headers/footers inside the 672px shell */
     transform: translateZ(0);
+    --as-role-bar: 3.25rem;
   }
 
   .material-symbols-outlined {
@@ -135,4 +136,13 @@
   .engagement-checkbox:checked::before {
     transform: scale(1);
   }
+}
+
+/* Below Tailwind utilities so page sticky headers sit under the role switch */
+.as-app-shell [data-demo-role-switch] {
+  top: 0;
+}
+
+.as-app-shell .sticky.top-0:not([data-demo-role-switch]) {
+  top: var(--as-role-bar);
 }

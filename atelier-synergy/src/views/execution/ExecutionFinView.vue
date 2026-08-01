@@ -1,7 +1,6 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
-import ExecutionDemoRoleBar from '../../components/execution/ExecutionDemoRoleBar.vue'
 import { AppointmentStatus } from '../../domain/appointment/model'
 import { DemoRole } from '../../domain/execution/model'
 import { EXECUTION_HERO_FIN } from '../../mocks/executionSeed'
@@ -67,7 +66,6 @@ function declareEnd() {
 
     <main class="flex-grow pt-[72px] px-margin-mobile pb-lg max-w-lg mx-auto w-full">
       <div class="mb-md">
-        <ExecutionDemoRoleBar />
       </div>
 
       <div class="mb-lg">

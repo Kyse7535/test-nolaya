@@ -1,7 +1,6 @@
 <script setup>
 import { computed, onMounted, reactive, watch } from 'vue'
 import { useRouter } from 'vue-router'
-import ExperienceDemoRoleBar from '../../components/experience/ExperienceDemoRoleBar.vue'
 import {
   PlaceOption,
   canConfirmRepeat,
@@ -106,8 +105,6 @@ function createDemand() {
       v-if="experience"
       class="pt-24 px-margin-mobile max-w-lg mx-auto flex flex-col gap-lg"
     >
-      <ExperienceDemoRoleBar />
-
       <section>
         <p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
           Historique de vos prestations — disponible même sans avis.

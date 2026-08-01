@@ -1,7 +1,6 @@
 <script setup>
 import { onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-import MatchingDemoRoleBar from '../../components/matching/MatchingDemoRoleBar.vue'
 import { CampaignStatus } from '../../domain/matching/model'
 import { useMatchingStore } from '../../stores/matching'
 
@@ -51,9 +50,12 @@ function goBack() {
 }
 
 function launch() {
-  matchingStore.setDemoRole('client')
   const campaign = matchingStore.launchCampaign()
   if (!campaign) return
+  if (matchingStore.isProRole) {
+    router.push({ name: 'matching-suivi' })
+    return
+  }
   router.push({ name: 'matching-lance' })
 }
 </script>
@@ -79,7 +81,6 @@ function launch() {
 
     <main class="flex-1 max-w-7xl mx-auto w-full">
       <section class="px-margin-mobile pt-lg pb-md">
-        <MatchingDemoRoleBar class="mb-md" />
         <div
           class="inline-block bg-surface-container-high border border-outline-variant rounded px-2 py-1 mb-md"
         >

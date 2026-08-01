@@ -34,10 +34,7 @@ export const FEEDBACK_DIMENSIONS = [
   FeedbackDimension.PRIX,
 ]
 
-export const DemoRole = {
-  CLIENT: 'client',
-  PRO: 'pro',
-}
+export { DemoRole } from '../demoRole'
 
 export const PlaceOption = {
   STYLIST: 'stylist',
@@ -49,7 +46,6 @@ export const STORAGE_KEY_FEEDBACKS = 'as.mvp.feedbacks'
 export const STORAGE_KEY_REVIEWS = 'as.mvp.reviews'
 export const STORAGE_KEY_HISTORY = 'as.mvp.history'
 export const STORAGE_KEY_REPEAT_DRAFT = 'as.mvp.repeatDraft'
-export const STORAGE_KEY_EXPERIENCE_DEMO_ROLE = 'as.mvp.experienceDemoRole'
 
 export function createExperienceId() {
   return `exp_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 7)}`

@@ -11,7 +11,6 @@ import {
   ActionStatus,
   AppointmentStatus,
 } from '../../domain/appointment/model'
-import AppointmentDemoRoleBar from '../../components/appointment/AppointmentDemoRoleBar.vue'
 import { APPOINTMENT_PRO_AVATAR } from '../../mocks/appointmentSeed'
 import { useAppointmentStore } from '../../stores/appointment'
 
@@ -79,8 +78,6 @@ function confirm(actionId) {
     </header>
 
     <main class="pt-20 px-margin-mobile max-w-lg mx-auto flex flex-col gap-stack-lg">
-      <AppointmentDemoRoleBar />
-
       <section class="flex flex-col gap-2">
         <p class="font-body-md text-body-md text-on-surface-variant">
           Validez votre préparation opérationnelle. Sans les actions bloquantes, le RDV ne peut pas

@@ -1,7 +1,6 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
-import ExecutionDemoRoleBar from '../../components/execution/ExecutionDemoRoleBar.vue'
 import { AppointmentStatus } from '../../domain/appointment/model'
 import { DemoRole } from '../../domain/execution/model'
 import { EXECUTION_HERO_CONFIRM } from '../../mocks/executionSeed'
@@ -64,8 +63,6 @@ function confirm() {
     </header>
 
     <main class="flex-grow pt-24 px-margin-mobile flex flex-col gap-lg max-w-lg mx-auto w-full">
-      <ExecutionDemoRoleBar />
-
       <section class="flex flex-col gap-sm">
         <div
           class="inline-flex items-center px-2 py-1 bg-surface-container-low border border-surface-container rounded-sm w-fit"

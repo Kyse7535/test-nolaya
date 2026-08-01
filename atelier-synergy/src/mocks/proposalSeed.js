@@ -3,6 +3,8 @@
  * Linked to matching campaign snapshot when available.
  */
 
+import { mockClient } from './platform'
+
 export const PROPOSAL_GALLERY_URLS = [
   'https://lh3.googleusercontent.com/aida-public/AB6AXuBnp5KwDTAvX3mLXUYikGY0ch3wkVT74F-BTn32tbJ2COOS6xsUafvruaLfPZZOcpStGtYvjH8yML56C2usTq_ryzIzk95bxUOASk1DtvTp7NRfv5aBPXmZU-nwgZk_9j9pumyLZucKkFuZFXaOF--lTlSh8ePOUogD0CPkfbr6SItALAH6e4jvqshTXvMIPhs0Ac-sVs5IXWUHnZAhlRbuyTVZMdst-4emAKxzNHmVM9fHcRp2HBJV',
   'https://lh3.googleusercontent.com/aida-public/AB6AXuA618aHjU7iz8mmPJOs2iO5RbLW_y3bxqipkdp7dOogVDmdJpO3f9cILp3pIonRNQqxCXRKWlTSTHwHa5Xa1_ZWXukywZIRXas6OUQpYaKgR_Uba5INogyINl6MUUrdtVfL6LKB39P6ba4XEcOJRklwK92-P04cMZktizhicJhZqgPrRf5BnU6x5eSsJeVevVswplfdYtC55-OJ1rN8w-XMu-bwQtlEcVT47IiCWLfPl8TutCUdsqdO',
@@ -20,20 +22,25 @@ export function buildFrozenDemandBrief(snapshot) {
   const resultLabel = snapshot?.resultLabel || 'Vanilles / twists mi-longues'
   const budgetMax = Number(snapshot?.budgetMax) || 220
   const budgetMin = Math.min(180, budgetMax)
+  const placeDesired = snapshot?.areaLabel
+    ? snapshot.areaLabel
+    : mockClient.zoneLabel || 'Chez la coiffeuse'
+  const preferredSlot = snapshot?.preferredDate
+    ? `Souhaité · ${snapshot.preferredDate}`
+    : 'Samedi matin'
 
   return {
-    clientName: 'Awa D.',
+    clientName: snapshot?.clientName || mockClient.firstName,
     clientRole: 'CLIENTE',
-    clientAvatarUrl: CLIENT_AVATAR_URL,
-    prestationLabel: resultLabel.includes('Vanilles')
-      ? 'Vanilles / twists mi-longues'
-      : resultLabel,
-    resultExpected: 'Vanilles soignées, longueur épaules, rendu naturel',
+    clientAvatarUrl:
+      snapshot?.clientAvatarUrl || mockClient.avatarUrl || CLIENT_AVATAR_URL,
+    prestationLabel: resultLabel,
+    resultExpected: resultLabel,
     budgetMin,
-    budgetMax: Math.max(budgetMax, 220),
-    constraints: ['4C', 'Mi-dos', 'Pas de colo'],
-    placeDesired: 'Chez la coiffeuse',
-    preferredSlot: 'Samedi matin',
+    budgetMax: Math.max(budgetMax, budgetMin),
+    constraints: snapshot?.areaLabel ? [snapshot.areaLabel] : ['Zone cliente'],
+    placeDesired,
+    preferredSlot,
     galleryUrls: [...PROPOSAL_GALLERY_URLS],
   }
 }
