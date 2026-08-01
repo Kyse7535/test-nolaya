@@ -2,7 +2,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { CapacityStatus } from '../domain/capacity/model'
 import { DemandStatus } from '../domain/demand/model'
 import { CampaignStatus, DemoRole } from '../domain/matching/model'
+import { AppointmentStatus } from '../domain/appointment/model'
 import { ProposalStatus } from '../domain/proposal/model'
+import { useAppointmentStore } from '../stores/appointment'
 import { useCapacityStore } from '../stores/capacity'
 import { useDemandStore } from '../stores/demand'
 import { useFrameworkStore } from '../stores/framework'
@@ -46,6 +48,11 @@ import ProposalOffreView from '../views/proposal/ProposalOffreView.vue'
 import ProposalRecapView from '../views/proposal/ProposalRecapView.vue'
 import ProposalSuccesView from '../views/proposal/ProposalSuccesView.vue'
 import ProposalOffreClienteView from '../views/proposal/ProposalOffreClienteView.vue'
+import AppointmentAccueilView from '../views/appointment/AppointmentAccueilView.vue'
+import AppointmentPlanView from '../views/appointment/AppointmentPlanView.vue'
+import AppointmentChecklistClienteView from '../views/appointment/AppointmentChecklistClienteView.vue'
+import AppointmentChecklistCoiffeuseView from '../views/appointment/AppointmentChecklistCoiffeuseView.vue'
+import AppointmentReadyView from '../views/appointment/AppointmentReadyView.vue'
 
 const frameworkDraftNames = new Set([
   'framework-accueil',
@@ -92,6 +99,19 @@ const proposalWizardNames = new Set([
 ])
 
 const proposalFirmOnlyNames = new Set(['proposal-succes', 'proposal-offre-cliente'])
+
+const appointmentNeedsCurrent = new Set([
+  'appointment-plan',
+  'appointment-checklist-cliente',
+  'appointment-checklist-coiffeuse',
+  'appointment-ready',
+])
+
+const appointmentPrepNames = new Set([
+  'appointment-plan',
+  'appointment-checklist-cliente',
+  'appointment-checklist-coiffeuse',
+])
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -286,6 +306,31 @@ const router = createRouter({
       name: 'proposal-offre-cliente',
       component: ProposalOffreClienteView,
     },
+    {
+      path: '/rdv',
+      name: 'appointment-accueil',
+      component: AppointmentAccueilView,
+    },
+    {
+      path: '/rdv/plan',
+      name: 'appointment-plan',
+      component: AppointmentPlanView,
+    },
+    {
+      path: '/rdv/checklist-cliente',
+      name: 'appointment-checklist-cliente',
+      component: AppointmentChecklistClienteView,
+    },
+    {
+      path: '/rdv/checklist-coiffeuse',
+      name: 'appointment-checklist-coiffeuse',
+      component: AppointmentChecklistCoiffeuseView,
+    },
+    {
+      path: '/rdv/ready',
+      name: 'appointment-ready',
+      component: AppointmentReadyView,
+    },
   ],
   scrollBehavior() {
     return { top: 0 }
@@ -355,6 +400,31 @@ router.beforeEach((to) => {
     (!proposal || proposal.status !== ProposalStatus.FIRM)
   ) {
     return { name: 'proposal-accueil' }
+  }
+
+  const appointmentStore = useAppointmentStore()
+  const appointment = appointmentStore.currentAppointment
+
+  if (appointmentNeedsCurrent.has(to.name) && !appointment) {
+    appointmentStore.ensureDemoSeed()
+  }
+
+  const currentAppointment = appointmentStore.currentAppointment
+
+  if (
+    currentAppointment?.status === AppointmentStatus.READY &&
+    appointmentPrepNames.has(to.name)
+  ) {
+    return { name: 'appointment-ready' }
+  }
+
+  if (
+    to.name === 'appointment-ready' &&
+    (!currentAppointment || currentAppointment.status !== AppointmentStatus.READY)
+  ) {
+    return currentAppointment
+      ? { name: 'appointment-plan' }
+      : { name: 'appointment-accueil' }
   }
 
   return true

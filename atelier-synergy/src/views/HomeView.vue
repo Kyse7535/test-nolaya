@@ -1,11 +1,13 @@
 <script setup>
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
+import { AppointmentStatus } from '../domain/appointment/model'
 import { DemandStatus } from '../domain/demand/model'
 import { CampaignStatus } from '../domain/matching/model'
 import { ProposalStatus } from '../domain/proposal/model'
 import { metierBlocks } from '../mocks/metierBlocks'
 import { mockProfessional } from '../mocks/platform'
+import { useAppointmentStore } from '../stores/appointment'
 import { useCapacityStore } from '../stores/capacity'
 import { useDemandStore } from '../stores/demand'
 import { useFrameworkStore } from '../stores/framework'
@@ -18,6 +20,7 @@ const capacityStore = useCapacityStore()
 const demandStore = useDemandStore()
 const matchingStore = useMatchingStore()
 const proposalStore = useProposalStore()
+const appointmentStore = useAppointmentStore()
 
 const capacityCountLabel = computed(() => {
   const open = capacityStore.openCapacities.length
@@ -71,6 +74,19 @@ const proposalCountLabel = computed(() => {
   return 'dossier'
 })
 
+const hasAppointment = computed(() => appointmentStore.appointments.length > 0)
+
+const appointmentCountLabel = computed(() => {
+  const appointment = appointmentStore.currentAppointment
+  if (!appointment) return 'aucune'
+  if (appointment.status === AppointmentStatus.READY) return 'READY'
+  if (appointment.status === AppointmentStatus.READINESS_PENDING) {
+    const { percent } = appointmentStore.blockingProgress
+    return `en préparation · ${percent}%`
+  }
+  return 'dossier'
+})
+
 function openBlock(block) {
   if (block.status !== 'ready' || !block.routeName) return
   if (block.id === 'etape-0' && hasCapacities.value) {
@@ -111,6 +127,18 @@ function openBlock(block) {
       return
     }
   }
+  if (block.id === 'etape-5') {
+    appointmentStore.ensureDemoSeed()
+    const appointment = appointmentStore.currentAppointment
+    if (appointment?.status === AppointmentStatus.READY) {
+      router.push({ name: 'appointment-ready' })
+      return
+    }
+    if (appointment?.status === AppointmentStatus.READINESS_PENDING) {
+      router.push({ name: 'appointment-plan' })
+      return
+    }
+  }
   router.push({ name: block.routeName })
 }
 
@@ -132,6 +160,10 @@ function resetMatchingDemo() {
 
 function resetProposalDemo() {
   proposalStore.resetDemo()
+}
+
+function resetAppointmentDemo() {
+  appointmentStore.resetDemo()
 }
 
 function goCapacityListe() {
@@ -328,6 +360,30 @@ function goDemandStart() {
         </p>
       </div>
 
+      <div
+        v-if="hasAppointment"
+        class="mb-lg p-md rounded-xl border border-surface-container bg-surface-container-low flex flex-col gap-sm"
+      >
+        <div class="flex items-center justify-between gap-sm">
+          <span
+            class="font-label-mono text-label-mono bg-surface-container text-on-surface-variant px-2 py-1 rounded uppercase"
+          >
+            RDV · {{ appointmentCountLabel }}
+          </span>
+          <button
+            type="button"
+            class="font-button-text text-button-text text-secondary underline-offset-2 hover:underline"
+            @click="resetAppointmentDemo"
+          >
+            Réinitialiser
+          </button>
+        </div>
+        <p class="font-body-sm text-body-sm text-on-surface-variant">
+          Persisté dans localStorage (`as.mvp.engagements`, `as.mvp.appointments`,
+          `as.mvp.prepPlans`).
+        </p>
+      </div>
+
       <ul class="flex flex-col gap-md">
         <li v-for="block in metierBlocks" :key="block.id">
           <button
@@ -371,7 +427,9 @@ function goDemandStart() {
                       ? `État : ${matchingCountLabel}.`
                       : block.id === 'etape-3' && hasProposal
                         ? `État : ${proposalCountLabel}.`
-                        : block.description
+                        : block.id === 'etape-5' && hasAppointment
+                          ? `État : ${appointmentCountLabel}.`
+                          : block.description
               }}
             </p>
           </button>

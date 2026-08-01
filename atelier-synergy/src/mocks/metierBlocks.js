@@ -52,8 +52,8 @@ export const metierBlocks = [
     order: '5',
     title: 'Rendez-vous opérationnel',
     description: 'Planifier et préparer le rendez-vous.',
-    routeName: null,
-    status: 'soon',
+    routeName: 'appointment-accueil',
+    status: 'ready',
   },
   {
     id: 'etape-6',
