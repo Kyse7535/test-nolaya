@@ -12,8 +12,8 @@ export const metierBlocks = [
     order: '0',
     title: 'Capacité professionnelle',
     description: 'Ouvrir une prestation disponible.',
-    routeName: null,
-    status: 'soon',
+    routeName: 'capacity-accueil',
+    status: 'ready',
   },
   {
     id: 'etape-1',

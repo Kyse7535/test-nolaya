@@ -48,4 +48,55 @@
   .ghost-shadow {
     box-shadow: 0px 4px 12px rgba(27, 28, 28, 0.04);
   }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .capacity-chip:checked + div {
+    background-color: #1b1c1c;
+    color: #ffffff;
+    border-color: #1b1c1c;
+  }
+
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type='number'] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+
+  .capacity-location:checked + div {
+    border-color: #1b1c1c;
+    background-color: #ffffff;
+  }
+
+  .capacity-location:checked + div .radio-icon {
+    color: #1b1c1c;
+  }
+
+  .capacity-day:checked + div,
+  .capacity-slot:checked + div {
+    background-color: #1b1c1c;
+    color: #ffffff;
+    border-color: #1b1c1c;
+  }
+
+  .synergy-checkbox:checked {
+    background-color: #000101;
+    border-color: #000101;
+  }
+
+  .synergy-checkbox:focus {
+    --tw-ring-color: #000101;
+  }
 }
