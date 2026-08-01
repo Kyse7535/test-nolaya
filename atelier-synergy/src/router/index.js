@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { CapacityStatus } from '../domain/capacity/model'
+import { DemandStatus } from '../domain/demand/model'
 import { useCapacityStore } from '../stores/capacity'
+import { useDemandStore } from '../stores/demand'
 import { useFrameworkStore } from '../stores/framework'
 import HomeView from '../views/HomeView.vue'
 import FrameworkAccueilView from '../views/framework/FrameworkAccueilView.vue'
@@ -19,6 +21,14 @@ import CapacityLieuView from '../views/capacity/CapacityLieuView.vue'
 import CapacityRecapView from '../views/capacity/CapacityRecapView.vue'
 import CapacitySuccesView from '../views/capacity/CapacitySuccesView.vue'
 import CapacityListeView from '../views/capacity/CapacityListeView.vue'
+import DemandAccueilView from '../views/demand/DemandAccueilView.vue'
+import DemandEntreeView from '../views/demand/DemandEntreeView.vue'
+import DemandResultatView from '../views/demand/DemandResultatView.vue'
+import DemandTempsBudgetView from '../views/demand/DemandTempsBudgetView.vue'
+import DemandZoneView from '../views/demand/DemandZoneView.vue'
+import DemandServiceView from '../views/demand/DemandServiceView.vue'
+import DemandRecapView from '../views/demand/DemandRecapView.vue'
+import DemandSuccesView from '../views/demand/DemandSuccesView.vue'
 
 const frameworkDraftNames = new Set([
   'framework-accueil',
@@ -36,6 +46,15 @@ const capacityWizardNames = new Set([
   'capacity-prix',
   'capacity-lieu',
   'capacity-recap',
+])
+
+const demandWizardNames = new Set([
+  'demand-entree',
+  'demand-resultat',
+  'demand-temps-budget',
+  'demand-zone',
+  'demand-service',
+  'demand-recap',
 ])
 
 const router = createRouter({
@@ -126,6 +145,46 @@ const router = createRouter({
       name: 'capacity-liste',
       component: CapacityListeView,
     },
+    {
+      path: '/demande',
+      name: 'demand-accueil',
+      component: DemandAccueilView,
+    },
+    {
+      path: '/demande/entree',
+      name: 'demand-entree',
+      component: DemandEntreeView,
+    },
+    {
+      path: '/demande/resultat',
+      name: 'demand-resultat',
+      component: DemandResultatView,
+    },
+    {
+      path: '/demande/temps-budget',
+      name: 'demand-temps-budget',
+      component: DemandTempsBudgetView,
+    },
+    {
+      path: '/demande/zone',
+      name: 'demand-zone',
+      component: DemandZoneView,
+    },
+    {
+      path: '/demande/service',
+      name: 'demand-service',
+      component: DemandServiceView,
+    },
+    {
+      path: '/demande/recapitulatif',
+      name: 'demand-recap',
+      component: DemandRecapView,
+    },
+    {
+      path: '/demande/succes',
+      name: 'demand-succes',
+      component: DemandSuccesView,
+    },
   ],
   scrollBehavior() {
     return { top: 0 }
@@ -142,6 +201,12 @@ router.beforeEach((to) => {
   const current = capacityStore.currentCapacity
   if (current?.status === CapacityStatus.OPEN && capacityWizardNames.has(to.name)) {
     return { name: 'capacity-succes' }
+  }
+
+  const demandStore = useDemandStore()
+  const demand = demandStore.currentDemand
+  if (demand?.status === DemandStatus.QUALIFIED && demandWizardNames.has(to.name)) {
+    return { name: 'demand-succes' }
   }
 
   return true

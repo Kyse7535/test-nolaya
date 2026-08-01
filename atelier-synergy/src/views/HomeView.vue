@@ -1,14 +1,17 @@
 <script setup>
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
+import { DemandStatus } from '../domain/demand/model'
 import { metierBlocks } from '../mocks/metierBlocks'
 import { mockProfessional } from '../mocks/platform'
 import { useCapacityStore } from '../stores/capacity'
+import { useDemandStore } from '../stores/demand'
 import { useFrameworkStore } from '../stores/framework'
 
 const router = useRouter()
 const frameworkStore = useFrameworkStore()
 const capacityStore = useCapacityStore()
+const demandStore = useDemandStore()
 
 const capacityCountLabel = computed(() => {
   const open = capacityStore.openCapacities.length
@@ -26,11 +29,37 @@ const hasCapacities = computed(
     capacityStore.closedCapacities.length > 0,
 )
 
+const hasDemands = computed(
+  () =>
+    demandStore.draftOrInProgress.length > 0 || demandStore.qualifiedDemands.length > 0,
+)
+
+const demandCountLabel = computed(() => {
+  const drafts = demandStore.draftOrInProgress.length
+  const qualified = demandStore.qualifiedDemands.length
+  const parts = []
+  if (qualified) parts.push(`${qualified} qualifiée${qualified > 1 ? 's' : ''}`)
+  if (drafts) parts.push(`${drafts} brouillon${drafts > 1 ? 's' : ''}`)
+  return parts.join(' · ') || 'aucune'
+})
+
 function openBlock(block) {
   if (block.status !== 'ready' || !block.routeName) return
   if (block.id === 'etape-0' && hasCapacities.value) {
     router.push({ name: 'capacity-liste' })
     return
+  }
+  if (block.id === 'etape-1') {
+    const current = demandStore.currentDemand
+    if (current?.status === DemandStatus.QUALIFIED) {
+      router.push({ name: 'demand-succes' })
+      return
+    }
+    if (demandStore.draftOrInProgress.length) {
+      demandStore.startDraft()
+      router.push({ name: 'demand-accueil' })
+      return
+    }
   }
   router.push({ name: block.routeName })
 }
@@ -43,6 +72,10 @@ function resetCapacityDemo() {
   capacityStore.resetDemo()
 }
 
+function resetDemandDemo() {
+  demandStore.resetDemo()
+}
+
 function goCapacityListe() {
   router.push({ name: 'capacity-liste' })
 }
@@ -50,6 +83,11 @@ function goCapacityListe() {
 function goCapacityStart() {
   capacityStore.startDraft()
   router.push({ name: 'capacity-accueil' })
+}
+
+function goDemandStart() {
+  demandStore.startDraft()
+  router.push({ name: 'demand-accueil' })
 }
 </script>
 
@@ -89,7 +127,7 @@ function goCapacityStart() {
         Blocs métier
       </h1>
       <p class="font-body-md text-body-md text-on-surface-variant mb-xl">
-        Parcours MVP démontrable, bloc par bloc. Cadre pro, puis capacité professionnelle.
+        Parcours MVP démontrable, bloc par bloc. Cadre, capacité, puis besoin cliente.
       </p>
 
       <div
@@ -154,6 +192,38 @@ function goCapacityStart() {
         </div>
       </div>
 
+      <div
+        v-if="hasDemands"
+        class="mb-lg p-md rounded-xl border border-surface-container bg-surface-container-low flex flex-col gap-sm"
+      >
+        <div class="flex items-center justify-between gap-sm">
+          <span
+            class="font-label-mono text-label-mono bg-surface-container text-on-surface-variant px-2 py-1 rounded uppercase"
+          >
+            Demande · {{ demandCountLabel }}
+          </span>
+          <button
+            type="button"
+            class="font-button-text text-button-text text-secondary underline-offset-2 hover:underline"
+            @click="resetDemandDemo"
+          >
+            Réinitialiser
+          </button>
+        </div>
+        <p class="font-body-sm text-body-sm text-on-surface-variant">
+          Persisté dans localStorage (`as.mvp.demands`).
+        </p>
+        <div class="flex flex-wrap gap-sm pt-xs">
+          <button
+            type="button"
+            class="font-button-text text-button-text bg-primary text-on-primary px-3 py-2 rounded"
+            @click="goDemandStart"
+          >
+            Continuer / ouvrir
+          </button>
+        </div>
+      </div>
+
       <ul class="flex flex-col gap-md">
         <li v-for="block in metierBlocks" :key="block.id">
           <button
@@ -191,7 +261,9 @@ function goCapacityStart() {
               {{
                 block.id === 'etape-0' && hasCapacities
                   ? `Voir la liste (${capacityCountLabel}).`
-                  : block.description
+                  : block.id === 'etape-1' && hasDemands
+                    ? `État : ${demandCountLabel}.`
+                    : block.description
               }}
             </p>
           </button>

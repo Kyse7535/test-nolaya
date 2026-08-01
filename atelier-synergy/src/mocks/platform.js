@@ -30,6 +30,16 @@ export const mockProfessional = {
     'https://lh3.googleusercontent.com/aida-public/AB6AXuBFVnmAfoVV6tufI_fUwlUk62BBBNex0CrQ5KtTLYWv9xvFjSWE9PthyzhFEqXwpCa1r7JlKrMJJKo5ek10JrRNqW-l0SXlw9wJmvNPZyaq0sKleFOVZl_HxusvWiSx4efVojIKw5FoGFDUuMsK3denJtRGvuhAXesNpv24Z1xp152Wy6RmCs4EtezZgSXk7QZx1UOh_qj7xC0NNvNgqFPskMtf0ziconVkr_6EVLqhYNkvDT5e3nPBQg',
 }
 
+/** Cliente mock — précondition étape 1 (qualification besoin). */
+export const mockClient = {
+  id: 'client-demo',
+  firstName: 'Mariam',
+  role: 'Cliente',
+  zoneLabel: 'Paris 18e / nord de Paris',
+  avatarUrl:
+    'https://lh3.googleusercontent.com/aida-public/AB6AXuAicqmYYXJIG4P2jP3yNpp9qhXgp0R9qiUOlyiER3IBwgbwoUueo6Xhy5xM6pkZjkrwGPxELB-PSABBMoFWOHlP3_sOk9BzSyP4ptbP7-smo1OCSyJn3THBjzY5cnaZE-QAVm26dTskikivxLvbs7VbIh6MZjO2xNabHs5nLLImIg93S1W84LuSXipshFZCAGwIuZ_zZ2Cso4SU-l2xT2rJYtoaQvOrdobSDHa5cRsHH4eVvpnWRxL5',
+}
+
 export const CONTEXT_OPTIONS = [
   {
     id: 'home',

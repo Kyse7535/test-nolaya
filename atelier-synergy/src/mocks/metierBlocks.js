@@ -20,8 +20,8 @@ export const metierBlocks = [
     order: '1',
     title: 'Recherche besoin cliente',
     description: 'Exprimer et cadrer le besoin.',
-    routeName: null,
-    status: 'soon',
+    routeName: 'demand-accueil',
+    status: 'ready',
   },
   {
     id: 'etape-2',
