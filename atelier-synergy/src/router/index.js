@@ -1,9 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { CapacityStatus } from '../domain/capacity/model'
 import { DemandStatus } from '../domain/demand/model'
+import { CampaignStatus, DemoRole } from '../domain/matching/model'
 import { useCapacityStore } from '../stores/capacity'
 import { useDemandStore } from '../stores/demand'
 import { useFrameworkStore } from '../stores/framework'
+import { useMatchingStore } from '../stores/matching'
 import HomeView from '../views/HomeView.vue'
 import FrameworkAccueilView from '../views/framework/FrameworkAccueilView.vue'
 import FrameworkContextesView from '../views/framework/FrameworkContextesView.vue'
@@ -29,6 +31,12 @@ import DemandZoneView from '../views/demand/DemandZoneView.vue'
 import DemandServiceView from '../views/demand/DemandServiceView.vue'
 import DemandRecapView from '../views/demand/DemandRecapView.vue'
 import DemandSuccesView from '../views/demand/DemandSuccesView.vue'
+import MatchingAccueilView from '../views/matching/MatchingAccueilView.vue'
+import MatchingLanceView from '../views/matching/MatchingLanceView.vue'
+import MatchingCampagneView from '../views/matching/MatchingCampagneView.vue'
+import MatchingInvitationView from '../views/matching/MatchingInvitationView.vue'
+import MatchingSuiviView from '../views/matching/MatchingSuiviView.vue'
+import MatchingShortlistView from '../views/matching/MatchingShortlistView.vue'
 
 const frameworkDraftNames = new Set([
   'framework-accueil',
@@ -56,6 +64,16 @@ const demandWizardNames = new Set([
   'demand-service',
   'demand-recap',
 ])
+
+const matchingNeedsCampaign = new Set([
+  'matching-lance',
+  'matching-campagne',
+  'matching-invitation',
+  'matching-suivi',
+  'matching-shortlist',
+])
+
+const matchingUpstreamWhenShortlist = new Set(['matching-accueil', 'matching-lance'])
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -185,6 +203,36 @@ const router = createRouter({
       name: 'demand-succes',
       component: DemandSuccesView,
     },
+    {
+      path: '/appariement',
+      name: 'matching-accueil',
+      component: MatchingAccueilView,
+    },
+    {
+      path: '/appariement/lance',
+      name: 'matching-lance',
+      component: MatchingLanceView,
+    },
+    {
+      path: '/appariement/campagne',
+      name: 'matching-campagne',
+      component: MatchingCampagneView,
+    },
+    {
+      path: '/appariement/invitation/:id',
+      name: 'matching-invitation',
+      component: MatchingInvitationView,
+    },
+    {
+      path: '/appariement/suivi',
+      name: 'matching-suivi',
+      component: MatchingSuiviView,
+    },
+    {
+      path: '/appariement/shortlist',
+      name: 'matching-shortlist',
+      component: MatchingShortlistView,
+    },
   ],
   scrollBehavior() {
     return { top: 0 }
@@ -207,6 +255,32 @@ router.beforeEach((to) => {
   const demand = demandStore.currentDemand
   if (demand?.status === DemandStatus.QUALIFIED && demandWizardNames.has(to.name)) {
     return { name: 'demand-succes' }
+  }
+
+  const matchingStore = useMatchingStore()
+  const campaign = matchingStore.currentCampaign
+
+  if (matchingNeedsCampaign.has(to.name) && !campaign) {
+    return { name: 'matching-accueil' }
+  }
+
+  if (
+    campaign?.status === CampaignStatus.SHORTLIST_READY &&
+    matchingUpstreamWhenShortlist.has(to.name)
+  ) {
+    return { name: 'matching-shortlist' }
+  }
+
+  if (to.name === 'matching-invitation' && matchingStore.demoRole !== DemoRole.PRO) {
+    return { name: 'matching-suivi' }
+  }
+
+  if (
+    to.name === 'matching-shortlist' &&
+    campaign &&
+    campaign.status !== CampaignStatus.SHORTLIST_READY
+  ) {
+    return { name: 'matching-suivi' }
   }
 
   return true

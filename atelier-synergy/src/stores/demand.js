@@ -323,6 +323,14 @@ export const useDemandStore = defineStore('demand', () => {
     currentDemandId.value = null
   }
 
+  /** Upsert a prebuilt demand (e.g. matching demo seed). */
+  function importDemand(demand, { setAsCurrent = true } = {}) {
+    if (!demand?.id) return null
+    upsert(demand)
+    if (setAsCurrent) currentDemandId.value = demand.id
+    return demand
+  }
+
   return {
     demands,
     currentDemandId,
@@ -358,6 +366,7 @@ export const useDemandStore = defineStore('demand', () => {
     setSearchPriority,
     setConfirmed,
     qualify,
+    importDemand,
     resetDemo,
   }
 })

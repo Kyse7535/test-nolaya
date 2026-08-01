@@ -28,8 +28,8 @@ export const metierBlocks = [
     order: '2',
     title: 'Apparier la demande',
     description: 'Mettre en relation coiffeuse et cliente.',
-    routeName: null,
-    status: 'soon',
+    routeName: 'matching-accueil',
+    status: 'ready',
   },
   {
     id: 'etape-3',

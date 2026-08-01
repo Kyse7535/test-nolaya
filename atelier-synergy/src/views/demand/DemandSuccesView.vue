@@ -31,6 +31,10 @@ onMounted(() => {
 function goHome() {
   router.push({ name: 'home' })
 }
+
+function goMatching() {
+  router.push({ name: 'matching-accueil' })
+}
 </script>
 
 <template>
@@ -107,10 +111,10 @@ function goHome() {
           </button>
           <button
             type="button"
-            disabled
-            class="w-full border border-outline-variant text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wide py-4 rounded-lg opacity-60 cursor-not-allowed"
+            class="w-full border border-outline-variant text-primary font-label-sm text-label-sm uppercase tracking-wide py-4 rounded-lg hover:bg-surface-container-low transition-colors"
+            @click="goMatching"
           >
-            Apparier (bientôt)
+            Apparier
           </button>
         </div>
       </div>

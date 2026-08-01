@@ -12,7 +12,9 @@
   }
 
   #app {
-    @apply min-h-screen w-full max-w-none m-0 p-0 text-left;
+    @apply relative min-h-screen w-full max-w-[672px] mx-auto p-0 text-left;
+    /* Keep position:fixed headers/footers inside the 672px shell */
+    transform: translateZ(0);
   }
 
   .material-symbols-outlined {

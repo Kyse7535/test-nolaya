@@ -447,6 +447,14 @@ export const useCapacityStore = defineStore('capacity', () => {
     currentCapacityId.value = null
   }
 
+  /** Upsert a prebuilt capacity (e.g. matching demo seed). */
+  function importCapacity(capacity, { setAsCurrent = false } = {}) {
+    if (!capacity?.id) return null
+    upsert(capacity)
+    if (setAsCurrent) currentCapacityId.value = capacity.id
+    return capacity
+  }
+
   return {
     capacities,
     currentCapacityId,
@@ -488,6 +496,7 @@ export const useCapacityStore = defineStore('capacity', () => {
     setConfirmed,
     activate,
     closeCapacity,
+    importCapacity,
     resetDemo,
   }
 })

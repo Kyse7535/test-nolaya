@@ -2,16 +2,19 @@
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { DemandStatus } from '../domain/demand/model'
+import { CampaignStatus } from '../domain/matching/model'
 import { metierBlocks } from '../mocks/metierBlocks'
 import { mockProfessional } from '../mocks/platform'
 import { useCapacityStore } from '../stores/capacity'
 import { useDemandStore } from '../stores/demand'
 import { useFrameworkStore } from '../stores/framework'
+import { useMatchingStore } from '../stores/matching'
 
 const router = useRouter()
 const frameworkStore = useFrameworkStore()
 const capacityStore = useCapacityStore()
 const demandStore = useDemandStore()
+const matchingStore = useMatchingStore()
 
 const capacityCountLabel = computed(() => {
   const open = capacityStore.openCapacities.length
@@ -43,6 +46,18 @@ const demandCountLabel = computed(() => {
   return parts.join(' · ') || 'aucune'
 })
 
+const hasMatching = computed(() => matchingStore.campaigns.length > 0)
+
+const matchingCountLabel = computed(() => {
+  const campaign = matchingStore.currentCampaign
+  if (!campaign) return 'aucune'
+  if (campaign.status === CampaignStatus.SHORTLIST_READY) return 'shortlist prête'
+  if (campaign.status === CampaignStatus.OPEN) {
+    return `campagne · ${matchingStore.acceptCount}/${campaign.threshold}`
+  }
+  return 'campagne'
+})
+
 function openBlock(block) {
   if (block.status !== 'ready' || !block.routeName) return
   if (block.id === 'etape-0' && hasCapacities.value) {
@@ -61,6 +76,17 @@ function openBlock(block) {
       return
     }
   }
+  if (block.id === 'etape-2') {
+    const campaign = matchingStore.currentCampaign
+    if (campaign?.status === CampaignStatus.SHORTLIST_READY) {
+      router.push({ name: 'matching-shortlist' })
+      return
+    }
+    if (campaign?.status === CampaignStatus.OPEN) {
+      router.push({ name: 'matching-lance' })
+      return
+    }
+  }
   router.push({ name: block.routeName })
 }
 
@@ -74,6 +100,10 @@ function resetCapacityDemo() {
 
 function resetDemandDemo() {
   demandStore.resetDemo()
+}
+
+function resetMatchingDemo() {
+  matchingStore.resetDemo()
 }
 
 function goCapacityListe() {
@@ -224,6 +254,29 @@ function goDemandStart() {
         </div>
       </div>
 
+      <div
+        v-if="hasMatching"
+        class="mb-lg p-md rounded-xl border border-surface-container bg-surface-container-low flex flex-col gap-sm"
+      >
+        <div class="flex items-center justify-between gap-sm">
+          <span
+            class="font-label-mono text-label-mono bg-surface-container text-on-surface-variant px-2 py-1 rounded uppercase"
+          >
+            Appariement · {{ matchingCountLabel }}
+          </span>
+          <button
+            type="button"
+            class="font-button-text text-button-text text-secondary underline-offset-2 hover:underline"
+            @click="resetMatchingDemo"
+          >
+            Réinitialiser
+          </button>
+        </div>
+        <p class="font-body-sm text-body-sm text-on-surface-variant">
+          Persisté dans localStorage (`as.mvp.campaigns`).
+        </p>
+      </div>
+
       <ul class="flex flex-col gap-md">
         <li v-for="block in metierBlocks" :key="block.id">
           <button
@@ -263,7 +316,9 @@ function goDemandStart() {
                   ? `Voir la liste (${capacityCountLabel}).`
                   : block.id === 'etape-1' && hasDemands
                     ? `État : ${demandCountLabel}.`
-                    : block.description
+                    : block.id === 'etape-2' && hasMatching
+                      ? `État : ${matchingCountLabel}.`
+                      : block.description
               }}
             </p>
           </button>
