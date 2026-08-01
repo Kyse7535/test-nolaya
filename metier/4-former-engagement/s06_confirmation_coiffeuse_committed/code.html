@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Confirmation - Atelier Synergy</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Manrope & JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Design System Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#e3e2e2",
+                        "inverse-on-surface": "#f2f0ef",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#f5f3f2",
+                        "surface-bright": "#fbf9f8",
+                        "error-container": "#ffdad6",
+                        "primary-container": "#1b1c1c",
+                        "secondary": "#775a19",
+                        "tertiary-container": "#271900",
+                        "outline": "#747878",
+                        "on-tertiary-fixed-variant": "#5d4201",
+                        "on-tertiary-fixed": "#271900",
+                        "on-primary-fixed-variant": "#464747",
+                        "on-surface-variant": "#444748",
+                        "inverse-surface": "#303030",
+                        "surface-tint": "#5e5e5e",
+                        "outline-variant": "#c4c7c7",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#dbdad9",
+                        "surface-container-highest": "#e4e2e1",
+                        "secondary-fixed-dim": "#e8c176",
+                        "on-secondary-container": "#785a19",
+                        "secondary-fixed": "#ffdea3",
+                        "on-secondary": "#ffffff",
+                        "surface": "#fbf9f8",
+                        "primary-fixed-dim": "#c7c6c6",
+                        "on-background": "#1b1c1b",
+                        "on-secondary-fixed-variant": "#5c4200",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#e9e8e7",
+                        "primary": "#000101",
+                        "on-surface": "#1b1c1b",
+                        "on-primary-fixed": "#1b1c1c",
+                        "tertiary": "#000000",
+                        "surface-variant": "#e4e2e1",
+                        "surface-container": "#efedec",
+                        "on-tertiary-container": "#a17f3c",
+                        "background": "#fbf9f8",
+                        "tertiary-fixed-dim": "#e9c177",
+                        "on-secondary-fixed": "#261900",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#848484",
+                        "tertiary-fixed": "#ffdea6",
+                        "secondary-container": "#fdd587",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#c7c6c6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "gutter": "12px",
+                        "stack-sm": "8px",
+                        "stack-md": "16px",
+                        "stack-lg": "32px",
+                        "section-gap": "48px",
+                        "container-margin": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Manrope"],
+                        "label-caps": ["Manrope"],
+                        "body-sm": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "label-technical": ["JetBrains Mono"],
+                        "display-lg-mobile": ["Manrope"],
+                        "display-lg": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-technical": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col selection:bg-surface-dim selection:text-primary">
+<!-- TopAppBar (Modified for Context) -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-margin h-16 bg-surface border-b border-surface-variant transition-colors duration-200">
+<button aria-label="Retour" class="flex items-center justify-center p-2 -ml-2 text-primary hover:bg-surface-container-low transition-colors duration-200 rounded-full">
+<span class="material-symbols-outlined">close</span>
+</button>
+<span class="font-headline-sm text-headline-sm text-primary">Engagement confirmé</span>
+<div class="w-10"></div> <!-- Spacer for balance -->
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 px-container-margin pt-[80px] pb-section-gap flex flex-col">
+<!-- Hero Visual -->
+<div class="w-full aspect-[4/5] md:aspect-[16/9] mt-stack-sm rounded-lg overflow-hidden border border-surface-variant bg-surface-container-lowest">
+<img alt="Stylist confirmation" class="w-full h-full object-cover" data-alt="A premium, high-resolution editorial portrait of a Black woman stylist with beautifully styled, thick textured twists. She is in a minimalist, modern, sunlit salon studio with a calm, focused smile while looking at her smartphone. The lighting is high-key and natural, creating a bright, sophisticated light-mode aesthetic. The color palette features neutral tones, soft creams, and deep charcoal shadows. The mood conveys professional success, heritage, and serene expertise, completely devoid of any straight hair styling." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_ZyIshFdMBVlZfSKQny7Sg0mx1sPqZ9gphftl6xqYxc_EdMNMLrx58XVir_Ar09oLqnMe7-CLa3ITXzANPSdQ10vbFt9GHwWBjLd4TeLL9PRqEiX_6tQLzmhmD-kKk1hjFqGyKWMscTbxadkAwvNShKz2dAPtnMAETv9vIi7FqWsB_yAi_c3z951pBcH9xacn2ii-Etrud8KthXsUzc1uo7T4EUF7RddmpuRJotTsaenG9Bf0t9uF"/>
+</div>
+<!-- Status Context -->
+<div class="mt-stack-lg flex flex-col items-start gap-stack-sm">
+<div class="bg-surface-container-high px-4 py-2 rounded-full border border-outline-variant inline-flex items-center">
+<span class="font-label-caps text-label-caps text-primary tracking-widest uppercase">ENGAGÉ</span>
+</div>
+<p class="font-label-technical text-label-technical text-on-surface-variant uppercase tracking-wider">COMMITTED · BOOKED</p>
+</div>
+<!-- Typography & Content -->
+<div class="mt-stack-md">
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-primary">Engagement formé</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-stack-md">
+                Awa D. a accepté votre offre et simulé l’acompte. Le créneau est passé de soft-hold à réservation ferme.
+            </p>
+</div>
+<!-- Ledger Recap Card -->
+<div class="mt-stack-lg border border-primary bg-surface p-stack-md flex flex-col gap-stack-sm relative">
+<!-- subtle decorative accent -->
+<div class="absolute top-0 left-0 w-1 h-full bg-secondary-container"></div>
+<div class="flex justify-between items-start border-b border-surface-variant pb-stack-sm">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Date &amp; Heure</span>
+<span class="font-body-sm text-body-sm text-primary text-right">Samedi 15 mars<br/>09:30 – 14:00</span>
+</div>
+<div class="flex justify-between items-center border-b border-surface-variant py-stack-sm">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Prestation</span>
+<span class="font-body-sm text-body-sm text-primary">Vanilles mi-longues</span>
+</div>
+<div class="flex justify-between items-center border-b border-surface-variant py-stack-sm">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Total</span>
+<span class="font-body-sm text-body-sm text-primary">220 €</span>
+</div>
+<div class="flex justify-between items-center pt-stack-sm">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Acompte (mock)</span>
+<span class="font-label-technical text-label-technical text-primary bg-surface-container-low px-2 py-1 rounded">66 €</span>
+</div>
+</div>
+<!-- Actions -->
+<div class="mt-section-gap flex flex-col gap-stack-md mt-auto pt-stack-lg">
+<p class="font-body-sm text-body-sm text-on-surface-variant text-center px-4">
+                Aucune re-validation requise de votre côté.
+            </p>
+<button class="w-full bg-primary-container hover:bg-tertiary transition-colors duration-200 text-on-primary py-4 px-6 rounded-none border border-primary-container font-headline-sm text-headline-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">content_cut</span>
+                Préparer le rendez-vous
+            </button>
+<button class="w-full bg-transparent hover:bg-surface-container-low transition-colors duration-200 text-primary py-4 px-6 rounded-none border border-primary font-headline-sm text-headline-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">visibility</span>
+                Voir l’offre
+            </button>
+</div>
+</main>
+<!-- BottomNavBar is explicitly suppressed as this is a transactional confirmation screen (Contextual Rules) -->
+</body></html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Atelier Synergy - Démarrer Prestation</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts (Manrope & JetBrains Mono) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config injected from instructions -->
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-dim": "#dbdad9",
+                      "on-error-container": "#93000a",
+                      "primary": "#000101",
+                      "tertiary-fixed": "#ffdea6",
+                      "inverse-surface": "#303030",
+                      "outline-variant": "#c4c7c7",
+                      "on-secondary-container": "#785a19",
+                      "on-tertiary-container": "#a17f3c",
+                      "primary-container": "#1b1c1c",
+                      "secondary-fixed": "#ffdea3",
+                      "on-surface-variant": "#444748",
+                      "surface": "#fbf9f8",
+                      "tertiary-container": "#271900",
+                      "on-tertiary-fixed": "#271900",
+                      "on-background": "#1b1c1b",
+                      "secondary-container": "#fdd587",
+                      "on-error": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "inverse-on-surface": "#f2f0ef",
+                      "on-tertiary": "#ffffff",
+                      "tertiary": "#000000",
+                      "outline": "#747878",
+                      "surface-variant": "#e4e2e1",
+                      "on-primary-container": "#848484",
+                      "error": "#ba1a1a",
+                      "surface-tint": "#5e5e5e",
+                      "surface-container-highest": "#e4e2e1",
+                      "primary-fixed-dim": "#c7c6c6",
+                      "on-primary-fixed": "#1b1c1c",
+                      "on-primary": "#ffffff",
+                      "tertiary-fixed-dim": "#e9c177",
+                      "on-surface": "#1b1c1b",
+                      "on-secondary-fixed-variant": "#5c4200",
+                      "on-secondary-fixed": "#261900",
+                      "on-primary-fixed-variant": "#464747",
+                      "inverse-primary": "#c7c6c6",
+                      "on-tertiary-fixed-variant": "#5d4201",
+                      "surface-container": "#efedec",
+                      "background": "#fbf9f8",
+                      "secondary-fixed-dim": "#e8c176",
+                      "surface-container-high": "#e9e8e7",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-bright": "#fbf9f8",
+                      "primary-fixed": "#e3e2e2",
+                      "surface-container-low": "#f5f3f2",
+                      "secondary": "#775a19"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "margin-mobile": "20px",
+                      "base": "4px",
+                      "sm": "8px",
+                      "lg": "24px",
+                      "md": "16px",
+                      "xs": "4px",
+                      "xl": "32px",
+                      "gutter-mobile": "12px"
+              },
+              "fontFamily": {
+                      "label-mono": [
+                              "JetBrains Mono"
+                      ],
+                      "headline-sm": [
+                              "Manrope"
+                      ],
+                      "button-text": [
+                              "Manrope"
+                      ],
+                      "display-lg": [
+                              "Manrope"
+                      ],
+                      "body-lg": [
+                              "Manrope"
+                      ],
+                      "headline-md": [
+                              "Manrope"
+                      ],
+                      "body-md": [
+                              "Manrope"
+                      ]
+              },
+              "fontSize": {
+                      "label-mono": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-sm": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "button-text": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased min-h-screen flex flex-col">
+<!-- Transactional Sticky Header (Suppressed global nav for task focus) -->
+<header class="sticky top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-surface-variant flex items-center px-margin-mobile h-14">
+<button aria-label="Retour" class="mr-sm text-on-surface-variant hover:bg-surface-container-low p-2 rounded-full transition-colors active:opacity-80">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm text-primary font-bold tracking-tight">Démarrer</h1>
+</header>
+<!-- Atmosphere Area -->
+<div class="w-full h-48 md:h-64 relative bg-surface-container">
+<img alt="" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLu5yT-M1l3QE0haUHg13p932p8Agsb2ICvuS1ETF7T4OZLRUarYwDddj4Bubsw3AlgVVeaoXCrNfM56dREVdvadxQUD46olXlNhHpHQIyLVG-QdznU1Y5kDtPpog-3zva7slIq-etzKeyJBtljoMJspLzu-ILCGcUCePaU3mv2i2Zr5MWd8zlcbwY3SaxnWV4WofeFzuqoGlQt3IE0o_WsPHSyXRm3nyIqCX98v-bp8jpyc3Ha4o5aZEehc"/>
+<!-- Tonal layer for transition -->
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-transparent"></div>
+</div>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-margin-mobile -mt-8 relative z-10 max-w-2xl mx-auto w-full pb-[140px]">
+<!-- Status & Context -->
+<div class="bg-surface rounded-t-xl pt-sm">
+<div class="inline-flex items-center bg-surface-container-high px-2 py-1 rounded mb-md">
+<span class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider">Prêt</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary font-bold mb-xs">Confirmer le début</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-xl leading-relaxed">
+                En démarrant, le rendez-vous passe à <span class="font-label-mono text-xs">EN COURS</span>. L’heure de début est enregistrée.
+            </p>
+</div>
+<!-- Service Summary Card (High-density flat architectural style) -->
+<section class="border border-surface-variant bg-surface-container-lowest rounded-lg p-md mb-xl">
+<div class="flex items-center mb-sm">
+<span class="material-symbols-outlined text-on-surface-variant mr-sm text-[20px]" style="font-variation-settings: 'FILL' 1;">content_cut</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant uppercase">Détails de la prestation</span>
+</div>
+<p class="font-headline-sm text-headline-sm text-primary mb-2">Knotless / box braids</p>
+<div class="w-full h-px bg-surface-variant my-sm"></div>
+<div class="flex items-center">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center mr-sm">
+<span class="material-symbols-outlined text-on-surface text-[18px]">person</span>
+</div>
+<p class="font-body-lg text-body-lg text-primary">Sarah M.</p>
+</div>
+</section>
+<!-- Pre-requisites Checklist -->
+<section class="mb-xl">
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold mb-md">Conditions</h3>
+<ul class="flex flex-col gap-sm">
+<li class="flex items-center justify-between p-md bg-surface border border-surface-variant rounded-lg">
+<div class="flex items-center">
+<span class="material-symbols-outlined text-primary mr-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<p class="font-body-md text-body-md text-primary">Arrivée cliente déclarée</p>
+</div>
+<span class="font-label-mono text-label-mono text-on-surface-variant">OK · 09:22</span>
+</li>
+<li class="flex items-center justify-between p-md bg-surface border border-surface-variant rounded-lg">
+<div class="flex items-center">
+<span class="material-symbols-outlined text-primary mr-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<p class="font-body-md text-body-md text-primary">Arrivée coiffeuse déclarée</p>
+</div>
+<span class="font-label-mono text-label-mono text-on-surface-variant">OK · 09:18</span>
+</li>
+<li class="flex items-center justify-between p-md bg-surface border border-surface-variant rounded-lg">
+<div class="flex items-center">
+<span class="material-symbols-outlined text-primary mr-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<p class="font-body-md text-body-md text-primary">Préparation READY</p>
+</div>
+<span class="font-label-mono text-label-mono text-on-surface-variant">OK</span>
+</li>
+</ul>
+</section>
+<!-- System Note -->
+<div class="flex items-start p-md bg-surface-container-low rounded-lg border border-surface-variant">
+<span class="material-symbols-outlined text-on-surface-variant mr-sm mt-0.5 text-[20px]">info</span>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                Un seul démarrage explicite — pas de démarrage implicite.
+            </p>
+</div>
+</main>
+<!-- Sticky Action Area -->
+<div class="fixed bottom-0 left-0 w-full bg-surface border-t border-surface-variant p-margin-mobile z-50">
+<div class="max-w-2xl mx-auto flex flex-col gap-sm">
+<button class="w-full bg-primary-container text-on-primary min-h-[44px] rounded font-button-text text-button-text flex items-center justify-center transition-opacity hover:opacity-90 active:scale-[0.98]">
+                Démarrer la prestation
+            </button>
+<button class="w-full bg-surface border border-primary-container text-primary-container min-h-[44px] rounded font-button-text text-button-text flex items-center justify-center transition-colors hover:bg-surface-container-low active:scale-[0.98]">
+                Revenir au suivi
+            </button>
+</div>
+<!-- Safe area padding for mobile -->
+<div class="h-4 pb-safe w-full"></div>
+</div>
+</body></html>

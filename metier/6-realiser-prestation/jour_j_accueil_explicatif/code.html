@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html class="bg-surface text-on-surface antialiased" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Atelier Synergy - Jour J</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#000101",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#464747",
+                        "surface-tint": "#5e5e5e",
+                        "on-secondary-container": "#785a19",
+                        "inverse-primary": "#c7c6c6",
+                        "tertiary-container": "#271900",
+                        "primary-fixed-dim": "#c7c6c6",
+                        "on-primary-container": "#848484",
+                        "tertiary-fixed": "#ffdea6",
+                        "primary-fixed": "#e3e2e2",
+                        "secondary-fixed-dim": "#e8c176",
+                        "secondary-fixed": "#ffdea3",
+                        "surface": "#fbf9f8",
+                        "surface-bright": "#fbf9f8",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#fdd587",
+                        "outline-variant": "#c4c7c7",
+                        "on-background": "#1b1c1b",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#000000",
+                        "surface-container": "#efedec",
+                        "on-tertiary-fixed-variant": "#5d4201",
+                        "surface-container-highest": "#e4e2e1",
+                        "primary-container": "#1b1c1c",
+                        "outline": "#747878",
+                        "inverse-on-surface": "#f2f0ef",
+                        "secondary": "#775a19",
+                        "tertiary-fixed-dim": "#e9c177",
+                        "on-surface-variant": "#444748",
+                        "on-tertiary-fixed": "#271900",
+                        "on-secondary-fixed-variant": "#5c4200",
+                        "background": "#fbf9f8",
+                        "inverse-surface": "#303030",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#261900",
+                        "surface-container-low": "#f5f3f2",
+                        "on-primary-fixed": "#1b1c1c",
+                        "surface-dim": "#dbdad9",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#1b1c1b",
+                        "surface-container-high": "#e9e8e7",
+                        "surface-variant": "#e4e2e1",
+                        "on-tertiary-container": "#a17f3c",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "unit": "4px",
+                        "gutter": "16px",
+                        "sm": "8px",
+                        "margin-mobile": "20px",
+                        "xl": "40px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "display-lg": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "label-caps": ["JetBrains Mono"],
+                        "body-md": ["Manrope"],
+                        "label-tech": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-tech": ["12px", { "lineHeight": "16px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md bg-surface pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant flex justify-between items-center px-margin-mobile h-16 w-full">
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity active:scale-95 transition-transform flex items-center justify-center p-2 -ml-2 rounded-full">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold tracking-tight text-primary">Jour J</h1>
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity active:scale-95 transition-transform flex items-center justify-center p-2 -mr-2 rounded-full">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</header>
+<!-- Main Content -->
+<main class="pt-24 px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto md:grid md:grid-cols-12 md:gap-gutter">
+<div class="md:col-span-8 md:col-start-3 space-y-xl">
+<!-- Header Section -->
+<section class="space-y-md">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container border border-outline-variant rounded-sm font-label-caps text-label-caps text-on-surface">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+                    PRÊT
+                </div>
+<h2 class="font-headline-lg text-headline-lg text-primary">Réaliser la prestation</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                    Le rendez-vous est READY. Aujourd’hui vous déclarez les arrivées, démarrez la prestation, déclarez une fin complète, puis la cliente confirme. Le dossier devient COMPLETED, prêt pour le règlement.
+                </p>
+<div class="flex items-center gap-sm mt-md p-sm bg-surface-container rounded-sm border border-outline-variant">
+<span class="material-symbols-outlined text-outline" data-icon="event">event</span>
+<span class="font-label-tech text-label-tech text-on-surface-variant">Knotless / box braids · 15 mars · 09:30 · Chez la coiffeuse</span>
+</div>
+</section>
+<!-- Hero Image -->
+<section class="relative w-full h-64 md:h-96 rounded-none bg-surface-container overflow-hidden">
+<img alt="" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0PfgSmfoXvVBrrrBdDgGmRriDHJj-pn5nwb17eiVLVeRx-38qUcdneHOdpbWm4MJIzDOUSPwv_-NgvB9jDulrmc4XHZIyBd8SNKUG3nvkbFwnOkZJjK8LXhTkZ3_qYlv253Y9EFlr-9_FBj9LYTNcgAx9zwRD1wggA8Tbg1NbDRplK_h8N6Z2vKbTYiOoOMcjFFdZ3vnp8phAH8pSytfMG60ls0AIvRPm1TPJHhNE30wtKv0dvRJrOQ"/>
+<div class="absolute bottom-0 left-0 w-full p-margin-mobile bg-gradient-to-t from-black/60 to-transparent">
+<p class="font-headline-md text-headline-md text-white font-bold tracking-tight">Du prêt au fait d’exécution.</p>
+</div>
+</section>
+<!-- Steps Section -->
+<section class="space-y-lg">
+<h3 class="font-headline-md text-headline-md text-primary border-b border-outline-variant pb-xs">Ce que vous allez faire</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Pillar 1 -->
+<div class="p-md bg-surface-container-lowest border border-outline-variant rounded flex gap-md items-start">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center shrink-0 border border-outline-variant">
+<span class="font-label-caps text-label-caps text-on-surface">1</span>
+</div>
+<div>
+<h4 class="font-body-lg text-body-lg font-bold text-primary mb-xs">Arrivées</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Cliente et coiffeuse déclarent être sur place.</p>
+</div>
+</div>
+<!-- Pillar 2 -->
+<div class="p-md bg-surface-container-lowest border border-outline-variant rounded flex gap-md items-start">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center shrink-0 border border-outline-variant">
+<span class="font-label-caps text-label-caps text-on-surface">2</span>
+</div>
+<div>
+<h4 class="font-body-lg text-body-lg font-bold text-primary mb-xs">Démarrage</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">La coiffeuse démarre explicitement <span class="font-label-tech text-label-tech bg-surface-variant px-1 rounded-sm">IN_PROGRESS</span>.</p>
+</div>
+</div>
+<!-- Pillar 3 -->
+<div class="p-md bg-surface-container-lowest border border-outline-variant rounded flex gap-md items-start">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center shrink-0 border border-outline-variant">
+<span class="font-label-caps text-label-caps text-on-surface">3</span>
+</div>
+<div>
+<h4 class="font-body-lg text-body-lg font-bold text-primary mb-xs">Fin complète</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Déclarer la fin de la prestation (complète uniquement).</p>
+</div>
+</div>
+<!-- Pillar 4 -->
+<div class="p-md bg-surface-container-lowest border border-outline-variant rounded flex gap-md items-start">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center shrink-0 border border-outline-variant">
+<span class="font-label-caps text-label-caps text-on-surface">4</span>
+</div>
+<div>
+<h4 class="font-body-lg text-body-lg font-bold text-primary mb-xs">Confirmation</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">La cliente confirme <span class="font-label-tech text-label-tech bg-surface-variant px-1 rounded-sm">COMPLETED</span>, puis règlement.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Note -->
+<section class="p-md bg-surface-container-low rounded border border-outline-variant border-dashed">
+<p class="font-body-sm text-body-sm text-on-surface-variant italic flex items-center gap-sm">
+<span class="material-symbols-outlined text-outline text-[18px]" data-icon="info">info</span>
+                    Pas de retard, d’avenant ni d’incident dans cette démo.
+                </p>
+</section>
+</div>
+</main>
+<!-- Sticky Primary CTA -->
+<div class="fixed bottom-0 left-0 w-full p-margin-mobile bg-surface/90 backdrop-blur-md border-t border-outline-variant z-40 pb-safe md:flex md:justify-center">
+<button class="w-full md:w-auto md:px-margin-desktop bg-primary text-on-primary font-body-md text-body-md font-bold py-3 px-6 rounded-DEFAULT hover:opacity-90 active:scale-95 transition-all shadow-sm">
+            Ouvrir le suivi
+        </button>
+</div>
+</body></html>

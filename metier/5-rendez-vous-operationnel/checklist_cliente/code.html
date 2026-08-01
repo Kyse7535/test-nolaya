@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checklist cliente - Atelier Synergy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container": "#efedec",
+                        "background": "#fbf9f8",
+                        "inverse-on-surface": "#f2f0ef",
+                        "surface-tint": "#5e5e5e",
+                        "surface-container-highest": "#e4e2e1",
+                        "tertiary-fixed": "#ffdea6",
+                        "outline": "#747878",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#c7c6c6",
+                        "primary-fixed-dim": "#c7c6c6",
+                        "on-tertiary-fixed": "#271900",
+                        "outline-variant": "#c4c7c7",
+                        "surface-container-high": "#e9e8e7",
+                        "surface-container-low": "#f5f3f2",
+                        "primary": "#000101",
+                        "surface": "#fbf9f8",
+                        "on-surface-variant": "#444748",
+                        "inverse-surface": "#303030",
+                        "on-secondary-fixed-variant": "#5c4200",
+                        "on-primary-fixed-variant": "#464747",
+                        "on-tertiary-container": "#a17f3c",
+                        "on-surface": "#1b1c1b",
+                        "on-primary-fixed": "#1b1c1c",
+                        "surface-dim": "#dbdad9",
+                        "on-tertiary": "#ffffff",
+                        "surface-bright": "#fbf9f8",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#271900",
+                        "on-primary-container": "#848484",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#ffdea3",
+                        "tertiary": "#000000",
+                        "primary-fixed": "#e3e2e2",
+                        "surface-variant": "#e4e2e1",
+                        "secondary-container": "#fdd587",
+                        "secondary-fixed-dim": "#e8c176",
+                        "tertiary-fixed-dim": "#e9c177",
+                        "on-error": "#ffffff",
+                        "secondary": "#775a19",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#261900",
+                        "on-background": "#1b1c1b",
+                        "primary-container": "#1b1c1c",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#5d4201",
+                        "on-secondary-container": "#785a19",
+                        "error-container": "#ffdad6"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    spacing: {
+                        "stack-sm": "8px",
+                        "gutter-mobile": "12px",
+                        "unit": "4px",
+                        "stack-lg": "32px",
+                        "margin-mobile": "20px",
+                        "stack-md": "16px"
+                    },
+                    fontFamily: {
+                        "caption": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "display-lg": ["Manrope"],
+                        "label-mono": ["JetBrains Mono"],
+                        "headline-sm": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "body-lg": ["Manrope"]
+                    },
+                    fontSize: {
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-mono": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar { width: 0px; background: transparent; }
+    </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col relative w-full max-w-[390px] mx-auto overflow-x-hidden border-x border-surface-container">
+<!-- TopAppBar -->
+<header class="bg-background w-full sticky top-0 z-50 border-b border-surface-container flex items-center justify-between px-margin-mobile h-16 w-full mx-auto">
+<button class="flex items-center justify-center w-10 h-10 -ml-2 text-primary hover:bg-surface-container-low rounded-full transition-colors duration-200 active:opacity-80">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm text-on-surface font-bold">Checklist cliente</h1>
+<div class="w-10 h-10"></div> <!-- Spacer for centering -->
+</header>
+<main class="flex-1 overflow-y-auto pb-[120px] px-margin-mobile pt-6">
+<!-- Status & Intro -->
+<div class="flex flex-col gap-stack-sm mb-stack-lg">
+<div class="flex items-center gap-2">
+<span class="font-label-mono text-label-mono bg-primary text-on-primary px-2 py-1 rounded">EN PRÉPARATION</span>
+<p class="font-caption text-caption text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">event</span>
+                    Knotless · 15 mars · chez la coiffeuse
+                </p>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">
+                Confirmez chaque action lorsque c’est fait. Les actions bloquantes sont indispensables pour READY.
+            </p>
+<div class="mt-4 rounded-lg overflow-hidden w-full h-48 bg-surface-container">
+<img alt="Textured hair preparation aesthetic" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLtloxRNFlURojzJAp6HcO-9NEMA9G8VsBWFFE7MgyYquWy3EW3tURydckICnxvAZ9WZzYLBQALft4SEf1iFASxfWdzqHbPOlSJSQKGHYmEzAqj62gT8iCTlx9KTPyjIymmD1nT8KPA5-XIvX7vXid014TBhr4GBrI-wBFa51A2XXWOw7i0IbedVkBzqd5GJuaMPmpeuCreYG8n4_xHqoSLXgoXKFwddsYp3kXb941wpPdbhVQC76oSBoOgu"/>
+</div>
+</div>
+<!-- Actions bloquantes Section -->
+<section class="mb-stack-lg">
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-stack-md flex items-center gap-2 border-b border-surface-container pb-2">
+<span class="material-symbols-outlined text-error">warning</span>
+                Actions bloquantes
+            </h2>
+<div class="flex flex-col gap-gutter-mobile">
+<!-- Item 1 -->
+<div class="bg-surface rounded-lg p-4 border border-surface-container shadow-sm flex flex-col gap-stack-sm">
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-label-mono text-[10px] uppercase tracking-wider bg-error-container text-on-error-container px-1.5 py-0.5 rounded">BLOQUANTE</span>
+<span class="font-label-mono text-[10px] uppercase tracking-wider border border-surface-container text-on-surface-variant px-1.5 py-0.5 rounded">À FAIRE</span>
+</div>
+<h3 class="font-headline-sm text-[16px] text-on-surface">Acheter les mèches</h3>
+<p class="font-body-md text-caption text-on-surface-variant mt-1">Quantité et couleur convenues dans l’engagement</p>
+</div>
+</div>
+<button class="mt-2 w-full bg-primary text-on-primary font-caption text-caption py-2.5 rounded hover:bg-opacity-90 transition-opacity flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+                        Confirmer
+                    </button>
+</div>
+<!-- Item 2 -->
+<div class="bg-surface rounded-lg p-4 border border-surface-container shadow-sm flex flex-col gap-stack-sm">
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-label-mono text-[10px] uppercase tracking-wider bg-error-container text-on-error-container px-1.5 py-0.5 rounded">BLOQUANTE</span>
+<span class="font-label-mono text-[10px] uppercase tracking-wider border border-surface-container text-on-surface-variant px-1.5 py-0.5 rounded">À FAIRE</span>
+</div>
+<h3 class="font-headline-sm text-[16px] text-on-surface">Confirmer l’adresse et l’accès</h3>
+<p class="font-body-md text-caption text-on-surface-variant mt-1">Adresse exacte + digicode / étage</p>
+</div>
+</div>
+<button class="mt-2 w-full bg-primary text-on-primary font-caption text-caption py-2.5 rounded hover:bg-opacity-90 transition-opacity flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+                        Confirmer
+                    </button>
+</div>
+<!-- Item 3 -->
+<div class="bg-surface-container-low rounded-lg p-4 border border-surface-container shadow-sm flex flex-col gap-stack-sm opacity-80">
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-label-mono text-[10px] uppercase tracking-wider bg-error-container text-on-error-container px-1.5 py-0.5 rounded">BLOQUANTE</span>
+<span class="font-label-mono text-[10px] uppercase tracking-wider bg-surface-container-high text-on-surface px-1.5 py-0.5 rounded flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">done_all</span> CONFIRMÉE</span>
+</div>
+<h3 class="font-headline-sm text-[16px] text-on-surface line-through decoration-surface-variant">Préparer le cuir chevelu</h3>
+<p class="font-body-md text-caption text-on-surface-variant mt-1">Cheveux propres, démêlés, sans produit gras</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Actions informatives Section -->
+<section class="mb-stack-lg">
+<h2 class="font-headline-sm text-[16px] text-on-surface-variant mb-stack-md flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">info</span>
+                Actions informatives
+            </h2>
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-3 py-3 px-4 bg-surface rounded-lg border border-surface-container">
+<span class="material-symbols-outlined text-secondary text-[20px]">check_box_outline_blank</span>
+<div class="flex-1">
+<p class="font-body-md text-body-md text-on-surface">Prévoir une tenue confortable</p>
+</div>
+<span class="font-label-mono text-[10px] uppercase tracking-wider text-secondary">INFO</span>
+</div>
+<div class="flex items-center gap-3 py-3 px-4 bg-surface rounded-lg border border-surface-container">
+<span class="material-symbols-outlined text-secondary text-[20px]">check_box_outline_blank</span>
+<div class="flex-1">
+<p class="font-body-md text-body-md text-on-surface">Charger mon téléphone</p>
+</div>
+<span class="font-label-mono text-[10px] uppercase tracking-wider text-secondary">INFO</span>
+</div>
+</div>
+<p class="font-caption text-[11px] text-on-surface-variant mt-6 text-center italic">
+                Pas de preuve photo dans cette démo — une confirmation suffit.
+            </p>
+</section>
+</main>
+<!-- Bottom Sticky Bar -->
+<div class="fixed bottom-0 w-full max-w-[390px] bg-surface border-t border-surface-container p-4 pb-safe flex flex-col gap-3 shadow-[0_-4px_12px_rgba(0,0,0,0.03)] z-40">
+<div class="flex justify-between items-center px-1">
+<span class="font-body-md text-body-md text-on-surface-variant">Bloquantes confirmées :</span>
+<span class="font-label-mono text-label-mono text-on-surface font-bold">1 / 3</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 mb-1 overflow-hidden">
+<div class="bg-primary h-1.5 rounded-full w-1/3"></div>
+</div>
+<button class="w-full bg-surface-container text-on-surface border border-outline-variant font-headline-sm text-[16px] py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+            Retour au plan
+        </button>
+</div>
+</body></html>

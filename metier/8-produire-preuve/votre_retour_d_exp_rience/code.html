@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Votre avis - Atelier Synergy</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#848484",
+                        "on-secondary": "#ffffff",
+                        "background": "#fbf9f8",
+                        "tertiary-fixed": "#e4e2e2",
+                        "primary-container": "#1b1c1c",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "surface-bright": "#fbf9f8",
+                        "secondary-container": "#fdd587",
+                        "on-primary-fixed": "#1b1c1c",
+                        "on-background": "#1b1c1b",
+                        "surface-dim": "#dbdad9",
+                        "secondary-fixed": "#ffdea3",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#f2f0ef",
+                        "surface-container": "#efedec",
+                        "inverse-surface": "#303030",
+                        "surface-variant": "#e4e2e1",
+                        "outline": "#747878",
+                        "on-secondary-fixed-variant": "#5c4200",
+                        "tertiary": "#000101",
+                        "primary-fixed-dim": "#c7c6c6",
+                        "secondary": "#775a19",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#c7c6c6",
+                        "surface": "#fbf9f8",
+                        "primary-fixed": "#e3e2e2",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#5e5e5e",
+                        "on-primary-container": "#848484",
+                        "inverse-primary": "#c7c6c6",
+                        "surface-container-low": "#f5f3f2",
+                        "on-secondary-fixed": "#261900",
+                        "surface-container-highest": "#e4e2e1",
+                        "on-surface-variant": "#444748",
+                        "primary": "#000101",
+                        "on-surface": "#1b1c1b",
+                        "surface-container-high": "#e9e8e7",
+                        "on-tertiary-fixed-variant": "#464747",
+                        "on-tertiary": "#ffffff",
+                        "outline-variant": "#c4c7c7",
+                        "on-primary-fixed-variant": "#464747",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#e8c176",
+                        "on-secondary-container": "#785a19",
+                        "tertiary-container": "#1b1c1c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "md": "16px",
+                        "xs": "4px",
+                        "unit": "4px",
+                        "gutter": "16px",
+                        "xl": "32px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "xxl": "48px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["JetBrains Mono"],
+                        "display-lg": ["Manrope"],
+                        "mono-data": ["JetBrains Mono"],
+                        "body-md": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "headline-sm": ["Manrope"],
+                        "headline-md": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "mono-data": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .star-rating .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400; cursor: pointer; transition: all 0.2s; color: #dbdad9; }
+        .star-rating .material-symbols-outlined.filled { font-variation-settings: 'FILL' 1, 'wght' 400; color: #775a19; }
+        .star-rating:hover .material-symbols-outlined { color: #ffdea3; }
+        .star-rating .material-symbols-outlined:hover,
+        .star-rating .material-symbols-outlined:hover ~ .material-symbols-outlined { font-variation-settings: 'FILL' 1; color: #e8c176; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-lg antialiased pb-32">
+<!-- Sticky Header -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 bg-surface border-b border-surface-variant">
+<button aria-label="Retour" class="w-11 h-11 flex items-center justify-center text-on-surface-variant hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-headline-sm" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm text-primary flex-1 text-center pr-11">Votre avis</h1>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 px-margin-mobile max-w-lg mx-auto">
+<!-- Top Section: Stylist Profile & Intro -->
+<section class="flex flex-col items-center mb-xl text-center">
+<div class="relative w-20 h-20 mb-md">
+<img alt="Amina K." class="w-full h-full object-cover rounded-full border border-surface-container" data-alt="A professional portrait of Amina K, a beautiful Black woman with natural textured coily hair. She is in a brightly lit, high-end, modern minimalist salon environment. Soft natural lighting emphasizes the healthy texture of her hair. The composition is a clean headshot against a muted, elegant background. The overall aesthetic is premium, serene, and authoritative, matching a light-mode enterprise platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCuQ84ercNErb2WIzyPcVtKQHUDFwxueY9RojWHIN9A-eMz5m7QmW-CpGssUfguGqy-iJe_lJq9HgL6bcitU7WQzJ9Voy7dwIuS2RVyQKU-vDjmVPiDlqIabBqabLf8rMND_dbAM7H741uo-4fH_4WMtu1iOwO4JFVAr0KcdRSZ4Y8ztkvViRqvr6mmX-kfWalssPLU9NKQUseN1Ko0Izoh_B6FAt6_0vYaBiPbI_hTiyDRdccHJaU"/>
+<div class="absolute -bottom-1 -right-1 bg-surface rounded-full p-0.5">
+<span class="inline-block bg-surface-container text-on-surface font-label-caps text-label-caps px-2 py-0.5 rounded-full border border-surface-variant">OPTIONNEL</span>
+</div>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary mb-sm">Votre retour d'expérience</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm">Votre avis aide Amina K. et les autres clientes — il reste facultatif.</p>
+</section>
+<!-- Evaluation Grid -->
+<section class="mb-xl">
+<div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-md">
+<!-- Row 1 -->
+<div class="flex flex-col mb-lg pb-md border-b border-surface-container-highest">
+<div class="flex justify-between items-start mb-xs">
+<label class="font-headline-sm text-body-lg text-primary">Technique</label>
+<div class="star-rating flex gap-1" data-category="technique">
+<span class="material-symbols-outlined text-2xl" data-icon="star">star</span>
+<span class="material-symbols-outlined text-2xl" data-icon="star">star</span>
+<span class="material-symbols-outlined text-2xl" data-icon="star">star</span>
+<span class="material-symbols-outlined text-2xl" data-icon="star">star</span>
+<span class="material-symbols-outlined text-2xl" data-icon="star">star</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Qualité du résultat</p>
+</div>
+<!-- Row 2 -->
+<div class="flex flex-col mb-lg pb-md border-b border-surface-container-highest">
+<div class="flex justify-between items-start mb-xs">
+<label class="font-headline-sm text-body-lg text-primary">Réservation</label>
+<div class="star-rating flex gap-1" data-category="reservation">
+<span class="material-symbols-outlined text-2xl" data-icon="star">star</span>
+<span class="material-symbols-outlined text-2xl" data-icon="star">star</span>
+<span class="material-symbols-outlined text-2xl" data-icon="star">star</span>
+<span class="material-symbols-outlined text-2xl" data-icon="star">star</span>
+<span class="material-symbols-outlined text-2xl" data-icon="star">star</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Fluidité de la prise de rendez-vous</p>
+</div>
+<!-- Row 3 -->
+<div class="flex flex-col mb-lg pb-md border-b border-surface-container-highest">
+<div class="flex justify-between items-start mb-xs">
+<label class="font-headline-sm text-body-lg text-primary">Communication</label>
+<div class="star-rating flex gap-1" data-category="communication">
+<span class="material-symbols-outlined text-2xl" data-icon="star">star</span>
+<span class="material-symbols-outlined text-2xl" data-icon="star">star</span>
+<span class="material-symbols-outlined text-2xl" data-icon="star">star</span>
+<span class="material-symbols-outlined text-2xl" data-icon="star">star</span>
+<span class="material-symbols-outlined text-2xl" data-icon="star">star</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Échanges avec la coiffeuse</p>
+</div>
+<!-- Row 4 -->
+<div class="flex flex-col mb-lg pb-md border-b border-surface-container-highest">
+<div class="flex justify-between items-start mb-xs">
+<label class="font-headline-sm text-body-lg text-primary">Ponctualité</label>
+<div class="star-rating flex gap-1" data-category="ponctualite">
+<span class="material-symbols-outlined text-2xl" data-icon="star">star</span>
+<span class="material-symbols-outlined text-2xl" data-icon="star">star</span>
+<span class="material-symbols-outlined text-2xl" data-icon="star">star</span>
+<span class="material-symbols-outlined text-2xl" data-icon="star">star</span>
+<span class="material-symbols-outlined text-2xl" data-icon="star">star</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Respect de l'horaire</p>
+</div>
+<!-- Row 5 -->
+<div class="flex flex-col">
+<div class="flex justify-between items-start mb-xs">
+<label class="font-headline-sm text-body-lg text-primary">Prix</label>
+<div class="star-rating flex gap-1" data-category="prix">
+<span class="material-symbols-outlined text-2xl" data-icon="star">star</span>
+<span class="material-symbols-outlined text-2xl" data-icon="star">star</span>
+<span class="material-symbols-outlined text-2xl" data-icon="star">star</span>
+<span class="material-symbols-outlined text-2xl" data-icon="star">star</span>
+<span class="material-symbols-outlined text-2xl" data-icon="star">star</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Rapport au prix engagé</p>
+</div>
+</div>
+</section>
+<!-- Comment Area -->
+<section class="mb-lg">
+<label class="block font-headline-sm text-body-lg text-primary mb-sm" for="review-comment">Avis public (facultatif)</label>
+<textarea class="w-full bg-surface-container-lowest border border-surface-variant rounded-lg p-md font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant focus:border-primary focus:ring-0 transition-colors resize-none" id="review-comment" placeholder="Partagez votre expérience avec la communauté…" rows="4"></textarea>
+</section>
+<!-- Action Toggle -->
+<section class="mb-xxl flex items-center gap-md p-md bg-surface-container-low rounded-lg border border-surface-variant">
+<div class="flex-1">
+<p class="font-headline-sm text-body-lg text-primary">Ajouter Amina K. à mes favoris</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer min-w-[44px] min-h-[44px] justify-end">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[12px] after:left-[14px] after:bg-white after:border-surface-variant after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</section>
+</main>
+<!-- Footer Actions (Sticky) -->
+<footer class="fixed bottom-0 left-0 w-full bg-surface/95 backdrop-blur-sm border-t border-surface-variant px-margin-mobile py-lg pb-safe z-50">
+<div class="max-w-lg mx-auto flex flex-col gap-sm">
+<button class="w-full bg-primary text-on-primary font-headline-sm text-body-lg py-3 px-md rounded-full hover:opacity-90 transition-opacity min-h-[44px]">Publier mon avis</button>
+<button class="w-full bg-transparent text-primary font-headline-sm text-body-lg py-3 px-md rounded-full hover:bg-surface-container transition-colors min-h-[44px]">Passer l’avis</button>
+<p class="text-center font-body-md text-mono-data italic text-on-surface-variant mt-sm">Votre expérience reste enregistrée dans l’historique, même sans avis.</p>
+</div>
+</footer>
+<script>
+        // Simple star rating interaction
+        document.querySelectorAll('.star-rating').forEach(group => {
+            const stars = group.querySelectorAll('.material-symbols-outlined');
+            stars.forEach((star, index) => {
+                star.addEventListener('click', () => {
+                    stars.forEach((s, i) => {
+                        if (i <= index) {
+                            s.classList.add('filled');
+                        } else {
+                            s.classList.remove('filled');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body></html>

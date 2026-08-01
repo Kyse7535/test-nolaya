@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vérifiez votre demande - Atelier Synergy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#dbdad9",
+                        "on-secondary": "#ffffff",
+                        "outline": "#747878",
+                        "on-primary-container": "#848484",
+                        "inverse-primary": "#c7c6c6",
+                        "tertiary-fixed-dim": "#e9c177",
+                        "secondary-fixed-dim": "#e8c176",
+                        "on-tertiary-fixed-variant": "#5d4201",
+                        "on-surface": "#1b1c1b",
+                        "tertiary-container": "#271900",
+                        "on-tertiary-fixed": "#271900",
+                        "primary": "#000101",
+                        "tertiary-fixed": "#ffdea6",
+                        "on-secondary-fixed-variant": "#5c4200",
+                        "surface-bright": "#fbf9f8",
+                        "surface-container-low": "#f5f3f2",
+                        "secondary": "#775a19",
+                        "on-tertiary-container": "#a17f3c",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#785a19",
+                        "outline-variant": "#c4c7c7",
+                        "primary-fixed-dim": "#c7c6c6",
+                        "on-surface-variant": "#444748",
+                        "on-primary-fixed-variant": "#464747",
+                        "secondary-fixed": "#ffdea3",
+                        "on-secondary-fixed": "#261900",
+                        "primary-container": "#1b1c1c",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e4e2e1",
+                        "primary-fixed": "#e3e2e2",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#efedec",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#1b1c1b",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-on-surface": "#f2f0ef",
+                        "surface-container-high": "#e9e8e7",
+                        "tertiary": "#000000",
+                        "inverse-surface": "#303030",
+                        "on-primary": "#ffffff",
+                        "surface": "#fbf9f8",
+                        "surface-tint": "#5e5e5e",
+                        "surface-container-highest": "#e4e2e1",
+                        "background": "#fbf9f8",
+                        "secondary-container": "#fdd587",
+                        "on-primary-fixed": "#1b1c1c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "section-gap": "48px",
+                        "stack-lg": "32px",
+                        "stack-sm": "8px",
+                        "gutter": "16px",
+                        "container-margin": "24px",
+                        "stack-md": "16px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["JetBrains Mono"],
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-md": ["Manrope"],
+                        "body-sm": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "display-lg": ["Manrope"],
+                        "headline-lg-mobile": ["Manrope"],
+                        "body-lg": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-lg text-body-lg antialiased overflow-x-hidden min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-background border-b border-surface-container-highest flex items-center justify-between px-container-margin h-16 w-full">
+<button aria-label="Go back" class="text-primary hover:opacity-80 transition-opacity flex items-center justify-center p-2 -ml-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<h1 class="text-headline-md font-headline-md text-primary truncate max-w-[50%] text-center">Vérifiez votre demande</h1>
+<div class="bg-secondary-container text-on-secondary-container px-2 py-1 rounded-DEFAULT text-label-caps font-label-caps whitespace-nowrap">
+            PRÊTE À VALIDER
+        </div>
+</header>
+<main class="pt-24 px-container-margin max-w-3xl mx-auto">
+<!-- Intro Section -->
+<div class="mb-section-gap flex items-start gap-gutter">
+<div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 bg-surface-container border border-surface-container-highest">
+<img alt="Client Avatar" class="w-full h-full object-cover" data-alt="A close-up portrait of a Black woman with natural textured hair, styled in a minimalist and elegant way. She has a confident, serene expression. The lighting is soft and studio-quality, emphasizing the texture of her hair and the warmth of her skin. The background is a plain, neutral light gray, adhering to a sophisticated, high-end editorial aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAicqmYYXJIG4P2jP3yNpp9qhXgp0R9qiUOlyiER3IBwgbwoUueo6Xhy5xM6pkZjkrwGPxELB-PSABBMoFWOHlP3_sOk9BzSyP4ptbP7-smo1OCSyJn3THBjzY5cnaZE-QAVm26dTskikivxLvbs7VbIh6MZjO2xNabHs5nLLImIg93S1W84LuSXipshFZCAGwIuZ_zZ2Cso4SU-l2xT2rJYtoaQvOrdobSDHa5cRsHH4eVvpnWRxL5"/>
+</div>
+<div>
+<p class="text-body-lg font-body-lg text-on-surface-variant">Une fois validée, cette demande pourra être envoyée au matching.</p>
+</div>
+</div>
+<!-- Summary Sections -->
+<div class="flex flex-col gap-stack-lg">
+<!-- Résultat -->
+<section class="bg-surface-container-lowest border border-surface-container-highest rounded-lg p-gutter relative group hover:border-outline-variant transition-colors">
+<div class="flex justify-between items-start mb-stack-sm">
+<h2 class="text-headline-md font-headline-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-outline" style="font-variation-settings: 'FILL' 0;">auto_awesome</span>
+                        Résultat
+                    </h2>
+<button class="text-label-caps font-label-caps text-secondary underline hover:opacity-80 transition-opacity">Modifier</button>
+</div>
+<div class="flex gap-gutter items-center">
+<div class="w-16 h-16 rounded-DEFAULT overflow-hidden bg-surface-container flex-shrink-0">
+<img alt="Style Thumbnail" class="w-full h-full object-cover" data-alt="A close up shot of medium length knotless braids on a black woman. The braids are neatly parted and perfectly executed. The lighting is bright and clean, highlighting the precision of the styling. The aesthetic is high-end salon portfolio, minimalist background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDh_iTfAa00QTbOH95aKrjMZPDKeTkphjoHW3Dy8JFUb4eViYCQXhhPleUaNSXbeZMkpldKERR_rsOilMwUmCbWCALeMceLfst3cAZtRwuBAYcx5s2yImnGDyHN7LDnbu-mM4YqJ1uJdwX9NL3UzXZ-cabdewTc6TvIbTEXVffOhmvIC-gqky8H50sJ9r499XLkT0Cfg5x8hn3feVpn3sSOxVLxFcAZ6_FBDvfNvCuMOcXH3RlaPbxj"/>
+</div>
+<div>
+<p class="text-body-lg font-body-lg">Knotless medium · Longueur medium · Quotidien</p>
+</div>
+</div>
+</section>
+<!-- Temps -->
+<section class="bg-surface-container-lowest border border-surface-container-highest rounded-lg p-gutter relative group hover:border-outline-variant transition-colors">
+<div class="flex justify-between items-start mb-stack-sm">
+<h2 class="text-headline-md font-headline-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-outline" style="font-variation-settings: 'FILL' 0;">schedule</span>
+                        Temps
+                    </h2>
+<button class="text-label-caps font-label-caps text-secondary underline hover:opacity-80 transition-opacity">Modifier</button>
+</div>
+<p class="text-body-lg font-body-lg">Samedi préféré · échéance sous 10 jours</p>
+</section>
+<!-- Budget -->
+<section class="bg-surface-container-lowest border border-surface-container-highest rounded-lg p-gutter relative group hover:border-outline-variant transition-colors">
+<div class="flex justify-between items-start mb-stack-sm">
+<h2 class="text-headline-md font-headline-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-outline" style="font-variation-settings: 'FILL' 0;">payments</span>
+                        Budget
+                    </h2>
+<button class="text-label-caps font-label-caps text-secondary underline hover:opacity-80 transition-opacity">Modifier</button>
+</div>
+<div class="flex flex-wrap gap-2 text-body-lg font-body-lg">
+<span>Cible <span class="font-label-caps text-label-caps text-on-surface">100 €</span></span>
+<span class="text-outline">·</span>
+<span>Max <span class="font-label-caps text-label-caps text-on-surface">120 €</span></span>
+<span class="text-outline">·</span>
+<span>Mèches incluses</span>
+</div>
+</section>
+<!-- Zone -->
+<section class="bg-surface-container-lowest border border-surface-container-highest rounded-lg p-gutter relative group hover:border-outline-variant transition-colors">
+<div class="flex justify-between items-start mb-stack-sm">
+<h2 class="text-headline-md font-headline-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-outline" style="font-variation-settings: 'FILL' 0;">map</span>
+                        Zone
+                    </h2>
+<button class="text-label-caps font-label-caps text-secondary underline hover:opacity-80 transition-opacity">Modifier</button>
+</div>
+<p class="text-body-lg font-body-lg">Paris 18e · 15 km · Les deux me conviennent · Chez moi + studio</p>
+</section>
+<!-- Protection -->
+<section class="bg-surface-container-lowest border border-surface-container-highest rounded-lg p-gutter relative group hover:border-outline-variant transition-colors">
+<div class="flex justify-between items-start mb-stack-sm">
+<h2 class="text-headline-md font-headline-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-outline" style="font-variation-settings: 'FILL' 0;">health_and_safety</span>
+                        Protection
+                    </h2>
+<button class="text-label-caps font-label-caps text-secondary underline hover:opacity-80 transition-opacity">Modifier</button>
+</div>
+<p class="text-body-lg font-body-lg">Cuir chevelu sensible</p>
+</section>
+<!-- Service -->
+<section class="bg-surface-container-lowest border border-surface-container-highest rounded-lg p-gutter relative group hover:border-outline-variant transition-colors">
+<div class="flex justify-between items-start mb-stack-sm">
+<h2 class="text-headline-md font-headline-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-outline" style="font-variation-settings: 'FILL' 0;">content_cut</span>
+                        Service
+                    </h2>
+<button class="text-label-caps font-label-caps text-secondary underline hover:opacity-80 transition-opacity">Modifier</button>
+</div>
+<p class="text-body-lg font-body-lg">Assisté · Préparation / lavage</p>
+</section>
+<!-- Priorité -->
+<section class="bg-surface-container-lowest border border-surface-container-highest rounded-lg p-gutter relative group hover:border-outline-variant transition-colors">
+<div class="flex justify-between items-start mb-stack-sm">
+<h2 class="text-headline-md font-headline-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-outline" style="font-variation-settings: 'FILL' 0;">star</span>
+                        Priorité
+                    </h2>
+<button class="text-label-caps font-label-caps text-secondary underline hover:opacity-80 transition-opacity">Modifier</button>
+</div>
+<p class="text-body-lg font-body-lg">Résultat</p>
+</section>
+</div>
+<!-- Confirmation Checkbox -->
+<div class="mt-section-gap mb-section-gap flex items-start gap-4">
+<div class="flex items-center h-6">
+<input class="w-5 h-5 rounded-DEFAULT border-outline-variant text-primary focus:ring-primary focus:ring-offset-background bg-surface-container-lowest cursor-pointer transition-colors" id="confirm-checkbox" type="checkbox"/>
+</div>
+<label class="text-body-lg font-body-lg text-on-surface cursor-pointer select-none" for="confirm-checkbox">
+                Je confirme que cette demande décrit bien mon besoin
+            </label>
+</div>
+<div class="text-center pb-8">
+<span class="text-label-sm font-label-sm text-outline">→ DEMAND_QUALIFIED</span>
+</div>
+</main>
+<!-- Sticky Bottom Actions -->
+<div class="fixed bottom-0 left-0 w-full bg-background/95 backdrop-blur-sm border-t border-surface-container-highest px-container-margin py-stack-md flex gap-gutter justify-between items-center z-40">
+<button class="flex-1 py-3 px-6 rounded-lg border border-primary text-primary font-headline-md text-body-lg flex items-center justify-center hover:bg-surface-container transition-colors">
+            Revenir
+        </button>
+<!-- Primary button starts disabled, needs JS to enable based on checkbox -->
+<button class="flex-1 py-3 px-6 rounded-lg bg-surface-variant text-on-surface-variant font-headline-md text-body-lg flex items-center justify-center cursor-not-allowed transition-colors" disabled="" id="validate-btn">
+            Valider ma demande
+        </button>
+</div>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkbox = document.getElementById('confirm-checkbox');
+            const validateBtn = document.getElementById('validate-btn');
+
+            checkbox.addEventListener('change', (e) => {
+                if (e.target.checked) {
+                    validateBtn.disabled = false;
+                    validateBtn.classList.remove('bg-surface-variant', 'text-on-surface-variant', 'cursor-not-allowed');
+                    validateBtn.classList.add('bg-primary-container', 'text-on-primary', 'hover:opacity-90', 'cursor-pointer');
+                } else {
+                    validateBtn.disabled = true;
+                    validateBtn.classList.add('bg-surface-variant', 'text-on-surface-variant', 'cursor-not-allowed');
+                    validateBtn.classList.remove('bg-primary-container', 'text-on-primary', 'hover:opacity-90', 'cursor-pointer');
+                }
+            });
+        });
+    </script>
+</body></html>

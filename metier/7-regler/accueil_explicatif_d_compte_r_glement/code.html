@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Règlement - Décompte</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#c4c7c7",
+                    "error-container": "#ffdad6",
+                    "on-surface": "#1b1c1b",
+                    "primary-fixed-dim": "#c7c6c6",
+                    "on-secondary-container": "#785a19",
+                    "secondary-fixed": "#ffdea3",
+                    "background": "#fbf9f8",
+                    "surface": "#fbf9f8",
+                    "on-primary": "#ffffff",
+                    "secondary": "#775a19",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-container": "#a17f3c",
+                    "surface-dim": "#dbdad9",
+                    "surface-tint": "#5e5e5e",
+                    "on-secondary-fixed-variant": "#5c4200",
+                    "inverse-primary": "#c7c6c6",
+                    "on-tertiary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "primary": "#000101",
+                    "tertiary-container": "#271900",
+                    "surface-container-low": "#f5f3f2",
+                    "on-surface-variant": "#444748",
+                    "surface-variant": "#e4e2e1",
+                    "tertiary-fixed": "#ffdea6",
+                    "inverse-on-surface": "#f2f0ef",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#e9c177",
+                    "on-secondary": "#ffffff",
+                    "surface-container-highest": "#e4e2e1",
+                    "surface-bright": "#fbf9f8",
+                    "on-tertiary-fixed-variant": "#5d4201",
+                    "inverse-surface": "#303030",
+                    "tertiary": "#000000",
+                    "on-primary-fixed": "#1b1c1c",
+                    "secondary-fixed-dim": "#e8c176",
+                    "on-tertiary-fixed": "#271900",
+                    "primary-fixed": "#e3e2e2",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed-variant": "#464747",
+                    "on-primary-container": "#848484",
+                    "surface-container-high": "#e9e8e7",
+                    "surface-container": "#efedec",
+                    "secondary-container": "#fdd587",
+                    "on-background": "#1b1c1b",
+                    "outline": "#747878",
+                    "primary-container": "#1b1c1c",
+                    "on-secondary-fixed": "#261900"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "md": "16px",
+                    "margin-mobile": "20px",
+                    "base": "4px",
+                    "gutter": "16px",
+                    "sm": "8px",
+                    "xs": "4px",
+                    "lg": "24px",
+                    "margin-desktop": "64px",
+                    "xl": "40px"
+            },
+            "fontFamily": {
+                    "headline-sm": [
+                            "Manrope"
+                    ],
+                    "display-lg": [
+                            "Manrope"
+                    ],
+                    "body-lg": [
+                            "Manrope"
+                    ],
+                    "headline-md": [
+                            "Manrope"
+                    ],
+                    "label-mono": [
+                            "JetBrains Mono"
+                    ],
+                    "display-lg-mobile": [
+                            "Manrope"
+                    ],
+                    "body-sm": [
+                            "Manrope"
+                    ],
+                    "caption": [
+                            "Manrope"
+                    ]
+            },
+            "fontSize": {
+                    "headline-sm": [
+                            "20px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display-lg": [
+                            "40px",
+                            {
+                                    "lineHeight": "48px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-lg": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "label-mono": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "display-lg-mobile": [
+                            "32px",
+                            {
+                                    "lineHeight": "38px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-sm": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "caption": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "fontWeight": "500"
+                            }
+                    ]
+            }
+        },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom, 20px); }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-sm antialiased selection:bg-secondary-container selection:text-on-secondary-container min-h-screen flex flex-col">
+<header class="fixed top-0 w-full flex items-center h-16 px-margin-mobile z-50 bg-background border-b border-surface-variant flat no shadows transition-transform">
+<button aria-label="Retour" class="flex items-center justify-center w-10 h-10 -ml-2 text-primary hover:bg-surface-container-low transition-colors rounded-full press:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<h1 class="ml-2 font-headline-sm text-headline-sm-mobile text-primary dark:text-on-primary-fixed">Règlement</h1>
+</header>
+<main class="flex-1 mt-16 px-margin-mobile pb-32">
+<div class="mt-lg">
+<div class="inline-flex items-center px-sm py-xs bg-secondary-fixed/20 rounded-DEFAULT">
+<span class="font-label-mono text-label-mono text-on-secondary-fixed-variant">SOLDE À RÉGLER</span>
+<span class="ml-2 font-label-mono text-[10px] text-on-surface-variant uppercase tracking-wider opacity-60">SETTLEMENT_PENDING</span>
+</div>
+<h2 class="mt-md font-headline-md text-headline-md text-on-surface">Voici votre décompte</h2>
+<p class="mt-sm font-body-lg text-body-lg text-on-surface-variant">
+                La prestation est terminée. On calcule le montant final à partir du prix engagé, on impute l’acompte déjà versé, vous pouvez ajouter un pourboire optionnel, puis vous simulez le paiement du solde.
+            </p>
+</div>
+<div class="relative -mx-margin-mobile mt-xl h-[320px] bg-surface-container overflow-hidden">
+<img alt="Image d'illustration salon" class="w-full h-full object-cover" data-alt="A sophisticated editorial photograph of a black woman in a modern, high-end hair atelier. She is sitting comfortably, looking at her smartphone with a subtle, satisfied smile. The salon features warm, soft gold natural lighting filtering through sheer curtains, minimalist wooden furniture, and lush green plants. The aesthetic is clean, premium, and calm, employing a light mode palette with beige, soft white, and deep charcoal accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaiyTe-e0fjZ4qHdZP-dhkaz7yT2rzVx2vd6HuPIoj8pqPCiIimvpFUcLl-20JyFRpkENP13EUihEQMtVvgkH7IwgPFc5kT4BeKf4XL2gHOLDb7zkNCzk2YhBnFaTj-X5m2DC80NONZM7iVHE_aSEi4JHJvhMfrPxMFJSeWKlqEJCmdAiyBJJU0b3P8I4pDo058DluD7HemmpCbDbb8gUIKHPWLz65qc2bXWckQ1UyXyZ_H6havBk5Ow"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/30 to-transparent flex items-end p-margin-mobile">
+<p class="font-headline-md text-headline-md text-on-primary">Un solde clair, un dossier clos.</p>
+</div>
+</div>
+<div class="mt-xl">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-md">Ce que vous allez faire</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-sm">
+<div class="flex items-start p-md bg-surface-container-lowest border border-surface-variant rounded-xl transition-colors hover:bg-surface-container-low">
+<div class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container mr-md shrink-0">
+<span class="material-symbols-outlined text-on-surface-variant">receipt_long</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-[16px] text-on-surface mb-xs">Décompte</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Voir les mêmes lignes : prix engagé, acompte, tip, solde.</p>
+</div>
+</div>
+<div class="flex items-start p-md bg-surface-container-lowest border border-surface-variant rounded-xl transition-colors hover:bg-surface-container-low">
+<div class="w-10 h-10 rounded-full flex items-center justify-center bg-secondary-fixed/30 mr-md shrink-0">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-[16px] text-on-surface mb-xs">Pourboire</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Optionnel — une façon simple de remercier.</p>
+</div>
+</div>
+<div class="flex items-start p-md bg-surface-container-lowest border border-surface-variant rounded-xl transition-colors hover:bg-surface-container-low">
+<div class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container mr-md shrink-0">
+<span class="material-symbols-outlined text-on-surface-variant">credit_card</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-[16px] text-on-surface mb-xs">Paiement simulé</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Bouton « Payer le solde » — aucun prélèvement réel.</p>
+</div>
+</div>
+<div class="flex items-start p-md bg-surface-container-lowest border border-surface-variant rounded-xl transition-colors hover:bg-surface-container-low">
+<div class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container mr-md shrink-0">
+<span class="material-symbols-outlined text-on-surface-variant">task_alt</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-[16px] text-on-surface mb-xs">Clôture</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Obtenir SETTLED et débloquer la preuve d’expérience.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-xl p-md bg-surface-container-low rounded-lg border border-surface-variant">
+<p class="font-caption text-caption text-on-surface-variant">
+                Formule : final = prix engagé (+ tip) ; solde = final − acompte. Une seule commission plateforme côté styliste. Pas de remboursement dans cette démo.
+            </p>
+</div>
+</main>
+<div class="fixed bottom-0 w-full px-margin-mobile pt-md pb-safe bg-background/95 backdrop-blur-md border-t border-surface-variant z-50">
+<button class="w-full h-12 bg-primary-container text-on-primary font-headline-sm text-[16px] rounded-lg transition-transform active:scale-[0.98] flex items-center justify-center shadow-sm">
+            Voir mon décompte
+        </button>
+</div>
+</body></html>

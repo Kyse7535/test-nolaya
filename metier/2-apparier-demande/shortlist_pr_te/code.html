@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Atelier Synergy - Shortlist prête</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#5c4200",
+                        "tertiary-fixed": "#e8e1df",
+                        "on-tertiary-fixed": "#1e1b1a",
+                        "on-tertiary-container": "#888381",
+                        "tertiary-fixed-dim": "#ccc5c3",
+                        "surface-container-high": "#ebe7e7",
+                        "on-secondary-fixed": "#261900",
+                        "on-primary-fixed-variant": "#464747",
+                        "primary-fixed": "#e3e2e2",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#ddd9d8",
+                        "secondary-container": "#fdd587",
+                        "secondary-fixed": "#ffdea3",
+                        "outline": "#747878",
+                        "on-tertiary-fixed-variant": "#4a4645",
+                        "secondary": "#775a19",
+                        "primary-container": "#1b1c1c",
+                        "inverse-surface": "#313030",
+                        "outline-variant": "#c4c7c7",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#1b1c1c",
+                        "on-primary": "#ffffff",
+                        "on-background": "#1c1b1b",
+                        "tertiary": "#000000",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#f1edec",
+                        "on-surface": "#1c1b1b",
+                        "on-surface-variant": "#444748",
+                        "surface-tint": "#5e5e5e",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f7f3f2",
+                        "primary-fixed-dim": "#c7c6c6",
+                        "secondary-fixed-dim": "#e8c176",
+                        "primary": "#000101",
+                        "inverse-primary": "#c7c6c6",
+                        "tertiary-container": "#1e1b1a",
+                        "surface-variant": "#e5e2e1",
+                        "surface": "#fcf8f8",
+                        "on-secondary-container": "#785a19",
+                        "surface-bright": "#fcf8f8",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#848484",
+                        "background": "#fcf8f8",
+                        "inverse-on-surface": "#f4f0ef"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "lg": "24px",
+                        "xl": "40px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "32px",
+                        "md": "16px",
+                        "xs": "4px",
+                        "gutter": "16px",
+                        "2xl": "64px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "h1-mobile": ["Manrope"],
+                        "body-sm": ["Manrope"],
+                        "h1": ["Manrope"],
+                        "label-mono": ["JetBrains Mono"],
+                        "h2": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "h1-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "h1": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-mono": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "h2": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #fcf8f8;
+            color: #1c1b1b;
+        }
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        /* Custom scrollbar for horizontal list */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col items-center">
+<!-- Top App Bar -->
+<header class="w-full sticky top-0 z-50 bg-background dark:bg-background border-b border-outline-variant flex items-center justify-between px-margin-mobile h-16 w-full max-w-7xl mx-auto">
+<button aria-label="Retour" class="text-primary dark:text-primary hover:opacity-80 transition-opacity active:scale-95 transition-transform flex items-center justify-center p-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<h1 class="font-h1-mobile text-h1-mobile font-bold tracking-tight text-primary dark:text-primary uppercase">Atelier Synergy</h1>
+<div class="w-10"></div> <!-- Spacer for balance -->
+</header>
+<!-- Main Content Area -->
+<main class="w-full max-w-[390px] mx-auto flex-1 pb-2xl">
+<!-- Status & Intro Section -->
+<section class="px-margin-mobile pt-xl pb-lg border-b border-outline-variant bg-surface-container-lowest flex flex-col items-center text-center">
+<div class="inline-flex items-center gap-xs px-sm py-[2px] bg-secondary-container rounded-sm mb-lg">
+<span class="font-label-mono text-label-mono text-on-secondary-fixed uppercase tracking-wider">SHORTLIST PRÊTE</span>
+</div>
+<h2 class="font-h1-mobile text-h1-mobile mb-md text-primary">Shortlist prête</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm mb-lg">
+                Votre demande a été envoyée à 3 coiffeuses ; 2 ont accepté — vous pouvez passer aux offres fermes.
+            </p>
+<div class="font-label-mono text-[10px] leading-4 tracking-widest text-on-tertiary-container uppercase">
+                SHORTLIST_READY · RESPONSES_TO_CONVERT
+            </div>
+</section>
+<!-- Demand Recap (Compact) -->
+<section class="px-margin-mobile py-lg border-b border-outline-variant bg-surface-container-low">
+<h3 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-sm">Demande</h3>
+<div class="flex items-center gap-md font-body-sm text-body-sm text-on-surface">
+<span class="flex items-center gap-xs"><span class="material-symbols-outlined text-[16px] text-outline">content_cut</span> Knotless medium</span>
+<span class="text-outline-variant">•</span>
+<span class="flex items-center gap-xs"><span class="material-symbols-outlined text-[16px] text-outline">euro</span> max 120 €</span>
+<span class="text-outline-variant">•</span>
+<span class="flex items-center gap-xs"><span class="material-symbols-outlined text-[16px] text-outline">location_on</span> 15 km</span>
+</div>
+</section>
+<!-- Stylists List -->
+<section class="px-margin-mobile py-xl">
+<h3 class="font-h2 text-h2 mb-lg text-primary">Coiffeuses retenues</h3>
+<div class="flex flex-col gap-md">
+<!-- Stylist Card 1 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded p-lg flex flex-col gap-md shadow-sm">
+<div class="flex items-start gap-md">
+<div class="w-16 h-16 rounded overflow-hidden flex-shrink-0 bg-surface-variant">
+<img class="w-full h-full object-cover grayscale opacity-90 mix-blend-multiply" data-alt="A high-quality, editorial portrait of a professional Black female hairstylist with beautifully styled knotless braids. She is looking confidently at the camera, wearing a minimalist black apron over a white top. The background is a clean, bright, high-key studio setting typical of a premium salon, with soft natural lighting emphasizing the texture of her hair and the warmth of her skin. The overall aesthetic is modern, professional, and culturally sophisticated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAY3LhpKZoT_DJ3w8FMC_k2yxwh7V-8mricV1gYFNWHjNRITEnwW_h0MyHxW2gTwkHgicyEfOFjBrkHV21MTtFUntY0ezzc9aplzPSB-zt9M0JoeWF2c7n6vKLtQ9cJl21pPj22nVpEBlOYwfhwV4kpLL_4WIul-zDxGaKG74KbSLkhTTJtap-sG8kK1pmUgQHq2aUY0Xq16pi_CUFBugUijlBsbaQTJp94k5nuMnEyt2rIQ8QXkiBy"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-xs">
+<h4 class="font-body-lg text-body-lg font-semibold text-primary">Awa D.</h4>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-xs">Knotless</p>
+<div class="inline-flex items-center gap-xs px-xs py-1 bg-surface-container rounded-xs border border-outline-variant">
+<span class="material-symbols-outlined text-[14px] text-primary">check_circle</span>
+<span class="font-label-mono text-[10px] text-primary uppercase">Acceptation exacte</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Stylist Card 2 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded p-lg flex flex-col gap-md shadow-sm">
+<div class="flex items-start gap-md">
+<div class="w-16 h-16 rounded overflow-hidden flex-shrink-0 bg-surface-variant">
+<img class="w-full h-full object-cover grayscale opacity-90 mix-blend-multiply" data-alt="An editorial, high-end portrait of a chic Black female stylist specializing in textured hair, featuring elegant protective twists. She is in a minimalist, bright studio environment with neutral, calming tones. The lighting is soft and diffused, highlighting her professional demeanor and immaculate styling. She wears a crisp, tailored charcoal shirt. The mood conveys expertise, premium service, and calm authority." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTkNIhGgfsWZpspkJLInyKlAmsPk7Ijbwng6i_uDf5oPsVKBIUSU_4QPF-uNnwyvtkhXCOd6fOT89aIYptNBYqNSJ__P6gW22Ebl75JEaqLLAc90Z6ROYxdzgel7Il_0YpsRK91-dbgA2rNn3JNuQRBY_FYwN3Wn5C3RXfvF-oMZePU9PkxA34jFZxjwi1J8jaOV45wPNUwrS0QWbOUt1AqgaJdgKO90YRcvWQPxRa4RXy0NSFmq8W"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-xs">
+<h4 class="font-body-lg text-body-lg font-semibold text-primary">Mariam K.</h4>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-xs">Braids / twists</p>
+<div class="inline-flex items-center gap-xs px-xs py-1 bg-surface-container rounded-xs border border-outline-variant">
+<span class="material-symbols-outlined text-[14px] text-primary">check_circle</span>
+<span class="font-label-mono text-[10px] text-primary uppercase">Acceptation exacte</span>
+</div>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- Success Note & Actions -->
+<section class="px-margin-mobile pt-md pb-2xl flex flex-col gap-lg">
+<div class="bg-surface-container p-md border-l-4 border-primary rounded-r">
+<p class="font-body-sm text-body-sm text-on-surface">
+<span class="font-semibold block mb-xs">Prochaine étape :</span>
+                    Vérifier la faisabilité et former une proposition ferme. Pas de réservation ici.
+                </p>
+</div>
+<div class="flex flex-col gap-md mt-md">
+<button class="w-full bg-primary-container text-on-primary py-[16px] px-lg rounded font-label-sm text-label-sm uppercase tracking-widest hover:opacity-90 active:scale-[0.98] transition-all flex justify-center items-center gap-sm">
+                    Continuer vers l’offre ferme
+                    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+<button class="w-full bg-surface-container-lowest text-primary border border-primary py-[16px] px-lg rounded font-label-sm text-label-sm uppercase tracking-widest hover:bg-surface-container transition-colors active:scale-[0.98] transition-all">
+                    Voir le détail des réponses
+                </button>
+</div>
+</section>
+</main>
+</body></html>

@@ -1,0 +1,440 @@
+<!DOCTYPE html><html class="light" lang="fr"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Atelier Synergy - Qualification</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Google Fonts: Manrope & JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#e8c176",
+                    "primary-container": "#1b1c1c",
+                    "on-tertiary-fixed": "#271900",
+                    "outline-variant": "#c4c7c7",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed-dim": "#e9c177",
+                    "outline": "#747878",
+                    "on-secondary-fixed": "#261900",
+                    "on-surface-variant": "#444748",
+                    "on-tertiary-fixed-variant": "#5d4201",
+                    "surface-tint": "#5e5e5e",
+                    "primary-fixed-dim": "#c7c6c6",
+                    "secondary": "#775a19",
+                    "on-primary-container": "#848484",
+                    "on-background": "#1b1c1b",
+                    "background": "#fbf9f8",
+                    "surface-dim": "#dbdad9",
+                    "surface-container-highest": "#e4e2e1",
+                    "on-tertiary-container": "#a17f3c",
+                    "inverse-primary": "#c7c6c6",
+                    "tertiary-container": "#271900",
+                    "surface-container": "#efedec",
+                    "on-secondary-fixed-variant": "#5c4200",
+                    "secondary-fixed": "#ffdea3",
+                    "surface-variant": "#e4e2e1",
+                    "on-error-container": "#93000a",
+                    "inverse-surface": "#303030",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#1b1c1b",
+                    "primary": "#000101",
+                    "on-primary-fixed": "#1b1c1c",
+                    "error-container": "#ffdad6",
+                    "secondary-container": "#fdd587",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#ffdea6",
+                    "surface-bright": "#fbf9f8",
+                    "tertiary": "#000000",
+                    "on-secondary-container": "#785a19",
+                    "inverse-on-surface": "#f2f0ef",
+                    "on-primary": "#ffffff",
+                    "surface-container-low": "#f5f3f2",
+                    "primary-fixed": "#e3e2e2",
+                    "surface": "#fbf9f8",
+                    "on-primary-fixed-variant": "#464747",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-high": "#e9e8e7",
+                    "on-error": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "section-gap": "48px",
+                    "stack-md": "16px",
+                    "stack-lg": "32px",
+                    "stack-sm": "8px",
+                    "container-margin": "24px",
+                    "unit": "4px"
+            },
+            "fontFamily": {
+                    "label-caps": [
+                            "JetBrains Mono"
+                    ],
+                    "display-lg": [
+                            "Manrope"
+                    ],
+                    "body-lg": [
+                            "Manrope"
+                    ],
+                    "headline-md": [
+                            "Manrope"
+                    ],
+                    "body-sm": [
+                            "Manrope"
+                    ],
+                    "headline-lg-mobile": [
+                            "Manrope"
+                    ],
+                    "headline-lg": [
+                            "Manrope"
+                    ],
+                    "label-sm": [
+                            "JetBrains Mono"
+                    ]
+            },
+            "fontSize": {
+                    "label-caps": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "display-lg": [
+                            "40px",
+                            {
+                                    "lineHeight": "48px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-lg": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-md": [
+                            "20px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-sm": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-lg-mobile": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "label-sm": [
+                            "11px",
+                            {
+                                    "lineHeight": "14px",
+                                    "fontWeight": "400"
+                            }
+                    ]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Custom radio and checkbox styles */
+        input[type="radio"]:checked + div {
+            border-color: #1b1c1c;
+            background-color: #f5f3f2;
+        }
+        input[type="radio"]:checked + div .radio-inner {
+            background-color: #1b1c1c;
+            border-color: #1b1c1c;
+        }
+        input[type="checkbox"]:checked + div {
+            border-color: #1b1c1c;
+            background-color: #f5f3f2;
+        }
+        input[type="checkbox"]:checked + div .checkbox-inner {
+            background-color: #1b1c1c;
+            border-color: #1b1c1c;
+        }
+        input[type="checkbox"]:checked + div .checkbox-inner svg {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-lg antialiased pb-[100px]">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-background border-b border-surface-container-highest flex items-center justify-between px-container-margin h-16">
+<button class="text-primary hover:opacity-80 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</button>
+<h1 class="text-headline-md font-headline-md text-primary font-bold">Qualification</h1>
+<div class="bg-secondary-container text-secondary font-label-caps text-label-caps px-2 py-1 rounded-sm">
+            BROUILLON
+        </div>
+</header>
+<!-- Main Content -->
+<main class="pt-24 px-container-margin pb-section-gap">
+<!-- Stepper -->
+<div class="flex items-center gap-2 mb-8">
+<div class="h-1 flex-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[83%]"></div>
+</div>
+<span class="text-label-caps font-label-caps text-on-surface-variant">5/6</span>
+</div>
+<h2 class="text-headline-lg-mobile font-headline-lg-mobile mb-section-gap">Protection &amp; service</h2>
+<!-- Protection Section -->
+<section class="mb-section-gap">
+<h3 class="text-headline-md font-headline-md mb-stack-sm">Protection</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-stack-lg">Signalez ce qui doit être pris en compte (information, pas un diagnostic).</p>
+<div class="flex flex-col gap-stack-md">
+<label class="cursor-pointer relative">
+<input class="peer sr-only" type="checkbox">
+<div class="flex items-center p-stack-md border border-surface-container-highest rounded-lg hover:border-outline transition-colors bg-surface-container-lowest">
+<div class="checkbox-inner w-5 h-5 border border-outline rounded-sm mr-stack-md flex items-center justify-center transition-colors">
+<svg class="w-3 h-3 text-white hidden pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg>
+</div>
+<span class="font-body-lg text-body-lg">Cuir chevelu sensible</span>
+</div>
+</label>
+<label class="cursor-pointer relative">
+<input class="peer sr-only" type="checkbox">
+<div class="flex items-center p-stack-md border border-surface-container-highest rounded-lg hover:border-outline transition-colors bg-surface-container-lowest">
+<div class="checkbox-inner w-5 h-5 border border-outline rounded-sm mr-stack-md flex items-center justify-center transition-colors">
+<svg class="w-3 h-3 text-white hidden pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg>
+</div>
+<span class="font-body-lg text-body-lg">Cheveux fragilisés / cassants</span>
+</div>
+</label>
+<label class="cursor-pointer relative">
+<input class="peer sr-only" type="checkbox">
+<div class="flex items-center p-stack-md border border-surface-container-highest rounded-lg hover:border-outline transition-colors bg-surface-container-lowest">
+<div class="checkbox-inner w-5 h-5 border border-outline rounded-sm mr-stack-md flex items-center justify-center transition-colors">
+<svg class="w-3 h-3 text-white hidden pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg>
+</div>
+<span class="font-body-lg text-body-lg">Allergie connue (à préciser plus tard)</span>
+</div>
+</label>
+<label class="cursor-pointer relative">
+<input class="peer sr-only" type="checkbox">
+<div class="flex items-center p-stack-md border border-surface-container-highest rounded-lg hover:border-outline transition-colors bg-surface-container-lowest">
+<div class="checkbox-inner w-5 h-5 border border-outline rounded-sm mr-stack-md flex items-center justify-center transition-colors">
+<svg class="w-3 h-3 text-white hidden pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg>
+</div>
+<span class="font-body-lg text-body-lg">Aucune contrainte particulière</span>
+</div>
+</label>
+</div>
+</section>
+<!-- Service Level Section -->
+<section class="mb-section-gap">
+<h3 class="text-headline-md font-headline-md mb-stack-lg">Niveau de service</h3>
+<div class="grid grid-cols-2 gap-stack-md mb-stack-lg">
+<label class="cursor-pointer">
+<input class="peer sr-only" name="service_level" type="radio" value="complet">
+<div class="h-full flex flex-col items-center justify-center p-stack-lg rounded-lg hover:border-outline transition-colors bg-surface-container-lowest text-center border-2 border-primary bg-surface-container-low shadow-sm">
+<span class="material-symbols-outlined text-3xl mb-stack-sm text-primary">spa</span>
+<span class="font-body-lg text-body-lg font-medium">Complet</span>
+</div>
+</label>
+<!-- Pre-selected as per prompt -->
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" name="service_level" type="radio" value="assiste">
+<div class="h-full flex flex-col items-center justify-center p-stack-lg rounded-lg text-center border border-surface-container-highest">
+<span class="material-symbols-outlined text-3xl mb-stack-sm text-primary">handshake</span>
+<span class="font-body-lg text-body-lg font-medium">Assisté</span><p class="text-body-sm font-body-sm text-on-surface-variant mt-1 px-2">Le niveau de service assisté permet de vous faire gagner du temps, et permettre à la coiffeuse de bien faire son travail (recommandé)</p>
+</div>
+</label>
+</div>
+<!-- Conditional Sub-section for 'Assisté' -->
+<div class="bg-surface-container-low p-container-margin rounded-lg border border-surface-container-highest" id="assiste-tasks" style="display: none;">
+<h4 class="text-body-lg font-body-lg font-semibold mb-stack-md">Tâches que vous acceptez</h4>
+<div class="flex flex-col gap-stack-sm">
+<label class="cursor-pointer relative flex items-start py-2">
+<input class="peer sr-only" type="checkbox">
+<div class="mt-1 w-5 h-5 border border-outline rounded-sm mr-stack-md flex-shrink-0 flex items-center justify-center transition-colors peer-checked:bg-primary peer-checked:border-primary">
+<svg class="w-3 h-3 text-white hidden peer-checked:block pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg>
+</div>
+<span class="font-body-sm text-body-sm">Préparation / lavage</span>
+</label>
+<label class="cursor-pointer relative flex items-start py-2">
+<input class="peer sr-only" type="checkbox">
+<div class="mt-1 w-5 h-5 border border-outline rounded-sm mr-stack-md flex-shrink-0 flex items-center justify-center transition-colors peer-checked:bg-primary peer-checked:border-primary">
+<svg class="w-3 h-3 text-white hidden peer-checked:block pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg>
+</div>
+<span class="font-body-sm text-body-sm">Démêlage</span>
+</label>
+<label class="cursor-pointer relative flex items-start py-2">
+<input class="peer sr-only" type="checkbox">
+<div class="mt-1 w-5 h-5 border border-outline rounded-sm mr-stack-md flex-shrink-0 flex items-center justify-center transition-colors peer-checked:bg-primary peer-checked:border-primary">
+<svg class="w-3 h-3 text-white hidden peer-checked:block pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg>
+</div>
+<span class="font-body-sm text-body-sm">Apport des mèches</span>
+</label>
+</div>
+</div>
+</section>
+<!-- Search Priority Section -->
+<section class="mb-section-gap">
+<h3 class="text-headline-md font-headline-md mb-stack-sm">Priorité de recherche</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-stack-lg italic">La priorité guide le matching plus tard — pas ici.</p>
+<div class="flex flex-col gap-stack-md">
+<label class="cursor-pointer relative">
+<input class="peer sr-only" name="search_priority" type="radio" value="result">
+<div class="flex items-center p-stack-md border border-surface-container-highest rounded-lg hover:border-outline transition-colors bg-surface-container-lowest">
+<div class="radio-inner w-5 h-5 border border-outline rounded-full mr-stack-md flex items-center justify-center transition-colors">
+<div class="w-2 h-2 bg-white rounded-full hidden"></div>
+</div>
+<div class="flex flex-col">
+<span class="font-body-lg text-body-lg font-medium">Résultat</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">La fidélité au style prime</span>
+</div>
+</div>
+</label>
+<label class="cursor-pointer relative">
+<input class="peer sr-only" name="search_priority" type="radio" value="price">
+<div class="flex items-center p-stack-md border border-surface-container-highest rounded-lg hover:border-outline transition-colors bg-surface-container-lowest">
+<div class="radio-inner w-5 h-5 border border-outline rounded-full mr-stack-md flex items-center justify-center transition-colors">
+<div class="w-2 h-2 bg-white rounded-full hidden"></div>
+</div>
+<div class="flex flex-col">
+<span class="font-body-lg text-body-lg font-medium">Prix</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Rester dans mon budget max</span>
+</div>
+</div>
+</label>
+<label class="cursor-pointer relative">
+<input class="peer sr-only" name="search_priority" type="radio" value="proximity">
+<div class="flex items-center p-stack-md border border-surface-container-highest rounded-lg hover:border-outline transition-colors bg-surface-container-lowest">
+<div class="radio-inner w-5 h-5 border border-outline rounded-full mr-stack-md flex items-center justify-center transition-colors">
+<div class="w-2 h-2 bg-white rounded-full hidden"></div>
+</div>
+<div class="flex flex-col">
+<span class="font-body-lg text-body-lg font-medium">Proximité</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Minimiser les déplacements</span>
+</div>
+</div>
+</label>
+<label class="cursor-pointer relative">
+<input class="peer sr-only" name="search_priority" type="radio" value="availability">
+<div class="flex items-center p-stack-md border border-surface-container-highest rounded-lg hover:border-outline transition-colors bg-surface-container-lowest">
+<div class="radio-inner w-5 h-5 border border-outline rounded-full mr-stack-md flex items-center justify-center transition-colors">
+<div class="w-2 h-2 bg-white rounded-full hidden"></div>
+</div>
+<div class="flex flex-col">
+<span class="font-body-lg text-body-lg font-medium">Disponibilité</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">La date compte le plus</span>
+</div>
+</div>
+</label>
+</div>
+</section>
+<!-- Optional Editorial Image -->
+<div class="mt-section-gap mb-8 rounded-lg overflow-hidden border border-surface-container-highest h-64">
+<div class="w-full h-full bg-cover bg-center" data-alt="A warm, professional close-up portrait of a Black woman with elegant, intricate protective Afro styling (braids). Soft, high-key studio lighting creates a luxurious, minimalist light-mode aesthetic. The background is a pristine, soft off-white. The mood is confident, premium, and sophisticated, perfectly aligned with a high-end salon editorial look." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBVd3exob29il3NlLZQE3hbcZlUkfHpOKOEso3PPGgrZfODWdOEgcSIl_3QEEYKb_OPZUbSDkIwtUWBiG-rDs0uYXE0J62jgkKAUjkYqAofx4E9q-DoLUQqJog9r75eun0EtzYyoy7cRk-erGQhZlvXELbHMsHCKjjTZ3NAdBuDjZHaD4rnVNVMn7UhJ-8NSXLLjAOBdDITkE0Rn9K4mKu93WzZMnEQfJou1xblG94u_Z5ycqBd41bU')"></div>
+</div>
+</main>
+<!-- Sticky Bottom CTA (No nav shell as this is an operational flow) -->
+<div class="fixed bottom-0 left-0 w-full bg-surface-container-lowest border-t border-surface-container-highest p-container-margin pb-8 z-50">
+<button class="w-full bg-primary-container text-on-primary h-14 rounded-lg font-body-lg font-medium hover:opacity-90 transition-opacity flex items-center justify-center">
+            Voir le résumé
+        </button>
+</div>
+<!-- Script to handle custom radio dots if needed (CSS mostly handles it, but for completeness) -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const radios = document.querySelectorAll('input[type="radio"]');
+            radios.forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    // Reset all inner dots
+                    document.querySelectorAll('.radio-inner div').forEach(dot => dot.classList.add('hidden'));
+                    // Show current dot
+                    if(e.target.checked) {
+                        e.target.nextElementSibling.querySelector('.radio-inner div').classList.remove('hidden');
+                    }
+                });
+            });
+            
+            // Service level toggle logic for visual demonstration
+            const serviceRadios = document.querySelectorAll('input[name="service_level"]');
+            const assisteTasks = document.getElementById('assiste-tasks');
+            
+            serviceRadios.forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    if(e.target.value === 'assiste') {
+                        assisteTasks.style.display = 'block';
+                        // Re-apply selected styles to the cards
+                        e.target.nextElementSibling.classList.add('border-2', 'border-primary', 'bg-surface-container-low', 'shadow-sm');
+                        e.target.nextElementSibling.classList.remove('border', 'border-surface-container-highest');
+                        
+                        // Reset the other card
+                        const completCard = document.querySelector('input[value="complet"]').nextElementSibling;
+                        completCard.classList.remove('border-2', 'border-primary', 'bg-surface-container-low', 'shadow-sm');
+                        completCard.classList.add('border', 'border-surface-container-highest');
+                        
+                    } else {
+                        assisteTasks.style.display = 'none';
+                        
+                        // Apply selected styles to complet
+                        e.target.nextElementSibling.classList.add('border-2', 'border-primary', 'bg-surface-container-low', 'shadow-sm');
+                        e.target.nextElementSibling.classList.remove('border', 'border-surface-container-highest');
+                        
+                        // Reset the other card
+                        const assisteCard = document.querySelector('input[value="assiste"]').nextElementSibling;
+                        assisteCard.classList.remove('border-2', 'border-primary', 'bg-surface-container-low', 'shadow-sm');
+                        assisteCard.classList.add('border', 'border-surface-container-highest');
+                    }
+                });
+            });
+            
+            // Initialize the pre-selected radio dot visually
+            const checkedRadios = document.querySelectorAll('input[type="radio"]:checked');
+            checkedRadios.forEach(radio => {
+                const inner = radio.nextElementSibling.querySelector('.radio-inner div');
+                if(inner) inner.classList.remove('hidden');
+            });
+        });
+    </script>
+
+
+</body></html>

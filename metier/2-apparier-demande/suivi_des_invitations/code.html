@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Suivi des invitations - Atelier Synergy</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar for a cleaner editorial look */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fcf8f8;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e5e2e1;
+            border-radius: 4px;
+        }
+    </style>
+<!-- Tailwind Config -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f7f3f2",
+                        "secondary-fixed-dim": "#e8c176",
+                        "on-background": "#1c1b1b",
+                        "on-surface-variant": "#444748",
+                        "background": "#fcf8f8",
+                        "surface-tint": "#5e5e5e",
+                        "secondary-fixed": "#ffdea3",
+                        "tertiary": "#000000",
+                        "on-primary-fixed": "#1b1c1c",
+                        "on-primary-fixed-variant": "#464747",
+                        "on-tertiary-fixed": "#1e1b1a",
+                        "inverse-primary": "#c7c6c6",
+                        "inverse-surface": "#313030",
+                        "tertiary-fixed": "#e8e1df",
+                        "tertiary-fixed-dim": "#ccc5c3",
+                        "primary": "#000101",
+                        "on-tertiary": "#ffffff",
+                        "surface-bright": "#fcf8f8",
+                        "error-container": "#ffdad6",
+                        "surface": "#fcf8f8",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#f1edec",
+                        "on-secondary-fixed-variant": "#5c4200",
+                        "surface-variant": "#e5e2e1",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#fdd587",
+                        "on-tertiary-container": "#888381",
+                        "on-primary-container": "#848484",
+                        "surface-container-high": "#ebe7e7",
+                        "inverse-on-surface": "#f4f0ef",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#1e1b1a",
+                        "primary-fixed-dim": "#c7c6c6",
+                        "on-surface": "#1c1b1b",
+                        "on-secondary-container": "#785a19",
+                        "primary-container": "#1b1c1c",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#e3e2e2",
+                        "surface-dim": "#ddd9d8",
+                        "outline": "#747878",
+                        "on-secondary-fixed": "#261900",
+                        "outline-variant": "#c4c7c7",
+                        "on-tertiary-fixed-variant": "#4a4645",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#e5e2e1",
+                        "secondary": "#775a19"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "xl": "40px",
+                        "md": "16px",
+                        "margin-mobile": "16px",
+                        "2xl": "64px",
+                        "lg": "24px",
+                        "base": "4px",
+                        "xs": "4px",
+                        "sm": "8px",
+                        "margin-desktop": "32px"
+                    },
+                    "fontFamily": {
+                        "label-mono": ["JetBrains Mono"],
+                        "label-sm": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "h2": ["Manrope"],
+                        "h1-mobile": ["Manrope"],
+                        "body-sm": ["Manrope"],
+                        "h1": ["Manrope"],
+                        "body-md": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "label-mono": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "h2": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "h1-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "h1": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen pb-[100px] antialiased selection:bg-surface-variant selection:text-primary">
+<!-- TopAppBar (From JSON Template) -->
+<!-- Applying exact style_ keys from JSON per Conflict Resolution Protocol -->
+<header class="w-full sticky top-0 z-50 bg-background dark:bg-background border-b border-outline-variant flex items-center justify-between px-margin-mobile h-16 w-full max-w-7xl mx-auto">
+<button aria-label="Retour" class="text-primary dark:text-primary hover:opacity-80 transition-opacity active:scale-95 transition-transform flex items-center justify-center w-10 h-10 -ml-2 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<h1 class="font-h1-mobile text-h1-mobile font-bold tracking-tight text-primary dark:text-primary uppercase absolute left-1/2 -translate-x-1/2 whitespace-nowrap">
+            Atelier Synergy
+        </h1>
+<!-- Empty div for flex balance -->
+<div class="w-10"></div>
+</header>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop pt-lg md:pt-xl pb-2xl">
+<!-- Page Header & Title Context -->
+<div class="flex flex-col gap-sm mb-xl md:mb-2xl">
+<div class="flex items-center justify-between w-full">
+<div class="flex items-center gap-sm">
+<span class="inline-block bg-surface-container-high px-sm py-[2px] rounded font-label-mono text-label-mono text-on-surface uppercase border border-outline-variant">
+                        VAGUE 1
+                    </span>
+</div>
+<button aria-label="Rafraîchir les données" class="text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center p-2 -mr-2 rounded-full">
+<span class="material-symbols-outlined text-[20px]">refresh</span>
+</button>
+</div>
+<h2 class="font-h1-mobile text-h1-mobile md:font-h1 md:text-h1 text-primary">
+                Suivi des invitations
+            </h2>
+</div>
+<!-- Progress Section (Bento/Card Style) -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-lg p-lg mb-xl shadow-none">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-md mb-md">
+<div>
+<p class="font-label-mono text-label-mono text-on-surface-variant uppercase mb-xs">Progression</p>
+<div class="flex items-baseline gap-xs">
+<span class="font-h1-mobile text-h1-mobile md:font-h1 md:text-h1 text-primary tracking-tight font-label-mono">2 / 2</span>
+<span class="font-body-md text-body-md text-on-surface-variant">acceptations exactes</span>
+</div>
+</div>
+<div class="bg-secondary-fixed/20 border border-secondary-fixed-dim px-md py-xs rounded flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px] text-on-secondary-fixed-variant" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-label-sm text-label-sm text-on-secondary-fixed-variant uppercase tracking-wider">Seuil atteint</span>
+</div>
+</div>
+<!-- Structural Progress Bar -->
+<div class="w-full h-1 bg-surface-container-high rounded-full overflow-hidden mt-sm">
+<div class="h-full bg-primary w-full rounded-full transition-all duration-1000 ease-out"></div>
+</div>
+</section>
+<!-- Invitation List -->
+<section class="mb-lg">
+<div class="flex flex-col border-t border-outline-variant">
+<!-- Row 1: Awa D. -->
+<div class="flex items-center justify-between py-md border-b border-outline-variant group hover:bg-surface-container-low/50 transition-colors cursor-default">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-outline-variant bg-surface-container flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A highly detailed, professional editorial headshot of a beautiful Black woman with perfectly styled knotless box braids. She is wearing a minimalist, tailored dark gray top. High-key, soft white studio lighting highlights the texture of her hair and her flawless skin. Set against a pure white background, embodying a premium, high-end studio aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7YKxAc4dUycWHSZJmGzCRrUzIPLd9rdCHYWrd53gNOu3fooO5aoDJSI6Sws6Abr8uzrNUtfnPVXS--7Od49kOksf90oIB3Oa6RMIS1MAgvb4FTEVOyLs1n6JlmT5f0c-t10nmFURznjuV7a2z0cTC_He0OUd14y_sCAioB0wvOjSfJEMpZnjzUo6UpS_giOd8dxpd5dTEPxK1Iopj7Zi2BJpiqHweSL_Zwz6UZKsmeUBSomHXchjl"/>
+</div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-primary font-medium">Awa D.</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant uppercase mt-[2px]">Knotless</span>
+</div>
+</div>
+<div class="flex-shrink-0">
+<span class="inline-flex items-center justify-center bg-secondary-fixed text-on-secondary-fixed-variant px-sm py-[2px] rounded font-label-mono text-label-mono uppercase tracking-wide border border-secondary-fixed-dim">
+                            Acceptée
+                        </span>
+</div>
+</div>
+<!-- Row 2: Mariam K. -->
+<div class="flex items-center justify-between py-md border-b border-outline-variant group hover:bg-surface-container-low/50 transition-colors cursor-default">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-outline-variant bg-surface-container flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A striking, professional portrait of a stylish Black woman with neat, shoulder-length two-strand twists. She has a serene expression and is dressed in an elegant, structured off-white blouse. The lighting is soft and diffused, creating a calm, expert mood typical of high-touch service branding. Shot against a pristine, seamless light gray backdrop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjeVyhLWlKQYZbRA4DmxRaQU6GnHZHzIN4K8zMSYY2lAQc-cMGJ4RIU6XtyYPtnLm9zZEHERb0uxKIS2Ran1bx-h0qQaHn-O2znRJxeUU61JXkBVHWQSqT9fGqDVoEHUcwTn2YXWmC1udQzHRJQNG2QuEcACCOjLGlMXlkpWPYYEJmynP-v3QYg3obHSxZg1qiCpDLz7Rtrh5d6YzSu7-vhZa98bqoQ9MPLrWTu9RFzJQqXCyNV3Au"/>
+</div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-primary font-medium">Mariam K.</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant uppercase mt-[2px]">Braids / twists</span>
+</div>
+</div>
+<div class="flex-shrink-0">
+<span class="inline-flex items-center justify-center bg-secondary-fixed text-on-secondary-fixed-variant px-sm py-[2px] rounded font-label-mono text-label-mono uppercase tracking-wide border border-secondary-fixed-dim">
+                            Acceptée
+                        </span>
+</div>
+</div>
+<!-- Row 3: Fatou B. -->
+<div class="flex items-center justify-between py-md border-b border-outline-variant group hover:bg-surface-container-low/50 transition-colors cursor-default">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-outline-variant bg-surface-container flex-shrink-0 opacity-80 mix-blend-luminosity grayscale-[20%]">
+<img class="w-full h-full object-cover" data-alt="An elegant editorial headshot of a confident Black woman showcasing beautifully defined flat twists or 'vanilles' pulled back neatly. She wears a simple, sophisticated black turtleneck. The studio lighting is meticulously arranged to provide a modern, minimalist light-mode aesthetic, emphasizing structural integrity and professional reliability. Pure white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOSTsl1h1oddDJMP2zT-SszeNGJu7RJjNtXY1ekkWSvGrbq1dHQJuxNYAHYHROGg6xEcJesrAljJSVvBlwey8L1OElR1YCZhbaBKF4FY8JAjy8Q4nqyGWPcS8Tnlrzic68RoZY2bs_pIh-jk74AwMQ0-eOEgKD4bLo56jzVilIIgscNCcn-qaw93mHAdGbmIX5RIO7j4wpgOwdCqEsI8X3l8L6EX8cgw742n_HCyoYtXTJKYbltvWy"/>
+</div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface-variant font-medium">Fatou B.</span>
+<span class="font-label-mono text-label-mono text-outline uppercase mt-[2px]">Vanilles</span>
+</div>
+</div>
+<div class="flex-shrink-0">
+<span class="inline-flex items-center justify-center bg-surface-container-high text-on-surface-variant px-sm py-[2px] rounded font-label-mono text-label-mono uppercase tracking-wide border border-outline-variant">
+                            En attente
+                        </span>
+</div>
+</div>
+</div>
+</section>
+<!-- Success Note -->
+<div class="flex items-start gap-sm bg-surface-bright border border-outline-variant p-md rounded">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant mt-[2px]">info</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                2 acceptations exactes suffisent pour constituer la shortlist.
+            </p>
+</div>
+</main>
+<!-- Sticky Primary CTA -->
+<div class="fixed bottom-0 left-0 w-full bg-background/95 backdrop-blur-md border-t border-outline-variant p-margin-mobile z-40 flex justify-center pb-[max(16px,env(safe-area-inset-bottom))]">
+<div class="w-full max-w-7xl mx-auto flex justify-center md:justify-end">
+<button class="w-full md:w-auto bg-primary hover:bg-on-primary-fixed-variant text-on-primary font-label-sm text-label-sm uppercase tracking-wider px-16 py-4 rounded transition-colors active:scale-[0.98] flex items-center justify-center gap-sm">
+<span>Voir la shortlist</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</body></html>

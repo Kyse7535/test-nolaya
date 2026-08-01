@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Atelier Synergy - Confirmation de Succès</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#fdd587",
+                        "secondary": "#775a19",
+                        "on-secondary-container": "#785a19",
+                        "inverse-primary": "#c7c6c6",
+                        "tertiary": "#000000",
+                        "primary": "#000101",
+                        "tertiary-fixed": "#ffdea6",
+                        "surface-bright": "#fbf9f8",
+                        "on-tertiary-fixed-variant": "#5d4201",
+                        "error": "#ba1a1a",
+                        "on-surface": "#1b1c1b",
+                        "surface-container-low": "#f5f3f2",
+                        "on-error-container": "#93000a",
+                        "outline": "#747878",
+                        "inverse-on-surface": "#f2f0ef",
+                        "primary-fixed-dim": "#c7c6c6",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#271900",
+                        "outline-variant": "#c4c7c7",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#261900",
+                        "on-tertiary-container": "#a17f3c",
+                        "on-primary-fixed": "#1b1c1c",
+                        "on-primary-fixed-variant": "#464747",
+                        "secondary-fixed": "#ffdea3",
+                        "on-surface-variant": "#444748",
+                        "surface-variant": "#e4e2e1",
+                        "surface-container": "#efedec",
+                        "surface-tint": "#5e5e5e",
+                        "surface-container-high": "#e9e8e7",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#271900",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#1b1c1c",
+                        "surface": "#fbf9f8",
+                        "primary-fixed": "#e3e2e2",
+                        "on-background": "#1b1c1b",
+                        "tertiary-fixed-dim": "#e9c177",
+                        "inverse-surface": "#303030",
+                        "on-secondary-fixed-variant": "#5c4200",
+                        "secondary-fixed-dim": "#e8c176",
+                        "surface-dim": "#dbdad9",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#848484",
+                        "background": "#fbf9f8",
+                        "surface-container-highest": "#e4e2e1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "gutter": "16px",
+                        "unit": "4px",
+                        "stack-sm": "8px",
+                        "stack-lg": "32px",
+                        "margin-tablet": "40px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Manrope"],
+                        "headline-lg-mobile": ["Manrope"],
+                        "body-sm": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "label-mono": ["JetBrains Mono"],
+                        "label-status": ["JetBrains Mono"],
+                        "body-md": ["Manrope"],
+                        "headline-xl": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-mono": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "label-status": ["11px", { "lineHeight": "14px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .font-mono-custom { font-family: 'JetBrains Mono', monospace; }
+        
+        /* Subtle entry animation */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-up {
+            animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface h-full flex flex-col items-center justify-center text-on-surface antialiased overflow-x-hidden w-full max-w-md mx-auto relative">
+<!-- Note: TopAppBar and BottomNavBar are intentionally omitted as this is a linear/transactional success screen -->
+<!-- Main Canvas -->
+<main class="flex-1 w-full flex flex-col relative pt-8 pb-32">
+<!-- Hero Visual Area -->
+<section class="w-full px-margin-mobile mb-stack-lg relative z-10 opacity-0 animate-fade-up">
+<div class="relative w-full aspect-[4/5] bg-surface-container-low rounded-lg overflow-hidden border border-outline-variant p-1">
+<!-- Inner container to maintain 1px stroke around image as per guidelines -->
+<div class="w-full h-full rounded border border-surface-variant relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A premium, editorial-style photograph of a Black female stylist with beautiful textured natural hair in a pristine, modern atelier studio setting. She is looking at her phone or directly at the camera with a subtle, confident, and joyous expression of success. The lighting is soft, high-key, and professional, emphasizing the elegant and sophisticated mood of the Atelier Synergy brand. The color palette is composed of crisp whites, soft creams, and rich dark charcoal tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9BWZucOXpYY5ODxCRHg4_TMc3InRzbC87gg3ch-hlhHoBa1SkMkHgGO3IYrRn8L5SLUqp2wAGWYmzkaKNpLVWkqgKarEtj5LRD6Kl3fZ7GKENPPx9KFA6MdeAm2t-lDfpxB5Dw2bx0qOHZ5Lnt0ZpLYFTnv_MkFE728YMXMxni39h_gSgmjyCT070NRsIPzRVVkIPjtHZeFqCBRyB_TDi1roFkKrMp9GWL4Jrl6zbxpr5qvTQIZbl"/>
+<!-- Overlay Gradient to ensure text legibility if needed, though design is clean -->
+<div class="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent pointer-events-none"></div>
+</div>
+</div>
+</section>
+<!-- Content Area -->
+<section class="w-full px-margin-mobile flex flex-col items-center text-center z-20">
+<!-- Badges & Technical Codes -->
+<div class="flex flex-col items-center gap-stack-sm mb-stack-md opacity-0 animate-fade-up delay-100">
+<span class="inline-flex items-center justify-center bg-surface-bright text-secondary font-label-mono text-label-mono px-3 py-1.5 rounded-full border border-secondary-container">
+                    OFFRE FERME
+                </span>
+<div class="flex items-center gap-2 text-on-surface-variant font-label-mono text-label-status opacity-60">
+<span>FIRM_PROPOSAL</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span>SOFT_HOLD</span>
+</div>
+</div>
+<!-- Typography -->
+<div class="flex flex-col gap-stack-sm mb-stack-lg opacity-0 animate-fade-up delay-200 w-full max-w-[320px] mx-auto">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">
+                    Offre ferme publiée
+                </h1>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    Votre proposition est datée. Le créneau du samedi 15 mars à 09:30 est en soft-hold en attendant l’acceptation de la cliente.
+                </p>
+</div>
+<!-- Recap Section -->
+<div class="w-full py-4 border-y border-surface-variant flex flex-col items-center gap-2 opacity-0 animate-fade-up delay-300 bg-surface-bright">
+<div class="flex items-center justify-center gap-3 font-body-sm text-body-sm text-on-surface-variant">
+<span class="font-medium text-on-surface">220 €</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span>Vanilles mi-longues</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span>4 h 30</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Fixed Bottom Actions -->
+<div class="fixed bottom-0 left-0 w-full bg-gradient-to-t from-surface via-surface to-transparent pt-12 pb-8 px-margin-mobile flex flex-col gap-unit z-50">
+<div class="w-full max-w-md mx-auto flex flex-col gap-stack-sm">
+<!-- Primary Action -->
+<button class="w-full h-[56px] flex items-center justify-center bg-primary text-on-primary rounded font-body-md text-body-md transition-colors hover:bg-primary-fixed-variant active:scale-[0.98]">
+                Voir l’offre publiée
+            </button>
+<!-- Secondary Action -->
+<button class="w-full h-[56px] flex items-center justify-center bg-transparent text-primary border border-primary rounded font-body-md text-body-md transition-colors hover:bg-surface-container-low active:scale-[0.98]">
+                Retour à l’accueil
+            </button>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checklist coiffeuse</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#775a19",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#efedec",
+                        "secondary-container": "#fdd587",
+                        "primary-fixed": "#e3e2e2",
+                        "surface-variant": "#e4e2e1",
+                        "surface-tint": "#5e5e5e",
+                        "on-secondary-fixed-variant": "#5c4200",
+                        "on-tertiary-fixed": "#271900",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#e9c177",
+                        "primary-container": "#1b1c1c",
+                        "secondary-fixed-dim": "#e8c176",
+                        "on-surface-variant": "#444748",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "tertiary": "#000000",
+                        "surface-container-high": "#e9e8e7",
+                        "on-secondary-fixed": "#261900",
+                        "inverse-surface": "#303030",
+                        "surface-container-highest": "#e4e2e1",
+                        "tertiary-container": "#271900",
+                        "on-primary-fixed-variant": "#464747",
+                        "background": "#fbf9f8",
+                        "outline": "#747878",
+                        "on-tertiary-fixed-variant": "#5d4201",
+                        "secondary-fixed": "#ffdea3",
+                        "inverse-on-surface": "#f2f0ef",
+                        "surface-dim": "#dbdad9",
+                        "on-secondary-container": "#785a19",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#c7c6c6",
+                        "outline-variant": "#c4c7c7",
+                        "on-tertiary-container": "#a17f3c",
+                        "on-surface": "#1b1c1b",
+                        "on-primary": "#ffffff",
+                        "on-background": "#1b1c1b",
+                        "on-primary-container": "#848484",
+                        "tertiary-fixed": "#ffdea6",
+                        "surface-container-low": "#f5f3f2",
+                        "on-primary-fixed": "#1b1c1c",
+                        "surface": "#fbf9f8",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed-dim": "#c7c6c6",
+                        "surface-bright": "#fbf9f8",
+                        "error-container": "#ffdad6",
+                        "primary": "#000101"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "stack-sm": "8px",
+                        "gutter-mobile": "12px",
+                        "stack-lg": "32px",
+                        "stack-md": "16px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "caption": ["Manrope"],
+                        "label-mono": ["JetBrains Mono"],
+                        "headline-sm": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "display-lg": ["Manrope"],
+                        "headline-md": ["Manrope"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .font-label-mono { font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 16px; letter-spacing: 0.05em; font-weight: 500; }
+        .font-caption { font-size: 12px; line-height: 16px; font-weight: 500; }
+        .font-headline-sm { font-size: 20px; line-height: 28px; font-weight: 600; }
+        .font-body-md { font-size: 14px; line-height: 20px; font-weight: 400; }
+        
+        /* Subtle custom styling to match the premium editorial feel */
+        .glass-panel {
+            background: rgba(251, 249, 248, 0.95);
+            backdrop-filter: blur(8px);
+        }
+        
+        .list-item-border {
+            border-bottom: 1px solid theme('colors.surface-container-highest');
+        }
+        
+        /* Checkbox styling */
+        .custom-checkbox {
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border: 1px solid theme('colors.outline-variant');
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .custom-checkbox:checked {
+            background-color: theme('colors.primary-container');
+            border-color: theme('colors.primary-container');
+        }
+        .custom-checkbox:checked::after {
+            content: '\e5ca'; /* Material Icons check */
+            font-family: 'Material Symbols Outlined';
+            color: theme('colors.on-primary');
+            font-size: 18px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col antialiased">
+<!-- Sticky Header -->
+<header class="sticky top-0 z-40 glass-panel border-b border-surface-container-highest flex items-center justify-between px-margin-mobile w-full h-16">
+<button aria-label="Retour" class="w-10 h-10 flex items-center justify-center text-primary active:opacity-70 transition-opacity">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<h1 class="font-headline-sm font-semibold text-primary">Checklist coiffeuse</h1>
+<button aria-label="Options" class="w-10 h-10 flex items-center justify-center text-primary active:opacity-70 transition-opacity">
+<span class="material-symbols-outlined text-[24px]">more_vert</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-margin-mobile py-stack-lg flex flex-col gap-stack-lg overflow-y-auto pb-32">
+<!-- Context & Intro -->
+<section class="flex flex-col gap-stack-sm">
+<div class="inline-flex items-center self-start px-2 py-1 bg-surface-container-highest rounded text-on-surface font-label-mono mb-2">
+<span class="w-2 h-2 rounded-full bg-secondary mr-2"></span>
+                EN PRÉPARATION
+            </div>
+<p class="font-body-md text-on-surface-variant">
+                Validez votre préparation opérationnelle. Sans les actions bloquantes, le RDV ne peut pas passer à READY.
+            </p>
+<div class="mt-4 p-4 bg-surface-container-low rounded-lg border border-surface-container flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-high overflow-hidden shrink-0">
+<img alt="Sarah M." class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiMEQ70K6Dve1ZUhji3OwxIopzHpAVz-ytC_nHddaMEnWOeYpgjvUMY_SDp_LvOcoj4oEtWixo2d60puxy1EGrfNMjfXe-SMpETAj7ar71A3FQhG6f7M1hkIiHxeY4m4wv1lgXdIqOZD4m8kK-xMSU0BfLC2vAc65RFaJdWYMVtMOaSG_gss038OZUsijep7C23qC8kaEIFOZBwaV552Ngze01Cv7tTrMG6Tbprh0qLvCxdrP6iRhJkA"/>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-primary">Sarah M.</span>
+<span class="font-body-md text-on-surface-variant">Knotless · 15 mars · 09:30</span>
+</div>
+</div>
+</section>
+<!-- Actions Bloquantes -->
+<section class="flex flex-col">
+<h2 class="font-headline-sm text-primary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-error">warning</span>
+                Actions bloquantes
+            </h2>
+<div class="flex flex-col bg-surface rounded-xl border border-surface-container-highest overflow-hidden">
+<!-- Item 1: TO DO -->
+<div class="p-4 list-item-border flex flex-col gap-3 relative hover:bg-surface-container-low transition-colors">
+<div class="flex justify-between items-start gap-4">
+<div class="flex flex-col gap-1 flex-1">
+<div class="flex items-center gap-2 flex-wrap mb-1">
+<span class="px-2 py-1 bg-error-container text-on-error-container font-label-mono rounded text-[10px]">BLOQUANTE</span>
+<span class="px-2 py-1 bg-surface-container-highest text-on-surface font-label-mono rounded text-[10px]">À FAIRE</span>
+</div>
+<h3 class="font-headline-sm text-primary text-base">Préparer le poste et le matériel</h3>
+<p class="font-body-md text-on-surface-variant text-sm">Crochets, peignes, gels, élastiques, siège prêt</p>
+</div>
+<label class="shrink-0 pt-1 cursor-pointer">
+<input class="custom-checkbox" type="checkbox"/>
+</label>
+</div>
+</div>
+<!-- Item 2: CONFIRMED -->
+<div class="p-4 flex flex-col gap-3 relative bg-surface-container-low opacity-70">
+<div class="flex justify-between items-start gap-4">
+<div class="flex flex-col gap-1 flex-1">
+<div class="flex items-center gap-2 flex-wrap mb-1">
+<span class="px-2 py-1 bg-error-container text-on-error-container font-label-mono rounded text-[10px]">BLOQUANTE</span>
+<span class="px-2 py-1 bg-primary-container text-on-primary font-label-mono rounded text-[10px]">CONFIRMÉE</span>
+</div>
+<h3 class="font-headline-sm text-primary text-base line-through decoration-outline-variant">Bloquer le créneau sans conflit</h3>
+<p class="font-body-md text-on-surface-variant text-sm">Aucun autre RDV chevauchant</p>
+</div>
+<div class="shrink-0 pt-1">
+<span class="material-symbols-outlined text-[24px] text-primary-container">check_circle</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Actions Informatives -->
+<section class="flex flex-col">
+<h2 class="font-headline-sm text-primary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-secondary">info</span>
+                Actions informatives
+            </h2>
+<div class="flex flex-col bg-surface rounded-xl border border-surface-container-highest overflow-hidden">
+<!-- Item 1 -->
+<div class="p-4 list-item-border flex flex-col gap-3 hover:bg-surface-container-low transition-colors">
+<div class="flex justify-between items-start gap-4">
+<div class="flex flex-col gap-1 flex-1">
+<div class="flex items-center gap-2 mb-1">
+<span class="px-2 py-1 bg-secondary-container text-on-secondary-container font-label-mono rounded text-[10px]">INFORMATION</span>
+</div>
+<h3 class="font-headline-sm text-primary text-base">Relire les préférences cliente</h3>
+<p class="font-body-md text-on-surface-variant text-sm">Tension, longueur, parting</p>
+</div>
+<label class="shrink-0 pt-1 cursor-pointer">
+<input class="custom-checkbox" type="checkbox"/>
+</label>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="p-4 flex flex-col gap-3 hover:bg-surface-container-low transition-colors">
+<div class="flex justify-between items-start gap-4">
+<div class="flex flex-col gap-1 flex-1">
+<div class="flex items-center gap-2 mb-1">
+<span class="px-2 py-1 bg-secondary-container text-on-secondary-container font-label-mono rounded text-[10px]">INFORMATION</span>
+</div>
+<h3 class="font-headline-sm text-primary text-base">Prévoir une pause hydratation</h3>
+</div>
+<label class="shrink-0 pt-1 cursor-pointer">
+<input class="custom-checkbox" type="checkbox"/>
+</label>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom spacing for fixed footer -->
+<div class="h-8"></div>
+</main>
+<!-- Fixed Footer Actions -->
+<footer class="fixed bottom-0 left-0 w-full glass-panel border-t border-surface-container-highest px-margin-mobile py-4 flex flex-col gap-3 z-40 pb-safe">
+<div class="flex justify-between items-center px-1">
+<span class="font-label-mono text-primary">Bloquantes confirmées :</span>
+<span class="font-label-mono text-primary"><span class="text-error">1</span> / 2</span>
+</div>
+<!-- Progress bar minimal -->
+<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-1/2 rounded-full"></div>
+</div>
+<button class="w-full h-12 bg-primary-container text-on-primary rounded-lg font-headline-sm text-base flex justify-center items-center gap-2 active:scale-95 transition-transform mt-2">
+            Retour au plan
+        </button>
+<p class="font-caption text-on-surface-variant text-center mt-1">
+            La plateforme recalcule READY quand toutes les bloquantes (cliente + coiffeuse) sont confirmées.
+        </p>
+</footer>
+<script>
+        // Simple interactive checkbox logic for the first item to demonstrate progression
+        document.addEventListener('DOMContentLoaded', () => {
+            const firstCheckbox = document.querySelector('.custom-checkbox');
+            const counterSpan = document.querySelector('footer .text-error');
+            const progressBar = document.querySelector('footer .w-1\\/2');
+            
+            if(firstCheckbox && counterSpan && progressBar) {
+                firstCheckbox.addEventListener('change', (e) => {
+                    if(e.target.checked) {
+                        counterSpan.textContent = '2';
+                        counterSpan.classList.remove('text-error');
+                        progressBar.classList.remove('w-1/2');
+                        progressBar.classList.add('w-full');
+                    } else {
+                        counterSpan.textContent = '1';
+                        counterSpan.classList.add('text-error');
+                        progressBar.classList.remove('w-full');
+                        progressBar.classList.add('w-1/2');
+                    }
+                });
+            }
+        });
+    </script>
+</body></html>

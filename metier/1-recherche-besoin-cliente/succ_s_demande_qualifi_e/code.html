@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Atelier Synergy - Succès</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#271900",
+                        "surface-container": "#efedec",
+                        "surface-dim": "#dbdad9",
+                        "secondary-fixed-dim": "#e8c176",
+                        "primary-container": "#1b1c1c",
+                        "inverse-primary": "#c7c6c6",
+                        "secondary-container": "#fdd587",
+                        "primary": "#000101",
+                        "on-tertiary-fixed": "#271900",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "outline-variant": "#c4c7c7",
+                        "on-primary-fixed-variant": "#464747",
+                        "on-primary-fixed": "#1b1c1c",
+                        "error-container": "#ffdad6",
+                        "on-background": "#1b1c1b",
+                        "on-secondary-container": "#785a19",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#ffdea3",
+                        "surface": "#fbf9f8",
+                        "primary-fixed": "#e3e2e2",
+                        "tertiary": "#000000",
+                        "on-secondary-fixed-variant": "#5c4200",
+                        "on-secondary-fixed": "#261900",
+                        "background": "#fbf9f8",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#e4e2e1",
+                        "surface-tint": "#5e5e5e",
+                        "on-tertiary-fixed-variant": "#5d4201",
+                        "surface-container-high": "#e9e8e7",
+                        "outline": "#747878",
+                        "on-surface": "#1b1c1b",
+                        "on-primary-container": "#848484",
+                        "primary-fixed-dim": "#c7c6c6",
+                        "surface-variant": "#e4e2e1",
+                        "tertiary-fixed": "#ffdea6",
+                        "secondary": "#775a19",
+                        "on-tertiary-container": "#a17f3c",
+                        "inverse-on-surface": "#f2f0ef",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#f5f3f2",
+                        "tertiary-fixed-dim": "#e9c177",
+                        "inverse-surface": "#303030",
+                        "on-surface-variant": "#444748",
+                        "surface-bright": "#fbf9f8",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-lg": "32px",
+                        "unit": "4px",
+                        "stack-sm": "8px",
+                        "section-gap": "48px",
+                        "gutter": "16px",
+                        "stack-md": "16px",
+                        "container-margin": "24px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["JetBrains Mono"],
+                        "body-lg": ["Manrope"],
+                        "headline-lg-mobile": ["Manrope"],
+                        "label-caps": ["JetBrains Mono"],
+                        "body-sm": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "display-lg": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.background'); color: theme('colors.on-background'); }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col relative pb-[120px]">
+<!-- TopAppBar (Transactional / Dead End - No nav shell expected, but user requested TopAppBar for minimal branding) -->
+<header class="fixed top-0 w-full z-50 bg-surface border-b border-surface-container flat no shadows flex flex-col justify-center px-container-margin h-16 w-full">
+<div class="flex items-center justify-between w-full">
+<button class="text-primary hover:opacity-80 transition-opacity active:scale-95 duration-150 flex items-center justify-center p-2 -ml-2 rounded-full">
+<span class="material-symbols-outlined">close</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-tight text-center flex-1">Atelier Synergy</h1>
+<div class="w-10"></div> <!-- Spacer for centering -->
+</div>
+</header>
+<main class="flex-grow pt-16 flex flex-col">
+<!-- Hero Section -->
+<section class="w-full relative aspect-[3/4] md:aspect-[16/9] lg:aspect-[21/9] overflow-hidden">
+<img alt="Succès de la demande" class="w-full h-full object-cover rounded-none" data-alt="A premium, editorial-style photograph of a beautiful Black woman with stunning, perfectly styled textured Afro hair. She is smiling confidently, exuding a sense of joy and high-end luxury. The lighting is soft and flattering, highlighting the rich textures of her hair and the warmth of her skin. The background is a slightly blurred, minimalist modern interior with soft off-white and charcoal tones, complementing the elegant mood." src="https://lh3.googleusercontent.com/aida/AP1WRLuUss6DK_n3JdwQ1tkGMyU5vN7he_v2xnPSVHAaQgzOXWMcH3KxHsU02MXsvESzyyeMG_Tv0kZVLOshaFZdNAdrm3KV1Tu0gaeTmx0JVpG3e4pKSUr48s5vrgV4GNwYTpnJmHLZmY0hGwrEpwrwnsmDAA9a8Rd8hbEZhS_2sPIvpB5SKc2AgWP4mSiE9Jt-yDMIfVCHw7ohyx4ZE3xWIEiE-OypJy6FcJ8HX7gTfNI-6ZAWUxY7VYofFTM"/>
+<!-- Overlay Gradient for text readability if needed later, but keeping it clean for now -->
+<div class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent md:hidden"></div>
+</section>
+<!-- Content Section -->
+<section class="px-container-margin py-section-gap flex flex-col items-start gap-stack-lg flex-grow">
+<div class="flex flex-col gap-stack-sm w-full">
+<!-- Status Badge -->
+<div class="flex items-center gap-2 mb-2">
+<span class="inline-flex items-center justify-center bg-secondary-fixed-dim/20 text-on-secondary-container font-label-caps text-label-caps px-3 py-1 rounded-[2px] border border-secondary-fixed-dim/30 uppercase tracking-widest">
+                        Qualifiée
+                    </span>
+<span class="text-surface-tint font-label-sm text-label-sm opacity-60">DEMAND_QUALIFIED</span>
+</div>
+<!-- Headline -->
+<h2 class="font-display-lg text-display-lg md:font-headline-lg md:text-headline-lg text-primary tracking-tight">
+                    Votre demande est prête
+                </h2>
+<!-- Body Text -->
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-4">
+                    Vous avez décrit le résultat, le budget et la zone. Votre demande peut maintenant être proposée à des coiffeuses expertes disponibles.
+                </p>
+</div>
+<!-- Recap Chips / Bento Data -->
+<div class="flex flex-wrap gap-2 w-full mt-4">
+<div class="bg-surface-container-low border border-surface-container rounded-[2px] px-4 py-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary-container">content_cut</span>
+<span class="font-label-sm text-label-sm text-on-surface">Knotless medium</span>
+</div>
+<div class="bg-surface-container-low border border-surface-container rounded-[2px] px-4 py-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary-container">euro</span>
+<span class="font-label-sm text-label-sm text-on-surface">Max 120 €</span>
+</div>
+<div class="bg-surface-container-low border border-surface-container rounded-[2px] px-4 py-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary-container">location_on</span>
+<span class="font-label-sm text-label-sm text-on-surface">15 km</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Sticky Bottom Actions -->
+<div class="fixed bottom-0 left-0 w-full bg-surface border-t border-surface-container p-container-margin flex flex-col gap-stack-md z-40">
+<button class="w-full bg-primary-container text-on-primary rounded-lg py-4 font-headline-md text-headline-md-mobile flex items-center justify-center hover:opacity-90 transition-opacity active:scale-[0.98]">
+            Lancer le matching
+        </button>
+<button class="w-full bg-transparent text-primary-container border border-primary-container rounded-lg py-4 font-headline-md text-headline-md-mobile flex items-center justify-center hover:bg-surface-container-low transition-colors active:scale-[0.98]">
+            Voir ma demande
+        </button>
+</div>
+</body></html>

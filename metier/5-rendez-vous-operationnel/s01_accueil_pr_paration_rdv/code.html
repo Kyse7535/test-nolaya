@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Préparer le RDV - Atelier Synergy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#dbdad9",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#848484",
+                    "tertiary": "#000000",
+                    "secondary-fixed": "#ffdea3",
+                    "on-primary-fixed-variant": "#464747",
+                    "on-tertiary-fixed": "#271900",
+                    "inverse-primary": "#c7c6c6",
+                    "on-secondary-fixed": "#261900",
+                    "primary": "#000101",
+                    "surface-container-highest": "#e4e2e1",
+                    "primary-container": "#1b1c1c",
+                    "on-primary": "#ffffff",
+                    "on-background": "#1b1c1b",
+                    "secondary": "#775a19",
+                    "error-container": "#ffdad6",
+                    "on-error": "#ffffff",
+                    "background": "#fbf9f8",
+                    "inverse-surface": "#303030",
+                    "on-tertiary-fixed-variant": "#5d4201",
+                    "primary-fixed-dim": "#c7c6c6",
+                    "surface-container": "#efedec",
+                    "on-tertiary-container": "#a17f3c",
+                    "outline": "#747878",
+                    "on-secondary-fixed-variant": "#5c4200",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-container": "#785a19",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed-dim": "#e8c176",
+                    "secondary-container": "#fdd587",
+                    "surface-container-high": "#e9e8e7",
+                    "on-surface": "#1b1c1b",
+                    "surface-container-low": "#f5f3f2",
+                    "surface-variant": "#e4e2e1",
+                    "tertiary-fixed-dim": "#e9c177",
+                    "on-surface-variant": "#444748",
+                    "surface-bright": "#fbf9f8",
+                    "tertiary-container": "#271900",
+                    "tertiary-fixed": "#ffdea6",
+                    "surface": "#fbf9f8",
+                    "outline-variant": "#c4c7c7",
+                    "on-primary-fixed": "#1b1c1c",
+                    "error": "#ba1a1a",
+                    "primary-fixed": "#e3e2e2",
+                    "surface-tint": "#5e5e5e",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-on-surface": "#f2f0ef"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-mobile": "20px",
+                    "unit": "4px",
+                    "gutter-mobile": "12px",
+                    "stack-lg": "32px",
+                    "stack-md": "16px",
+                    "stack-sm": "8px"
+            },
+            "fontFamily": {
+                    "caption": [
+                            "Manrope"
+                    ],
+                    "headline-sm": [
+                            "Manrope"
+                    ],
+                    "display-lg": [
+                            "Manrope"
+                    ],
+                    "headline-md": [
+                            "Manrope"
+                    ],
+                    "body-lg": [
+                            "Manrope"
+                    ],
+                    "body-md": [
+                            "Manrope"
+                    ],
+                    "label-mono": [
+                            "JetBrains Mono"
+                    ]
+            },
+            "fontSize": {
+                    "caption": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "headline-sm": [
+                            "20px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-lg": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-md": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "label-mono": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "500"
+                            }
+                    ]
+            }
+        },
+        },
+      }
+    </script>
+<style>
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-lg min-h-screen pb-[100px] selection:bg-surface-dim">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-background border-b border-surface-container flex items-center h-16 px-margin-mobile">
+<button aria-label="Retour" class="mr-4 text-on-surface-variant hover:bg-surface-container-low transition-colors active:opacity-70 rounded-full p-2 -ml-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm text-primary">Préparation</h1>
+</header>
+<main class="pt-[88px] px-margin-mobile flex flex-col gap-stack-lg max-w-2xl mx-auto">
+<!-- Header Section -->
+<section class="flex flex-col gap-stack-sm mt-4">
+<div class="inline-flex items-center self-start px-2 py-1 bg-surface-container-low rounded border border-surface-container-high">
+<span class="font-label-mono text-label-mono text-primary uppercase">EN PRÉPARATION</span>
+</div>
+<h2 class="font-display-lg text-display-lg text-primary mt-2">
+                Rendre le rendez-vous réellement prêt
+            </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2 max-w-prose">
+                L’engagement est formé. Il reste à confirmer les actions bloquantes de préparation — côté cliente et côté coiffeuse. Quand toutes sont validées, le rendez-vous passe à READY : on peut réaliser.
+            </p>
+</section>
+<!-- Context Line -->
+<div class="flex items-center gap-2 py-3 px-4 bg-surface-container-lowest rounded-lg border border-surface-container">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 0;">info</span>
+<span class="font-body-md text-body-md text-on-surface-variant">
+                Prestation mock : knotless / box braids · Engagement COMMITTED
+            </span>
+</div>
+<!-- Hero Image -->
+<div class="relative w-full h-[300px] rounded-lg overflow-hidden group">
+<img alt="Image d'illustration" class="w-full h-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzOQ1miWtR5d3WzgBLGX0Wi2kKeVKjXb-_YQ68eFaIhWHxSmtkzM1TpShULCVNMcrR-n_SKfup9YDkbrKInKexeHUz8fDptUsalHyB6a240mtFbtoc81IXbDYWBH-xlm9yF8TpaQvCD_o0XvfbtXGbGzXFG_Rf8CNq_BZR8f7qByl2CUeluHM9DztlDSBUYgVQ4iXF8isLuhvcOYhN2xfg048WlU5qNyRXmhQGPBCJ2N5-KlNA1r-1SA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent flex items-end p-6">
+<p class="text-on-primary font-headline-md text-headline-md max-w-[280px]">
+                    Prêt à réaliser, pas seulement confirmé.
+                </p>
+</div>
+</div>
+<!-- What you will do -->
+<section class="flex flex-col gap-stack-md mt-4">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">Ce que vous allez faire</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter-mobile">
+<!-- Block 1 -->
+<div class="bg-surface-container-lowest p-5 rounded-lg border border-surface-container flex flex-col gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">map</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-[16px] font-semibold text-primary">Plan commun</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Voir la progression des actions bloquantes partagées.</p>
+</div>
+</div>
+<!-- Block 2 -->
+<div class="bg-surface-container-lowest p-5 rounded-lg border border-surface-container flex flex-col gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">fact_check</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-[16px] font-semibold text-primary">Checklist cliente</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Confirmer ses obligations de préparation (ex. mèches, adresse).</p>
+</div>
+</div>
+<!-- Block 3 -->
+<div class="bg-surface-container-lowest p-5 rounded-lg border border-surface-container flex flex-col gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">inventory_2</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-[16px] font-semibold text-primary">Checklist coiffeuse</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Confirmer son matériel et sa disponibilité opérationnelle.</p>
+</div>
+</div>
+<!-- Block 4 -->
+<div class="bg-surface-container-lowest p-5 rounded-lg border border-surface-container flex flex-col gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">done_all</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-[16px] font-semibold text-primary">READY</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Obtenir le statut partagé : le rendez-vous peut se réaliser.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Soft Note -->
+<p class="font-caption text-caption text-on-surface-variant text-center my-6 px-4">
+            Pas d’alerte AT_RISK dans cette démo. Seules les actions bloquantes comptent pour READY.
+        </p>
+</main>
+<!-- Sticky CTA -->
+<div class="fixed bottom-0 left-0 w-full p-margin-mobile pb-safe bg-gradient-to-t from-background via-background to-transparent z-40">
+<div class="max-w-2xl mx-auto">
+<button class="w-full bg-primary-container text-on-primary font-headline-sm text-[16px] py-4 rounded-lg flex items-center justify-center gap-2 hover:bg-opacity-90 active:scale-[0.98] transition-all shadow-sm">
+<span>Voir le plan de préparation</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 0;">arrow_forward</span>
+</button>
+</div>
+</div>
+</body></html>

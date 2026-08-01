@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Atelier Synergy - Cadre professionnel</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-low": "#f5f3f2",
+                      "on-secondary-fixed-variant": "#5c4200",
+                      "error": "#ba1a1a",
+                      "primary-container": "#1b1c1c",
+                      "on-background": "#1b1c1b",
+                      "on-error-container": "#93000a",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "on-surface-variant": "#444748",
+                      "secondary-container": "#fdd587",
+                      "on-surface": "#1b1c1b",
+                      "on-tertiary": "#ffffff",
+                      "surface-bright": "#fbf9f8",
+                      "background": "#fbf9f8",
+                      "surface-dim": "#dbdad9",
+                      "on-secondary": "#ffffff",
+                      "tertiary": "#000000",
+                      "tertiary-container": "#271900",
+                      "primary": "#000101",
+                      "on-secondary-container": "#785a19",
+                      "inverse-primary": "#c7c6c6",
+                      "surface-variant": "#e4e2e1",
+                      "surface": "#fbf9f8",
+                      "on-tertiary-fixed": "#271900",
+                      "on-primary-fixed-variant": "#464747",
+                      "on-error": "#ffffff",
+                      "inverse-on-surface": "#f2f0ef",
+                      "surface-container-high": "#e9e8e7",
+                      "surface-tint": "#5e5e5e",
+                      "surface-container-highest": "#e4e2e1",
+                      "primary-fixed-dim": "#c7c6c6",
+                      "tertiary-fixed-dim": "#e9c177",
+                      "on-secondary-fixed": "#261900",
+                      "primary-fixed": "#e3e2e2",
+                      "secondary-fixed-dim": "#e8c176",
+                      "on-primary-container": "#848484",
+                      "tertiary-fixed": "#ffdea6",
+                      "on-primary-fixed": "#1b1c1c",
+                      "error-container": "#ffdad6",
+                      "on-tertiary-fixed-variant": "#5d4201",
+                      "secondary-fixed": "#ffdea3",
+                      "outline": "#747878",
+                      "on-tertiary-container": "#a17f3c",
+                      "secondary": "#775a19",
+                      "surface-container": "#efedec",
+                      "inverse-surface": "#303030",
+                      "outline-variant": "#c4c7c7"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "md": "16px",
+                      "unit": "4px",
+                      "xs": "4px",
+                      "3xl": "64px",
+                      "gutter": "24px",
+                      "2xl": "48px",
+                      "xl": "32px",
+                      "margin-mobile": "16px",
+                      "margin-desktop": "40px",
+                      "sm": "8px",
+                      "lg": "24px"
+              },
+              "fontFamily": {
+                      "headline-md": [
+                              "Manrope"
+                      ],
+                      "body-sm": [
+                              "Manrope"
+                      ],
+                      "headline-sm": [
+                              "Manrope"
+                      ],
+                      "display-lg-mobile": [
+                              "Manrope"
+                      ],
+                      "display-lg": [
+                              "Manrope"
+                      ],
+                      "button-text": [
+                              "Manrope"
+                      ],
+                      "body-md": [
+                              "Manrope"
+                      ],
+                      "label-mono": [
+                              "JetBrains Mono"
+                      ],
+                      "body-lg": [
+                              "Manrope"
+                      ]
+              },
+              "fontSize": {
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-sm": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "button-text": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-mono": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .custom-radio:checked + div {
+            border-color: #775a19;
+            background-color: #fbf9f8;
+        }
+        .custom-radio:checked + div .radio-inner {
+            background-color: #775a19;
+        }
+        .custom-radio:focus + div {
+            box-shadow: 0 0 0 2px rgba(119, 90, 25, 0.2);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col relative pb-32">
+<!-- TopAppBar (Transactional - No BottomNavBar) -->
+<header class="sticky top-0 w-full bg-surface border-b border-surface-container flex justify-between items-center px-margin-mobile h-16 z-40">
+<button class="text-primary hover:bg-surface-container-low transition-colors active:scale-95 duration-150 p-2 -ml-2 rounded-full">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm-mobile text-primary font-bold">Cadre professionnel</h1>
+<div class="w-10"></div> <!-- Spacer for center alignment -->
+</header>
+<main class="flex-grow px-margin-mobile pt-lg pb-3xl max-w-lg mx-auto w-full">
+<!-- Header & Status -->
+<div class="flex items-center justify-between mb-lg">
+<span class="inline-flex items-center px-2 py-1 rounded bg-surface-container-low text-on-surface-variant font-label-mono text-label-mono border border-surface-container">
+                BROUILLON
+            </span>
+<span class="font-label-mono text-label-mono text-on-surface-variant">2/4</span>
+</div>
+<!-- Stepper -->
+<div class="flex items-center mb-xl">
+<div class="flex-1 h-1 bg-surface-container-high rounded-l-full">
+<div class="h-full bg-primary rounded-l-full w-full"></div>
+</div>
+<div class="w-2 h-2 rounded-full bg-primary mx-1"></div>
+<div class="flex-1 h-1 bg-surface-container-high">
+<div class="h-full bg-secondary rounded-r-full w-1/2"></div>
+</div>
+<div class="w-2 h-2 rounded-full bg-surface-container-high mx-1"></div>
+<div class="flex-1 h-1 bg-surface-container-high"></div>
+<div class="w-2 h-2 rounded-full bg-surface-container-high mx-1"></div>
+<div class="flex-1 h-1 bg-surface-container-high rounded-r-full"></div>
+</div>
+<!-- Content -->
+<section class="space-y-xl">
+<div>
+<h2 class="font-headline-md text-headline-md-mobile text-primary mb-unit">Accueil &amp; accès</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Ces règles s’appliquent par défaut à vos futures prestations.</p>
+</div>
+<!-- Choice Group 1: Accompagnants -->
+<div class="space-y-sm">
+<h3 class="font-button-text text-button-text text-primary">Accompagnants</h3>
+<div class="space-y-unit">
+<label class="relative flex items-center cursor-pointer group">
+<input checked="" class="peer sr-only custom-radio" name="accompagnants" type="radio" value="none"/>
+<div class="flex items-center w-full p-md bg-surface-container-lowest border border-surface-container rounded-lg transition-all">
+<div class="w-5 h-5 rounded-full border border-outline-variant flex items-center justify-center mr-md">
+<div class="radio-inner w-3 h-3 rounded-full bg-transparent transition-colors"></div>
+</div>
+<span class="font-body-md text-body-md text-on-surface">Non acceptés</span>
+</div>
+</label>
+<label class="relative flex items-center cursor-pointer group">
+<input class="peer sr-only custom-radio" name="accompagnants" type="radio" value="one"/>
+<div class="flex items-center w-full p-md bg-surface-container-lowest border border-surface-container rounded-lg transition-all">
+<div class="w-5 h-5 rounded-full border border-outline-variant flex items-center justify-center mr-md">
+<div class="radio-inner w-3 h-3 rounded-full bg-transparent transition-colors"></div>
+</div>
+<span class="font-body-md text-body-md text-on-surface">Un accompagnant accepté</span>
+</div>
+</label>
+<label class="relative flex items-center cursor-pointer group">
+<input class="peer sr-only custom-radio" name="accompagnants" type="radio" value="conditions"/>
+<div class="flex items-center w-full p-md bg-surface-container-lowest border border-surface-container rounded-lg transition-all">
+<div class="w-5 h-5 rounded-full border border-outline-variant flex items-center justify-center mr-md">
+<div class="radio-inner w-3 h-3 rounded-full bg-transparent transition-colors"></div>
+</div>
+<span class="font-body-md text-body-md text-on-surface">Accompagnants acceptés selon modalités</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Choice Group 2: Mineurs -->
+<div class="space-y-sm">
+<h3 class="font-button-text text-button-text text-primary">Mineurs</h3>
+<div class="space-y-unit">
+<label class="relative flex items-center cursor-pointer group">
+<input class="peer sr-only custom-radio" name="mineurs" type="radio" value="none"/>
+<div class="flex items-center w-full p-md bg-surface-container-lowest border border-surface-container rounded-lg transition-all">
+<div class="w-5 h-5 rounded-full border border-outline-variant flex items-center justify-center mr-md">
+<div class="radio-inner w-3 h-3 rounded-full bg-transparent transition-colors"></div>
+</div>
+<span class="font-body-md text-body-md text-on-surface">Non pris en charge</span>
+</div>
+</label>
+<label class="relative flex items-center cursor-pointer group">
+<input checked="" class="peer sr-only custom-radio" name="mineurs" type="radio" value="tutor"/>
+<div class="flex items-center w-full p-md bg-surface-container-lowest border border-surface-container rounded-lg transition-all">
+<div class="w-5 h-5 rounded-full border border-outline-variant flex items-center justify-center mr-md">
+<div class="radio-inner w-3 h-3 rounded-full bg-transparent transition-colors"></div>
+</div>
+<span class="font-body-md text-body-md text-on-surface">Acceptés avec tuteur présent</span>
+</div>
+</label>
+<label class="relative flex items-center cursor-pointer group">
+<input class="peer sr-only custom-radio" name="mineurs" type="radio" value="conditions"/>
+<div class="flex items-center w-full p-md bg-surface-container-lowest border border-surface-container rounded-lg transition-all">
+<div class="w-5 h-5 rounded-full border border-outline-variant flex items-center justify-center mr-md">
+<div class="radio-inner w-3 h-3 rounded-full bg-transparent transition-colors"></div>
+</div>
+<span class="font-body-md text-body-md text-on-surface">Acceptés selon conditions</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Optional Text Area -->
+<div class="space-y-sm">
+<label class="block font-button-text text-button-text text-primary" for="note-acces">Note d’accès (optionnel)</label>
+<textarea class="w-full p-md bg-surface-container-lowest border border-surface-container rounded-lg font-body-md text-body-md text-on-surface focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none resize-none transition-all" id="note-acces" name="note-acces" placeholder="Ex. Sonner à l’interphone, retirer les chaussures…" rows="3"></textarea>
+</div>
+</section>
+</main>
+<!-- Sticky Bottom CTA -->
+<div class="fixed bottom-0 left-0 w-full bg-surface border-t border-surface-container p-margin-mobile z-50 shadow-[0px_-4px_12px_rgba(27,28,28,0.04)]">
+<div class="max-w-lg mx-auto">
+<button class="w-full bg-primary-container text-on-primary h-12 rounded-lg font-button-text text-button-text flex items-center justify-center hover:bg-on-background transition-colors active:scale-95 duration-150">
+                Continuer
+            </button>
+</div>
+</div>
+</body></html>

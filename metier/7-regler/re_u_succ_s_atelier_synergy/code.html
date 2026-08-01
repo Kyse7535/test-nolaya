@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Atelier Synergy - Reçu SETTLED</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#f2f0ef",
+                        "tertiary-fixed-dim": "#e9c177",
+                        "outline": "#747878",
+                        "surface-bright": "#fbf9f8",
+                        "on-surface-variant": "#444748",
+                        "on-secondary-container": "#785a19",
+                        "on-primary-container": "#848484",
+                        "surface-tint": "#5e5e5e",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#c7c6c6",
+                        "tertiary-fixed": "#ffdea6",
+                        "on-tertiary-fixed": "#271900",
+                        "tertiary": "#000000",
+                        "on-primary-fixed": "#1b1c1c",
+                        "secondary-fixed": "#ffdea3",
+                        "primary-container": "#1b1c1c",
+                        "on-secondary-fixed": "#261900",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#c4c7c7",
+                        "surface-container": "#efedec",
+                        "on-tertiary-container": "#a17f3c",
+                        "on-background": "#1b1c1b",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#000101",
+                        "primary-fixed": "#e3e2e2",
+                        "primary-fixed-dim": "#c7c6c6",
+                        "surface-container-low": "#f5f3f2",
+                        "secondary": "#775a19",
+                        "inverse-surface": "#303030",
+                        "background": "#fbf9f8",
+                        "on-secondary-fixed-variant": "#5c4200",
+                        "surface": "#fbf9f8",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#fdd587",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#e9e8e7",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#dbdad9",
+                        "secondary-fixed-dim": "#e8c176",
+                        "tertiary-container": "#271900",
+                        "surface-variant": "#e4e2e1",
+                        "on-surface": "#1b1c1b",
+                        "on-primary-fixed-variant": "#464747",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-highest": "#e4e2e1",
+                        "on-tertiary-fixed-variant": "#5d4201"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "margin-mobile": "20px",
+                        "md": "16px",
+                        "margin-desktop": "64px",
+                        "xl": "40px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "sm": "8px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Manrope"],
+                        "display-lg-mobile": ["Manrope"],
+                        "caption": ["Manrope"],
+                        "body-sm": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "label-mono": ["JetBrains Mono"],
+                        "body-lg": ["Manrope"],
+                        "display-lg": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-mono": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col pt-16 pb-safe">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-background border-b border-outline-variant flex items-center justify-between px-margin-mobile h-16 w-full">
+<div class="flex items-center">
+<button class="p-2 -ml-2 text-primary active:opacity-70 transition-opacity rounded-full hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+</div>
+<div class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold">
+            Reçu
+        </div>
+<div class="w-10"></div> <!-- Placeholder for balance -->
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow px-margin-mobile pt-lg pb-xl space-y-xl">
+<!-- Success Header -->
+<section class="flex flex-col items-center text-center space-y-md">
+<div class="w-full aspect-[4/3] rounded-xl overflow-hidden bg-surface-container-low mb-sm">
+<img class="w-full h-full object-cover" data-alt="A joyful Black woman with beautiful, well-defined twists styling her hair, celebrating a successful salon visit. The setting is a bright, warm, high-end modern salon with soft natural light streaming in, casting a golden hue. The aesthetic is premium, editorial, and sophisticated, reflecting a top-tier beauty experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBE1_lpmVm7CrowmZZ7L0gAMIoWFnGlZBN1tENanUSQK2lo6j_85Nfav78ySbWOfdFuAo2s8Jj5ASVSs_3EL7-yg4A3gh9NQbWaO1s9xdy_F9vbhGApmyRxyo0uOhwePREk4RIYXEA5Dh_GAeFLtWhc-bcvKLvceBwpHzT3Roxp2hgB1H0pnGHC7GOP7I1oO2c29e8dqxNG37CETHYnTswZ-QbqTcmTAVTIZKCUNe6GgJaz56vY3Wl2dQ"/>
+</div>
+<div class="space-y-sm">
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary">
+                    Votre solde est réglé
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md mx-auto">
+                    Le paiement du solde a été simulé avec succès. Le dossier est clos financièrement. Vous pouvez maintenant enregistrer votre expérience.
+                </p>
+</div>
+<!-- Status Badges -->
+<div class="flex flex-col items-center space-y-xs pt-xs">
+<div class="bg-secondary-fixed-dim bg-opacity-20 px-lg py-xs rounded-full border border-secondary/30">
+<span class="font-headline-sm text-headline-sm text-secondary font-bold tracking-wider">RÉGLÉ</span>
+</div>
+<div class="font-label-mono text-label-mono text-outline tracking-widest mt-xs uppercase">
+                    SETTLED
+                </div>
+</div>
+</section>
+<!-- Receipt Card -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-sm">
+<h2 class="font-headline-md text-headline-md text-primary mb-md border-b border-outline-variant pb-sm">
+                Reçu cliente
+            </h2>
+<div class="space-y-sm font-body-sm text-body-sm text-on-surface">
+<div class="flex justify-between items-start py-xs border-b border-surface-container-low">
+<span class="text-on-surface-variant">Prestation</span>
+<span class="font-medium text-right">Vanilles / twists mi-longues</span>
+</div>
+<div class="flex justify-between items-start py-xs border-b border-surface-container-low">
+<span class="text-on-surface-variant">Coiffeuse</span>
+<span class="font-medium">Amina K.</span>
+</div>
+<div class="flex justify-between items-start py-xs border-b border-surface-container-low">
+<span class="text-on-surface-variant">Prix engagé</span>
+<span class="font-label-mono text-label-mono">220,00 €</span>
+</div>
+<div class="flex justify-between items-start py-xs border-b border-surface-container-low">
+<span class="text-on-surface-variant">Pourboire</span>
+<span class="font-label-mono text-label-mono">10,00 €</span>
+</div>
+<div class="flex justify-between items-center py-sm border-b border-outline-variant mt-sm">
+<span class="font-bold text-primary">Total final</span>
+<span class="font-label-mono text-label-mono font-bold text-primary">230,00 €</span>
+</div>
+<div class="flex justify-between items-center py-xs text-on-surface-variant">
+<span>Acompte</span>
+<span class="font-label-mono text-label-mono">− 66,00 €</span>
+</div>
+<div class="flex justify-between items-center p-sm mt-md bg-secondary-fixed bg-opacity-20 border border-secondary-fixed-dim rounded-lg">
+<span class="font-bold text-on-secondary-container">Solde payé (mock)</span>
+<span class="font-label-mono text-label-mono font-bold text-on-secondary-container text-lg">164,00 €</span>
+</div>
+</div>
+<div class="mt-md pt-sm border-t border-outline-variant border-dashed">
+<p class="font-caption text-caption text-outline flex items-start">
+<span class="material-symbols-outlined text-[16px] mr-xs mt-[2px]">info</span>
+                    Paiement mock — aucun débit réel. Pas de remboursement dans cette démo.
+                </p>
+</div>
+</section>
+</main>
+<!-- Bottom Actions Sticky -->
+<div class="fixed bottom-0 left-0 w-full bg-background border-t border-outline-variant p-margin-mobile pb-safe z-40 flex flex-col space-y-md shadow-[0_-4px_20px_rgba(0,0,0,0.02)]">
+<button class="w-full bg-primary-container text-on-primary h-14 rounded-lg font-headline-sm text-headline-sm flex items-center justify-center transition-transform active:scale-[0.98]">
+            Continuer vers la preuve d’expérience
+        </button>
+<button class="w-full bg-transparent text-primary border border-outline-variant h-14 rounded-lg font-headline-sm text-headline-sm flex items-center justify-center transition-colors hover:bg-surface-container-low active:bg-surface-variant">
+            Accueil
+        </button>
+</div>
+<!-- Spacer for sticky bottom actions -->
+<div class="h-32"></div>
+</body></html>

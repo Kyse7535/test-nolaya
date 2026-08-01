@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mes expériences - Atelier Synergy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#e4e2e1",
+                    "on-secondary-container": "#785a19",
+                    "surface-dim": "#dbdad9",
+                    "on-tertiary-fixed": "#1b1c1c",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed-dim": "#e8c176",
+                    "on-tertiary-container": "#848484",
+                    "inverse-on-surface": "#f2f0ef",
+                    "error-container": "#ffdad6",
+                    "surface": "#fbf9f8",
+                    "primary-fixed-dim": "#c7c6c6",
+                    "surface-container-low": "#f5f3f2",
+                    "on-secondary-fixed": "#261900",
+                    "surface-variant": "#e4e2e1",
+                    "secondary-fixed": "#ffdea3",
+                    "surface-tint": "#5e5e5e",
+                    "on-surface": "#1b1c1b",
+                    "on-primary-fixed-variant": "#464747",
+                    "on-secondary-fixed-variant": "#5c4200",
+                    "on-primary-fixed": "#1b1c1c",
+                    "inverse-surface": "#303030",
+                    "on-primary-container": "#848484",
+                    "tertiary-fixed-dim": "#c7c6c6",
+                    "primary": "#000101",
+                    "on-background": "#1b1c1b",
+                    "tertiary-fixed": "#e4e2e2",
+                    "primary-fixed": "#e3e2e2",
+                    "surface-bright": "#fbf9f8",
+                    "surface-container-high": "#e9e8e7",
+                    "inverse-primary": "#c7c6c6",
+                    "secondary": "#775a19",
+                    "on-tertiary": "#ffffff",
+                    "tertiary": "#000101",
+                    "secondary-container": "#fdd587",
+                    "primary-container": "#1b1c1c",
+                    "outline-variant": "#c4c7c7",
+                    "on-tertiary-fixed-variant": "#464747",
+                    "error": "#ba1a1a",
+                    "on-surface-variant": "#444748",
+                    "outline": "#747878",
+                    "on-secondary": "#ffffff",
+                    "tertiary-container": "#1b1c1c",
+                    "on-primary": "#ffffff",
+                    "surface-container": "#efedec",
+                    "on-error": "#ffffff",
+                    "background": "#fbf9f8",
+                    "surface-container-lowest": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "xl": "32px",
+                    "md": "16px",
+                    "gutter": "16px",
+                    "xxl": "48px",
+                    "lg": "24px",
+                    "xs": "4px",
+                    "unit": "4px",
+                    "sm": "8px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Manrope", "sans-serif"],
+                    "display-lg": ["Manrope", "sans-serif"],
+                    "body-md": ["Manrope", "sans-serif"],
+                    "body-lg": ["Manrope", "sans-serif"],
+                    "headline-sm": ["Manrope", "sans-serif"],
+                    "label-caps": ["JetBrains Mono", "monospace"],
+                    "mono-data": ["JetBrains Mono", "monospace"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "mono-data": ["13px", {"lineHeight": "18px", "fontWeight": "400"}]
+            }
+          }
+        }
+      }
+    </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .no-scrollbar::-webkit-scrollbar {
+                display: none;
+            }
+            .no-scrollbar {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-lg antialiased pb-24 md:pb-0 pt-[64px]">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface border-b border-surface-container dark:border-outline-variant fixed top-0 left-0 w-full z-50 flex items-center px-margin-mobile h-[64px] transition-colors">
+<button aria-label="Retour" class="mr-sm p-sm rounded-full hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors active:scale-95 duration-150 flex items-center justify-center text-primary dark:text-primary-fixed">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm text-primary dark:text-primary-fixed flex-1">Mes expériences</h1>
+</header>
+<main class="w-full max-w-4xl mx-auto px-margin-mobile pt-xxl pb-xxl flex flex-col gap-lg">
+<!-- Intro -->
+<section>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
+                Historique de vos prestations — disponible même sans avis.
+            </p>
+</section>
+<!-- Focus Card: Dernier rendez-vous -->
+<section class="bg-surface-container-lowest border border-surface-container rounded-lg p-md md:p-lg flex flex-col gap-md">
+<div class="flex justify-between items-start w-full">
+<span class="font-label-caps text-label-caps bg-surface-container px-sm py-xs rounded text-primary">DERNIER RENDEZ-VOUS</span>
+<span class="font-mono-data text-mono-data text-on-surface-variant flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+                    EXPERIENCE_RECORDED
+                </span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-primary mb-xs">Vanilles / twists mi-longues</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Samedi 15 mars 2026</p>
+</div>
+<div class="flex items-center gap-sm mt-xs">
+<img class="w-12 h-12 rounded-full object-cover border border-surface-container" data-alt="A hyper-realistic, premium studio portrait of a Black woman stylist with beautifully styled textured Afro hair. The lighting is soft and high-key, emphasizing a modern luxury salon environment. Her expression is welcoming and professional, wearing an elegant neutral-toned top against a pristine white background. The overall mood is serene, authoritative, and perfectly suited for a high-end textured hair care platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsvo8OFXxAZBQr4JXtTEliMSEHjA1h6SPyjGibdNRl3Fbcz56aFf2iOb8IZvAVAVbXgumMtVqxR_pRzaQqBw7NFU-aD4U0Gu4pG3naQ5mH2IipXsoX5o0Wx55v8z8s91u2TLPjZ5teNpXt-lKFTK8l-TY901BAXFyMEH0mQOuVnfa_l5FRugHwE3nUBNtpRs6KPt1z2p6I7i-AvbdoaT5Aq0Bv9kn5ykZzcrzF5eGwosCKux_V0YvZ"/>
+<div>
+<p class="font-body-md text-body-md font-semibold text-primary">Amina K.</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Coiffeuse experte</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-sm rounded border border-surface-container mt-xs">
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                    La reprise préremplit votre demande, mais vous devez reconfirmer le prix, la date et le lieu. L’ancien prix est une référence, jamais appliqué silencieusement.
+                </p>
+</div>
+<div class="flex flex-col sm:flex-row gap-sm mt-sm">
+<button class="bg-primary text-on-primary font-body-lg text-body-lg px-lg py-sm rounded active:scale-95 transition-transform w-full sm:w-auto font-medium" id="btn-refaire" onclick="document.getElementById('reconfirm-section').classList.toggle('hidden')">
+                    Refaire cette prestation
+                </button>
+<button class="border border-primary text-primary font-body-lg text-body-lg px-lg py-sm rounded hover:bg-surface-container-low active:scale-95 transition-transform w-full sm:w-auto font-medium">
+                    Voir les détails
+                </button>
+</div>
+</section>
+<!-- Reconfirm Section (Hidden by default) -->
+<section class="hidden bg-surface-container-lowest border border-surface-container rounded-lg p-md md:p-lg flex flex-col gap-md relative overflow-hidden transition-all duration-300" id="reconfirm-section">
+<!-- Ambient Shadow effect for floating feel in a card -->
+<div class="absolute -top-10 -right-10 w-40 h-40 bg-surface-container-low rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+<h3 class="font-headline-sm text-headline-sm text-primary border-b border-surface-container pb-sm">Nouvelle demande préremplie</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg mt-xs">
+<!-- Read Only Info -->
+<div class="flex flex-col gap-sm">
+<div class="bg-surface-container-low p-sm rounded">
+<label class="font-label-caps text-label-caps text-on-surface-variant block mb-unit">PRESTATION</label>
+<p class="font-body-md text-body-md text-primary font-medium">Vanilles / twists mi-longues</p>
+</div>
+<div class="bg-surface-container-low p-sm rounded flex items-center gap-sm">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="A close-up profile picture of a professional Black woman hair stylist with a chic protective style. Clean, soft, and modern lighting with a neutral light background, exuding competence and warmth for a luxury salon app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCP3I-o06SHpJE84bt9KlFBi_mULX-mo9Lt9TsW3qqUQgtgeaxhULFhmj8zRBroWmK8L0JaEoRQvhGsLvgeJYv9gSuUkhngdqKgocXmD3ELmRhE_vt4P3bMEwk8VqhRLPYFOto2Y34B8y4TjyAfK3Eqb29t_DNyZK1uj5OkX5R6Yzjo6q6rj1KZo0HEq2VR6WHnelZNFzKrUpbD7IlHNkdgvj2FEGX-EvRukD9ivxhZtSfiiDLka_4I"/>
+<div>
+<label class="font-label-caps text-label-caps text-on-surface-variant block mb-unit">COIFFEUSE DE RÉFÉRENCE</label>
+<p class="font-body-md text-body-md text-primary font-medium">Amina K.</p>
+</div>
+</div>
+</div>
+<!-- Forced Fields -->
+<div class="flex flex-col gap-md">
+<div class="flex flex-col gap-unit">
+<label class="font-body-md text-body-md text-primary">Prix de référence à reconfirmer</label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border border-surface-container rounded px-sm py-[10px] font-mono-data text-mono-data text-primary focus:border-primary focus:ring-0 outline-none transition-colors" type="text" value="220 €"/>
+</div>
+<p class="font-body-md text-[12px] text-on-surface-variant">Non appliqué automatiquement</p>
+</div>
+<div class="flex flex-col gap-unit">
+<label class="font-body-md text-body-md text-primary">Date &amp; créneau</label>
+<button class="w-full bg-surface-container-lowest border border-surface-container rounded px-sm py-[10px] font-body-md text-body-md text-on-surface-variant text-left flex justify-between items-center hover:border-outline-variant transition-colors">
+                            Choisir une nouvelle date
+                            <span class="material-symbols-outlined text-[18px]">calendar_today</span>
+</button>
+</div>
+<div class="flex flex-col gap-unit">
+<label class="font-body-md text-body-md text-primary">Lieu</label>
+<div class="flex gap-sm">
+<label class="flex-1 cursor-pointer">
+<input checked="" class="peer sr-only" name="location" type="radio"/>
+<div class="w-full text-center border border-surface-container rounded py-sm font-body-md text-body-md text-on-surface-variant peer-checked:border-primary peer-checked:bg-surface-container-low peer-checked:text-primary transition-all">
+                                    Chez la coiffeuse
+                                </div>
+</label>
+<label class="flex-1 cursor-pointer">
+<input class="peer sr-only" name="location" type="radio"/>
+<div class="w-full text-center border border-surface-container rounded py-sm font-body-md text-body-md text-on-surface-variant peer-checked:border-primary peer-checked:bg-surface-container-low peer-checked:text-primary transition-all">
+                                    À domicile
+                                </div>
+</label>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col-reverse sm:flex-row gap-sm mt-md pt-sm border-t border-surface-container">
+<button class="text-on-surface-variant font-body-lg text-body-lg px-lg py-sm rounded hover:bg-surface-container-low active:scale-95 transition-transform w-full sm:w-auto font-medium" onclick="document.getElementById('reconfirm-section').classList.add('hidden')">
+                    Annuler
+                </button>
+<button class="bg-primary text-on-primary font-body-lg text-body-lg px-lg py-sm rounded active:scale-95 transition-transform w-full sm:flex-1 font-medium shadow-sm">
+                    Créer la nouvelle demande
+                </button>
+</div>
+</section>
+<!-- Past History Section -->
+<section class="mt-md">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-md">Historique</h3>
+<div class="flex flex-col gap-sm">
+<!-- History Item 1 -->
+<div class="bg-surface-container-lowest border border-surface-container rounded flex items-center justify-between p-sm hover:bg-surface-container-low cursor-pointer transition-colors">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 bg-surface-container flex items-center justify-center rounded-full text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">content_cut</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-medium text-primary">Entretien twists</span>
+<span class="font-body-md text-body-md text-on-surface-variant flex items-center gap-xs">
+                                12 janv. <span class="w-1 h-1 bg-surface-variant rounded-full mx-1"></span> Amina K.
+                            </span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+<!-- Additional ghost item for layout realism -->
+<div class="bg-surface-container-lowest border border-surface-container rounded flex items-center justify-between p-sm hover:bg-surface-container-low cursor-pointer transition-colors opacity-70">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 bg-surface-container flex items-center justify-center rounded-full text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">spa</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-medium text-primary">Soin profond hydratant</span>
+<span class="font-body-md text-body-md text-on-surface-variant flex items-center gap-xs">
+                                04 déc. <span class="w-1 h-1 bg-surface-variant rounded-full mx-1"></span> Sarah B.
+                            </span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-3 bg-surface dark:bg-surface border-t border-surface-container dark:border-outline-variant md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-all duration-200 ease-in-out w-16" href="#">
+<span class="material-symbols-outlined mb-1 text-[24px]">auto_awesome</span>
+<span class="font-label-caps text-label-caps">Atelier</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-all duration-200 ease-in-out w-16" href="#">
+<span class="material-symbols-outlined mb-1 text-[24px]">auto_stories</span>
+<span class="font-label-caps text-label-caps">Portfolio</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed font-bold hover:text-primary dark:hover:text-primary-fixed transition-all duration-200 ease-in-out w-16" href="#">
+<span class="material-symbols-outlined mb-1 text-[24px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-caps text-label-caps">Expérience</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-all duration-200 ease-in-out w-16" href="#">
+<span class="material-symbols-outlined mb-1 text-[24px]">person</span>
+<span class="font-label-caps text-label-caps">Compte</span>
+</a>
+</nav>
+</body></html>

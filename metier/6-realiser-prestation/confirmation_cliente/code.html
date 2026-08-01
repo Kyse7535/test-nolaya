@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Atelier Synergy - Confirmer la réalisation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed": "#ffdea6",
+                      "primary-container": "#1b1c1c",
+                      "on-tertiary-fixed": "#271900",
+                      "surface-container-highest": "#e4e2e1",
+                      "surface-container-high": "#e9e8e7",
+                      "surface-dim": "#dbdad9",
+                      "surface-variant": "#e4e2e1",
+                      "surface-container": "#efedec",
+                      "surface-bright": "#fbf9f8",
+                      "on-primary-fixed-variant": "#464747",
+                      "background": "#fbf9f8",
+                      "tertiary": "#000000",
+                      "on-error": "#ffffff",
+                      "on-background": "#1b1c1b",
+                      "inverse-surface": "#303030",
+                      "secondary": "#775a19",
+                      "on-primary-container": "#848484",
+                      "inverse-on-surface": "#f2f0ef",
+                      "on-surface": "#1b1c1b",
+                      "primary-fixed": "#e3e2e2",
+                      "outline": "#747878",
+                      "tertiary-container": "#271900",
+                      "outline-variant": "#c4c7c7",
+                      "inverse-primary": "#c7c6c6",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "on-secondary-fixed": "#261900",
+                      "secondary-fixed": "#ffdea3",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary-container": "#a17f3c",
+                      "on-surface-variant": "#444748",
+                      "on-primary-fixed": "#1b1c1c",
+                      "secondary-fixed-dim": "#e8c176",
+                      "on-secondary-fixed-variant": "#5c4200",
+                      "tertiary-fixed-dim": "#e9c177",
+                      "primary-fixed-dim": "#c7c6c6",
+                      "error-container": "#ffdad6",
+                      "surface-container-low": "#f5f3f2",
+                      "on-secondary-container": "#785a19",
+                      "surface": "#fbf9f8",
+                      "secondary-container": "#fdd587",
+                      "on-tertiary-fixed-variant": "#5d4201",
+                      "primary": "#000101",
+                      "on-error-container": "#93000a",
+                      "error": "#ba1a1a",
+                      "surface-tint": "#5e5e5e",
+                      "on-primary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "gutter-mobile": "12px",
+                      "lg": "24px",
+                      "sm": "8px",
+                      "md": "16px",
+                      "xs": "4px",
+                      "margin-mobile": "20px",
+                      "base": "4px",
+                      "xl": "32px"
+              },
+              "fontFamily": {
+                      "headline-sm": ["Manrope"],
+                      "body-md": ["Manrope"],
+                      "button-text": ["Manrope"],
+                      "display-lg": ["Manrope"],
+                      "label-mono": ["JetBrains Mono"],
+                      "headline-md": ["Manrope"],
+                      "body-lg": ["Manrope"]
+              },
+              "fontSize": {
+                      "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "button-text": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                      "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label-mono": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 4px;
+            height: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e4e2e1;
+            border-radius: 4px;
+        }
+        
+        /* Custom checkbox style to match design system */
+        .ds-checkbox {
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border: 1px solid #c4c7c7;
+            border-radius: 0.125rem; /* DEFAULT radius */
+            background-color: #ffffff;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .ds-checkbox:checked {
+            background-color: #1b1c1c; /* primary-container */
+            border-color: #1b1c1c;
+        }
+        
+        .ds-checkbox:checked::after {
+            content: "";
+            position: absolute;
+            left: 8px;
+            top: 4px;
+            width: 6px;
+            height: 12px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .ds-checkbox:focus {
+            outline: 2px solid #ffdea3; /* secondary-fixed */
+            outline-offset: 2px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md antialiased min-h-screen flex flex-col selection:bg-secondary-container selection:text-on-secondary-container pb-[120px]">
+<!-- TopAppBar (Transactional - Nav Shell Suppressed per guidelines) -->
+<header class="fixed top-0 w-full bg-surface/95 backdrop-blur-md z-50 border-b border-surface-container flex justify-between items-center px-margin-mobile h-16">
+<button aria-label="Retour" class="w-11 h-11 flex items-center justify-center -ml-2 text-primary hover:opacity-80 transition-opacity active:scale-95">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300;">arrow_back</span>
+</button>
+<h1 class="font-button-text text-button-text text-primary">Confirmer</h1>
+<div class="w-11"></div> <!-- Spacer for center alignment -->
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow pt-24 px-margin-mobile flex flex-col gap-lg">
+<!-- Header Section -->
+<section class="flex flex-col gap-sm">
+<div class="inline-flex items-center px-2 py-1 bg-surface-container-low border border-surface-container rounded-sm w-fit">
+<span class="font-label-mono text-label-mono text-secondary uppercase tracking-widest">À CONFIRMER</span>
+</div>
+<h2 class="font-display-lg text-display-lg text-primary mt-2">Votre coiffeuse a déclaré la fin</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2">
+                Confirmez que la prestation a bien été réalisée. Sans votre confirmation, le dossier ne passe pas à COMPLETED.
+            </p>
+</section>
+<!-- Hero Image (Contextual High-End Aesthetic) -->
+<section class="w-full h-64 rounded-lg overflow-hidden border border-surface-container relative">
+<div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent z-10"></div>
+<img alt="Client looking at phone" class="w-full h-full object-cover" data-alt="A portrait of a beautiful Black woman with freshly styled, immaculate knotless box braids. She is looking down at her smartphone with a subtle, satisfied smile. The setting is a high-end, modern salon with bright, natural light filtering through sheer curtains. The aesthetic is clean, luxurious, and editorial, utilizing a refined color palette of warm neutrals, soft whites, and deep blacks to emphasize a premium light-mode UI feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZc7fjVXijnaplWB7agEPGmQ-okFlxR9OSEHUh1PskQRdkdKFbQwRRRdyV_dccE69OC0zL1A61LVBVLQFPJczKRZPycUmpGv-hR2FWnXk9Viqbs0n0L-AyWfseF2vlIlfcw8YZAxABKk_NFimF1dg8mwfLuq0j4L7FIrDRQqwZqEs-dxburGQKkC6qGek8gzet5f_8TzgrPL8628KrRyhpXT4pMcyXR4ENuydh-sDmQGn3qq9Extn48A"/>
+</section>
+<!-- Summary Card -->
+<section class="bg-surface-lowest border border-surface-container rounded-lg p-md flex flex-col gap-4">
+<h3 class="font-button-text text-button-text text-primary uppercase tracking-wider mb-2 border-b border-surface-container pb-2">Résumé de la prestation</h3>
+<div class="flex justify-between items-baseline py-2 border-b border-surface-container-low last:border-0">
+<span class="font-body-md text-body-md text-on-surface-variant">Prestation</span>
+<span class="font-body-md text-body-md font-semibold text-primary text-right">Knotless / box braids</span>
+</div>
+<div class="flex justify-between items-baseline py-2 border-b border-surface-container-low last:border-0">
+<span class="font-body-md text-body-md text-on-surface-variant">Coiffeuse</span>
+<span class="font-body-md text-body-md font-semibold text-primary text-right">Amina K.</span>
+</div>
+<div class="flex justify-between items-baseline py-2 border-b border-surface-container-low last:border-0">
+<span class="font-body-md text-body-md text-on-surface-variant">Début</span>
+<span class="font-body-md text-body-md font-semibold text-primary text-right">09:35</span>
+</div>
+<div class="flex justify-between items-baseline py-2 border-b border-surface-container-low last:border-0">
+<span class="font-body-md text-body-md text-on-surface-variant">Fin déclarée</span>
+<span class="font-body-md text-body-md font-semibold text-primary text-right">13:40</span>
+</div>
+<div class="flex justify-between items-baseline py-2 border-b border-surface-container-low last:border-0">
+<span class="font-body-md text-body-md text-on-surface-variant">Issue</span>
+<span class="font-body-md text-body-md font-semibold text-secondary text-right">Fin complète</span>
+</div>
+</section>
+<!-- Interaction Section -->
+<section class="mt-md mb-xl flex flex-col gap-xs">
+<label class="flex items-start gap-md p-4 bg-surface-container-low border border-surface-container rounded-lg cursor-pointer hover:bg-surface-container transition-colors">
+<div class="pt-1">
+<input class="ds-checkbox" id="confirmCheckbox" type="checkbox"/>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-button-text text-button-text text-primary">Je confirme que la prestation a été réalisée</span>
+<span class="font-body-md text-body-md text-on-surface-variant text-sm">Ensuite le dossier d'exécution sera prêt pour le règlement.</span>
+</div>
+</label>
+</section>
+</main>
+<!-- Sticky Footer (Transactional Actions) -->
+<footer class="fixed bottom-0 w-full bg-surface/95 backdrop-blur-md border-t border-surface-container px-margin-mobile py-md flex flex-col gap-sm z-40 pb-safe">
+<button class="w-full h-12 bg-primary-container text-on-primary rounded flex items-center justify-center font-button-text text-button-text transition-all duration-200 disabled:opacity-50 disabled:bg-surface-variant disabled:text-outline disabled:cursor-not-allowed hover:opacity-90 active:scale-[0.98]" disabled="" id="primaryBtn">
+            Confirmer la réalisation
+        </button>
+<button class="w-full h-12 bg-transparent text-primary rounded flex items-center justify-center font-button-text text-button-text transition-all duration-200 hover:bg-surface-container-low active:scale-[0.98]">
+            Revenir
+        </button>
+</footer>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkbox = document.getElementById('confirmCheckbox');
+            const primaryBtn = document.getElementById('primaryBtn');
+
+            checkbox.addEventListener('change', (e) => {
+                if (e.target.checked) {
+                    primaryBtn.removeAttribute('disabled');
+                    primaryBtn.classList.remove('bg-surface-variant', 'text-outline');
+                    primaryBtn.classList.add('bg-primary-container', 'text-on-primary');
+                } else {
+                    primaryBtn.setAttribute('disabled', 'true');
+                    primaryBtn.classList.add('bg-surface-variant', 'text-outline');
+                    primaryBtn.classList.remove('bg-primary-container', 'text-on-primary');
+                }
+            });
+        });
+    </script>
+</body></html>

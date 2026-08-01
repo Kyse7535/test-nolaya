@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Atelier Synergy - Votre résultat</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..900&family=Manrope:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#5c4200",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#e8c176",
+                        "inverse-primary": "#c7c6c6",
+                        "surface": "#fbf9f8",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#464747",
+                        "on-background": "#1b1c1b",
+                        "primary-container": "#1b1c1c",
+                        "on-tertiary-fixed": "#271900",
+                        "on-surface": "#1b1c1b",
+                        "surface-container-low": "#f5f3f2",
+                        "surface-container": "#efedec",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#f2f0ef",
+                        "tertiary": "#000000",
+                        "outline-variant": "#c4c7c7",
+                        "primary": "#000101",
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#c7c6c6",
+                        "primary-fixed": "#e3e2e2",
+                        "on-primary-container": "#848484",
+                        "surface-bright": "#fbf9f8",
+                        "on-tertiary-container": "#a17f3c",
+                        "surface-tint": "#5e5e5e",
+                        "tertiary-fixed-dim": "#e9c177",
+                        "secondary": "#775a19",
+                        "tertiary-fixed": "#ffdea6",
+                        "surface-dim": "#dbdad9",
+                        "on-surface-variant": "#444748",
+                        "on-secondary-fixed": "#261900",
+                        "on-tertiary-fixed-variant": "#5d4201",
+                        "surface-container-high": "#e9e8e7",
+                        "error-container": "#ffdad6",
+                        "outline": "#747878",
+                        "surface-container-highest": "#e4e2e1",
+                        "on-primary-fixed": "#1b1c1c",
+                        "secondary-container": "#fdd587",
+                        "background": "#fbf9f8",
+                        "surface-variant": "#e4e2e1",
+                        "on-secondary-container": "#785a19",
+                        "inverse-surface": "#303030",
+                        "tertiary-container": "#271900",
+                        "secondary-fixed": "#ffdea3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "stack-sm": "8px",
+                        "stack-lg": "32px",
+                        "container-margin": "24px",
+                        "section-gap": "48px",
+                        "stack-md": "16px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "label-sm": ["JetBrains Mono"],
+                        "label-caps": ["JetBrains Mono"],
+                        "display-lg": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "body-sm": ["Manrope"],
+                        "headline-lg": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; -webkit-font-smoothing: antialiased; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .icon-fill { font-variation-settings: 'FILL' 1; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        /* Masonry pseudo-grid logic for static HTML */
+        .masonry-col { display: flex; flex-direction: column; gap: 16px; }
+        
+        /* Input styling */
+        input[type="radio"]:checked + div {
+            border-color: #1b1c1c;
+            background-color: #fbf9f8;
+        }
+        input[type="radio"]:checked + div > .check-icon {
+            opacity: 1;
+        }
+        input[type="radio"]:not(:checked) + div {
+            border-color: #efedec;
+        }
+        
+        /* Chip styling */
+        .chip-input:checked + label {
+            background-color: #1b1c1c;
+            color: #ffffff;
+            border-color: #1b1c1c;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background flex flex-col min-h-screen">
+<!-- Header (Transactional context, no global nav shell) -->
+<header class="flex items-center justify-between px-container-margin h-16 w-full bg-surface-container-lowest sticky top-0 z-50">
+<button aria-label="Retour" class="p-2 -ml-2 text-on-surface-variant hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div class="flex-1 flex justify-center">
+<span class="font-label-caps text-label-caps bg-secondary-container text-on-secondary-container px-2 py-1 rounded-[2px]">BROUILLON</span>
+</div>
+<div class="w-10"></div> <!-- Balance spacer -->
+</header>
+<main class="flex-1 pb-32">
+<!-- Stepper -->
+<div class="px-container-margin pt-stack-md pb-stack-lg">
+<div class="flex items-center justify-between mb-2">
+<div class="flex flex-col flex-1 relative">
+<div class="h-1 bg-primary w-full absolute top-1/2 -translate-y-1/2 left-0 right-0 z-0"></div>
+<div class="flex justify-between relative z-10 w-full px-1">
+<div class="w-3 h-3 rounded-full bg-primary ring-4 ring-surface-container-lowest"></div>
+<div class="w-3 h-3 rounded-full bg-primary ring-4 ring-surface-container-lowest"></div>
+<div class="w-3 h-3 rounded-full bg-surface-container ring-4 ring-surface-container-lowest"></div>
+<div class="w-3 h-3 rounded-full bg-surface-container ring-4 ring-surface-container-lowest"></div>
+</div>
+</div>
+</div>
+<div class="flex justify-between text-[10px] font-mono text-on-surface-variant uppercase tracking-wider mt-2">
+<span>Profil</span>
+<span class="text-primary font-medium">Résultat</span>
+<span>État</span>
+<span>Pro</span>
+</div>
+</div>
+<!-- Page Header -->
+<section class="px-container-margin mb-stack-lg">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-background mb-stack-sm">Votre résultat</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Choisissez le style qui correspond à ce que vous voulez obtenir.</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-2 font-mono flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">info</span> Une seule inspiration principale pour cette démo.
+            </p>
+</section>
+<!-- Inspirations Catalog -->
+<section class="px-container-margin mb-section-gap">
+<h2 class="font-headline-md text-headline-md text-on-background mb-stack-md">Inspirations</h2>
+<div class="grid grid-cols-2 gap-gutter">
+<!-- Column 1 -->
+<div class="masonry-col">
+<!-- Selected Item: Knotless medium -->
+<label class="relative block cursor-pointer group">
+<input checked="" class="sr-only" name="inspiration" type="radio" value="knotless"/>
+<div class="border-2 rounded-none transition-colors relative overflow-hidden bg-surface-container-lowest">
+<div class="relative w-full aspect-[3/4]">
+<img class="w-full h-full object-cover" data-alt="A striking portrait of a Black woman with impeccably styled medium knotless braids, viewed from a slight angle. High-key, soft white lighting illuminates her features against a pristine, minimalist studio backdrop. The photography embodies a premium editorial aesthetic with sharp focus, subtle tonal layering, and an elegant composition that highlights the texture and neatness of the braided hairstyle. The overall mood is luxurious, confident, and meticulously crafted." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzsYFyvukjqn04TYnOXXPkHExVxjUHn8ZJJmquqMUj7qvaXAAlwe_lOfPieIsdFY_xjYJLHNUVGX1H-EGVaU6Paryw2HUWaMVp0F9lEB_mm8OnA4AHhuwiEpbcKiqR8_1aTNpmikUlOCsBSBdK6wraoDwbf69IyfPpIEVDOIUHatNBfrg56AK_ZqByUncfFw429ygxGi-PzqBy9rj-l4YjdxWOhSKzpywqhAuvao3IZllWlug9vaXo"/>
+<div class="absolute inset-0 bg-black/10"></div>
+<div class="absolute top-2 right-2 bg-secondary text-on-secondary font-mono text-[10px] px-2 py-1 rounded-[2px] shadow-sm">
+                                    POPULAIRE
+                                </div>
+<div class="absolute inset-0 border-4 border-primary transition-opacity opacity-100 check-border pointer-events-none"></div>
+<div class="absolute bottom-2 right-2 w-6 h-6 bg-primary text-on-primary rounded-full flex items-center justify-center opacity-100 check-icon transition-opacity">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+</div>
+<div class="p-3 bg-surface-container-lowest">
+<span class="font-body-sm text-body-sm font-medium text-on-background block">Knotless medium</span>
+</div>
+</div>
+</label>
+<!-- Item: Twists -->
+<label class="relative block cursor-pointer group">
+<input class="sr-only" name="inspiration" type="radio" value="twists"/>
+<div class="border border-surface-container rounded-none transition-colors relative overflow-hidden bg-surface-container-lowest hover:border-outline-variant">
+<div class="relative w-full aspect-square">
+<img class="w-full h-full object-cover grayscale-[20%]" data-alt="A close-up editorial shot of a woman with mixed-race heritage showcasing beautiful two-strand twists. The lighting is soft and cinematic, casting delicate shadows that emphasize the volume and natural shine of her textured hair. Set against a clean, off-white background (hex #FBF9F8), the image exudes a modern, minimalist-professional vibe. The composition focuses heavily on the intricate details of the twists." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4Vzvs_e5wVJ_gTDgZOiZx9OWvPDqYsZldp4BQS5GJCKZ_597KLTmt88sC37x5zc5dzRwgFdn4cF5GrwuS9_iTmCrfh7_MkqP5gRH3NTLaOL8KAa8MSeuTQsP97Yis0MZoEWgHjDh9UPlfqibtbkcoTb65lcM3ssiXgQ0crHdrcB02rG8b_vldijw4lUW7DZ-DWbbfr1JJSm_A1Z2YG9alsA7zL5gaLeA-BTayQIg0jw_XEEEo-Vnw"/>
+<div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
+<div class="absolute bottom-2 right-2 w-6 h-6 bg-surface-container text-on-surface-variant rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</div>
+</div>
+<div class="p-3 bg-surface-container-lowest">
+<span class="font-body-sm text-body-sm font-medium text-on-background block">Twists</span>
+</div>
+</div>
+</label>
+<!-- Item: Locs -->
+<label class="relative block cursor-pointer group">
+<input class="sr-only" name="inspiration" type="radio" value="locs"/>
+<div class="border border-surface-container rounded-none transition-colors relative overflow-hidden bg-surface-container-lowest hover:border-outline-variant">
+<div class="relative w-full aspect-[4/5]">
+<img class="w-full h-full object-cover grayscale-[20%]" data-alt="An elegant, high-fashion portrait of a person with perfectly cultivated locs styled in a neat updo. The lighting is dramatic yet soft, highlighting the sculptural quality of the hairstyle. The background is a soft, warm neutral tone that complements the subject's skin and hair, adhering to a minimalist editorial aesthetic. The image captures a sense of quiet confidence and refined luxury, emphasizing clean lines." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzKkUngDjJLZGms7d61NCdwEC727PCKjOzq_XTir9UV4AJZZ7lRZQQpuXbJtrB_7IKMh8v3gO5ZZojq4-oUgWrZu5B31RWB6hGxjjRv1Cex9pbXTsiVnA5YQgL0PjeRv91TajlWSffL-EfAzvSW6p1eb1ignK-zkXP15PEwiJ9ZunqCkAPTIDzrA9IFKG0Lj0wxBvqsMGaM7r6lhUfJ22e3i5nXOQSyuTRIW5qvJ4PClNWqwtaZ4g4"/>
+<div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
+<div class="absolute bottom-2 right-2 w-6 h-6 bg-surface-container text-on-surface-variant rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</div>
+</div>
+<div class="p-3 bg-surface-container-lowest">
+<span class="font-body-sm text-body-sm font-medium text-on-background block">Locs</span>
+</div>
+</div>
+</label>
+</div>
+<!-- Column 2 -->
+<div class="masonry-col">
+<!-- Item: Vanilles -->
+<label class="relative block cursor-pointer group">
+<input class="sr-only" name="inspiration" type="radio" value="vanilles"/>
+<div class="border border-surface-container rounded-none transition-colors relative overflow-hidden bg-surface-container-lowest hover:border-outline-variant">
+<div class="relative w-full aspect-square">
+<img class="w-full h-full object-cover grayscale-[20%]" data-alt="A beautifully composed portrait of a Black woman displaying rich, textured 'vanilles' (mini twists). The image is shot in a high-end studio setting with pristine white lighting that creates soft highlights on her hair. The minimalist approach ensures no distracting elements in the background, focusing entirely on the health and definition of the textured style. The aesthetic is clean, professional, and deeply elegant." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGyy31qHFqbP4jhpM5jv4Qb45axQJf4qQIPC6iCo39W_Rl0JdR-ZhriyERZt8_lDHtVOPq37Ma8TjR5X4lXw7euSQSuMo6gN8wi6km9UR4Lke2ze5wefulXjTDCbPkMd8rb1wd8YeVzzI1OxnfeDBmZlK_QaJLmIKoEUCinzGTZUcAvubdcdzNe9czNXQVaOjI5jEzX0d08CEOAq0DkKflLz4M-NxyNk_WTjXgGEtI9xvGAIdIDUhX"/>
+<div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
+<div class="absolute bottom-2 right-2 w-6 h-6 bg-surface-container text-on-surface-variant rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</div>
+</div>
+<div class="p-3 bg-surface-container-lowest">
+<span class="font-body-sm text-body-sm font-medium text-on-background block">Vanilles</span>
+</div>
+</div>
+</label>
+<!-- Item: Ponytail -->
+<label class="relative block cursor-pointer group">
+<input class="sr-only" name="inspiration" type="radio" value="ponytail"/>
+<div class="border border-surface-container rounded-none transition-colors relative overflow-hidden bg-surface-container-lowest hover:border-outline-variant">
+<div class="relative w-full aspect-[3/4]">
+<img class="w-full h-full object-cover grayscale-[20%]" data-alt="A profile view portrait of a woman with textured hair pulled back into a sleek, voluminous afro puff ponytail. The background is a clean, bright minimalist white, typical of high-end editorial beauty shoots. Soft, diffused lighting perfectly contours her face and highlights the natural texture of the ponytail. The composition is structured with generous negative space, reflecting a luxurious and sophisticated visual language." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCd8Sk1EhBqxcbJ8kYy0ZXHVcwjQeaqlkJ_IYQY15t5MHDjhdUv-PUZRhg0n0RpnRhm8ApLePl5q9eKEElE8N0UjthMFq8kP4-MzLs_ak2n1mzU_9wakSJhCXE4D67QPpbjavt14nCwjYfKoJA3xTwxRGS2-oP6iTFK_k5vuJsOZsjgtlttNKInzEX-LQ8w4ecj33DvJlc7uETZVvLXeoYBU14R7binSezBonqQ_KPsI5vkibZ129st"/>
+<div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
+<div class="absolute bottom-2 right-2 w-6 h-6 bg-surface-container text-on-surface-variant rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</div>
+</div>
+<div class="p-3 bg-surface-container-lowest">
+<span class="font-body-sm text-body-sm font-medium text-on-background block">Ponytail</span>
+</div>
+</div>
+</label>
+<!-- Item: Natural curls -->
+<label class="relative block cursor-pointer group">
+<input class="sr-only" name="inspiration" type="radio" value="natural"/>
+<div class="border border-surface-container rounded-none transition-colors relative overflow-hidden bg-surface-container-lowest hover:border-outline-variant">
+<div class="relative w-full aspect-square">
+<img class="w-full h-full object-cover grayscale-[20%]" data-alt="A vibrant, modern portrait of a Black woman embracing her natural, tightly coiled curls in a beautiful halo shape. The image is bathed in soft, natural-looking studio light against a minimalist, very light grey (#F5F3F2) background. The focus is sharp on the hair texture, embodying an editorial, high-fashion aesthetic with a quiet confidence. The visual style is crisp, unembellished, and highly professional." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5tRdZaKdOT3-ZlwhpzZNB-TIbFAssZZsL0BY2RsGKE8HZRCZgJJTeDO2l7jtwt6Fr5is5-By5V6Asx3oVjqp8qQjV6hZ59mIjnI6TqY1QcK7mmEiq4WkSspeBT7kFu7OtZrH4_yr9JMe3ufV8qVnXGGwCNdyec4e8_WQvuGF7Eu1V2Z8F6f7Rld8UWeYuR7nlDkvJfGT2bGRqzPky6Y3tZDNaDMEVxhn6UzRjDHpnT0S7XEL1Z5ju"/>
+<div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
+<div class="absolute bottom-2 right-2 w-6 h-6 bg-surface-container text-on-surface-variant rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</div>
+</div>
+<div class="p-3 bg-surface-container-lowest">
+<span class="font-body-sm text-body-sm font-medium text-on-background block">Natural curls</span>
+</div>
+</div>
+</label>
+</div>
+</div>
+</section>
+<!-- Variante -->
+<section class="px-container-margin mb-section-gap">
+<h2 class="font-headline-md text-headline-md text-on-background mb-stack-md">Variante</h2>
+<div class="flex flex-wrap gap-3">
+<div class="relative">
+<input class="chip-input sr-only" id="var-court" name="variant" type="radio" value="court"/>
+<label class="inline-flex items-center justify-center px-4 py-2 border border-surface-container rounded-lg font-body-sm text-body-sm text-on-background bg-surface-container-lowest cursor-pointer transition-colors hover:border-outline-variant" for="var-court">
+                        Court / small
+                    </label>
+</div>
+<div class="relative">
+<input checked="" class="chip-input sr-only" id="var-medium" name="variant" type="radio" value="medium"/>
+<label class="inline-flex items-center justify-center px-4 py-2 border border-surface-container rounded-lg font-body-sm text-body-sm text-on-background bg-surface-container-lowest cursor-pointer transition-colors hover:border-outline-variant" for="var-medium">
+                        Medium
+                    </label>
+</div>
+<div class="relative">
+<input class="chip-input sr-only" id="var-long" name="variant" type="radio" value="long"/>
+<label class="inline-flex items-center justify-center px-4 py-2 border border-surface-container rounded-lg font-body-sm text-body-sm text-on-background bg-surface-container-lowest cursor-pointer transition-colors hover:border-outline-variant" for="var-long">
+                        Long / XL
+                    </label>
+</div>
+</div>
+</section>
+<!-- Contexte -->
+<section class="px-container-margin mb-section-gap">
+<h2 class="font-headline-md text-headline-md text-on-background mb-stack-md">Contexte (optionnel)</h2>
+<div class="flex flex-wrap gap-3">
+<div class="relative">
+<input class="chip-input sr-only" id="ctx-quotidien" name="context" type="radio" value="quotidien"/>
+<label class="inline-flex items-center justify-center px-4 py-2 border border-surface-container rounded-lg font-body-sm text-body-sm text-on-background bg-surface-container-lowest cursor-pointer transition-colors hover:border-outline-variant" for="ctx-quotidien">
+                        Quotidien
+                    </label>
+</div>
+<div class="relative">
+<input class="chip-input sr-only" id="ctx-mariage" name="context" type="radio" value="mariage"/>
+<label class="inline-flex items-center justify-center px-4 py-2 border border-surface-container rounded-lg font-body-sm text-body-sm text-on-background bg-surface-container-lowest cursor-pointer transition-colors hover:border-outline-variant" for="ctx-mariage">
+                        Mariage / cérémonie
+                    </label>
+</div>
+<div class="relative">
+<input class="chip-input sr-only" id="ctx-event" name="context" type="radio" value="event"/>
+<label class="inline-flex items-center justify-center px-4 py-2 border border-surface-container rounded-lg font-body-sm text-body-sm text-on-background bg-surface-container-lowest cursor-pointer transition-colors hover:border-outline-variant" for="ctx-event">
+                        Événement
+                    </label>
+</div>
+<div class="relative">
+<input checked="" class="chip-input sr-only" id="ctx-transition" name="context" type="radio" value="transition"/>
+<label class="inline-flex items-center justify-center px-4 py-2 border border-surface-container rounded-lg font-body-sm text-body-sm text-on-background bg-surface-container-lowest cursor-pointer transition-colors hover:border-outline-variant" for="ctx-transition">
+                        Transition / protection
+                    </label>
+</div>
+</div>
+</section>
+</main>
+<!-- Sticky CTA -->
+<div class="fixed bottom-0 left-0 w-full bg-surface-container-lowest border-t border-surface-container px-container-margin py-4 pb-safe z-50">
+<button class="w-full bg-primary text-on-primary font-headline-md text-headline-md py-4 rounded-lg flex justify-center items-center gap-2 hover:opacity-90 active:scale-95 transition-all">
+            Continuer
+            <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+<script>
+        // Simple script to handle visual logic for the custom radio cards
+        document.querySelectorAll('input[name="inspiration"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                // Reset all
+                document.querySelectorAll('input[name="inspiration"]').forEach(r => {
+                    const container = r.closest('label').querySelector('.border-2, .border');
+                    const img = r.closest('label').querySelector('img');
+                    const checkBorder = r.closest('label').querySelector('.check-border');
+                    const checkIcon = r.closest('label').querySelector('.check-icon');
+                    
+                    if(r !== this) {
+                        container.className = 'border border-surface-container rounded-none transition-colors relative overflow-hidden bg-surface-container-lowest hover:border-outline-variant';
+                        img.classList.add('grayscale-[20%]');
+                        if(checkBorder) checkBorder.remove();
+                        if(checkIcon) checkIcon.remove();
+                    }
+                });
+
+                // Set active
+                const activeContainer = this.closest('label').querySelector('.border');
+                if(activeContainer) {
+                    activeContainer.className = 'border-2 border-transparent rounded-none transition-colors relative overflow-hidden bg-surface-container-lowest';
+                    const imgContainer = activeContainer.querySelector('.relative');
+                    this.closest('label').querySelector('img').classList.remove('grayscale-[20%]');
+                    
+                    // Add check border
+                    const borderDiv = document.createElement('div');
+                    borderDiv.className = 'absolute inset-0 border-4 border-primary transition-opacity opacity-100 check-border pointer-events-none';
+                    imgContainer.appendChild(borderDiv);
+
+                    // Add check icon
+                    const iconDiv = document.createElement('div');
+                    iconDiv.className = 'absolute bottom-2 right-2 w-6 h-6 bg-primary text-on-primary rounded-full flex items-center justify-center opacity-100 check-icon transition-opacity';
+                    iconDiv.innerHTML = '<span class="material-symbols-outlined text-[16px]">check</span>';
+                    imgContainer.appendChild(iconDiv);
+                }
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Service Editor - Cadre professionnel</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-dim": "#dbdad9",
+                      "error-container": "#ffdad6",
+                      "on-primary-container": "#848484",
+                      "on-surface-variant": "#444748",
+                      "inverse-on-surface": "#f2f0ef",
+                      "surface": "#fbf9f8",
+                      "on-secondary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "inverse-surface": "#303030",
+                      "surface-variant": "#e4e2e1",
+                      "surface-container-high": "#e9e8e7",
+                      "primary-fixed": "#e3e2e2",
+                      "on-tertiary-fixed-variant": "#5d4201",
+                      "on-error-container": "#93000a",
+                      "on-tertiary": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "background": "#fbf9f8",
+                      "surface-container-highest": "#e4e2e1",
+                      "secondary": "#775a19",
+                      "primary": "#000101",
+                      "surface-container-low": "#f5f3f2",
+                      "on-primary-fixed-variant": "#464747",
+                      "tertiary": "#000000",
+                      "on-secondary-fixed": "#261900",
+                      "secondary-fixed-dim": "#e8c176",
+                      "inverse-primary": "#c7c6c6",
+                      "error": "#ba1a1a",
+                      "secondary-fixed": "#ffdea3",
+                      "primary-fixed-dim": "#c7c6c6",
+                      "tertiary-fixed-dim": "#e9c177",
+                      "surface-container-lowest": "#ffffff",
+                      "outline-variant": "#c4c7c7",
+                      "primary-container": "#1b1c1c",
+                      "secondary-container": "#fdd587",
+                      "surface-tint": "#5e5e5e",
+                      "surface-bright": "#fbf9f8",
+                      "on-tertiary-container": "#a17f3c",
+                      "on-surface": "#1b1c1b",
+                      "tertiary-container": "#271900",
+                      "on-background": "#1b1c1b",
+                      "tertiary-fixed": "#ffdea6",
+                      "on-secondary-container": "#785a19",
+                      "outline": "#747878",
+                      "on-primary-fixed": "#1b1c1c",
+                      "on-secondary-fixed-variant": "#5c4200",
+                      "on-tertiary-fixed": "#271900",
+                      "surface-container": "#efedec"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "3xl": "64px",
+                      "xl": "32px",
+                      "lg": "24px",
+                      "xs": "4px",
+                      "margin-mobile": "16px",
+                      "unit": "4px",
+                      "2xl": "48px",
+                      "md": "16px",
+                      "sm": "8px",
+                      "margin-desktop": "40px"
+              },
+              "fontFamily": {
+                      "headline-sm": [
+                              "Manrope"
+                      ],
+                      "body-lg": [
+                              "Manrope"
+                      ],
+                      "body-sm": [
+                              "Manrope"
+                      ],
+                      "button-text": [
+                              "Manrope"
+                      ],
+                      "body-md": [
+                              "Manrope"
+                      ],
+                      "display-lg-mobile": [
+                              "Manrope"
+                      ],
+                      "headline-md": [
+                              "Manrope"
+                      ],
+                      "label-mono": [
+                              "JetBrains Mono"
+                      ],
+                      "display-lg": [
+                              "Manrope"
+                      ]
+              },
+              "fontSize": {
+                      "headline-sm": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "button-text": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-mono": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased pt-16 pb-3xl selection:bg-secondary selection:text-white">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface border-b border-surface-variant flex justify-between items-center px-margin-mobile h-16 w-full">
+<button class="text-on-surface-variant hover:bg-surface-container-low transition-colors rounded-full p-2 -ml-2 active:scale-95 transition-transform duration-150 flex items-center justify-center h-10 w-10">
+<span class="material-symbols-outlined text-on-background" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary">Service Editor</h1>
+<div class="flex items-center">
+<span class="font-label-mono text-label-mono bg-surface-container px-2 py-1 rounded text-on-surface-variant">DRAFT</span>
+</div>
+</header>
+<main class="max-w-[720px] mx-auto px-margin-mobile md:px-0 pt-lg relative grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Left Sidebar / Stepper (Desktop) -->
+<aside class="hidden md:block md:col-span-3 pt-xl sticky top-24 h-[calc(100vh-6rem)]">
+<nav aria-label="Progress">
+<ol class="overflow-hidden" role="list">
+<li class="relative pb-8">
+<div aria-hidden="true" class="absolute top-4 left-4 -ml-px h-full w-0.5 bg-surface-variant"></div>
+<a class="relative flex items-start group" href="#">
+<span class="h-9 flex items-center">
+<span class="relative z-10 w-8 h-8 flex items-center justify-center bg-secondary rounded-full">
+<span class="text-white font-label-mono text-label-mono">1</span>
+</span>
+</span>
+<span class="ml-4 min-w-0 flex flex-col">
+<span class="font-button-text text-button-text text-secondary tracking-wide">Contextes</span>
+</span>
+</a>
+</li>
+<li class="relative pb-8">
+<div aria-hidden="true" class="absolute top-4 left-4 -ml-px h-full w-0.5 bg-surface-variant"></div>
+<a class="relative flex items-start group" href="#">
+<span class="h-9 flex items-center">
+<span class="relative z-10 w-8 h-8 flex items-center justify-center bg-surface-container border-2 border-surface-variant rounded-full group-hover:border-outline-variant transition-colors">
+<span class="text-on-surface-variant font-label-mono text-label-mono">2</span>
+</span>
+</span>
+<span class="ml-4 min-w-0 flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Accueil</span>
+</span>
+</a>
+</li>
+<li class="relative pb-8">
+<div aria-hidden="true" class="absolute top-4 left-4 -ml-px h-full w-0.5 bg-surface-variant"></div>
+<a class="relative flex items-start group" href="#">
+<span class="h-9 flex items-center">
+<span class="relative z-10 w-8 h-8 flex items-center justify-center bg-surface-container border-2 border-surface-variant rounded-full group-hover:border-outline-variant transition-colors">
+<span class="text-on-surface-variant font-label-mono text-label-mono">3</span>
+</span>
+</span>
+<span class="ml-4 min-w-0 flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Communication</span>
+</span>
+</a>
+</li>
+<li class="relative">
+<a class="relative flex items-start group" href="#">
+<span class="h-9 flex items-center">
+<span class="relative z-10 w-8 h-8 flex items-center justify-center bg-surface-container border-2 border-surface-variant rounded-full group-hover:border-outline-variant transition-colors">
+<span class="text-on-surface-variant font-label-mono text-label-mono">4</span>
+</span>
+</span>
+<span class="ml-4 min-w-0 flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Politiques</span>
+</span>
+</a>
+</li>
+</ol>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<div class="md:col-span-9 flex flex-col space-y-xl">
+<!-- Mobile Stepper (Hidden on Desktop) -->
+<div class="md:hidden flex items-center justify-center space-x-2 pt-4">
+<div class="h-2 w-8 bg-secondary rounded-full"></div>
+<div class="h-2 w-8 bg-surface-variant rounded-full"></div>
+<div class="h-2 w-8 bg-surface-variant rounded-full"></div>
+<div class="h-2 w-8 bg-surface-variant rounded-full"></div>
+</div>
+<!-- Header Image -->
+<div class="w-full h-48 md:h-64 rounded-xl overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZvMrv5NV8KIyJa0U53SuO-BOXsOqp_Fb9Sd7O_eCoJp7MqY4w53tHMtR4MpB7ldVpAKlkOj-yB_HDEQO-6MpOtHL--lGPTBHr1xOABaWv2LM4tpAR8-K8XpuHRXrS55wRJ24kZkszAoZziclxkdQ9rVAWZzng68GNvkL4Oi3j0vAqRJHPyM7U4K_dqpVMNGbwk2bvvhriH6_w_dFaMQ0prKpbzZJctQOehvF9OpjWOKPEsco08SPaYw"/>
+</div>
+<div class="space-y-lg">
+<div class="space-y-sm">
+<h2 class="font-headline-md text-headline-md text-primary">Contextes d’exercice</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Indiquez où vous acceptez d’exercer en général. Les lieux précis d’une prestation se définiront plus tard.</p>
+</div>
+<div class="space-y-md">
+<!-- Option 1: Chez moi -->
+<label class="relative flex cursor-pointer rounded-xl border border-surface-variant bg-white p-4 hover:border-outline-variant transition-colors group has-[:checked]:border-secondary has-[:checked]:bg-[#fdfbf6]">
+<div class="flex flex-1 items-center justify-between">
+<div class="flex flex-col">
+<span class="font-button-text text-button-text text-on-surface">Chez moi</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">Espace personnel / studio à domicile</span>
+</div>
+<div class="ml-4 flex h-6 items-center">
+<input class="h-5 w-5 rounded border-outline-variant text-secondary focus:ring-secondary/20 focus:ring-offset-0 bg-transparent transition-all" name="context" type="checkbox"/>
+</div>
+</div>
+</label>
+<!-- Option 2: En salon -->
+<label class="relative flex cursor-pointer rounded-xl border border-surface-variant bg-white p-4 hover:border-outline-variant transition-colors group has-[:checked]:border-secondary has-[:checked]:bg-[#fdfbf6]">
+<div class="flex flex-1 items-center justify-between">
+<div class="flex flex-col">
+<span class="font-button-text text-button-text text-on-surface">En salon</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">Espace professionnel partenaire</span>
+</div>
+<div class="ml-4 flex h-6 items-center">
+<input class="h-5 w-5 rounded border-outline-variant text-secondary focus:ring-secondary/20 focus:ring-offset-0 bg-transparent transition-all" name="context" type="checkbox"/>
+</div>
+</div>
+</label>
+<!-- Option 3: Déplacement -->
+<label class="relative flex cursor-pointer rounded-xl border border-surface-variant bg-white p-4 hover:border-outline-variant transition-colors group has-[:checked]:border-secondary has-[:checked]:bg-[#fdfbf6]">
+<div class="flex flex-1 items-center justify-between">
+<div class="flex flex-col">
+<span class="font-button-text text-button-text text-on-surface">Déplacement</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">Je me rends chez la cliente</span>
+</div>
+<div class="ml-4 flex h-6 items-center">
+<input class="h-5 w-5 rounded border-outline-variant text-secondary focus:ring-secondary/20 focus:ring-offset-0 bg-transparent transition-all" name="context" type="checkbox"/>
+</div>
+</div>
+</label>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center">
+<span class="material-symbols-outlined text-[16px] mr-2" data-icon="info">info</span>
+                    Choisissez au moins un contexte.
+                </p>
+</div>
+<div class="space-y-lg border-t border-surface-variant pt-lg mt-lg">
+<h3 class="font-headline-sm text-headline-sm text-primary">Confidentialité de l’adresse</h3>
+<div class="space-y-md">
+<label class="relative flex cursor-pointer rounded-xl border border-surface-variant bg-white p-4 hover:border-outline-variant transition-colors group has-[:checked]:border-secondary has-[:checked]:bg-[#fdfbf6]">
+<div class="flex flex-1 items-center justify-between">
+<span class="font-button-text text-button-text text-on-surface">Adresse masquée jusqu’à l’engagement</span>
+<div class="ml-4 flex h-6 items-center">
+<input checked="" class="h-5 w-5 border-outline-variant text-secondary focus:ring-secondary/20 focus:ring-offset-0 bg-transparent transition-all" name="privacy" type="radio"/>
+</div>
+</div>
+</label>
+<label class="relative flex cursor-pointer rounded-xl border border-surface-variant bg-white p-4 hover:border-outline-variant transition-colors group has-[:checked]:border-secondary has-[:checked]:bg-[#fdfbf6]">
+<div class="flex flex-1 items-center justify-between">
+<span class="font-button-text text-button-text text-on-surface">Adresse visible aux clientes éligibles</span>
+<div class="ml-4 flex h-6 items-center">
+<input class="h-5 w-5 border-outline-variant text-secondary focus:ring-secondary/20 focus:ring-offset-0 bg-transparent transition-all" name="privacy" type="radio"/>
+</div>
+</div>
+</label>
+</div>
+</div>
+</div>
+</main>
+<!-- Sticky Bottom CTA -->
+<div class="fixed bottom-0 w-full bg-surface border-t border-surface-variant p-4 z-40 shadow-[0px_-4px_12px_rgba(27,28,28,0.02)]">
+<div class="max-w-[720px] mx-auto flex justify-end">
+<button class="bg-primary-container text-white font-button-text text-button-text px-6 h-11 rounded opacity-50 cursor-not-allowed transition-opacity hover:opacity-60 flex items-center justify-center min-w-[120px]" disabled="">
+                Continuer
+            </button>
+</div>
+</div>
+<!-- Padding for sticky bottom -->
+<div class="h-24"></div>
+<script>
+        // Simple script to toggle button state based on checkboxes
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const submitBtn = document.querySelector('button[disabled]');
+
+            checkboxes.forEach(cb => {
+                cb.addEventListener('change', () => {
+                    const anyChecked = Array.from(checkboxes).some(c => c.checked);
+                    if (anyChecked) {
+                        submitBtn.removeAttribute('disabled');
+                        submitBtn.classList.remove('opacity-50', 'cursor-not-allowed', 'hover:opacity-60');
+                        submitBtn.classList.add('hover:bg-tertiary', 'shadow-sm');
+                    } else {
+                        submitBtn.setAttribute('disabled', 'true');
+                        submitBtn.classList.add('opacity-50', 'cursor-not-allowed', 'hover:opacity-60');
+                        submitBtn.classList.remove('hover:bg-tertiary', 'shadow-sm');
+                    }
+                });
+            });
+        });
+    </script>
+</body></html>

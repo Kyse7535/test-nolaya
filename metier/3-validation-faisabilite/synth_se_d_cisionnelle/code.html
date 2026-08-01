@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Atelier Synergy - Synthèse</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#efedec",
+                        "inverse-on-surface": "#f2f0ef",
+                        "on-primary-container": "#848484",
+                        "secondary-fixed": "#ffdea3",
+                        "tertiary-fixed": "#ffdea6",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#775a19",
+                        "primary-container": "#1b1c1c",
+                        "surface-bright": "#fbf9f8",
+                        "inverse-primary": "#c7c6c6",
+                        "surface-dim": "#dbdad9",
+                        "outline-variant": "#c4c7c7",
+                        "surface-container-low": "#f5f3f2",
+                        "on-tertiary-fixed": "#271900",
+                        "error": "#ba1a1a",
+                        "secondary-container": "#fdd587",
+                        "surface-container-high": "#e9e8e7",
+                        "on-tertiary-container": "#a17f3c",
+                        "background": "#fbf9f8",
+                        "on-tertiary-fixed-variant": "#5d4201",
+                        "on-background": "#1b1c1b",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#e8c176",
+                        "surface-container-highest": "#e4e2e1",
+                        "outline": "#747878",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e4e2e1",
+                        "on-secondary-container": "#785a19",
+                        "on-surface": "#1b1c1b",
+                        "on-primary-fixed-variant": "#464747",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#e3e2e2",
+                        "tertiary-fixed-dim": "#e9c177",
+                        "tertiary": "#000000",
+                        "on-surface-variant": "#444748",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed-variant": "#5c4200",
+                        "on-secondary-fixed": "#261900",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#303030",
+                        "primary-fixed-dim": "#c7c6c6",
+                        "surface": "#fbf9f8",
+                        "primary": "#000101",
+                        "on-primary-fixed": "#1b1c1c",
+                        "tertiary-container": "#271900",
+                        "surface-tint": "#5e5e5e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "stack-md": "16px",
+                        "margin-tablet": "40px",
+                        "margin-mobile": "20px",
+                        "gutter": "16px",
+                        "stack-lg": "32px",
+                        "stack-sm": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "body-sm": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "label-status": ["JetBrains Mono"],
+                        "body-lg": ["Manrope"],
+                        "label-mono": ["JetBrains Mono"],
+                        "headline-xl": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-status": ["11px", { "lineHeight": "14px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-mono": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Custom scrollbar for horizontal gallery */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="pb-32">
+<!-- TopAppBar from JSON -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center px-margin-mobile h-16 bg-surface border-b border-surface-container">
+<button class="mr-4 text-on-surface-variant hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md-mobile text-primary uppercase tracking-tighter truncate flex-1">
+            Synthèse décisionnelle
+        </h1>
+<div class="ml-4 px-2 py-1 bg-secondary-container rounded-sm flex items-center justify-center">
+<span class="font-label-mono text-label-mono text-on-secondary-container uppercase">EN ATTENTE</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 px-margin-mobile md:px-margin-tablet max-w-3xl mx-auto space-y-stack-lg">
+<!-- Stepper -->
+<div class="flex items-center justify-between relative">
+<!-- Connecting lines -->
+<div class="absolute left-0 top-1/2 -translate-y-1/2 w-full h-[1px] bg-surface-container -z-10"></div>
+<!-- Step 1: Active -->
+<div class="flex flex-col items-center bg-surface px-2">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-label-mono text-label-mono border border-secondary mb-2">1</div>
+<span class="font-label-status text-label-status text-secondary text-center">Synthèse</span>
+</div>
+<!-- Step 2: Inactive -->
+<div class="flex flex-col items-center bg-surface px-2">
+<div class="w-8 h-8 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center font-label-mono text-label-mono mb-2">2</div>
+<span class="font-label-status text-label-status text-on-surface-variant text-center opacity-60">Faisabilité</span>
+</div>
+<!-- Step 3: Inactive -->
+<div class="flex flex-col items-center bg-surface px-2">
+<div class="w-8 h-8 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center font-label-mono text-label-mono mb-2">3</div>
+<span class="font-label-status text-label-status text-on-surface-variant text-center opacity-60">Offre</span>
+</div>
+<!-- Step 4: Inactive -->
+<div class="flex flex-col items-center bg-surface px-2">
+<div class="w-8 h-8 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center font-label-mono text-label-mono mb-2">4</div>
+<span class="font-label-status text-label-status text-on-surface-variant text-center opacity-60">Publier</span>
+</div>
+</div>
+<!-- Client Info & Intro -->
+<section class="flex flex-col space-y-stack-sm border-b border-surface-container pb-stack-md">
+<div class="flex items-center space-x-4 mb-2">
+<img alt="Awa D." class="w-12 h-12 rounded-full object-cover border border-surface-container" data-alt="Close up professional portrait of a beautiful Black woman with natural 4C coily hair, softly lit in a premium, minimalist studio setting with a pure white background. High fashion editorial photography style, conveying elegance and calm." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFPc8XNcTrByFBQYaSi85fz5Cs-Iob59JWA9UbOp5vYBRUmKv6P_JLulKQzKT0ZULNnwPw8BjaMgBmvs3CClG9bGSyM7CJnrnwDU6HFOx1nHBN0GOJ4BuNG1oeUHD1nJBBhILyRvF1BJAlkkSNFWZaMEfSJdeqLhSJrkVTMqHXOwNwG3H3U5-MZv6d-ioJSZ3CjjWmSmwD8wTJfDSjnXAW3soqRMgyQVC6tsPLLevnMF324obup5Ns"/>
+<div>
+<h2 class="font-headline-md text-headline-md-mobile md:text-headline-md text-on-surface">Awa D.</h2>
+<span class="font-label-mono text-label-mono text-on-surface-variant">CLIENTE</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant bg-surface-container-low p-4 rounded border border-surface-container italic">
+                Ces éléments sont figés. Ils servent de base à votre offre — pas de négociation ici.
+            </p>
+</section>
+<!-- Frozen Demand Sections (Bento Grid Style) -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="bg-surface-container-lowest p-5 rounded border border-surface-container flex flex-col space-y-2">
+<span class="font-label-mono text-label-mono text-on-surface-variant opacity-80 uppercase tracking-widest flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">style</span>
+                    Prestation
+                </span>
+<p class="font-body-lg text-body-lg text-on-surface">Vanilles / twists mi-longues</p>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded border border-surface-container flex flex-col space-y-2">
+<span class="font-label-mono text-label-mono text-on-surface-variant opacity-80 uppercase tracking-widest flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">psychology</span>
+                    Résultat attendu
+                </span>
+<p class="font-body-md text-body-md text-on-surface">Vanilles soignées, longueur épaules, rendu naturel</p>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded border border-surface-container flex flex-col space-y-2">
+<span class="font-label-mono text-label-mono text-on-surface-variant opacity-80 uppercase tracking-widest flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">payments</span>
+                    Budget indicatif
+                </span>
+<p class="font-body-lg text-body-lg text-on-surface">180 € – 220 €</p>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded border border-surface-container flex flex-col space-y-2">
+<span class="font-label-mono text-label-mono text-on-surface-variant opacity-80 uppercase tracking-widest flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">warning</span>
+                    Contraintes
+                </span>
+<div class="flex flex-wrap gap-2 mt-1">
+<span class="inline-flex items-center px-2 py-1 rounded bg-surface-container-low border border-surface-container font-label-mono text-label-mono text-on-surface-variant">4C</span>
+<span class="inline-flex items-center px-2 py-1 rounded bg-surface-container-low border border-surface-container font-label-mono text-label-mono text-on-surface-variant">Mi-dos</span>
+<span class="inline-flex items-center px-2 py-1 rounded bg-surface-container-low border border-surface-container font-label-mono text-label-mono text-on-surface-variant">Pas de colo</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded border border-surface-container flex flex-col space-y-2">
+<span class="font-label-mono text-label-mono text-on-surface-variant opacity-80 uppercase tracking-widest flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                    Lieu souhaité
+                </span>
+<p class="font-body-md text-body-md text-on-surface">Chez la coiffeuse</p>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded border border-surface-container flex flex-col space-y-2">
+<span class="font-label-mono text-label-mono text-on-surface-variant opacity-80 uppercase tracking-widest flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">calendar_month</span>
+                    Créneau préféré
+                </span>
+<p class="font-body-md text-body-md text-on-surface">Samedi matin</p>
+</div>
+</section>
+<!-- Gallery Section -->
+<section class="space-y-4 pt-stack-sm border-t border-surface-container">
+<h3 class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-widest flex justify-between items-end">
+                Références de la capacité
+                <span class="text-[10px] lowercase text-outline">Galerie prestation — lecture seule</span>
+</h3>
+<div class="flex overflow-x-auto hide-scrollbar space-x-gutter pb-4 snap-x">
+<!-- Thumbnail 1 -->
+<div class="snap-start flex-none w-[200px] md:w-[240px] aspect-[4/5] rounded border border-surface-container overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="High quality editorial photography of a Black woman from behind showing beautifully executed shoulder-length natural twists/vanilles on 4C hair. Soft natural light, premium minimalist salon background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnp5KwDTAvX3mLXUYikGY0ch3wkVT74F-BTn32tbJ2COOS6xsUafvruaLfPZZOcpStGtYvjH8yML56C2usTq_ryzIzk95bxUOASk1DtvTp7NRfv5aBPXmZU-nwgZk_9j9pumyLZucKkFuZFXaOF--lTlSh8ePOUogD0CPkfbr6SItALAH6e4jvqshTXvMIPhs0Ac-sVs5IXWUHnZAhlRbuyTVZMdst-4emAKxzNHmVM9fHcRp2HBJV"/>
+<div class="absolute inset-0 border border-black/5 rounded pointer-events-none"></div>
+</div>
+<!-- Thumbnail 2 -->
+<div class="snap-start flex-none w-[200px] md:w-[240px] aspect-[4/5] rounded border border-surface-container overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Close up shot of flawless natural twist extensions (vanilles) on a Black woman, highlighting the neat parting and texture. Premium lighting, minimalist editorial aesthetic with a soft cream background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA618aHjU7iz8mmPJOs2iO5RbLW_y3bxqipkdp7dOogVDmdJpO3f9cILp3pIonRNQqxCXRKWlTSTHwHa5Xa1_ZWXukywZIRXas6OUQpYaKgR_Uba5INogyINl6MUUrdtVfL6LKB39P6ba4XEcOJRklwK92-P04cMZktizhicJhZqgPrRf5BnU6x5eSsJeVevVswplfdYtC55-OJ1rN8w-XMu-bwQtlEcVT47IiCWLfPl8TutCUdsqdO"/>
+<div class="absolute inset-0 border border-black/5 rounded pointer-events-none"></div>
+</div>
+<!-- Thumbnail 3 -->
+<div class="snap-start flex-none w-[200px] md:w-[240px] aspect-[4/5] rounded border border-surface-container overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Profile shot of a Black woman showcasing mid-length twist out or vanilles styling. Elegant posture, luxurious hair texture, soft highly-diffused studio lighting, conveying a high-end salon finish." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuDHL8VqadRoBuS6bfPELCCvvq-CnW9ce_7ph5JECp62VOClztx4N7nnvwn-eoMprePI0AZ8RuikSA1wRsFCDOk5sdAd6HmKDO5sk2nK5uMs0mNed2gD_iR5MS8yHXfal_9so363h9FOQjnP_WtsW5Y684q15FcVP_Lfx1mJfu-Cvux8EZO4MdsHlWg8e5TuVBc3ryX5wG1a5NLyxbLpT9j_28Y6lpAtphF6UEljkkUmZp6Pc97KUr"/>
+<div class="absolute inset-0 border border-black/5 rounded pointer-events-none"></div>
+</div>
+</div>
+</section>
+</main>
+<!-- Sticky Footer Action -->
+<div class="fixed bottom-0 left-0 w-full z-40 bg-surface/95 backdrop-blur-sm border-t border-surface-container p-margin-mobile flex flex-col items-center justify-center shadow-[0_-4px_24px_rgba(27,28,28,0.04)] pb-safe">
+<span class="font-body-sm text-body-sm text-outline mb-3 italic">Aucune demande de précision dans cette démo.</span>
+<button class="w-full max-w-md bg-primary-container text-on-primary py-4 px-6 rounded font-headline-md text-body-lg font-medium hover:opacity-90 transition-opacity flex items-center justify-center space-x-2">
+<span>Continuer vers la faisabilité</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</body></html>

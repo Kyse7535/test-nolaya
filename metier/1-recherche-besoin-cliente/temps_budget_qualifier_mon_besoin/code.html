@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Atelier Synergy - Temps &amp; Budget</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-lowest": "#ffffff",
+                      "secondary-fixed": "#ffdea3",
+                      "secondary": "#775a19",
+                      "primary": "#000101",
+                      "tertiary-container": "#271900",
+                      "on-tertiary-fixed": "#271900",
+                      "secondary-container": "#fdd587",
+                      "inverse-on-surface": "#f2f0ef",
+                      "outline-variant": "#c4c7c7",
+                      "on-primary-container": "#848484",
+                      "inverse-surface": "#303030",
+                      "surface-tint": "#5e5e5e",
+                      "surface-bright": "#fbf9f8",
+                      "surface-container-high": "#e9e8e7",
+                      "surface": "#fbf9f8",
+                      "primary-fixed": "#e3e2e2",
+                      "on-tertiary-container": "#a17f3c",
+                      "on-error-container": "#93000a",
+                      "on-primary-fixed-variant": "#464747",
+                      "on-primary-fixed": "#1b1c1c",
+                      "error-container": "#ffdad6",
+                      "primary-container": "#1b1c1c",
+                      "on-surface-variant": "#444748",
+                      "outline": "#747878",
+                      "inverse-primary": "#c7c6c6",
+                      "tertiary": "#000000",
+                      "secondary-fixed-dim": "#e8c176",
+                      "on-background": "#1b1c1b",
+                      "error": "#ba1a1a",
+                      "surface-container-low": "#f5f3f2",
+                      "surface-container": "#efedec",
+                      "on-tertiary-fixed-variant": "#5d4201",
+                      "on-error": "#ffffff",
+                      "surface-variant": "#e4e2e1",
+                      "surface-dim": "#dbdad9",
+                      "on-secondary-fixed-variant": "#5c4200",
+                      "background": "#fbf9f8",
+                      "primary-fixed-dim": "#c7c6c6",
+                      "on-tertiary": "#ffffff",
+                      "tertiary-fixed": "#ffdea6",
+                      "on-surface": "#1b1c1b",
+                      "on-primary": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "surface-container-highest": "#e4e2e1",
+                      "tertiary-fixed-dim": "#e9c177",
+                      "on-secondary-fixed": "#261900",
+                      "on-secondary-container": "#785a19"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "container-margin": "24px",
+                      "gutter": "16px",
+                      "unit": "4px",
+                      "stack-sm": "8px",
+                      "stack-md": "16px",
+                      "stack-lg": "32px",
+                      "section-gap": "48px"
+              },
+              "fontFamily": {
+                      "label-caps": [
+                              "JetBrains Mono"
+                      ],
+                      "body-sm": [
+                              "Manrope"
+                      ],
+                      "headline-lg-mobile": [
+                              "Manrope"
+                      ],
+                      "headline-lg": [
+                              "Manrope"
+                      ],
+                      "display-lg": [
+                              "Manrope"
+                      ],
+                      "headline-md": [
+                              "Manrope"
+                      ],
+                      "label-sm": [
+                              "JetBrains Mono"
+                      ],
+                      "body-lg": [
+                              "Manrope"
+                      ]
+              },
+              "fontSize": {
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "40px",
+                              {
+                                      "lineHeight": "48px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "11px",
+                              {
+                                      "lineHeight": "14px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-lg min-h-screen flex flex-col antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-background fixed top-0 w-full z-50 border-b border-surface-container dark:border-outline-variant flat no shadows flex items-center justify-between px-container-margin h-16">
+<button class="text-primary dark:text-primary-fixed hover:opacity-80 transition-opacity active:scale-95 duration-150 flex items-center justify-center p-2 -ml-2 rounded-full focus:outline-none focus:ring-2 focus:ring-primary">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="flex-1 flex justify-center items-center gap-2">
+<h1 class="font-headline-md text-headline-md-mobile text-primary dark:text-primary-fixed truncate">Qualifier mon besoin</h1>
+</div>
+<div class="flex items-center justify-center -mr-2">
+<span class="inline-flex items-center px-2 py-1 bg-surface-container text-on-surface-variant font-label-caps text-label-caps rounded-[2px] uppercase tracking-wider">BROUILLON</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 pt-16 pb-[100px] px-container-margin">
+<!-- Stepper Indicator -->
+<div class="py-stack-md border-b border-surface-container mb-stack-lg">
+<div class="flex items-center gap-2">
+<span class="flex items-center justify-center w-6 h-6 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">1</span>
+<span class="flex items-center justify-center w-6 h-6 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">2</span>
+<span class="flex items-center justify-center w-6 h-6 rounded-full bg-primary text-on-primary font-label-sm text-label-sm font-bold shadow-sm">3</span>
+<span class="flex items-center justify-center w-6 h-6 rounded-full border border-surface-container text-on-surface-variant font-label-sm text-label-sm">4</span>
+</div>
+</div>
+<!-- Title Section -->
+<section class="mb-section-gap">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary tracking-tight mb-stack-sm">Temps &amp; budget</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Définissez le cadre idéal pour la réalisation de votre coiffure.</p>
+</section>
+<!-- Editorial Image -->
+<section class="mb-section-gap relative rounded-lg overflow-hidden h-48 md:h-64 border border-surface-container">
+<img alt="Editorial lifestyle image" class="object-cover w-full h-full" data-alt="A sophisticated editorial photograph of a stylish Black woman with voluminous, textured natural hair. She is relaxing in a softly lit, modern minimalist interior, smiling softly as she checks her phone. The setting features muted, warm tones with natural light pouring in, conveying a luxurious and professional ambiance aligned with a high-end service platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAT-vRkvzZklH7XdAzaf2TxEpwhCNK2JLaB4E6rQS15KLHUa0uNN886xOw8W-Tlm4-158c7fvr5B3ToB7v1mHFktZUMOrEEYjo9JXrojSVszetLiWnuRZfCYdvCVKJQ2AM33Jp5Lc1RTSXC-hqPVGNyqpGERJV60Pc2br-sr9WLmPUMrkREqiKzvjasvu1qbgwiNlHPHhnLcbMfzB4NWu7oStiyuqq-KZpR5X-nkS7ZnUaAQmO16Amj"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
+</section>
+<!-- Section: Temps -->
+<section class="mb-section-gap">
+<h3 class="font-headline-md text-headline-md text-primary mb-stack-md flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-weight="fill">calendar_month</span>
+                Temps
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-stack-md">Quand souhaitez-vous la prestation ?</p>
+<div class="space-y-stack-md">
+<!-- Field 1 -->
+<div class="flex flex-col gap-1">
+<label class="font-body-sm text-body-sm font-medium text-primary" for="date-preferee">Date préférée</label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border border-surface-container rounded-lg px-4 py-3 font-label-sm text-label-sm text-primary focus:ring-1 focus:ring-primary focus:border-primary transition-colors hover:border-outline-variant outline-none" id="date-preferee" type="date"/>
+</div>
+</div>
+<!-- Field 2 -->
+<div class="flex flex-col gap-1">
+<label class="font-body-sm text-body-sm font-medium text-primary" for="echeance">Dernière échéance acceptable</label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border border-surface-container rounded-lg px-4 py-3 font-label-sm text-label-sm text-primary focus:ring-1 focus:ring-primary focus:border-primary transition-colors hover:border-outline-variant outline-none" id="echeance" type="date"/>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant italic flex items-start gap-1 mt-stack-sm">
+<span class="material-symbols-outlined text-[16px] mt-0.5">info</span>
+                    Indiquez au moins une date préférée ou une échéance.
+                </p>
+</div>
+</section>
+<!-- Section: Budget -->
+<section class="mb-section-gap">
+<h3 class="font-headline-md text-headline-md text-primary mb-stack-md flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-weight="fill">account_balance_wallet</span>
+                Budget
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-stack-md">Combien êtes-vous prête à investir ?</p>
+<div class="grid grid-cols-2 gap-gutter mb-stack-lg">
+<!-- Budget Cible -->
+<div class="flex flex-col gap-1">
+<label class="font-body-sm text-body-sm font-medium text-primary" for="budget-cible">Budget cible</label>
+<div class="relative flex items-center">
+<input class="w-full bg-surface-container-lowest border border-surface-container rounded-lg pl-4 pr-8 py-3 font-label-sm text-label-sm text-primary focus:ring-1 focus:ring-primary focus:border-primary transition-colors hover:border-outline-variant outline-none text-right appearance-none m-0" id="budget-cible" placeholder="100" type="number"/>
+<span class="absolute right-4 font-label-sm text-label-sm text-on-surface-variant">€</span>
+</div>
+</div>
+<!-- Budget Maximum -->
+<div class="flex flex-col gap-1">
+<label class="font-body-sm text-body-sm font-medium text-primary" for="budget-max">Budget maximum</label>
+<div class="relative flex items-center">
+<input class="w-full bg-surface-container-lowest border border-surface-container rounded-lg pl-4 pr-8 py-3 font-label-sm text-label-sm text-primary focus:ring-1 focus:ring-primary focus:border-primary transition-colors hover:border-outline-variant outline-none text-right appearance-none m-0" id="budget-max" placeholder="120" type="number"/>
+<span class="absolute right-4 font-label-sm text-label-sm text-on-surface-variant">€</span>
+</div>
+</div>
+</div>
+<!-- Les mèches / extensions -->
+<div class="bg-surface-container-low rounded-lg p-stack-md border border-surface-container">
+<h4 class="font-body-sm text-body-sm font-medium text-primary mb-stack-sm">Les mèches / extensions</h4>
+<div class="space-y-stack-sm">
+<label class="flex items-center gap-3 cursor-pointer group">
+<div class="relative flex items-center justify-center w-5 h-5 rounded-full border border-outline-variant bg-surface-container-lowest group-hover:border-primary transition-colors">
+<input class="peer sr-only" name="extensions" type="radio" value="incluses"/>
+<div class="w-2.5 h-2.5 rounded-full bg-primary opacity-0 peer-checked:opacity-100 transition-opacity"></div>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface group-hover:text-primary transition-colors">Incluses dans mon budget</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<div class="relative flex items-center justify-center w-5 h-5 rounded-full border border-outline-variant bg-surface-container-lowest group-hover:border-primary transition-colors">
+<input class="peer sr-only" name="extensions" type="radio" value="en_plus"/>
+<div class="w-2.5 h-2.5 rounded-full bg-primary opacity-0 peer-checked:opacity-100 transition-opacity"></div>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface group-hover:text-primary transition-colors">En plus de mon budget</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<div class="relative flex items-center justify-center w-5 h-5 rounded-full border border-outline-variant bg-surface-container-lowest group-hover:border-primary transition-colors">
+<input checked="" class="peer sr-only" name="extensions" type="radio" value="je_ne_sais_pas"/>
+<div class="w-2.5 h-2.5 rounded-full bg-primary opacity-0 peer-checked:opacity-100 transition-opacity"></div>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface group-hover:text-primary transition-colors">Je ne sais pas encore</span>
+</label>
+</div>
+</div>
+</section>
+<!-- Soft Note -->
+<div class="mb-section-gap flex items-start gap-3 p-4 bg-secondary-fixed/20 border border-secondary-fixed-dim rounded-lg">
+<span class="material-symbols-outlined text-secondary shrink-0 mt-0.5">info</span>
+<p class="font-body-sm text-body-sm text-on-secondary-container">Ce n’est pas un devis. Les coiffeuses répondront ensuite dans ce cadre.</p>
+</div>
+</main>
+<!-- Bottom Sticky CTA -->
+<div class="fixed bottom-0 left-0 w-full bg-surface/90 backdrop-blur-md border-t border-surface-container p-container-margin z-40 pb-safe">
+<button class="w-full bg-primary text-on-primary hover:bg-primary/90 active:scale-[0.98] transition-all duration-200 py-4 px-6 rounded-lg font-body-sm text-body-sm font-semibold flex items-center justify-center gap-2 shadow-sm">
+            Continuer
+            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</body></html>

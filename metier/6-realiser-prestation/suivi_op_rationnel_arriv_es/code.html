@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Suivi jour J - Atelier Synergy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-container": "#785a19",
+                      "surface-tint": "#5e5e5e",
+                      "secondary-fixed": "#ffdea3",
+                      "tertiary-container": "#271900",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container-low": "#f5f3f2",
+                      "on-primary-fixed": "#1b1c1c",
+                      "on-tertiary": "#ffffff",
+                      "on-surface-variant": "#444748",
+                      "outline-variant": "#c4c7c7",
+                      "surface": "#fbf9f8",
+                      "primary": "#000101",
+                      "on-secondary-fixed": "#261900",
+                      "inverse-primary": "#c7c6c6",
+                      "primary-fixed-dim": "#c7c6c6",
+                      "tertiary": "#000000",
+                      "on-secondary": "#ffffff",
+                      "outline": "#747878",
+                      "on-error": "#ffffff",
+                      "tertiary-fixed-dim": "#e9c177",
+                      "on-secondary-fixed-variant": "#5c4200",
+                      "background": "#fbf9f8",
+                      "on-error-container": "#93000a",
+                      "error-container": "#ffdad6",
+                      "primary-fixed": "#e3e2e2",
+                      "on-tertiary-fixed-variant": "#5d4201",
+                      "on-tertiary-container": "#a17f3c",
+                      "surface-variant": "#e4e2e1",
+                      "on-surface": "#1b1c1b",
+                      "surface-container-highest": "#e4e2e1",
+                      "on-primary-fixed-variant": "#464747",
+                      "on-primary-container": "#848484",
+                      "surface-dim": "#dbdad9",
+                      "tertiary-fixed": "#ffdea6",
+                      "on-background": "#1b1c1b",
+                      "surface-bright": "#fbf9f8",
+                      "secondary-container": "#fdd587",
+                      "surface-container-high": "#e9e8e7",
+                      "surface-container": "#efedec",
+                      "secondary": "#775a19",
+                      "on-tertiary-fixed": "#271900",
+                      "error": "#ba1a1a",
+                      "secondary-fixed-dim": "#e8c176",
+                      "on-primary": "#ffffff",
+                      "inverse-on-surface": "#f2f0ef",
+                      "inverse-surface": "#303030",
+                      "primary-container": "#1b1c1c"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "xl": "32px",
+                      "gutter-mobile": "12px",
+                      "xs": "4px",
+                      "base": "4px",
+                      "md": "16px",
+                      "sm": "8px",
+                      "lg": "24px",
+                      "margin-mobile": "20px"
+              },
+              "fontFamily": {
+                      "display-lg": [
+                              "Manrope"
+                      ],
+                      "headline-md": [
+                              "Manrope"
+                      ],
+                      "body-lg": [
+                              "Manrope"
+                      ],
+                      "body-md": [
+                              "Manrope"
+                      ],
+                      "button-text": [
+                              "Manrope"
+                      ],
+                      "label-mono": [
+                              "JetBrains Mono"
+                      ],
+                      "headline-sm": [
+                              "Manrope"
+                      ]
+              },
+              "fontSize": {
+                      "display-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "button-text": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-mono": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-sm": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+          font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+      </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md antialiased min-h-screen pb-[100px]">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-margin-mobile h-14 bg-surface border-b border-surface-variant docked full-width top-0 sticky z-10 flat no shadows text-on-surface">
+<div class="flex items-center gap-sm">
+<button aria-label="Retour" class="flex items-center justify-center w-10 h-10 hover:bg-surface-container-low transition-colors rounded-full active:scale-95 duration-100">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm">Suivi jour J</h1>
+</div>
+<div class="bg-surface-container-high px-sm py-xs rounded font-label-mono text-label-mono text-on-surface uppercase flex items-center justify-center">
+            PRÊT
+        </div>
+</header>
+<main class="px-margin-mobile pt-lg flex flex-col gap-xl">
+<!-- Intro text -->
+<section>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Déclarez votre arrivée. Ces événements comptent pour l'exécution.</p>
+</section>
+<!-- Image -->
+<div class="w-full h-48 rounded-lg overflow-hidden border border-outline-variant">
+<img alt="Salon entrance" class="w-full h-full object-cover" data-alt="A sophisticated medium shot of a Black woman with impeccably styled textured hair arriving at the entrance of a premium, high-end hair salon. The lighting is soft and cinematic, highlighting the natural texture of her hair and the elegant, minimalist architectural details of the salon's facade in off-white and soft gold tones. The mood is calm, professional, and luxurious." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcVIkF9v1QVL-qRERt1BqNPpaHVVMsgFQt62XaK9d_6ysGLPJTSTNMi2arf0gupTjZdy2UtpT1VKPhWagD7-Zhqm1MTW7_rgSJIzgnHk5QgMYLO4g8qRTMoeO2VwfE6RIHOwZaSw-68ZUh8LrwN2m2v27obTEQo85wpJxtmrhIhSkMDqMF3Tx7AUcHhR38NC3FwlyjxRHch4XE6RUjLatUK6qykuUcWG1SmmMG1LJ3riqdWXX5tLrJOQ"/>
+</div>
+<!-- Appointment Card -->
+<section class="bg-surface-container-lowest border border-surface-container p-md rounded-lg flex flex-col gap-sm">
+<div class="flex justify-between items-start">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary">Knotless / box braids</h2>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-xs mt-xs">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span>
+                        Samedi 15 mars · 09:30
+                    </p>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-xs mt-xs">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                        Chez Amina K.
+                    </p>
+</div>
+</div>
+<div class="mt-sm pt-sm border-t border-surface-container flex items-center gap-sm bg-surface-container-low p-sm rounded">
+<span class="material-symbols-outlined text-secondary text-[20px] fill">lock</span>
+<p class="font-body-md text-body-md text-on-surface">Accès confirmé · digicode ****</p>
+</div>
+</section>
+<!-- Arrivées Section -->
+<section class="flex flex-col gap-md">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Arrivées</h3>
+<!-- Row 1: Cliente -->
+<div class="flex flex-col gap-sm border border-surface-container rounded-lg p-md bg-surface-container-lowest">
+<div class="flex justify-between items-center">
+<p class="font-body-lg text-body-lg font-bold">Cliente — Sarah M.</p>
+<span class="font-label-mono text-label-mono bg-surface-container-high text-on-surface-variant px-sm py-xs rounded">NON DÉCLARÉE</span>
+</div>
+<button class="mt-sm w-full h-[44px] bg-secondary text-on-secondary font-button-text text-button-text rounded flex items-center justify-center hover:opacity-90 transition-opacity active:scale-[0.98]">
+                    Je suis arrivée
+                </button>
+</div>
+<!-- Row 2: Coiffeuse -->
+<div class="flex flex-col gap-sm border border-surface-container rounded-lg p-md bg-surface-container-lowest">
+<div class="flex justify-between items-center">
+<p class="font-body-lg text-body-lg font-bold">Coiffeuse — Amina K.</p>
+<span class="font-label-mono text-label-mono bg-surface-container-high text-on-surface-variant px-sm py-xs rounded">NON DÉCLARÉE</span>
+</div>
+<button class="mt-sm w-full h-[44px] bg-surface-container-lowest border border-outline text-primary font-button-text text-button-text rounded flex items-center justify-center hover:bg-surface-container-low transition-colors active:scale-[0.98]">
+                    Je suis sur place
+                </button>
+</div>
+</section>
+<!-- Événements Section -->
+<section class="flex flex-col gap-md">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Événements</h3>
+<div class="border border-surface-container rounded-lg p-lg bg-surface-container-lowest flex flex-col items-center justify-center text-center gap-sm">
+<span class="material-symbols-outlined text-outline text-[32px]">history</span>
+<p class="font-body-md text-body-md text-on-surface-variant">Aucun événement pour l'instant</p>
+</div>
+<!-- Next-step hint -->
+<p class="font-body-md text-body-md text-on-surface-variant text-center mt-sm">
+                Ensuite, la coiffeuse pourra démarrer la prestation.
+            </p>
+</section>
+</main>
+<!-- Sticky CTA -->
+<div class="fixed bottom-0 left-0 w-full bg-surface border-t border-surface-variant p-margin-mobile z-40">
+<button class="w-full h-[44px] bg-primary text-on-primary font-button-text text-button-text rounded flex items-center justify-center hover:bg-primary-container transition-colors active:scale-[0.98]">
+            Déclarer mon arrivée
+        </button>
+</div>
+</body></html>

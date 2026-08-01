@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Atelier Synergy - Proposition ferme</title>
+<!-- Tailwind Config -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed": "#ffdea3",
+                      "secondary-container": "#fdd587",
+                      "primary-container": "#1b1c1c",
+                      "surface-container-highest": "#e4e2e1",
+                      "surface-variant": "#e4e2e1",
+                      "on-secondary-fixed-variant": "#5c4200",
+                      "surface-container": "#efedec",
+                      "on-error": "#ffffff",
+                      "primary": "#000101",
+                      "tertiary-fixed": "#ffdea6",
+                      "surface-bright": "#fbf9f8",
+                      "error-container": "#ffdad6",
+                      "on-error-container": "#93000a",
+                      "inverse-on-surface": "#f2f0ef",
+                      "surface-container-low": "#f5f3f2",
+                      "on-secondary": "#ffffff",
+                      "inverse-surface": "#303030",
+                      "on-secondary-container": "#785a19",
+                      "tertiary": "#000000",
+                      "on-tertiary-container": "#a17f3c",
+                      "on-primary-fixed-variant": "#464747",
+                      "on-primary": "#ffffff",
+                      "on-secondary-fixed": "#261900",
+                      "outline": "#747878",
+                      "on-tertiary": "#ffffff",
+                      "background": "#fbf9f8",
+                      "on-surface-variant": "#444748",
+                      "surface": "#fbf9f8",
+                      "inverse-primary": "#c7c6c6",
+                      "surface-container-lowest": "#ffffff",
+                      "on-surface": "#1b1c1b",
+                      "on-primary-fixed": "#1b1c1c",
+                      "tertiary-container": "#271900",
+                      "surface-tint": "#5e5e5e",
+                      "on-primary-container": "#848484",
+                      "surface-container-high": "#e9e8e7",
+                      "error": "#ba1a1a",
+                      "surface-dim": "#dbdad9",
+                      "tertiary-fixed-dim": "#e9c177",
+                      "secondary-fixed-dim": "#e8c176",
+                      "secondary": "#775a19",
+                      "on-tertiary-fixed-variant": "#5d4201",
+                      "on-tertiary-fixed": "#271900",
+                      "primary-fixed-dim": "#c7c6c6",
+                      "primary-fixed": "#e3e2e2",
+                      "on-background": "#1b1c1b",
+                      "outline-variant": "#c4c7c7"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "gutter": "16px",
+                      "stack-lg": "32px",
+                      "unit": "4px",
+                      "stack-md": "16px",
+                      "stack-sm": "8px",
+                      "margin-tablet": "40px",
+                      "margin-mobile": "20px"
+              },
+              "fontFamily": {
+                      "body-md": ["Manrope", "sans-serif"],
+                      "headline-md": ["Manrope", "sans-serif"],
+                      "headline-xl": ["Manrope", "sans-serif"],
+                      "headline-lg-mobile": ["Manrope", "sans-serif"],
+                      "body-lg": ["Manrope", "sans-serif"],
+                      "label-status": ["JetBrains Mono", "monospace"],
+                      "label-mono": ["JetBrains Mono", "monospace"],
+                      "body-sm": ["Manrope", "sans-serif"],
+                      "headline-lg": ["Manrope", "sans-serif"]
+              },
+              "fontSize": {
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "label-status": ["11px", {"lineHeight": "14px", "fontWeight": "400"}],
+                      "label-mono": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+              }
+            }
+          }
+        }
+    </script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        /* Ambient diffusion for subtle elevation */
+        .ambient-shadow {
+            box-shadow: 0 4px 24px rgba(27, 28, 28, 0.04);
+        }
+        
+        /* Hide scrollbar for clean aesthetic */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased min-h-screen flex flex-col pt-16 pb-24">
+<!-- TopAppBar (from JSON) -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface-dim border-b border-surface-container dark:border-outline-variant flex items-center px-margin-mobile h-16 w-full">
+<button aria-label="Retour" class="flex items-center justify-center p-2 -ml-2 mr-2 text-on-surface-variant dark:text-outline hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold tracking-tight text-primary dark:text-primary-fixed truncate flex-1">Proposition ferme</h1>
+<!-- Invisible placeholder to balance flex layout if leading icon is present without trailing actions -->
+<div class="w-10"></div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col w-full max-w-4xl mx-auto md:px-margin-tablet">
+<!-- Header Section -->
+<section class="px-margin-mobile pt-stack-lg pb-stack-md flex flex-col gap-stack-md">
+<!-- Status Badge -->
+<div class="inline-flex self-start px-2 py-1 bg-secondary-fixed rounded-sm border border-secondary-container items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary" style="font-variation-settings: 'FILL' 1;">schedule</span>
+<span class="font-label-status text-label-status text-secondary uppercase tracking-wider">EN ATTENTE</span>
+</div>
+<!-- Headline & Body -->
+<div class="flex flex-col gap-stack-sm">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface">Transformer votre acceptation en offre ferme</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+                    La demande cliente est figée. Vous confirmez que c’est faisable, vous fixez prix, durée, créneau, lieu et tâches, puis vous publiez une offre datée avec créneau réservé temporairement.
+                </p>
+</div>
+</section>
+<!-- Full-bleed Hero Image -->
+<section class="w-full relative h-[397px] min-h-[300px] bg-surface-container mb-stack-lg">
+<img class="w-full h-full object-cover" data-alt="A high-quality, editorial medium shot of a chic Black female hairstylist with immaculate textured box braids, standing in a brightly lit, minimalist premium atelier. She is focused intently on her sleek smartphone, reviewing a digital dossier. The environment features expansive white walls, soft diffused natural daylight, and subtle gold accent decor. The overall palette relies on crisp whites, deep charcoal blacks, and touches of warm gold, embodying a modern, sophisticated professional aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuARMdHkZCioqVH32cWoaacEcRzO9E3CYDqO2Mdhw4e-JDsDN8XHdAYs6JLjwcMyjP2XPrLfRVu4mp0HUiimGZ8Rpf5GnFkOkBycmT6tIjyu-xdOOkMC9uZWifl6WrCzrZ8InjKkDCX2RG8rANGoftgDjaNrAqJyqVEUYKUHBNBp6BmhioNCIppef4F97tGx6LRf2ostCkOaK7fwmSwyN94xFx_ZiKGvd7_ADwuFyY1LiGmndpJve1rU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/30 to-transparent flex items-end p-margin-mobile md:p-margin-tablet">
+<h3 class="font-headline-md text-headline-md text-on-primary max-w-lg shadow-sm">Une offre claire, un créneau protégé.</h3>
+</div>
+</section>
+<!-- Pillars Section (Bento-inspired Grid) -->
+<section class="px-margin-mobile mb-stack-lg flex flex-col gap-stack-md">
+<h3 class="font-body-lg text-body-lg font-semibold text-on-surface mb-stack-sm border-b border-surface-container pb-2">Ce que vous allez faire</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+<!-- Pillar 1 -->
+<div class="bg-surface-lowest border border-surface-container rounded p-4 flex gap-4 items-start">
+<div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center shrink-0 border border-surface-container">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 0;">summarize</span>
+</div>
+<div class="flex flex-col gap-1">
+<h4 class="font-body-md text-body-md font-semibold text-on-surface">Synthèse</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Relire le besoin figé : prestation, budget, contraintes.</p>
+</div>
+</div>
+<!-- Pillar 2 -->
+<div class="bg-surface-lowest border border-surface-container rounded p-4 flex gap-4 items-start">
+<div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center shrink-0 border border-surface-container">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 0;">verified</span>
+</div>
+<div class="flex flex-col gap-1">
+<h4 class="font-body-md text-body-md font-semibold text-on-surface">Faisabilité</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Confirmer que c’est réalisable exactement (variante light optionnelle).</p>
+</div>
+</div>
+<!-- Pillar 3 -->
+<div class="bg-surface-lowest border border-surface-container rounded p-4 flex gap-4 items-start">
+<div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center shrink-0 border border-surface-container">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 0;">edit_document</span>
+</div>
+<div class="flex flex-col gap-1">
+<h4 class="font-body-md text-body-md font-semibold text-on-surface">Offre</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Fixer prix, durée, créneau, lieu et tâches.</p>
+</div>
+</div>
+<!-- Pillar 4 -->
+<div class="bg-surface-lowest border border-surface-container rounded p-4 flex gap-4 items-start">
+<div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center shrink-0 border border-surface-container">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 0;">publish</span>
+</div>
+<div class="flex flex-col gap-1">
+<h4 class="font-body-md text-body-md font-semibold text-on-surface">Publication</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Publier l’offre ferme et créer le soft-hold.</p>
+</div>
+</div>
+</div>
+<!-- Contextual Note -->
+<div class="mt-stack-sm p-4 bg-surface-container-low border border-surface-container rounded-sm flex items-start gap-3">
+<span class="material-symbols-outlined text-outline text-[20px] shrink-0 mt-0.5" style="font-variation-settings: 'FILL' 0;">info</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant italic">
+                    Pas de demande de précision ni de refus dans cette démo. Le paiement se fera plus tard, côté cliente.
+                </p>
+</div>
+</section>
+<!-- Padding for Sticky CTA -->
+<div class="h-24"></div>
+</main>
+<!-- Sticky CTA Container -->
+<div class="fixed bottom-0 left-0 w-full bg-surface/95 backdrop-blur-md border-t border-surface-container px-margin-mobile py-4 z-40 ambient-shadow flex justify-center">
+<button class="w-full max-w-md bg-primary-container text-on-primary font-body-md text-body-md font-semibold h-14 rounded flex items-center justify-center gap-2 hover:opacity-90 active:scale-[0.98] transition-all">
+            Ouvrir le dossier
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 0;">arrow_forward</span>
+</button>
+</div>
+</body></html>
