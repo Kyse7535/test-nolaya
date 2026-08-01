@@ -35,6 +35,9 @@ export function buildSeedEngagement() {
     clientDisplayName: 'Amina K.',
     proDisplayName: 'Sarah M.',
     thumbnailUrl: APPOINTMENT_THUMBNAIL,
+    priceTotal: 220,
+    depositAmount: 66,
+    balanceAmount: 154,
     createdAt: '2026-03-01T10:00:00.000Z',
   }
 }

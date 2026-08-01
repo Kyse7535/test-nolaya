@@ -156,6 +156,24 @@ export const useExecutionStore = defineStore('execution', () => {
     return appointment
   }
 
+  /** COMPLETED appointment + execution dossier for étape 7. */
+  function ensureCompletedForSettlement() {
+    const appointment = appointmentStore.ensureCompletedForSettlement()
+    if (!appointment) return null
+    if (
+      !dossier.value ||
+      dossier.value.appointmentId !== appointment.id ||
+      dossier.value.status !== AppointmentStatus.COMPLETED
+    ) {
+      dossier.value = createExecutionDossier({
+        appointment,
+        engagement: currentEngagement.value,
+        events: events.value,
+      })
+    }
+    return appointment
+  }
+
   function setDemoRole(role) {
     if (role === DemoRole.CLIENT || role === DemoRole.PRO) {
       demoRole.value = role
@@ -284,6 +302,7 @@ export const useExecutionStore = defineStore('execution', () => {
     statusCode,
     timelineLines,
     ensureDemoSeed,
+    ensureCompletedForSettlement,
     setDemoRole,
     declareArrival,
     startService,

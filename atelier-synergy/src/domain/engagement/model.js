@@ -56,6 +56,20 @@ export function engagementDisplayFields(seed) {
  */
 export function createEngagementCommitted(seed) {
   const display = engagementDisplayFields(seed)
+  const priceTotal =
+    seed.priceTotal != null ? Number(seed.priceTotal) : null
+  const depositAmount =
+    seed.depositAmount != null
+      ? Number(seed.depositAmount)
+      : priceTotal != null
+        ? computeDeposit(priceTotal)
+        : null
+  const balanceAmount =
+    seed.balanceAmount != null
+      ? Number(seed.balanceAmount)
+      : priceTotal != null && depositAmount != null
+        ? priceTotal - depositAmount
+        : null
   return {
     id: seed.id ?? createEngagementId(),
     status: EngagementStatus.COMMITTED,
@@ -65,6 +79,9 @@ export function createEngagementCommitted(seed) {
     paymentId: seed.paymentId ?? null,
     offerVersion: seed.offerVersion ?? 1,
     offerRef: seed.offerRef ?? null,
+    priceTotal,
+    depositAmount,
+    balanceAmount,
     consents: seed.consents ?? null,
     acceptedPolicyIds: seed.acceptedPolicyIds ?? [],
     proof: seed.proof ?? null,

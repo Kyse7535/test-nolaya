@@ -23,6 +23,10 @@ function goHome() {
   router.push({ name: 'home' })
 }
 
+function goSettlement() {
+  router.push({ name: 'settlement-accueil' })
+}
+
 function toggleDossier() {
   showDossier.value = !showDossier.value
 }
@@ -161,7 +165,7 @@ function toggleDossier() {
           class="font-body-md text-body-md text-on-surface-variant text-center px-lg flex items-center justify-center gap-xs"
         >
           <span class="material-symbols-outlined text-sm">info</span>
-          Prochaine étape : régler le solde (étape règlement — bientôt).
+          Prochaine étape : régler le solde (étape 7).
         </p>
       </div>
     </main>
@@ -173,7 +177,7 @@ function toggleDossier() {
         <button
           type="button"
           class="w-full h-12 bg-primary text-on-primary rounded flex items-center justify-center gap-sm hover:opacity-90 active:scale-[0.98] transition-all"
-          @click="goHome"
+          @click="goSettlement"
         >
           <span class="font-body-md font-semibold">Continuer vers le règlement</span>
           <span class="material-symbols-outlined">arrow_forward</span>

@@ -266,6 +266,35 @@ export const useAppointmentStore = defineStore('appointment', () => {
     return next
   }
 
+  /** Force COMPLETED for étape 7 demo autonomy. */
+  function ensureCompletedForSettlement() {
+    const appointment = ensureReadyForExecution()
+    if (!appointment) return null
+    if (appointment.status === AppointmentStatus.COMPLETED) return appointment
+
+    const now = new Date().toISOString()
+    if (appointment.status === AppointmentStatus.READY) {
+      upsertList(appointments, {
+        ...appointment,
+        status: AppointmentStatus.IN_PROGRESS,
+        startedAt: now,
+      })
+    }
+
+    const current = currentAppointment.value
+    if (!current) return null
+    if (current.status === AppointmentStatus.COMPLETED) return current
+
+    const completed = {
+      ...current,
+      status: AppointmentStatus.COMPLETED,
+      startedAt: current.startedAt ?? now,
+      completedAt: now,
+    }
+    upsertList(appointments, completed)
+    return completed
+  }
+
   /** Reset execution statuses back to READY (keep prep snapshot). */
   function resetExecutionStatus() {
     const appointment = currentAppointment.value
@@ -354,6 +383,7 @@ export const useAppointmentStore = defineStore('appointment', () => {
     isReady,
     ensureDemoSeed,
     ensureReadyForExecution,
+    ensureCompletedForSettlement,
     openDemo,
     setDemoRole,
     confirmAction,

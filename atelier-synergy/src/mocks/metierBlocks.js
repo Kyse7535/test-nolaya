@@ -68,8 +68,8 @@ export const metierBlocks = [
     order: '7',
     title: 'Régler',
     description: 'Encaisser et clôturer le paiement.',
-    routeName: null,
-    status: 'soon',
+    routeName: 'settlement-accueil',
+    status: 'ready',
   },
   {
     id: 'etape-8',

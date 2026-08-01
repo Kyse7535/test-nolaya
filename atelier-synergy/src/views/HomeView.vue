@@ -16,6 +16,8 @@ import { useExecutionStore } from '../stores/execution'
 import { useFrameworkStore } from '../stores/framework'
 import { useMatchingStore } from '../stores/matching'
 import { useProposalStore } from '../stores/proposal'
+import { useSettlementStore } from '../stores/settlement'
+import { SettlementStatus } from '../domain/settlement/model'
 
 const router = useRouter()
 const frameworkStore = useFrameworkStore()
@@ -26,6 +28,7 @@ const proposalStore = useProposalStore()
 const engagementStore = useEngagementStore()
 const appointmentStore = useAppointmentStore()
 const executionStore = useExecutionStore()
+const settlementStore = useSettlementStore()
 
 const capacityCountLabel = computed(() => {
   const open = capacityStore.openCapacities.length
@@ -132,6 +135,19 @@ const executionCountLabel = computed(() => {
   return 'dossier'
 })
 
+const hasSettlement = computed(() => Boolean(settlementStore.settlement))
+
+const settlementCountLabel = computed(() => {
+  const settlement = settlementStore.settlement
+  if (!settlement) return 'aucune'
+  if (settlement.status === SettlementStatus.SETTLED) return 'SETTLED'
+  if (settlement.status === SettlementStatus.PAYMENT_PENDING) return 'à payer'
+  if (settlement.status === SettlementStatus.SETTLEMENT_PENDING) {
+    return 'solde à régler'
+  }
+  return 'dossier'
+})
+
 function openBlock(block) {
   if (block.status !== 'ready' || !block.routeName) return
   if (block.id === 'etape-0' && hasCapacities.value) {
@@ -220,6 +236,15 @@ function openBlock(block) {
     router.push({ name: 'execution-accueil' })
     return
   }
+  if (block.id === 'etape-7') {
+    settlementStore.ensureDemoSeed()
+    if (settlementStore.settled) {
+      router.push({ name: 'settlement-succes' })
+      return
+    }
+    router.push({ name: 'settlement-accueil' })
+    return
+  }
   router.push({ name: block.routeName })
 }
 
@@ -254,6 +279,10 @@ function resetAppointmentDemo() {
 
 function resetExecutionDemo() {
   executionStore.resetDemo()
+}
+
+function resetSettlementDemo() {
+  settlementStore.resetDemo()
 }
 
 function goCapacityListe() {
@@ -517,6 +546,30 @@ function goDemandStart() {
         </div>
         <p class="font-body-sm text-body-sm text-on-surface-variant">
           Persisté dans localStorage (`as.mvp.executionEvents`, `as.mvp.executionDossier`).
+        </p>
+      </div>
+
+      <div
+        v-if="hasSettlement"
+        class="mb-lg p-md rounded-xl border border-surface-container bg-surface-container-low flex flex-col gap-sm"
+      >
+        <div class="flex items-center justify-between gap-sm">
+          <span
+            class="font-label-mono text-label-mono bg-surface-container text-on-surface-variant px-2 py-1 rounded uppercase"
+          >
+            Règlement · {{ settlementCountLabel }}
+          </span>
+          <button
+            type="button"
+            class="font-button-text text-button-text text-secondary underline-offset-2 hover:underline"
+            @click="resetSettlementDemo"
+          >
+            Réinitialiser
+          </button>
+        </div>
+        <p class="font-body-sm text-body-sm text-on-surface-variant">
+          Persisté dans localStorage (`as.mvp.settlement`, `as.mvp.ledgerLines`,
+          `as.mvp.payout`).
         </p>
       </div>
 

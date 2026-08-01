@@ -13,6 +13,8 @@ import { useExecutionStore } from '../stores/execution'
 import { useFrameworkStore } from '../stores/framework'
 import { useMatchingStore } from '../stores/matching'
 import { useProposalStore } from '../stores/proposal'
+import { useSettlementStore } from '../stores/settlement'
+import { SettlementStatus } from '../domain/settlement/model'
 import HomeView from '../views/HomeView.vue'
 import FrameworkAccueilView from '../views/framework/FrameworkAccueilView.vue'
 import FrameworkContextesView from '../views/framework/FrameworkContextesView.vue'
@@ -68,6 +70,10 @@ import ExecutionDemarrerView from '../views/execution/ExecutionDemarrerView.vue'
 import ExecutionFinView from '../views/execution/ExecutionFinView.vue'
 import ExecutionConfirmationView from '../views/execution/ExecutionConfirmationView.vue'
 import ExecutionSuccesView from '../views/execution/ExecutionSuccesView.vue'
+import SettlementAccueilView from '../views/settlement/SettlementAccueilView.vue'
+import SettlementPaiementView from '../views/settlement/SettlementPaiementView.vue'
+import SettlementRevenuView from '../views/settlement/SettlementRevenuView.vue'
+import SettlementSuccesView from '../views/settlement/SettlementSuccesView.vue'
 
 const frameworkDraftNames = new Set([
   'framework-accueil',
@@ -154,6 +160,18 @@ const executionUpstreamNames = new Set([
   'execution-demarrer',
   'execution-fin',
   'execution-confirmation',
+])
+
+const settlementRouteNames = new Set([
+  'settlement-accueil',
+  'settlement-solde',
+  'settlement-revenu',
+  'settlement-succes',
+])
+
+const settlementUpstreamNames = new Set([
+  'settlement-accueil',
+  'settlement-solde',
 ])
 
 const router = createRouter({
@@ -434,6 +452,26 @@ const router = createRouter({
       name: 'execution-succes',
       component: ExecutionSuccesView,
     },
+    {
+      path: '/reglement',
+      name: 'settlement-accueil',
+      component: SettlementAccueilView,
+    },
+    {
+      path: '/reglement/solde',
+      name: 'settlement-solde',
+      component: SettlementPaiementView,
+    },
+    {
+      path: '/reglement/revenu',
+      name: 'settlement-revenu',
+      component: SettlementRevenuView,
+    },
+    {
+      path: '/reglement/succes',
+      name: 'settlement-succes',
+      component: SettlementSuccesView,
+    },
   ],
   scrollBehavior() {
     return { top: 0 }
@@ -622,6 +660,35 @@ router.beforeEach((to) => {
     executionAppointment?.status !== AppointmentStatus.COMPLETED
   ) {
     return { name: 'execution-accueil' }
+  }
+
+  const settlementStore = useSettlementStore()
+
+  if (settlementRouteNames.has(to.name)) {
+    settlementStore.ensureDemoSeed()
+  }
+
+  const settlement = settlementStore.settlement
+
+  if (
+    settlement?.status === SettlementStatus.SETTLED &&
+    settlementUpstreamNames.has(to.name)
+  ) {
+    return { name: 'settlement-succes' }
+  }
+
+  if (
+    to.name === 'settlement-succes' &&
+    settlement?.status !== SettlementStatus.SETTLED
+  ) {
+    return { name: 'settlement-accueil' }
+  }
+
+  if (
+    to.name === 'settlement-revenu' &&
+    settlement?.status !== SettlementStatus.SETTLED
+  ) {
+    return { name: 'settlement-accueil' }
   }
 
   return true
