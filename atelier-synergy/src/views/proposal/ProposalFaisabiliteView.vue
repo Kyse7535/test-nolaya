@@ -73,7 +73,7 @@ function continueToOffer() {
         <span class="material-symbols-outlined text-primary text-2xl">arrow_back</span>
       </button>
       <div class="font-headline-md text-headline-md font-bold text-primary">
-        Atelier Synergy
+        Nolaya
       </div>
       <div class="w-8 h-8 rounded-full overflow-hidden border border-surface-container-highest">
         <img

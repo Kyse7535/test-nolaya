@@ -48,7 +48,7 @@ function goMatching() {
         <h1
           class="font-headline-md text-headline-md font-bold text-primary tracking-tight bg-white/70 backdrop-blur-sm px-4 py-1 rounded-full shadow-sm border border-outline-variant/20"
         >
-          Atelier Synergy
+          Nolaya
         </h1>
       </header>
 

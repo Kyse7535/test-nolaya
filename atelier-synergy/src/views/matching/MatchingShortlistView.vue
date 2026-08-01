@@ -56,7 +56,7 @@ function goSuivi() {
       <h1
         class="font-headline-lg-mobile text-headline-lg-mobile font-bold tracking-tight text-primary uppercase"
       >
-        Atelier Synergy
+        Nolaya
       </h1>
       <div class="w-10" />
     </header>

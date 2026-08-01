@@ -78,7 +78,7 @@ function activate() {
           <span class="material-symbols-outlined">close</span>
         </button>
         <h1 class="font-headline-md text-headline-md font-bold tracking-tight text-primary">
-          Atelier Synergy
+          Nolaya
         </h1>
       </div>
     </header>

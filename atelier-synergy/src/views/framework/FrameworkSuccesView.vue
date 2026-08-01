@@ -35,7 +35,7 @@ function goHome() {
         <span class="material-symbols-outlined">arrow_back</span>
       </button>
       <div class="font-headline-sm text-headline-sm text-primary font-bold tracking-tight">
-        Atelier Synergy
+        Nolaya
       </div>
       <button
         type="button"

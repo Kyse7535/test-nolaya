@@ -65,7 +65,7 @@ function isAccepted(invitation) {
       <h1
         class="font-headline-lg-mobile text-headline-lg-mobile font-bold tracking-tight text-primary uppercase absolute left-1/2 -translate-x-1/2 whitespace-nowrap"
       >
-        Atelier Synergy
+        Nolaya
       </h1>
       <div class="w-10" />
     </header>

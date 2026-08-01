@@ -40,7 +40,7 @@ function toggleDossier() {
       class="w-full h-16 flex justify-center items-center bg-surface border-b border-surface-container z-40 fixed top-0"
     >
       <h1 class="font-headline-md text-headline-md text-primary tracking-tight">
-        Atelier Synergy
+        Nolaya
       </h1>
     </header>
 

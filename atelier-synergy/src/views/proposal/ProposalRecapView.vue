@@ -72,7 +72,7 @@ function publish() {
           <span class="material-symbols-outlined">arrow_back</span>
         </button>
         <h1 class="font-headline-md text-headline-md tracking-tight text-primary">
-          Atelier Synergy
+          Nolaya
         </h1>
         <div class="w-10" />
       </div>

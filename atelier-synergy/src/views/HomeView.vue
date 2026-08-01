@@ -386,7 +386,7 @@ function goDemandStart() {
       class="sticky top-0 z-40 w-full bg-surface border-b border-surface-container flex items-center justify-between px-margin-mobile h-16"
     >
       <div class="font-headline-sm text-headline-sm text-primary font-bold tracking-tight">
-        Atelier Synergy
+        Nolaya
       </div>
       <span
         class="font-label-mono text-label-mono bg-surface-container text-on-surface-variant px-2 py-1 rounded uppercase"

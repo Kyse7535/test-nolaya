@@ -104,7 +104,7 @@ function activate() {
       <h1
         class="font-headline-md text-headline-md text-primary font-extrabold tracking-tight"
       >
-        Atelier Synergy
+        Nolaya
       </h1>
       <button
         type="button"

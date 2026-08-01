@@ -68,7 +68,7 @@ function continueNext() {
           <span class="material-symbols-outlined">arrow_back</span>
         </button>
         <h1 class="text-headline-md font-headline-md font-bold tracking-tight text-primary">
-          Atelier Synergy
+          Nolaya
         </h1>
       </div>
       <div class="bg-surface-container-high px-2 py-1 rounded border border-outline-variant">
