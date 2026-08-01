@@ -1,4 +1,5 @@
 <script setup>
+import { inject } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
 import { DemoRole, demoRoleLabel } from '../domain/demoRole'
@@ -7,6 +8,7 @@ import { useDemoRoleStore } from '../stores/demoRole'
 const router = useRouter()
 const demoRoleStore = useDemoRoleStore()
 const { demoRole } = storeToRefs(demoRoleStore)
+const openDemoWelcome = inject('openDemoWelcome', null)
 
 function setRole(role) {
   demoRoleStore.setDemoRole(role)
@@ -74,6 +76,14 @@ function resetAll() {
           {{ demoRoleLabel(DemoRole.PRO) }}
         </button>
       </div>
+      <button
+        v-if="openDemoWelcome"
+        type="button"
+        class="shrink-0 font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant underline-offset-2 hover:underline px-sm py-2"
+        @click="openDemoWelcome"
+      >
+        Démo
+      </button>
       <button
         type="button"
         class="shrink-0 font-label-sm text-label-sm uppercase tracking-wider text-secondary underline-offset-2 hover:underline px-sm py-2"
