@@ -10,6 +10,7 @@ export const FeasibilityDecision = {
 
 export const SoftHoldStatus = {
   ACTIVE: 'ACTIVE',
+  BOOKED: 'BOOKED',
 }
 
 export const STORAGE_KEY_PROPOSALS = 'as.mvp.proposals'

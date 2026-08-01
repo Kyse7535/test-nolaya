@@ -1,10 +1,10 @@
-export const EngagementStatus = {
-  COMMITTED: 'COMMITTED',
-}
+export { EngagementStatus, STORAGE_KEY_ENGAGEMENTS, createEngagementId, createEngagementCommitted } from '../engagement/model'
 
 export const AppointmentStatus = {
   READINESS_PENDING: 'READINESS_PENDING',
   READY: 'READY',
+  IN_PROGRESS: 'IN_PROGRESS',
+  COMPLETED: 'COMPLETED',
 }
 
 export const ActionStatus = {
@@ -27,16 +27,11 @@ export const DemoRole = {
   PRO: 'pro',
 }
 
-export const STORAGE_KEY_ENGAGEMENTS = 'as.mvp.engagements'
 export const STORAGE_KEY_APPOINTMENTS = 'as.mvp.appointments'
 export const STORAGE_KEY_PREP_PLANS = 'as.mvp.prepPlans'
 export const STORAGE_KEY_PREP_TEMPLATES = 'as.mvp.prepTemplates'
 export const STORAGE_KEY_CURRENT_APPOINTMENT_ID = 'as.mvp.currentAppointmentId'
 export const STORAGE_KEY_APPOINTMENT_DEMO_ROLE = 'as.mvp.appointmentDemoRole'
-
-export function createEngagementId() {
-  return `eng_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 7)}`
-}
 
 export function createAppointmentId() {
   return `appt_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 7)}`
@@ -48,25 +43,6 @@ export function createPrepPlanId() {
 
 export function createActionId(suffix) {
   return `act_${suffix}`
-}
-
-/**
- * @param {object} seed
- */
-export function createEngagementCommitted(seed) {
-  return {
-    id: seed.id ?? createEngagementId(),
-    status: EngagementStatus.COMMITTED,
-    serviceLabel: seed.serviceLabel,
-    dateLabel: seed.dateLabel,
-    startTime: seed.startTime,
-    endTime: seed.endTime,
-    placeLabel: seed.placeLabel,
-    clientDisplayName: seed.clientDisplayName,
-    proDisplayName: seed.proDisplayName,
-    thumbnailUrl: seed.thumbnailUrl ?? null,
-    createdAt: seed.createdAt ?? new Date().toISOString(),
-  }
 }
 
 /**

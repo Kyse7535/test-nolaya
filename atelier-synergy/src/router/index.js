@@ -3,10 +3,13 @@ import { CapacityStatus } from '../domain/capacity/model'
 import { DemandStatus } from '../domain/demand/model'
 import { CampaignStatus, DemoRole } from '../domain/matching/model'
 import { AppointmentStatus } from '../domain/appointment/model'
+import { EngagementStatus } from '../domain/engagement/model'
 import { ProposalStatus } from '../domain/proposal/model'
 import { useAppointmentStore } from '../stores/appointment'
 import { useCapacityStore } from '../stores/capacity'
 import { useDemandStore } from '../stores/demand'
+import { useEngagementStore } from '../stores/engagement'
+import { useExecutionStore } from '../stores/execution'
 import { useFrameworkStore } from '../stores/framework'
 import { useMatchingStore } from '../stores/matching'
 import { useProposalStore } from '../stores/proposal'
@@ -48,11 +51,23 @@ import ProposalOffreView from '../views/proposal/ProposalOffreView.vue'
 import ProposalRecapView from '../views/proposal/ProposalRecapView.vue'
 import ProposalSuccesView from '../views/proposal/ProposalSuccesView.vue'
 import ProposalOffreClienteView from '../views/proposal/ProposalOffreClienteView.vue'
+import EngagementAccueilView from '../views/engagement/EngagementAccueilView.vue'
+import EngagementRecapView from '../views/engagement/EngagementRecapView.vue'
+import EngagementConsentementsView from '../views/engagement/EngagementConsentementsView.vue'
+import EngagementPaiementView from '../views/engagement/EngagementPaiementView.vue'
+import EngagementConfirmationClienteView from '../views/engagement/EngagementConfirmationClienteView.vue'
+import EngagementConfirmationProView from '../views/engagement/EngagementConfirmationProView.vue'
 import AppointmentAccueilView from '../views/appointment/AppointmentAccueilView.vue'
 import AppointmentPlanView from '../views/appointment/AppointmentPlanView.vue'
 import AppointmentChecklistClienteView from '../views/appointment/AppointmentChecklistClienteView.vue'
 import AppointmentChecklistCoiffeuseView from '../views/appointment/AppointmentChecklistCoiffeuseView.vue'
 import AppointmentReadyView from '../views/appointment/AppointmentReadyView.vue'
+import ExecutionAccueilView from '../views/execution/ExecutionAccueilView.vue'
+import ExecutionSuiviView from '../views/execution/ExecutionSuiviView.vue'
+import ExecutionDemarrerView from '../views/execution/ExecutionDemarrerView.vue'
+import ExecutionFinView from '../views/execution/ExecutionFinView.vue'
+import ExecutionConfirmationView from '../views/execution/ExecutionConfirmationView.vue'
+import ExecutionSuccesView from '../views/execution/ExecutionSuccesView.vue'
 
 const frameworkDraftNames = new Set([
   'framework-accueil',
@@ -100,6 +115,17 @@ const proposalWizardNames = new Set([
 
 const proposalFirmOnlyNames = new Set(['proposal-succes', 'proposal-offre-cliente'])
 
+const engagementWizardNames = new Set([
+  'engagement-recapitulatif',
+  'engagement-consentements',
+  'engagement-paiement',
+])
+
+const engagementCommittedNames = new Set([
+  'engagement-confirmation',
+  'engagement-confirmation-pro',
+])
+
 const appointmentNeedsCurrent = new Set([
   'appointment-plan',
   'appointment-checklist-cliente',
@@ -111,6 +137,23 @@ const appointmentPrepNames = new Set([
   'appointment-plan',
   'appointment-checklist-cliente',
   'appointment-checklist-coiffeuse',
+])
+
+const executionRouteNames = new Set([
+  'execution-accueil',
+  'execution-suivi',
+  'execution-demarrer',
+  'execution-fin',
+  'execution-confirmation',
+  'execution-succes',
+])
+
+const executionUpstreamNames = new Set([
+  'execution-accueil',
+  'execution-suivi',
+  'execution-demarrer',
+  'execution-fin',
+  'execution-confirmation',
 ])
 
 const router = createRouter({
@@ -307,6 +350,36 @@ const router = createRouter({
       component: ProposalOffreClienteView,
     },
     {
+      path: '/engagement',
+      name: 'engagement-accueil',
+      component: EngagementAccueilView,
+    },
+    {
+      path: '/engagement/recapitulatif',
+      name: 'engagement-recapitulatif',
+      component: EngagementRecapView,
+    },
+    {
+      path: '/engagement/consentements',
+      name: 'engagement-consentements',
+      component: EngagementConsentementsView,
+    },
+    {
+      path: '/engagement/paiement',
+      name: 'engagement-paiement',
+      component: EngagementPaiementView,
+    },
+    {
+      path: '/engagement/confirmation',
+      name: 'engagement-confirmation',
+      component: EngagementConfirmationClienteView,
+    },
+    {
+      path: '/engagement/confirmation-pro',
+      name: 'engagement-confirmation-pro',
+      component: EngagementConfirmationProView,
+    },
+    {
       path: '/rdv',
       name: 'appointment-accueil',
       component: AppointmentAccueilView,
@@ -330,6 +403,36 @@ const router = createRouter({
       path: '/rdv/ready',
       name: 'appointment-ready',
       component: AppointmentReadyView,
+    },
+    {
+      path: '/prestation',
+      name: 'execution-accueil',
+      component: ExecutionAccueilView,
+    },
+    {
+      path: '/prestation/suivi',
+      name: 'execution-suivi',
+      component: ExecutionSuiviView,
+    },
+    {
+      path: '/prestation/demarrer',
+      name: 'execution-demarrer',
+      component: ExecutionDemarrerView,
+    },
+    {
+      path: '/prestation/fin',
+      name: 'execution-fin',
+      component: ExecutionFinView,
+    },
+    {
+      path: '/prestation/confirmation',
+      name: 'execution-confirmation',
+      component: ExecutionConfirmationView,
+    },
+    {
+      path: '/prestation/succes',
+      name: 'execution-succes',
+      component: ExecutionSuccesView,
     },
   ],
   scrollBehavior() {
@@ -402,6 +505,36 @@ router.beforeEach((to) => {
     return { name: 'proposal-accueil' }
   }
 
+  const engagementStore = useEngagementStore()
+  const engagement = engagementStore.currentEngagement
+
+  if (engagementWizardNames.has(to.name) && !engagement) {
+    return { name: 'engagement-accueil' }
+  }
+
+  if (
+    engagement?.status === EngagementStatus.COMMITTED &&
+    engagementWizardNames.has(to.name)
+  ) {
+    return { name: 'engagement-confirmation' }
+  }
+
+  if (
+    to.name === 'engagement-paiement' &&
+    engagement &&
+    engagement.status !== EngagementStatus.AWAITING_PAYMENT &&
+    engagement.status !== EngagementStatus.COMMITTED
+  ) {
+    return { name: 'engagement-consentements' }
+  }
+
+  if (
+    engagementCommittedNames.has(to.name) &&
+    (!engagement || engagement.status !== EngagementStatus.COMMITTED)
+  ) {
+    return { name: 'engagement-accueil' }
+  }
+
   const appointmentStore = useAppointmentStore()
   const appointment = appointmentStore.currentAppointment
 
@@ -422,9 +555,73 @@ router.beforeEach((to) => {
     to.name === 'appointment-ready' &&
     (!currentAppointment || currentAppointment.status !== AppointmentStatus.READY)
   ) {
+    if (
+      currentAppointment?.status === AppointmentStatus.IN_PROGRESS ||
+      currentAppointment?.status === AppointmentStatus.COMPLETED
+    ) {
+      return { name: 'execution-accueil' }
+    }
     return currentAppointment
       ? { name: 'appointment-plan' }
       : { name: 'appointment-accueil' }
+  }
+
+  const executionStore = useExecutionStore()
+
+  if (executionRouteNames.has(to.name)) {
+    executionStore.ensureDemoSeed()
+  }
+
+  const executionAppointment = appointmentStore.currentAppointment
+
+  if (
+    executionAppointment?.status === AppointmentStatus.COMPLETED &&
+    executionUpstreamNames.has(to.name)
+  ) {
+    return { name: 'execution-succes' }
+  }
+
+  if (to.name === 'execution-demarrer') {
+    if (executionAppointment?.status === AppointmentStatus.IN_PROGRESS) {
+      return executionStore.endDeclared
+        ? { name: 'execution-confirmation' }
+        : { name: 'execution-suivi' }
+    }
+    if (executionAppointment?.status !== AppointmentStatus.READY) {
+      return { name: 'execution-accueil' }
+    }
+  }
+
+  if (to.name === 'execution-fin') {
+    if (executionAppointment?.status === AppointmentStatus.COMPLETED) {
+      return { name: 'execution-succes' }
+    }
+    if (executionStore.endDeclared) {
+      return { name: 'execution-confirmation' }
+    }
+    if (executionAppointment?.status !== AppointmentStatus.IN_PROGRESS) {
+      return executionStore.bothArrivalsDeclared
+        ? { name: 'execution-demarrer' }
+        : { name: 'execution-suivi' }
+    }
+  }
+
+  if (to.name === 'execution-confirmation') {
+    if (executionAppointment?.status === AppointmentStatus.COMPLETED) {
+      return { name: 'execution-succes' }
+    }
+    if (!executionStore.endDeclared) {
+      return executionAppointment?.status === AppointmentStatus.IN_PROGRESS
+        ? { name: 'execution-fin' }
+        : { name: 'execution-suivi' }
+    }
+  }
+
+  if (
+    to.name === 'execution-succes' &&
+    executionAppointment?.status !== AppointmentStatus.COMPLETED
+  ) {
+    return { name: 'execution-accueil' }
   }
 
   return true

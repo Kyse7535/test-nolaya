@@ -44,8 +44,8 @@ export const metierBlocks = [
     order: '4',
     title: 'Former l’engagement',
     description: 'Formaliser l’accord entre les parties.',
-    routeName: null,
-    status: 'soon',
+    routeName: 'engagement-accueil',
+    status: 'ready',
   },
   {
     id: 'etape-5',
@@ -60,8 +60,8 @@ export const metierBlocks = [
     order: '6',
     title: 'Réaliser la prestation',
     description: 'Exécuter le service convenu.',
-    routeName: null,
-    status: 'soon',
+    routeName: 'execution-accueil',
+    status: 'ready',
   },
   {
     id: 'etape-7',

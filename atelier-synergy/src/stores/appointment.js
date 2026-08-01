@@ -2,18 +2,17 @@ import { computed, ref, watch } from 'vue'
 import { defineStore } from 'pinia'
 import {
   ActionOwner,
+  ActionStatus,
   AppointmentStatus,
   DemoRole,
   STORAGE_KEY_APPOINTMENTS,
   STORAGE_KEY_APPOINTMENT_DEMO_ROLE,
   STORAGE_KEY_CURRENT_APPOINTMENT_ID,
-  STORAGE_KEY_ENGAGEMENTS,
   STORAGE_KEY_PREP_PLANS,
   STORAGE_KEY_PREP_TEMPLATES,
   blockingProgress as computeBlockingProgress,
   confirmActionOnPlan,
   createAppointmentFromEngagement,
-  createEngagementCommitted,
   createPrepPlanFromTemplate,
   createReadySnapshot,
   isAppointmentReady,
@@ -21,10 +20,8 @@ import {
   ownerBlockingProgress,
   remainingBlockingActions,
 } from '../domain/appointment/model'
-import {
-  buildKnotlessPrepTemplate,
-  buildSeedEngagement,
-} from '../mocks/appointmentSeed'
+import { buildKnotlessPrepTemplate } from '../mocks/appointmentSeed'
+import { useEngagementStore } from './engagement'
 
 function readJsonArray(key) {
   try {
@@ -69,16 +66,12 @@ function writeDemoRole(role) {
 }
 
 export const useAppointmentStore = defineStore('appointment', () => {
-  const engagements = ref(readJsonArray(STORAGE_KEY_ENGAGEMENTS))
   const appointments = ref(readJsonArray(STORAGE_KEY_APPOINTMENTS))
   const prepPlans = ref(readJsonArray(STORAGE_KEY_PREP_PLANS))
   const prepTemplates = ref(readJsonArray(STORAGE_KEY_PREP_TEMPLATES))
   const currentAppointmentId = ref(readCurrentId())
   const demoRole = ref(readDemoRole())
 
-  watch(engagements, (value) => writeJson(STORAGE_KEY_ENGAGEMENTS, value), {
-    deep: true,
-  })
   watch(appointments, (value) => writeJson(STORAGE_KEY_APPOINTMENTS, value), {
     deep: true,
   })
@@ -101,9 +94,8 @@ export const useAppointmentStore = defineStore('appointment', () => {
   const currentEngagement = computed(() => {
     const appointment = currentAppointment.value
     if (!appointment?.engagementId) return null
-    return (
-      engagements.value.find((e) => e.id === appointment.engagementId) ?? null
-    )
+    const engagementStore = useEngagementStore()
+    return engagementStore.findById(appointment.engagementId)
   })
 
   const currentPlan = computed(() => {
@@ -161,8 +153,8 @@ export const useAppointmentStore = defineStore('appointment', () => {
       return currentAppointment.value
     }
 
-    const engagementSeed = buildSeedEngagement()
-    const engagement = createEngagementCommitted(engagementSeed)
+    const engagementStore = useEngagementStore()
+    const engagement = engagementStore.ensureCommittedSeed()
     const template = buildKnotlessPrepTemplate()
     const appointment = createAppointmentFromEngagement(engagement)
     const plan = createPrepPlanFromTemplate({
@@ -172,7 +164,6 @@ export const useAppointmentStore = defineStore('appointment', () => {
     })
     appointment.prepPlanId = plan.id
 
-    engagements.value = [engagement]
     prepTemplates.value = [template]
     prepPlans.value = [plan]
     appointments.value = [appointment]
@@ -188,6 +179,111 @@ export const useAppointmentStore = defineStore('appointment', () => {
     if (role === DemoRole.CLIENT || role === DemoRole.PRO) {
       demoRole.value = role
     }
+  }
+
+  /** Ensure a READY appointment with snapshot (for étape 6 demo autonomy). */
+  function ensureReadyForExecution() {
+    ensureDemoSeed()
+    let appointment = currentAppointment.value
+    let engagement = currentEngagement.value
+    let plan = currentPlan.value
+    if (!appointment || !engagement || !plan) return null
+
+    if (
+      appointment.status === AppointmentStatus.IN_PROGRESS ||
+      appointment.status === AppointmentStatus.COMPLETED ||
+      appointment.status === AppointmentStatus.READY
+    ) {
+      if (
+        appointment.status === AppointmentStatus.READY &&
+        !appointment.readySnapshot
+      ) {
+        const snapshot = createReadySnapshot({ appointment, plan, engagement })
+        appointment = {
+          ...appointment,
+          readySnapshot: snapshot,
+          readyAt: snapshot.createdAt,
+        }
+        upsertList(appointments, appointment)
+      }
+      return appointment
+    }
+
+    const confirmedPlan = {
+      ...plan,
+      actions: plan.actions.map((action) =>
+        action.status === ActionStatus.CONFIRMED
+          ? action
+          : {
+              ...action,
+              status: ActionStatus.CONFIRMED,
+              confirmedAt: new Date().toISOString(),
+            },
+      ),
+    }
+    upsertList(prepPlans, confirmedPlan)
+
+    const snapshot = createReadySnapshot({
+      appointment,
+      plan: confirmedPlan,
+      engagement,
+    })
+    const readyAppointment = {
+      ...appointment,
+      status: AppointmentStatus.READY,
+      readySnapshot: snapshot,
+      readyAt: snapshot.createdAt,
+    }
+    upsertList(appointments, readyAppointment)
+    return readyAppointment
+  }
+
+  function markInProgress(startedAt) {
+    const appointment = currentAppointment.value
+    if (!appointment || appointment.status !== AppointmentStatus.READY) {
+      return null
+    }
+    const next = {
+      ...appointment,
+      status: AppointmentStatus.IN_PROGRESS,
+      startedAt: startedAt ?? new Date().toISOString(),
+    }
+    upsertList(appointments, next)
+    return next
+  }
+
+  function markCompleted(completedAt) {
+    const appointment = currentAppointment.value
+    if (!appointment || appointment.status !== AppointmentStatus.IN_PROGRESS) {
+      return null
+    }
+    const next = {
+      ...appointment,
+      status: AppointmentStatus.COMPLETED,
+      completedAt: completedAt ?? new Date().toISOString(),
+    }
+    upsertList(appointments, next)
+    return next
+  }
+
+  /** Reset execution statuses back to READY (keep prep snapshot). */
+  function resetExecutionStatus() {
+    const appointment = currentAppointment.value
+    if (!appointment) return null
+    if (
+      appointment.status !== AppointmentStatus.IN_PROGRESS &&
+      appointment.status !== AppointmentStatus.COMPLETED
+    ) {
+      return appointment
+    }
+    const next = {
+      ...appointment,
+      status: AppointmentStatus.READY,
+      startedAt: null,
+      completedAt: null,
+    }
+    upsertList(appointments, next)
+    return next
   }
 
   function confirmAction(actionId) {
@@ -224,14 +320,12 @@ export const useAppointmentStore = defineStore('appointment', () => {
   }
 
   function resetDemo() {
-    engagements.value = []
     appointments.value = []
     prepPlans.value = []
     prepTemplates.value = []
     currentAppointmentId.value = null
     demoRole.value = DemoRole.CLIENT
     try {
-      localStorage.removeItem(STORAGE_KEY_ENGAGEMENTS)
       localStorage.removeItem(STORAGE_KEY_APPOINTMENTS)
       localStorage.removeItem(STORAGE_KEY_PREP_PLANS)
       localStorage.removeItem(STORAGE_KEY_PREP_TEMPLATES)
@@ -243,7 +337,6 @@ export const useAppointmentStore = defineStore('appointment', () => {
   }
 
   return {
-    engagements,
     appointments,
     prepPlans,
     prepTemplates,
@@ -260,9 +353,13 @@ export const useAppointmentStore = defineStore('appointment', () => {
     proActions,
     isReady,
     ensureDemoSeed,
+    ensureReadyForExecution,
     openDemo,
     setDemoRole,
     confirmAction,
+    markInProgress,
+    markCompleted,
+    resetExecutionStatus,
     resetDemo,
     DemoRole,
   }

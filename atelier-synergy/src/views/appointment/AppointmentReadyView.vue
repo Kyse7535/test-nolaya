@@ -26,6 +26,10 @@ function goHome() {
   router.push({ name: 'home' })
 }
 
+function goJourJ() {
+  router.push({ name: 'execution-accueil' })
+}
+
 function goPlan() {
   router.push({ name: 'appointment-accueil' })
 }
@@ -169,9 +173,9 @@ function goPlan() {
         <button
           type="button"
           class="w-full bg-primary-container text-on-primary font-headline-sm text-headline-sm py-4 rounded-lg active:opacity-80 transition-opacity"
-          @click="goHome"
+          @click="goJourJ"
         >
-          Retour aux blocs métier
+          Passer au jour J
         </button>
         <button
           type="button"
@@ -179,6 +183,13 @@ function goPlan() {
           @click="goPlan"
         >
           Revoir l’accueil préparation
+        </button>
+        <button
+          type="button"
+          class="w-full text-on-surface-variant font-body-md text-body-md py-2 rounded-lg hover:bg-surface-container-low transition-colors"
+          @click="goHome"
+        >
+          Retour aux blocs métier
         </button>
       </div>
     </div>

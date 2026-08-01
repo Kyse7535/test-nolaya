@@ -8,6 +8,7 @@ import {
 import {
   FeasibilityDecision,
   ProposalStatus,
+  SoftHoldStatus,
   STORAGE_KEY_CURRENT_PROPOSAL_ID,
   STORAGE_KEY_PROPOSALS,
   STORAGE_KEY_SOFT_HOLDS,
@@ -265,6 +266,38 @@ export const useProposalStore = defineStore('proposal', () => {
     return firm
   }
 
+  /**
+   * Transform soft-hold ACTIVE → BOOKED (étape 4 COMMITTED).
+   * @param {string} softHoldId
+   */
+  function markSoftHoldBooked(softHoldId) {
+    if (!softHoldId) return null
+    const hold = softHolds.value.find((h) => h.id === softHoldId)
+    if (!hold) return null
+
+    const booked = {
+      ...hold,
+      status: SoftHoldStatus.BOOKED,
+      bookedAt: new Date().toISOString(),
+    }
+    upsertSoftHold(booked)
+
+    const proposal = proposals.value.find((p) => p.softHoldId === softHoldId)
+    if (proposal?.offer?.slot) {
+      upsert({
+        ...proposal,
+        offer: {
+          ...proposal.offer,
+          slot: {
+            ...proposal.offer.slot,
+            availability: 'BOOKED',
+          },
+        },
+      })
+    }
+    return booked
+  }
+
   function resetDemo() {
     proposals.value = []
     softHolds.value = []
@@ -285,6 +318,7 @@ export const useProposalStore = defineStore('proposal', () => {
     setFeasibility,
     updateOffer,
     publishFirm,
+    markSoftHoldBooked,
     resetDemo,
   }
 })

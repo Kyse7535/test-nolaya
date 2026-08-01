@@ -55,6 +55,10 @@ function goBack() {
 function goHome() {
   router.push({ name: 'home' })
 }
+
+function goEngagement() {
+  router.push({ name: 'engagement-accueil' })
+}
 </script>
 
 <template>
@@ -224,7 +228,7 @@ function goHome() {
       <button
         type="button"
         class="w-full bg-primary-container text-on-primary h-12 rounded flex items-center justify-center font-body-md text-body-md font-medium transition-transform active:scale-[0.98]"
-        @click="goHome"
+        @click="goEngagement"
       >
         Examiner pour accepter
       </button>

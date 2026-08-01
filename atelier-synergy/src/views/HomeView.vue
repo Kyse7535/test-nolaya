@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { AppointmentStatus } from '../domain/appointment/model'
 import { DemandStatus } from '../domain/demand/model'
+import { EngagementStatus } from '../domain/engagement/model'
 import { CampaignStatus } from '../domain/matching/model'
 import { ProposalStatus } from '../domain/proposal/model'
 import { metierBlocks } from '../mocks/metierBlocks'
@@ -10,6 +11,8 @@ import { mockProfessional } from '../mocks/platform'
 import { useAppointmentStore } from '../stores/appointment'
 import { useCapacityStore } from '../stores/capacity'
 import { useDemandStore } from '../stores/demand'
+import { useEngagementStore } from '../stores/engagement'
+import { useExecutionStore } from '../stores/execution'
 import { useFrameworkStore } from '../stores/framework'
 import { useMatchingStore } from '../stores/matching'
 import { useProposalStore } from '../stores/proposal'
@@ -20,7 +23,9 @@ const capacityStore = useCapacityStore()
 const demandStore = useDemandStore()
 const matchingStore = useMatchingStore()
 const proposalStore = useProposalStore()
+const engagementStore = useEngagementStore()
 const appointmentStore = useAppointmentStore()
+const executionStore = useExecutionStore()
 
 const capacityCountLabel = computed(() => {
   const open = capacityStore.openCapacities.length
@@ -74,15 +79,55 @@ const proposalCountLabel = computed(() => {
   return 'dossier'
 })
 
+const hasEngagement = computed(() => engagementStore.engagements.length > 0)
+
+const engagementCountLabel = computed(() => {
+  const engagement = engagementStore.currentEngagement
+  if (!engagement) return 'aucune'
+  if (engagement.status === EngagementStatus.COMMITTED) return 'COMMITTED'
+  if (engagement.status === EngagementStatus.AWAITING_PAYMENT) return 'paiement'
+  if (engagement.status === EngagementStatus.AWAITING_CLIENT_ACCEPTANCE) {
+    return 'en attente'
+  }
+  return 'dossier'
+})
+
 const hasAppointment = computed(() => appointmentStore.appointments.length > 0)
 
 const appointmentCountLabel = computed(() => {
   const appointment = appointmentStore.currentAppointment
   if (!appointment) return 'aucune'
+  if (appointment.status === AppointmentStatus.COMPLETED) return 'COMPLETED'
+  if (appointment.status === AppointmentStatus.IN_PROGRESS) return 'EN COURS'
   if (appointment.status === AppointmentStatus.READY) return 'READY'
   if (appointment.status === AppointmentStatus.READINESS_PENDING) {
     const { percent } = appointmentStore.blockingProgress
     return `en préparation · ${percent}%`
+  }
+  return 'dossier'
+})
+
+const hasExecution = computed(() => {
+  const appointment = appointmentStore.currentAppointment
+  if (!appointment) return false
+  return (
+    appointment.status === AppointmentStatus.READY ||
+    appointment.status === AppointmentStatus.IN_PROGRESS ||
+    appointment.status === AppointmentStatus.COMPLETED ||
+    executionStore.appointmentEvents.length > 0 ||
+    Boolean(executionStore.dossier)
+  )
+})
+
+const executionCountLabel = computed(() => {
+  const appointment = appointmentStore.currentAppointment
+  if (!appointment) return 'aucune'
+  if (appointment.status === AppointmentStatus.COMPLETED) return 'COMPLETED'
+  if (appointment.status === AppointmentStatus.IN_PROGRESS) {
+    return executionStore.endDeclared ? 'à confirmer' : 'EN COURS'
+  }
+  if (appointment.status === AppointmentStatus.READY) {
+    return executionStore.bothArrivalsDeclared ? 'arrivées OK' : 'READY · jour J'
   }
   return 'dossier'
 })
@@ -127,9 +172,31 @@ function openBlock(block) {
       return
     }
   }
+  if (block.id === 'etape-4') {
+    const engagement = engagementStore.currentEngagement
+    if (engagement?.status === EngagementStatus.COMMITTED) {
+      router.push({ name: 'engagement-confirmation' })
+      return
+    }
+    if (engagement?.status === EngagementStatus.AWAITING_PAYMENT) {
+      router.push({ name: 'engagement-paiement' })
+      return
+    }
+    if (engagement?.status === EngagementStatus.AWAITING_CLIENT_ACCEPTANCE) {
+      router.push({ name: 'engagement-accueil' })
+      return
+    }
+  }
   if (block.id === 'etape-5') {
     appointmentStore.ensureDemoSeed()
     const appointment = appointmentStore.currentAppointment
+    if (
+      appointment?.status === AppointmentStatus.IN_PROGRESS ||
+      appointment?.status === AppointmentStatus.COMPLETED
+    ) {
+      router.push({ name: 'execution-accueil' })
+      return
+    }
     if (appointment?.status === AppointmentStatus.READY) {
       router.push({ name: 'appointment-ready' })
       return
@@ -138,6 +205,20 @@ function openBlock(block) {
       router.push({ name: 'appointment-plan' })
       return
     }
+  }
+  if (block.id === 'etape-6') {
+    executionStore.ensureDemoSeed()
+    const appointment = appointmentStore.currentAppointment
+    if (appointment?.status === AppointmentStatus.COMPLETED) {
+      router.push({ name: 'execution-succes' })
+      return
+    }
+    if (appointment?.status === AppointmentStatus.IN_PROGRESS) {
+      router.push({ name: 'execution-suivi' })
+      return
+    }
+    router.push({ name: 'execution-accueil' })
+    return
   }
   router.push({ name: block.routeName })
 }
@@ -162,8 +243,17 @@ function resetProposalDemo() {
   proposalStore.resetDemo()
 }
 
+function resetEngagementDemo() {
+  engagementStore.resetDemo()
+}
+
 function resetAppointmentDemo() {
+  executionStore.resetDemo()
   appointmentStore.resetDemo()
+}
+
+function resetExecutionDemo() {
+  executionStore.resetDemo()
 }
 
 function goCapacityListe() {
@@ -361,6 +451,30 @@ function goDemandStart() {
       </div>
 
       <div
+        v-if="hasEngagement"
+        class="mb-lg p-md rounded-xl border border-surface-container bg-surface-container-low flex flex-col gap-sm"
+      >
+        <div class="flex items-center justify-between gap-sm">
+          <span
+            class="font-label-mono text-label-mono bg-surface-container text-on-surface-variant px-2 py-1 rounded uppercase"
+          >
+            Engagement · {{ engagementCountLabel }}
+          </span>
+          <button
+            type="button"
+            class="font-button-text text-button-text text-secondary underline-offset-2 hover:underline"
+            @click="resetEngagementDemo"
+          >
+            Réinitialiser
+          </button>
+        </div>
+        <p class="font-body-sm text-body-sm text-on-surface-variant">
+          Persisté dans localStorage (`as.mvp.engagements`, `as.mvp.payments`,
+          `as.mvp.policies`).
+        </p>
+      </div>
+
+      <div
         v-if="hasAppointment"
         class="mb-lg p-md rounded-xl border border-surface-container bg-surface-container-low flex flex-col gap-sm"
       >
@@ -379,8 +493,30 @@ function goDemandStart() {
           </button>
         </div>
         <p class="font-body-sm text-body-sm text-on-surface-variant">
-          Persisté dans localStorage (`as.mvp.engagements`, `as.mvp.appointments`,
-          `as.mvp.prepPlans`).
+          Persisté dans localStorage (`as.mvp.appointments`, `as.mvp.prepPlans`).
+        </p>
+      </div>
+
+      <div
+        v-if="hasExecution"
+        class="mb-lg p-md rounded-xl border border-surface-container bg-surface-container-low flex flex-col gap-sm"
+      >
+        <div class="flex items-center justify-between gap-sm">
+          <span
+            class="font-label-mono text-label-mono bg-surface-container text-on-surface-variant px-2 py-1 rounded uppercase"
+          >
+            Exécution · {{ executionCountLabel }}
+          </span>
+          <button
+            type="button"
+            class="font-button-text text-button-text text-secondary underline-offset-2 hover:underline"
+            @click="resetExecutionDemo"
+          >
+            Réinitialiser
+          </button>
+        </div>
+        <p class="font-body-sm text-body-sm text-on-surface-variant">
+          Persisté dans localStorage (`as.mvp.executionEvents`, `as.mvp.executionDossier`).
         </p>
       </div>
 
@@ -427,9 +563,13 @@ function goDemandStart() {
                       ? `État : ${matchingCountLabel}.`
                       : block.id === 'etape-3' && hasProposal
                         ? `État : ${proposalCountLabel}.`
-                        : block.id === 'etape-5' && hasAppointment
-                          ? `État : ${appointmentCountLabel}.`
-                          : block.description
+                        : block.id === 'etape-4' && hasEngagement
+                          ? `État : ${engagementCountLabel}.`
+                          : block.id === 'etape-5' && hasAppointment
+                            ? `État : ${appointmentCountLabel}.`
+                            : block.id === 'etape-6' && hasExecution
+                              ? `État : ${executionCountLabel}.`
+                              : block.description
               }}
             </p>
           </button>

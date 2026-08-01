@@ -8,12 +8,16 @@ import {
 export function appointmentStatusBadge(status) {
   if (status === AppointmentStatus.READINESS_PENDING) return 'EN PRÉPARATION'
   if (status === AppointmentStatus.READY) return 'PRÊT'
+  if (status === AppointmentStatus.IN_PROGRESS) return 'EN COURS'
+  if (status === AppointmentStatus.COMPLETED) return 'TERMINÉ'
   return status ?? '—'
 }
 
 export function appointmentStatusCode(status) {
   if (status === AppointmentStatus.READINESS_PENDING) return 'READINESS_PENDING'
   if (status === AppointmentStatus.READY) return 'READY'
+  if (status === AppointmentStatus.IN_PROGRESS) return 'IN_PROGRESS'
+  if (status === AppointmentStatus.COMPLETED) return 'COMPLETED'
   return status ?? '—'
 }
 
