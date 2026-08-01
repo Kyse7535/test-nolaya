@@ -12,8 +12,14 @@ const { demoRole } = storeToRefs(demoRoleStore)
 const openDemoWelcome = inject('openDemoWelcome', null)
 
 function setRole(role) {
+  if (demoRole.value === role) return
   demoRoleStore.setDemoRole(role)
-  router.replace(navLocationForTab(firstTabId(role)))
+  // Stay on mid-flow screens so PRO↔CLIENT handoffs work (e.g. /prestation/confirmation).
+  // Hub tabs are role-specific — remap there only.
+  const { name } = router.currentRoute.value
+  if (name === 'home' || name === 'nav-tab') {
+    router.replace(navLocationForTab(firstTabId(role)))
+  }
 }
 
 function resetAll() {

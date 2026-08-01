@@ -70,12 +70,12 @@ function continueNext() {
 
 <template>
   <div
-    class="bg-surface font-body-md text-on-surface antialiased pt-16 pb-[120px] md:pb-0 relative min-h-screen"
+    class="bg-surface font-body-md text-on-surface antialiased flex flex-col h-[calc(100dvh-var(--as-role-bar)-var(--as-bottom-nav)-env(safe-area-inset-bottom,0px))]"
   >
     <header
-      class="fixed top-0 w-full z-50 bg-surface border-b border-surface-variant"
+      class="shrink-0 z-50 bg-surface border-b border-surface-variant"
     >
-      <div class="flex justify-between items-center px-container-margin h-16 w-full">
+      <div class="flex justify-between items-center px-container-margin h-14 w-full">
         <button
           type="button"
           aria-label="Retour"
@@ -95,31 +95,29 @@ function continueNext() {
       </div>
     </header>
 
-    <main class="w-full max-w-lg mx-auto md:mt-8">
-      <section class="px-container-margin pt-lg pb-md">
-        <h2
-          class="font-display-lg-mobile text-display-lg-mobile md:text-display-lg text-primary mb-sm"
-        >
+    <main class="flex-1 min-h-0 overflow-y-auto w-full max-w-lg mx-auto">
+      <section class="px-container-margin pt-md pb-sm">
+        <div class="flex items-center gap-sm mb-sm">
+          <div class="flex-1 h-1 bg-primary rounded-full" />
+          <div class="flex-1 h-1 bg-primary rounded-full" />
+          <div class="flex-1 h-1 bg-primary rounded-full" />
+          <div class="flex-1 h-1 bg-primary rounded-full" />
+          <div class="flex-1 h-1 bg-surface-container-high rounded-full" />
+        </div>
+        <h2 class="font-headline-md text-headline-md text-primary mb-xs">
           Prix, durée &amp; suppléments
         </h2>
-        <p class="font-body-md text-body-md text-on-surface-variant">
-          Étape 4 sur 5. Définissez la valeur et le temps nécessaire pour cette prestation.
+        <p class="font-body-sm text-body-sm text-on-surface-variant">
+          Étape 4 sur 5. Définissez la valeur et le temps pour cette prestation.
         </p>
-        <div class="flex items-center mt-lg gap-sm">
-          <div class="flex-1 h-1 bg-primary" />
-          <div class="flex-1 h-1 bg-primary" />
-          <div class="flex-1 h-1 bg-primary" />
-          <div class="flex-1 h-1 bg-primary" />
-          <div class="flex-1 h-1 bg-surface-container-high" />
-        </div>
       </section>
 
-      <section class="px-container-margin space-y-lg">
-        <div class="bg-surface-container-lowest rounded border border-surface-variant p-md">
-          <div class="grid grid-cols-2 gap-md">
+      <section class="px-container-margin pb-md flex flex-col gap-md">
+        <div class="bg-surface-container-lowest rounded border border-surface-variant p-sm">
+          <div class="grid grid-cols-2 gap-sm">
             <div>
               <label
-                class="block font-body-md text-body-md text-on-surface mb-xs"
+                class="block font-body-sm text-body-sm text-on-surface mb-xs"
                 for="basePrice"
               >
                 Prix de base (€)
@@ -130,7 +128,7 @@ function continueNext() {
                   type="number"
                   min="0"
                   step="1"
-                  class="w-full bg-surface-container-lowest border border-surface-variant rounded h-12 px-sm pl-12 font-label-technical text-label-technical text-primary focus:border-primary transition-colors text-right"
+                  class="w-full bg-surface-container-lowest border border-surface-variant rounded h-11 px-sm pl-12 font-label-technical text-label-technical text-primary focus:border-primary transition-colors text-right"
                   placeholder="0"
                   :value="basePrice || ''"
                   @input="onBasePrice"
@@ -143,7 +141,7 @@ function continueNext() {
               </div>
             </div>
             <div>
-              <label class="block font-body-md text-body-md text-on-surface mb-xs" for="duration">
+              <label class="block font-body-sm text-body-sm text-on-surface mb-xs" for="duration">
                 Durée (min)
               </label>
               <div class="relative">
@@ -152,7 +150,7 @@ function continueNext() {
                   type="number"
                   min="0"
                   step="15"
-                  class="w-full bg-surface-container-lowest border border-surface-variant rounded h-12 px-sm pl-12 font-label-technical text-label-technical text-primary focus:border-primary transition-colors text-right"
+                  class="w-full bg-surface-container-lowest border border-surface-variant rounded h-11 px-sm pl-12 font-label-technical text-label-technical text-primary focus:border-primary transition-colors text-right"
                   placeholder="0"
                   :value="durationMinutes || ''"
                   @input="onDuration"
@@ -168,8 +166,8 @@ function continueNext() {
         </div>
 
         <div>
-          <div class="flex justify-between items-end mb-sm">
-            <label class="block font-headline-sm text-headline-sm text-primary">
+          <div class="flex justify-between items-center mb-xs">
+            <label class="block font-body-md text-body-md font-semibold text-primary">
               Suppléments (0 à 2)
             </label>
             <button
@@ -183,7 +181,7 @@ function continueNext() {
             </button>
           </div>
 
-          <div class="space-y-sm">
+          <div class="flex flex-col gap-xs">
             <div
               v-for="(supplement, index) in supplements"
               :key="index"
@@ -224,39 +222,39 @@ function continueNext() {
           </div>
         </div>
 
-        <div class="bg-surface-container rounded-lg p-md mt-lg relative overflow-hidden">
+        <div class="bg-surface-container rounded-lg p-sm relative overflow-hidden">
           <div class="absolute top-0 left-0 w-full h-1 bg-secondary-container" />
-          <h3 class="font-headline-sm text-headline-sm text-primary flex items-center gap-xs mb-md">
-            <span class="material-symbols-outlined">receipt_long</span>
+          <h3 class="font-body-md text-body-md font-semibold text-primary flex items-center gap-xs mb-sm pt-xs">
+            <span class="material-symbols-outlined text-[20px]">receipt_long</span>
             Aperçu devis
           </h3>
-          <div class="space-y-sm">
+          <div class="flex flex-col gap-xs">
             <div class="flex justify-between items-center border-b border-surface-variant pb-xs">
-              <span class="font-body-md text-body-md text-on-surface-variant">
+              <span class="font-body-sm text-body-sm text-on-surface-variant truncate pr-2">
                 Prestation ({{ prestationLabel }})
               </span>
-              <span class="font-label-technical text-label-technical text-primary">
+              <span class="font-label-technical text-label-technical text-primary shrink-0">
                 {{ formatMoney(basePrice) }}
               </span>
             </div>
             <div class="flex justify-between items-center border-b border-surface-variant pb-xs">
-              <span class="font-body-md text-body-md text-on-surface-variant">
+              <span class="font-body-sm text-body-sm text-on-surface-variant">
                 Suppléments ({{ supplements.length }})
               </span>
               <span class="font-label-technical text-label-technical text-primary">
                 + {{ formatMoney(extrasTotal) }}
               </span>
             </div>
-            <div class="flex justify-between items-center pt-xs">
-              <span class="font-body-md text-body-md font-bold text-primary">
+            <div class="flex justify-between items-center">
+              <span class="font-body-sm text-body-sm font-bold text-primary">
                 Prix total estimé
               </span>
               <span class="font-label-technical text-label-technical font-bold text-primary">
                 {{ formatMoney(total) }}
               </span>
             </div>
-            <div class="flex justify-between items-center pt-xs">
-              <span class="font-body-md text-body-md text-on-surface-variant">
+            <div class="flex justify-between items-center">
+              <span class="font-body-sm text-body-sm text-on-surface-variant">
                 Durée estimée totale
               </span>
               <span class="font-label-technical text-label-technical text-primary">
@@ -269,11 +267,11 @@ function continueNext() {
     </main>
 
     <div
-      class="fixed bottom-0 left-0 w-full p-container-margin bg-surface/95 backdrop-blur-md border-t border-outline-variant z-40"
+      class="shrink-0 w-full px-container-margin pt-md pb-md bg-surface border-t border-outline-variant z-40"
     >
       <button
         type="button"
-        class="w-full h-14 bg-primary text-on-primary font-body-lg text-body-lg font-semibold rounded flex items-center justify-center gap-sm hover:bg-on-surface transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        class="w-full h-12 bg-primary text-on-primary font-body-lg text-body-lg font-semibold rounded flex items-center justify-center gap-sm hover:bg-on-surface transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         :disabled="!pricingReady"
         @click="continueNext"
       >

@@ -89,9 +89,11 @@ function continueNext() {
 </script>
 
 <template>
-  <div class="flex flex-col min-h-screen bg-background text-on-background font-body-md antialiased">
+  <div
+    class="flex flex-col bg-background text-on-background font-body-md antialiased h-[calc(100dvh-var(--as-role-bar)-var(--as-bottom-nav)-env(safe-area-inset-bottom,0px))]"
+  >
     <header
-      class="sticky top-0 z-50 flex items-center justify-between px-container-margin h-16 w-full bg-surface"
+      class="shrink-0 z-50 flex items-center justify-between px-container-margin h-14 w-full bg-surface border-b border-outline-variant"
     >
       <button
         type="button"
@@ -114,7 +116,9 @@ function continueNext() {
       </div>
     </header>
 
-    <main class="flex-1 px-container-margin pt-md pb-[100px] flex flex-col gap-lg max-w-3xl mx-auto w-full">
+    <main
+      class="flex-1 min-h-0 overflow-y-auto px-container-margin pt-md pb-md flex flex-col gap-lg max-w-3xl mx-auto w-full"
+    >
       <section class="flex flex-col gap-md">
         <div
           class="inline-flex self-start items-center px-3 py-1.5 bg-surface-container-high rounded-full border border-outline-variant"
@@ -206,11 +210,11 @@ function continueNext() {
     </main>
 
     <div
-      class="fixed bottom-0 left-0 w-full p-container-margin bg-surface/95 backdrop-blur-md border-t border-outline-variant z-40"
+      class="shrink-0 w-full px-container-margin pt-md pb-md bg-surface border-t border-outline-variant z-40"
     >
       <button
         type="button"
-        class="w-full h-14 bg-primary text-on-primary font-body-lg text-body-lg font-semibold rounded flex items-center justify-center hover:bg-on-surface transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        class="w-full h-12 bg-primary text-on-primary font-body-lg text-body-lg font-semibold rounded flex items-center justify-center hover:bg-on-surface transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         :disabled="!galleryReady"
         @click="continueNext"
       >

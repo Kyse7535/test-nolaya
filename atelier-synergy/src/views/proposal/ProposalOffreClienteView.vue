@@ -1,12 +1,15 @@
 <script setup>
 import { computed, onMounted } from 'vue'
-import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
+import { useRouter } from 'vue-router'
+import { DemoRole } from '../../domain/demoRole'
 import { ProposalStatus } from '../../domain/proposal/model'
+import { useDemoRoleStore } from '../../stores/demoRole'
 import { useProposalStore } from '../../stores/proposal'
 
 const router = useRouter()
 const proposalStore = useProposalStore()
+const { demoRole } = storeToRefs(useDemoRoleStore())
 const { currentProposal } = storeToRefs(proposalStore)
 
 const heroSrc =
@@ -42,6 +45,15 @@ const suppliesLine = computed(() => {
 })
 
 onMounted(() => {
+  if (demoRole.value === DemoRole.PRO) {
+    router.replace({
+      name:
+        currentProposal.value?.status === ProposalStatus.FIRM
+          ? 'proposal-succes'
+          : 'proposal-accueil',
+    })
+    return
+  }
   const p = currentProposal.value
   if (!p || p.status !== ProposalStatus.FIRM) {
     router.replace({ name: 'proposal-accueil' })
@@ -49,7 +61,7 @@ onMounted(() => {
 })
 
 function goBack() {
-  router.push({ name: 'proposal-succes' })
+  router.push({ name: 'home' })
 }
 
 function goHome() {

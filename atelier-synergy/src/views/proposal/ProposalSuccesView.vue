@@ -38,10 +38,6 @@ onMounted(() => {
   }
 })
 
-function goClientOffer() {
-  router.push({ name: 'proposal-offre-cliente' })
-}
-
 function goHome() {
   router.push({ name: 'home' })
 }
@@ -114,13 +110,6 @@ function goHome() {
         <button
           type="button"
           class="w-full h-[56px] flex items-center justify-center bg-primary text-on-primary rounded font-body-md text-body-md transition-colors hover:opacity-90 active:scale-[0.98]"
-          @click="goClientOffer"
-        >
-          Voir l’offre publiée
-        </button>
-        <button
-          type="button"
-          class="w-full h-[56px] flex items-center justify-center bg-transparent text-primary border border-primary rounded font-body-md text-body-md transition-colors hover:bg-surface-container-low active:scale-[0.98]"
           @click="goHome"
         >
           Retour à l’accueil

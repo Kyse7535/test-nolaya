@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onMounted } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import {
   actionStatusLabel,
@@ -10,6 +10,7 @@ import {
   ActionCriticality,
   ActionStatus,
   AppointmentStatus,
+  DemoRole,
 } from '../../domain/appointment/model'
 import { APPOINTMENT_PRO_AVATAR } from '../../mocks/appointmentSeed'
 import { useAppointmentStore } from '../../stores/appointment'
@@ -18,6 +19,8 @@ const router = useRouter()
 const appointmentStore = useAppointmentStore()
 
 const engagement = computed(() => appointmentStore.currentEngagement)
+const isClient = computed(() => appointmentStore.demoRole === DemoRole.CLIENT)
+const canEdit = computed(() => !isClient.value)
 const blocking = computed(() =>
   appointmentStore.proActions.filter(
     (a) => a.criticality === ActionCriticality.BLOCKING,
@@ -35,6 +38,9 @@ const status = computed(
     AppointmentStatus.READINESS_PENDING,
 )
 
+const remindSent = ref(false)
+let remindTimer = null
+
 onMounted(() => {
   appointmentStore.ensureDemoSeed()
   if (appointmentStore.currentAppointment?.status === AppointmentStatus.READY) {
@@ -42,20 +48,56 @@ onMounted(() => {
   }
 })
 
+onUnmounted(() => {
+  if (remindTimer) clearTimeout(remindTimer)
+})
+
 function goBack() {
   router.push({ name: 'appointment-plan' })
 }
 
 function confirm(actionId) {
+  if (!canEdit.value) return
   appointmentStore.confirmAction(actionId)
   if (appointmentStore.currentAppointment?.status === AppointmentStatus.READY) {
     router.push({ name: 'appointment-ready' })
   }
 }
+
+function remindPro() {
+  if (!isClient.value) return
+  remindSent.value = true
+  if (remindTimer) clearTimeout(remindTimer)
+  remindTimer = setTimeout(() => {
+    remindSent.value = false
+    remindTimer = null
+  }, 3200)
+}
 </script>
 
 <template>
-  <div class="bg-background text-on-background min-h-screen pb-48">
+  <div
+    class="bg-background text-on-background min-h-screen"
+    :class="isClient ? 'pb-56' : 'pb-48'"
+  >
+    <div
+      v-if="remindSent"
+      class="fixed top-20 left-1/2 z-[70] w-[calc(100%-2rem)] max-w-lg -translate-x-1/2 rounded-lg border border-primary-container bg-primary-container px-4 py-3 text-on-primary shadow-md"
+      role="status"
+      aria-live="polite"
+    >
+      <p class="font-body-md text-body-md flex items-start gap-2">
+        <span class="material-symbols-outlined text-[20px] shrink-0">notifications_active</span>
+        <span>
+          Notification envoyée à
+          {{ engagement?.proDisplayName || 'la coiffeuse' }}
+          <span class="font-label-mono text-[10px] uppercase tracking-wider opacity-80">
+            (mock)
+          </span>
+        </span>
+      </p>
+    </div>
+
     <header
       class="fixed top-0 w-full z-50 bg-surface border-b border-surface-container-highest flex items-center h-16 px-margin-mobile"
     >
@@ -71,6 +113,12 @@ function confirm(actionId) {
         Checklist coiffeuse
       </h1>
       <span
+        v-if="isClient"
+        class="font-label-mono text-[10px] uppercase tracking-wider bg-secondary-container text-on-secondary-container px-2 py-1 rounded mr-2"
+      >
+        Lecture seule
+      </span>
+      <span
         class="font-label-mono text-[10px] uppercase tracking-wider bg-surface-container text-on-surface-variant px-2 py-1 rounded"
       >
         {{ appointmentStatusBadge(status) }}
@@ -80,8 +128,14 @@ function confirm(actionId) {
     <main class="pt-20 px-margin-mobile max-w-lg mx-auto flex flex-col gap-stack-lg">
       <section class="flex flex-col gap-2">
         <p class="font-body-md text-body-md text-on-surface-variant">
-          Validez votre préparation opérationnelle. Sans les actions bloquantes, le RDV ne peut pas
-          passer à READY.
+          <template v-if="isClient">
+            Vue lecture seule de la préparation coiffeuse. Seule la coiffeuse peut confirmer ses
+            actions.
+          </template>
+          <template v-else>
+            Validez votre préparation opérationnelle. Sans les actions bloquantes, le RDV ne peut
+            pas passer à READY.
+          </template>
         </p>
         <div
           v-if="engagement"
@@ -158,7 +212,7 @@ function confirm(actionId) {
                 </p>
               </div>
               <button
-                v-if="action.status === ActionStatus.TO_DO"
+                v-if="canEdit && action.status === ActionStatus.TO_DO"
                 type="button"
                 class="shrink-0 pt-1 text-primary"
                 aria-label="Confirmer"
@@ -167,8 +221,19 @@ function confirm(actionId) {
                 <span class="material-symbols-outlined text-[28px]">check_circle_outline</span>
               </button>
               <div v-else class="shrink-0 pt-1">
-                <span class="material-symbols-outlined text-[24px] text-primary-container">
-                  check_circle
+                <span
+                  class="material-symbols-outlined text-[24px]"
+                  :class="
+                    action.status === ActionStatus.CONFIRMED
+                      ? 'text-primary-container'
+                      : 'text-outline-variant'
+                  "
+                >
+                  {{
+                    action.status === ActionStatus.CONFIRMED
+                      ? 'check_circle'
+                      : 'check_circle_outline'
+                  }}
                 </span>
               </div>
             </div>
@@ -207,6 +272,7 @@ function confirm(actionId) {
                 </p>
               </div>
               <button
+                v-if="canEdit"
                 type="button"
                 class="shrink-0 pt-1 text-primary"
                 :aria-label="
@@ -226,6 +292,23 @@ function confirm(actionId) {
                   }}
                 </span>
               </button>
+              <div v-else class="shrink-0 pt-1">
+                <span
+                  class="material-symbols-outlined text-[24px]"
+                  :class="
+                    action.status === ActionStatus.CONFIRMED
+                      ? 'text-primary'
+                      : 'text-outline-variant'
+                  "
+                  aria-hidden="true"
+                >
+                  {{
+                    action.status === ActionStatus.CONFIRMED
+                      ? 'check_circle'
+                      : 'check_circle_outline'
+                  }}
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -258,6 +341,15 @@ function confirm(actionId) {
         />
       </div>
       <button
+        v-if="isClient"
+        type="button"
+        class="w-full max-w-lg mx-auto h-12 bg-primary text-on-primary rounded-lg font-headline-sm text-base flex justify-center items-center gap-2 active:scale-95 transition-transform"
+        @click="remindPro"
+      >
+        <span class="material-symbols-outlined text-[20px]">notifications</span>
+        Rappeler la coiffeuse
+      </button>
+      <button
         type="button"
         class="w-full max-w-lg mx-auto h-12 bg-primary-container text-on-primary rounded-lg font-headline-sm text-base flex justify-center items-center gap-2 active:scale-95 transition-transform"
         @click="goBack"
@@ -265,8 +357,13 @@ function confirm(actionId) {
         Retour au plan
       </button>
       <p class="font-caption text-on-surface-variant text-center mt-1 max-w-lg mx-auto">
-        La plateforme recalcule READY quand toutes les bloquantes (cliente + coiffeuse) sont
-        confirmées.
+        <template v-if="isClient">
+          Seule la coiffeuse peut cocher ces actions.
+        </template>
+        <template v-else>
+          La plateforme recalcule READY quand toutes les bloquantes (cliente + coiffeuse) sont
+          confirmées.
+        </template>
       </p>
     </footer>
   </div>

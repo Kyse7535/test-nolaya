@@ -152,12 +152,14 @@ function confirm() {
             <span class="font-body-md text-body-md text-on-surface-variant text-sm">
               Ensuite le dossier d’exécution sera prêt pour le règlement.
             </span>
-            <span
+            <button
               v-if="!isClient"
-              class="font-body-sm text-body-sm text-on-surface-variant"
+              type="button"
+              class="font-body-sm text-body-sm text-secondary underline underline-offset-2 text-left w-fit"
+              @click="executionStore.setDemoRole(DemoRole.CLIENT)"
             >
-              Passez en rôle Cliente pour confirmer.
-            </span>
+              Passer en rôle Cliente pour confirmer
+            </button>
           </div>
         </label>
       </section>

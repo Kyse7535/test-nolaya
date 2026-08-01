@@ -47,10 +47,10 @@ function goAppointment() {
 
 function goOffer() {
   if (proposalStore.currentProposal) {
-    router.push({ name: 'proposal-offre-cliente' })
+    router.push({ name: 'proposal-succes' })
     return
   }
-  router.push({ name: 'engagement-confirmation' })
+  router.push({ name: 'home' })
 }
 </script>
 

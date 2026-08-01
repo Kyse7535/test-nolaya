@@ -620,6 +620,19 @@ router.beforeEach((to, from) => {
     return { name: 'proposal-accueil' }
   }
 
+  // Offre reçue = lecture cliente uniquement
+  if (to.name === 'proposal-offre-cliente') {
+    const demoRoleStore = useDemoRoleStore()
+    if (demoRoleStore.demoRole === DemoRole.PRO) {
+      return {
+        name:
+          proposal?.status === ProposalStatus.FIRM
+            ? 'proposal-succes'
+            : 'proposal-accueil',
+      }
+    }
+  }
+
   const engagementStore = useEngagementStore()
   const engagement = engagementStore.currentEngagement
 

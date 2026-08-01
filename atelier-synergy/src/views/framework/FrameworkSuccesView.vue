@@ -26,10 +26,10 @@ function openCapacity() {
 
 <template>
   <div
-    class="bg-background text-on-background font-body-md min-h-screen flex flex-col relative antialiased selection:bg-secondary-container selection:text-on-secondary-container"
+    class="bg-background text-on-background font-body-md flex flex-col relative antialiased selection:bg-secondary-container selection:text-on-secondary-container h-[calc(100dvh-var(--as-role-bar)-var(--as-bottom-nav)-env(safe-area-inset-bottom,0px))]"
   >
     <header
-      class="bg-surface sticky top-0 w-full border-b border-surface-container flex justify-between items-center px-margin-mobile h-16 z-20"
+      class="bg-surface shrink-0 w-full border-b border-surface-container flex justify-between items-center px-margin-mobile h-14 z-20"
     >
       <button
         type="button"
@@ -50,15 +50,15 @@ function openCapacity() {
     </header>
 
     <main
-      class="flex-1 flex flex-col items-center px-margin-mobile pt-lg pb-[180px] overflow-y-auto"
+      class="flex-1 min-h-0 flex flex-col items-center justify-center px-margin-mobile py-md gap-md overflow-hidden"
     >
       <div
-        class="w-full max-w-sm h-72 rounded-xl overflow-hidden mb-xl border border-surface-container shrink-0"
+        class="w-full max-w-sm h-40 sm:h-48 rounded-xl overflow-hidden border border-surface-container shrink-0"
       >
         <img class="w-full h-full object-cover" :src="heroSrc" alt="" />
       </div>
 
-      <div class="flex flex-col items-center mb-lg gap-xs">
+      <div class="flex flex-col items-center gap-xs shrink-0">
         <span
           class="font-label-mono text-label-mono bg-secondary-container text-on-secondary-container px-sm py-[2px] rounded tracking-widest uppercase"
         >
@@ -69,7 +69,7 @@ function openCapacity() {
         </span>
       </div>
 
-      <div class="flex flex-col items-center text-center max-w-sm gap-sm">
+      <div class="flex flex-col items-center text-center max-w-sm gap-sm shrink-0">
         <h1 class="font-display-lg-mobile text-display-lg-mobile text-primary">
           Votre cadre est actif
         </h1>
@@ -81,7 +81,7 @@ function openCapacity() {
     </main>
 
     <div
-      class="fixed bottom-0 left-0 w-full bg-surface border-t border-surface-container p-margin-mobile flex flex-col gap-sm pb-8 z-20"
+      class="shrink-0 w-full bg-surface border-t border-surface-container px-margin-mobile pt-md pb-md flex flex-col gap-sm z-20"
     >
       <button
         type="button"
