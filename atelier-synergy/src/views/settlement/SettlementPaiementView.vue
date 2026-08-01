@@ -1,13 +1,17 @@
 <script setup>
 import { computed, onMounted } from 'vue'
+import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
+import { DemoRole } from '../../domain/demoRole'
 import { tipChipLabel } from '../../domain/settlement/labels'
 import { formatEuro } from '../../domain/settlement/model'
 import { SETTLEMENT_PRO_AVATAR } from '../../mocks/settlementSeed'
+import { useDemoRoleStore } from '../../stores/demoRole'
 import { useSettlementStore } from '../../stores/settlement'
 
 const router = useRouter()
 const settlementStore = useSettlementStore()
+const { demoRole } = storeToRefs(useDemoRoleStore())
 
 const settlement = computed(() => settlementStore.settlement)
 const tipAmount = computed(() => settlement.value?.tipAmount ?? 0)
@@ -19,6 +23,15 @@ const proAvatar = computed(
 )
 
 onMounted(() => {
+  // Paiement solde = parcours cliente uniquement
+  if (demoRole.value === DemoRole.PRO) {
+    router.replace({
+      name: settlementStore.settled
+        ? 'settlement-revenu'
+        : 'settlement-accueil',
+    })
+    return
+  }
   settlementStore.ensureCalculated()
   if (settlementStore.settled) {
     router.replace({ name: 'settlement-succes' })
@@ -34,6 +47,7 @@ function selectTip(amount) {
 }
 
 function pay() {
+  if (demoRole.value === DemoRole.PRO) return
   settlementStore.payBalanceMock()
   router.push({ name: 'settlement-succes' })
 }

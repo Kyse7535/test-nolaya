@@ -1,19 +1,31 @@
 <script setup>
-import { onMounted } from 'vue'
+import { computed, onMounted } from 'vue'
+import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
+import { DemoRole } from '../../domain/demoRole'
 import {
   SETTLEMENT_HERO_ACCUEIL,
   SETTLEMENT_PILLARS,
+  SETTLEMENT_PILLARS_PRO,
 } from '../../mocks/settlementSeed'
+import { useDemoRoleStore } from '../../stores/demoRole'
 import { useSettlementStore } from '../../stores/settlement'
 
 const router = useRouter()
 const settlementStore = useSettlementStore()
+const { demoRole } = storeToRefs(useDemoRoleStore())
+
+const isPro = computed(() => demoRole.value === DemoRole.PRO)
+const pillars = computed(() =>
+  isPro.value ? SETTLEMENT_PILLARS_PRO : SETTLEMENT_PILLARS,
+)
 
 onMounted(() => {
   settlementStore.ensureDemoSeed()
   if (settlementStore.settled) {
-    router.replace({ name: 'settlement-succes' })
+    router.replace({
+      name: isPro.value ? 'settlement-revenu' : 'settlement-succes',
+    })
   }
 })
 
@@ -24,7 +36,14 @@ function goBack() {
 function openDecompte() {
   settlementStore.ensureCalculated()
   if (settlementStore.settled) {
-    router.push({ name: 'settlement-succes' })
+    router.push({
+      name: isPro.value ? 'settlement-revenu' : 'settlement-succes',
+    })
+    return
+  }
+  if (isPro.value) {
+    // Coiffeuse : pas le parcours « payer le solde »
+    goBack()
     return
   }
   router.push({ name: 'settlement-solde' })
@@ -46,7 +65,9 @@ function openDecompte() {
       >
         <span class="material-symbols-outlined text-[24px]">arrow_back</span>
       </button>
-      <h1 class="ml-2 font-headline-sm text-headline-sm text-primary">Règlement</h1>
+      <h1 class="ml-2 font-headline-sm text-headline-sm text-primary">
+        {{ isPro ? 'Mon revenu' : 'Règlement' }}
+      </h1>
     </header>
 
     <main class="flex-1 mt-16 px-margin-mobile pb-32">
@@ -66,12 +87,23 @@ function openDecompte() {
           </span>
         </div>
         <h2 class="mt-md font-headline-md text-headline-md text-on-surface">
-          Voici votre décompte
+          {{
+            isPro
+              ? 'Votre revenu après le paiement cliente'
+              : 'Voici votre décompte'
+          }}
         </h2>
         <p class="mt-sm font-body-lg text-body-lg text-on-surface-variant">
-          La prestation est terminée. On calcule le montant final à partir du prix engagé, on
-          impute l’acompte déjà versé, vous pouvez ajouter un pourboire optionnel, puis vous
-          simulez le paiement du solde.
+          <template v-if="isPro">
+            La prestation est terminée. Dès que la cliente règle le solde, le dossier
+            passe à SETTLED et votre net styliste (commission déduite, tip inclus)
+            devient consultable ici.
+          </template>
+          <template v-else>
+            La prestation est terminée. On calcule le montant final à partir du prix
+            engagé, on impute l’acompte déjà versé, vous pouvez ajouter un pourboire
+            optionnel, puis vous simulez le paiement du solde.
+          </template>
         </p>
       </div>
 
@@ -87,18 +119,22 @@ function openDecompte() {
           class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/30 to-transparent flex items-end p-margin-mobile"
         >
           <p class="font-headline-md text-headline-md text-on-primary">
-            Un solde clair, un dossier clos.
+            {{
+              isPro
+                ? 'Un net clair, dès que c’est payé.'
+                : 'Un solde clair, un dossier clos.'
+            }}
           </p>
         </div>
       </div>
 
       <div class="mt-xl">
         <h3 class="font-headline-sm text-headline-sm text-on-surface mb-md">
-          Ce que vous allez faire
+          {{ isPro ? 'Ce que vous allez voir' : 'Ce que vous allez faire' }}
         </h3>
         <div class="grid grid-cols-1 gap-sm">
           <div
-            v-for="pillar in SETTLEMENT_PILLARS"
+            v-for="pillar in pillars"
             :key="pillar.title"
             class="flex items-start p-md bg-surface-container-lowest border border-surface-variant rounded-xl"
           >
@@ -136,8 +172,14 @@ function openDecompte() {
         class="mt-xl p-md bg-surface-container-low rounded-lg border border-surface-variant"
       >
         <p class="font-caption text-caption text-on-surface-variant">
-          Formule : final = prix engagé (+ tip) ; solde = final − acompte. Une seule commission
-          plateforme côté styliste. Pas de remboursement dans cette démo.
+          <template v-if="isPro">
+            Formule net : prix engagé − commission (+ tip intégral). Pas de
+            remboursement dans cette démo.
+          </template>
+          <template v-else>
+            Formule : final = prix engagé (+ tip) ; solde = final − acompte. Une seule
+            commission plateforme côté styliste. Pas de remboursement dans cette démo.
+          </template>
         </p>
       </div>
     </main>
@@ -151,7 +193,7 @@ function openDecompte() {
           class="w-full h-12 bg-primary text-on-primary font-headline-sm text-[16px] rounded-lg transition-transform active:scale-[0.98] flex items-center justify-center"
           @click="openDecompte"
         >
-          Voir mon décompte
+          {{ isPro ? 'Compris — retour' : 'Voir mon décompte' }}
         </button>
       </div>
     </div>

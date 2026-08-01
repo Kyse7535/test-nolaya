@@ -3,6 +3,7 @@ import { inject } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
 import { DemoRole, demoRoleLabel } from '../domain/demoRole'
+import { firstTabId, navLocationForRoleHome, navLocationForTab } from '../mocks/demoNav'
 import { useDemoRoleStore } from '../stores/demoRole'
 
 const router = useRouter()
@@ -12,11 +13,12 @@ const openDemoWelcome = inject('openDemoWelcome', null)
 
 function setRole(role) {
   demoRoleStore.setDemoRole(role)
+  router.replace(navLocationForTab(firstTabId(role)))
 }
 
 function resetAll() {
   const ok = window.confirm(
-    'Réinitialiser ? Cela vide le localStorage et recommence la démo à zéro.',
+    'Réinitialiser ? Cela restaure les données démo par défaut (coiffeuses + demande seed).',
   )
   if (!ok) return
   try {
@@ -24,7 +26,7 @@ function resetAll() {
   } catch {
     /* ignore */
   }
-  router.replace({ name: 'home' }).finally(() => {
+  router.replace(navLocationForRoleHome(demoRole.value)).finally(() => {
     window.location.reload()
   })
 }

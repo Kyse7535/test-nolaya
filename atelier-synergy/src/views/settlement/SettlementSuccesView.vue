@@ -15,6 +15,10 @@ onMounted(() => {
   settlementStore.ensureDemoSeed()
   if (!settlementStore.settled) {
     router.replace({ name: 'settlement-accueil' })
+    return
+  }
+  if (settlementStore.demoRole === settlementStore.DemoRole.PRO) {
+    router.replace({ name: 'settlement-revenu' })
   }
 })
 

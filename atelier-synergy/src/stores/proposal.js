@@ -304,6 +304,19 @@ export const useProposalStore = defineStore('proposal', () => {
     currentProposalId.value = null
   }
 
+  function importProposal(proposal, { setAsCurrent = false } = {}) {
+    if (!proposal?.id) return null
+    upsert(proposal)
+    if (setAsCurrent) currentProposalId.value = proposal.id
+    return proposal
+  }
+
+  function importSoftHold(hold) {
+    if (!hold?.id) return null
+    upsertSoftHold(hold)
+    return hold
+  }
+
   return {
     proposals,
     currentProposalId,
@@ -319,6 +332,8 @@ export const useProposalStore = defineStore('proposal', () => {
     updateOffer,
     publishFirm,
     markSoftHoldBooked,
+    importProposal,
+    importSoftHold,
     resetDemo,
   }
 })

@@ -46,7 +46,22 @@ function goHome() {
     v-if="engagement"
     class="bg-background text-on-background font-body-lg min-h-screen flex flex-col antialiased"
   >
-    <main class="flex-grow flex flex-col pt-stack-lg px-container-margin pb-stack-lg">
+    <header
+      class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-container-margin h-16 bg-surface border-b border-surface-variant"
+    >
+      <button
+        type="button"
+        aria-label="Retour"
+        class="flex items-center justify-center p-2 -ml-2 text-primary hover:bg-surface-container-low transition-colors rounded-full"
+        @click="goHome"
+      >
+        <span class="material-symbols-outlined">arrow_back</span>
+      </button>
+      <span class="font-headline-sm text-headline-sm text-primary">Engagement confirmé</span>
+      <div class="w-10" />
+    </header>
+
+    <main class="flex-grow flex flex-col pt-[80px] px-container-margin pb-stack-lg">
       <div
         class="w-full aspect-[4/5] mb-stack-lg relative overflow-hidden bg-surface-container-low rounded-lg"
       >

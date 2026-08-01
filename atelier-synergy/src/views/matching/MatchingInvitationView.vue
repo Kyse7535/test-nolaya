@@ -102,11 +102,11 @@ function accept() {
         </div>
         <p class="font-body-lg text-body-lg text-on-background mt-2">
           <template v-if="snapshot?.clientName">
-            {{ snapshot.clientName }} vous propose une prestation alignée avec votre capacité
+            {{ snapshot.clientName }} sollicite une prestation alignée avec votre capacité
             ouverte.
           </template>
           <template v-else>
-            Une cliente vous propose une prestation alignée avec votre capacité ouverte.
+            Une cliente sollicite une prestation alignée avec votre capacité ouverte.
           </template>
         </p>
         <p class="font-body-sm text-body-sm text-on-surface-variant">

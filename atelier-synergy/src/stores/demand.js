@@ -20,6 +20,7 @@ import {
   getInspiration,
 } from '../mocks/inspirations'
 import { mockClient } from '../mocks/platform'
+import { seedImmersionAfterDemandQualified } from '../mocks/immersionTree'
 
 ensureInspirationCatalogSeeded()
 
@@ -309,12 +310,18 @@ export const useDemandStore = defineStore('demand', () => {
   function qualify() {
     const current = currentDemand.value
     if (!canQualify(current)) return false
-    upsert({
+    const qualified = {
       ...current,
       status: DemandStatus.QUALIFIED,
       confirmed: true,
       qualifiedAt: new Date().toISOString(),
-    })
+    }
+    upsert(qualified)
+    try {
+      seedImmersionAfterDemandQualified(qualified)
+    } catch (error) {
+      console.warn('[immersion] demand tree failed', error)
+    }
     return true
   }
 

@@ -1,11 +1,15 @@
 <script setup>
 import { onMounted } from 'vue'
+import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
+import { DemoRole } from '../../domain/demoRole'
 import { ProposalStatus } from '../../domain/proposal/model'
+import { useDemoRoleStore } from '../../stores/demoRole'
 import { useProposalStore } from '../../stores/proposal'
 
 const router = useRouter()
 const proposalStore = useProposalStore()
+const { demoRole } = storeToRefs(useDemoRoleStore())
 
 const heroSrc =
   'https://lh3.googleusercontent.com/aida-public/AB6AXuARMdHkZCioqVH32cWoaacEcRzO9E3CYDqO2Mdhw4e-JDsDN8XHdAYs6JLjwcMyjP2XPrLfRVu4mp0HUiimGZ8Rpf5GnFkOkBycmT6tIjyu-xdOOkMC9uZWifl6WrCzrZ8InjKkDCX2RG8rANGoftgDjaNrAqJyqVEUYKUHBNBp6BmhioNCIppef4F97tGx6LRf2ostCkOaK7fwmSwyN94xFx_ZiKGvd7_ADwuFyY1LiGmndpJve1rU'
@@ -37,7 +41,12 @@ onMounted(() => {
   proposalStore.ensureDemoPrerequisites()
   const proposal = proposalStore.currentProposal
   if (proposal?.status === ProposalStatus.FIRM) {
-    router.replace({ name: 'proposal-succes' })
+    router.replace({
+      name:
+        demoRole.value === DemoRole.CLIENT
+          ? 'proposal-offre-cliente'
+          : 'proposal-succes',
+    })
   }
 })
 

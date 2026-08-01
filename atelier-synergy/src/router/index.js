@@ -1,7 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { CapacityStatus } from '../domain/capacity/model'
 import { DemandStatus } from '../domain/demand/model'
-import { DemoRole } from '../domain/demoRole'
+import { DemoRole, readStoredDemoRole } from '../domain/demoRole'
+import {
+  blockIdForRouteName,
+  firstTabId,
+  navLocationForBlock,
+  navLocationForTab,
+} from '../mocks/demoNav'
 import { CampaignStatus } from '../domain/matching/model'
 import { AppointmentStatus } from '../domain/appointment/model'
 import { EngagementStatus } from '../domain/engagement/model'
@@ -204,7 +210,14 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
+      // beforeEach maps to the matching bottom-nav hub
       component: HomeView,
+    },
+    {
+      path: '/nav/:tabId',
+      name: 'nav-tab',
+      component: HomeView,
+      meta: { showBottomNav: true },
     },
     {
       path: '/cadre',
@@ -532,7 +545,17 @@ const router = createRouter({
   },
 })
 
-router.beforeEach((to) => {
+router.beforeEach((to, from) => {
+  if (to.name === 'home') {
+    const demoRoleStore = useDemoRoleStore()
+    const role = demoRoleStore.demoRole || readStoredDemoRole()
+    const blockId = blockIdForRouteName(from.name)
+    if (blockId) {
+      return navLocationForBlock(role, blockId)
+    }
+    return navLocationForTab(firstTabId(role))
+  }
+
   const frameworkStore = useFrameworkStore()
   if (frameworkStore.isActive && frameworkDraftNames.has(to.name)) {
     return { name: 'framework-succes' }
@@ -734,7 +757,13 @@ router.beforeEach((to) => {
     settlement?.status === SettlementStatus.SETTLED &&
     settlementUpstreamNames.has(to.name)
   ) {
-    return { name: 'settlement-succes' }
+    const demoRoleStore = useDemoRoleStore()
+    return {
+      name:
+        demoRoleStore.demoRole === DemoRole.PRO
+          ? 'settlement-revenu'
+          : 'settlement-succes',
+    }
   }
 
   if (

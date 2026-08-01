@@ -3,6 +3,7 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 import { catalogServices } from './mocks/catalog'
+import { seedDemoScenario } from './mocks/demoScenario'
 import { platformPolicies, platformPrinciples } from './mocks/platform'
 import { STORAGE_KEY_CATALOG } from './domain/capacity/model'
 import './assets/main.css'
@@ -17,4 +18,9 @@ if (!localStorage.getItem(STORAGE_KEY_CATALOG)) {
   localStorage.setItem(STORAGE_KEY_CATALOG, JSON.stringify(catalogServices))
 }
 
-createApp(App).use(createPinia()).use(router).mount('#app')
+const app = createApp(App)
+const pinia = createPinia()
+app.use(pinia)
+app.use(router)
+seedDemoScenario()
+app.mount('#app')

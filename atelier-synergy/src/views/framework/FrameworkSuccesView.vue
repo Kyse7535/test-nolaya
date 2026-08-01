@@ -18,6 +18,10 @@ onMounted(() => {
 function goHome() {
   router.push({ name: 'home' })
 }
+
+function openCapacity() {
+  router.push({ name: 'capacity-accueil' })
+}
 </script>
 
 <template>
@@ -81,9 +85,8 @@ function goHome() {
     >
       <button
         type="button"
-        class="w-full h-11 bg-primary text-on-primary rounded-lg font-button-text text-button-text flex items-center justify-center hover:bg-primary-container active:scale-95 transition-all duration-150 opacity-60 cursor-not-allowed"
-        disabled
-        title="Étape 0 — bientôt"
+        class="w-full h-11 bg-primary text-on-primary rounded-lg font-button-text text-button-text flex items-center justify-center hover:bg-primary-container active:scale-95 transition-all duration-150"
+        @click="openCapacity"
       >
         Ouvrir une capacité
       </button>

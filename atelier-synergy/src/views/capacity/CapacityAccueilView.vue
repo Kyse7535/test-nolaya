@@ -177,7 +177,7 @@ function goListe() {
           Pas de contrôle opérateur dans cette démo. Activation instantanée après confirmation.
         </p>
         <button
-          v-if="capacityStore.openCapacities.length || capacityStore.draftCapacities.length"
+          v-if="capacityStore.userOpenCapacities.length || capacityStore.userDraftCapacities.length"
           type="button"
           class="mt-md font-label-technical text-label-technical text-secondary underline underline-offset-2"
           @click="goListe"

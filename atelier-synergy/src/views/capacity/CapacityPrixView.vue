@@ -269,11 +269,11 @@ function continueNext() {
     </main>
 
     <div
-      class="fixed bottom-0 md:bottom-auto md:top-[80px] md:right-8 w-full md:w-80 bg-surface/90 backdrop-blur-md border-t border-surface-variant md:border md:rounded-lg p-container-margin z-40 pb-safe"
+      class="fixed bottom-0 left-0 w-full p-container-margin bg-surface/95 backdrop-blur-md border-t border-outline-variant z-40"
     >
       <button
         type="button"
-        class="w-full bg-primary text-on-primary font-headline-sm text-headline-sm h-14 rounded flex items-center justify-center gap-sm active:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+        class="w-full h-14 bg-primary text-on-primary font-body-lg text-body-lg font-semibold rounded flex items-center justify-center gap-sm hover:bg-on-surface transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         :disabled="!pricingReady"
         @click="continueNext"
       >

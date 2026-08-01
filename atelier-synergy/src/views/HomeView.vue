@@ -1,722 +1,65 @@
 <script setup>
-import { computed } from 'vue'
+import { computed, watch } from 'vue'
 import { storeToRefs } from 'pinia'
-import { useRouter } from 'vue-router'
-import { AppointmentStatus } from '../domain/appointment/model'
-import { DemoRole } from '../domain/demoRole'
-import { DemandStatus } from '../domain/demand/model'
-import { EngagementStatus } from '../domain/engagement/model'
-import { CampaignStatus } from '../domain/matching/model'
-import { ProposalStatus } from '../domain/proposal/model'
+import { useRoute, useRouter } from 'vue-router'
+import { useOpenMetierBlock } from '../composables/useOpenMetierBlock'
+import {
+  firstTabId,
+  navLocationForTab,
+  tabById,
+} from '../mocks/demoNav'
 import { metierBlocksForRole } from '../mocks/metierBlocks'
-import { mockClient, mockProfessional } from '../mocks/platform'
-import { useAppointmentStore } from '../stores/appointment'
-import { useCapacityStore } from '../stores/capacity'
-import { useDemandStore } from '../stores/demand'
 import { useDemoRoleStore } from '../stores/demoRole'
-import { useEngagementStore } from '../stores/engagement'
-import { useExecutionStore } from '../stores/execution'
-import { useFrameworkStore } from '../stores/framework'
-import { useMatchingStore } from '../stores/matching'
-import { useProposalStore } from '../stores/proposal'
-import { useSettlementStore } from '../stores/settlement'
-import { SettlementStatus } from '../domain/settlement/model'
-import { useExperienceStore } from '../stores/experience'
-import { ExperienceStatus } from '../domain/experience/model'
 
+const route = useRoute()
 const router = useRouter()
 const demoRoleStore = useDemoRoleStore()
-const { demoRole, isClient, isPro } = storeToRefs(demoRoleStore)
-const frameworkStore = useFrameworkStore()
-const capacityStore = useCapacityStore()
-const demandStore = useDemandStore()
-const matchingStore = useMatchingStore()
-const proposalStore = useProposalStore()
-const engagementStore = useEngagementStore()
-const appointmentStore = useAppointmentStore()
-const executionStore = useExecutionStore()
-const settlementStore = useSettlementStore()
-const experienceStore = useExperienceStore()
+const { demoRole } = storeToRefs(demoRoleStore)
+const { badgeFor, openBlock } = useOpenMetierBlock()
 
-const visibleBlocks = computed(() => metierBlocksForRole(demoRole.value))
-
-const persona = computed(() =>
-  demoRole.value === DemoRole.PRO ? mockProfessional : mockClient,
+const tabId = computed(() =>
+  route.name === 'nav-tab' ? String(route.params.tabId || '') : '',
 )
 
-const homeIntro = computed(() =>
-  demoRole.value === DemoRole.PRO
-    ? 'Parcours coiffeuse : cadre, capacité, puis les étapes partagées jusqu’à la preuve.'
-    : 'Parcours cliente : qualifier le besoin, puis les étapes partagées jusqu’à la preuve.',
+const activeTab = computed(() =>
+  tabId.value ? tabById(demoRole.value, tabId.value) : null,
 )
 
-const personaOppositeName = computed(() =>
-  demoRole.value === DemoRole.PRO ? mockClient.firstName : mockProfessional.firstName,
+const visibleBlocks = computed(() => {
+  const all = metierBlocksForRole(demoRole.value)
+  if (!activeTab.value) return all
+  const allowed = new Set(activeTab.value.blockIds)
+  return all.filter((block) => allowed.has(block.id))
+})
+
+watch(
+  [demoRole, () => route.name, tabId],
+  ([role, name, id]) => {
+    if (name !== 'nav-tab') return
+    if (tabById(role, id)) return
+    router.replace(navLocationForTab(firstTabId(role)))
+  },
+  { immediate: true },
 )
-
-const capacityCountLabel = computed(() => {
-  const open = capacityStore.openCapacities.length
-  const drafts = capacityStore.draftCapacities.length
-  const parts = []
-  if (open) parts.push(`${open} ouverte${open > 1 ? 's' : ''}`)
-  if (drafts) parts.push(`${drafts} brouillon${drafts > 1 ? 's' : ''}`)
-  return parts.join(' · ') || 'aucune'
-})
-
-const hasCapacities = computed(
-  () =>
-    capacityStore.openCapacities.length > 0 ||
-    capacityStore.draftCapacities.length > 0 ||
-    capacityStore.closedCapacities.length > 0,
-)
-
-const hasDemands = computed(
-  () =>
-    demandStore.draftOrInProgress.length > 0 || demandStore.qualifiedDemands.length > 0,
-)
-
-const demandCountLabel = computed(() => {
-  const drafts = demandStore.draftOrInProgress.length
-  const qualified = demandStore.qualifiedDemands.length
-  const parts = []
-  if (qualified) parts.push(`${qualified} qualifiée${qualified > 1 ? 's' : ''}`)
-  if (drafts) parts.push(`${drafts} brouillon${drafts > 1 ? 's' : ''}`)
-  return parts.join(' · ') || 'aucune'
-})
-
-const hasMatching = computed(() => matchingStore.campaigns.length > 0)
-
-const matchingCountLabel = computed(() => {
-  const campaign = matchingStore.currentCampaign
-  if (!campaign) return 'aucune'
-  if (campaign.status === CampaignStatus.SHORTLIST_READY) return 'shortlist prête'
-  if (campaign.status === CampaignStatus.OPEN) {
-    return `campagne · ${matchingStore.acceptCount}/${campaign.threshold}`
-  }
-  return 'campagne'
-})
-
-const hasProposal = computed(() => proposalStore.proposals.length > 0)
-
-const proposalCountLabel = computed(() => {
-  const proposal = proposalStore.currentProposal
-  if (!proposal) return 'aucune'
-  if (proposal.status === ProposalStatus.FIRM) return 'offre ferme'
-  if (proposal.status === ProposalStatus.PENDING) return 'en attente'
-  return 'dossier'
-})
-
-const hasEngagement = computed(() => engagementStore.engagements.length > 0)
-
-const engagementCountLabel = computed(() => {
-  const engagement = engagementStore.currentEngagement
-  if (!engagement) return 'aucune'
-  if (engagement.status === EngagementStatus.COMMITTED) return 'COMMITTED'
-  if (engagement.status === EngagementStatus.AWAITING_PAYMENT) return 'paiement'
-  if (engagement.status === EngagementStatus.AWAITING_CLIENT_ACCEPTANCE) {
-    return 'en attente'
-  }
-  return 'dossier'
-})
-
-const hasAppointment = computed(() => appointmentStore.appointments.length > 0)
-
-const appointmentCountLabel = computed(() => {
-  const appointment = appointmentStore.currentAppointment
-  if (!appointment) return 'aucune'
-  if (appointment.status === AppointmentStatus.COMPLETED) return 'COMPLETED'
-  if (appointment.status === AppointmentStatus.IN_PROGRESS) return 'EN COURS'
-  if (appointment.status === AppointmentStatus.READY) return 'READY'
-  if (appointment.status === AppointmentStatus.READINESS_PENDING) {
-    const { percent } = appointmentStore.blockingProgress
-    return `en préparation · ${percent}%`
-  }
-  return 'dossier'
-})
-
-const hasExecution = computed(() => {
-  const appointment = appointmentStore.currentAppointment
-  if (!appointment) return false
-  return (
-    appointment.status === AppointmentStatus.READY ||
-    appointment.status === AppointmentStatus.IN_PROGRESS ||
-    appointment.status === AppointmentStatus.COMPLETED ||
-    executionStore.appointmentEvents.length > 0 ||
-    Boolean(executionStore.dossier)
-  )
-})
-
-const executionCountLabel = computed(() => {
-  const appointment = appointmentStore.currentAppointment
-  if (!appointment) return 'aucune'
-  if (appointment.status === AppointmentStatus.COMPLETED) return 'COMPLETED'
-  if (appointment.status === AppointmentStatus.IN_PROGRESS) {
-    return executionStore.endDeclared ? 'à confirmer' : 'EN COURS'
-  }
-  if (appointment.status === AppointmentStatus.READY) {
-    return executionStore.bothArrivalsDeclared ? 'arrivées OK' : 'READY · jour J'
-  }
-  return 'dossier'
-})
-
-const hasSettlement = computed(() => Boolean(settlementStore.settlement))
-
-const settlementCountLabel = computed(() => {
-  const settlement = settlementStore.settlement
-  if (!settlement) return 'aucune'
-  if (settlement.status === SettlementStatus.SETTLED) return 'SETTLED'
-  if (settlement.status === SettlementStatus.PAYMENT_PENDING) return 'à payer'
-  if (settlement.status === SettlementStatus.SETTLEMENT_PENDING) {
-    return 'solde à régler'
-  }
-  return 'dossier'
-})
-
-const hasExperience = computed(() => Boolean(experienceStore.currentExperience))
-
-const experienceCountLabel = computed(() => {
-  const experience = experienceStore.currentExperience
-  if (!experience) return 'aucune'
-  if (experience.status === ExperienceStatus.EXPERIENCE_RECORDED) {
-    return experienceStore.publishedReview ? 'enregistrée · avis' : 'enregistrée'
-  }
-  if (experience.status === ExperienceStatus.PROOF_PENDING) return 'preuve'
-  return 'dossier'
-})
-
-function openBlock(block) {
-  if (block.status !== 'ready' || !block.routeName) return
-  if (block.id === 'etape-0' && hasCapacities.value) {
-    router.push({ name: 'capacity-liste' })
-    return
-  }
-  if (block.id === 'etape-1') {
-    const current = demandStore.currentDemand
-    if (current?.status === DemandStatus.QUALIFIED) {
-      router.push({ name: 'demand-succes' })
-      return
-    }
-    if (demandStore.draftOrInProgress.length) {
-      demandStore.startDraft()
-      router.push({ name: 'demand-accueil' })
-      return
-    }
-  }
-  if (block.id === 'etape-2') {
-    const campaign = matchingStore.currentCampaign
-    if (campaign?.status === CampaignStatus.SHORTLIST_READY) {
-      router.push({ name: 'matching-shortlist' })
-      return
-    }
-    if (campaign?.status === CampaignStatus.OPEN) {
-      router.push({
-        name: isPro.value ? 'matching-suivi' : 'matching-lance',
-      })
-      return
-    }
-  }
-  if (block.id === 'etape-3') {
-    const proposal = proposalStore.currentProposal
-    if (proposal?.status === ProposalStatus.FIRM) {
-      router.push({
-        name: isClient.value ? 'proposal-offre-cliente' : 'proposal-succes',
-      })
-      return
-    }
-    if (isClient.value) {
-      // Offre cliente only once FIRM; meanwhile follow matching shortlist.
-      router.push({
-        name: matchingStore.hasShortlistReady
-          ? 'matching-shortlist'
-          : 'matching-accueil',
-      })
-      return
-    }
-    if (proposal?.status === ProposalStatus.PENDING) {
-      router.push({ name: 'proposal-synthese' })
-      return
-    }
-  }
-  if (block.id === 'etape-4') {
-    const engagement = engagementStore.currentEngagement
-    if (engagement?.status === EngagementStatus.COMMITTED) {
-      router.push({
-        name: isPro.value
-          ? 'engagement-confirmation-pro'
-          : 'engagement-confirmation',
-      })
-      return
-    }
-    if (engagement?.status === EngagementStatus.AWAITING_PAYMENT) {
-      router.push({
-        name: isPro.value ? 'engagement-accueil' : 'engagement-paiement',
-      })
-      return
-    }
-    if (engagement?.status === EngagementStatus.AWAITING_CLIENT_ACCEPTANCE) {
-      router.push({ name: 'engagement-accueil' })
-      return
-    }
-  }
-  if (block.id === 'etape-5') {
-    appointmentStore.ensureDemoSeed()
-    const appointment = appointmentStore.currentAppointment
-    if (
-      appointment?.status === AppointmentStatus.IN_PROGRESS ||
-      appointment?.status === AppointmentStatus.COMPLETED
-    ) {
-      router.push({ name: 'execution-accueil' })
-      return
-    }
-    if (appointment?.status === AppointmentStatus.READY) {
-      router.push({ name: 'appointment-ready' })
-      return
-    }
-    if (appointment?.status === AppointmentStatus.READINESS_PENDING) {
-      router.push({
-        name: isPro.value
-          ? 'appointment-checklist-coiffeuse'
-          : 'appointment-checklist-cliente',
-      })
-      return
-    }
-  }
-  if (block.id === 'etape-6') {
-    executionStore.ensureDemoSeed()
-    const appointment = appointmentStore.currentAppointment
-    if (appointment?.status === AppointmentStatus.COMPLETED) {
-      router.push({ name: 'execution-succes' })
-      return
-    }
-    if (appointment?.status === AppointmentStatus.IN_PROGRESS) {
-      router.push({ name: 'execution-suivi' })
-      return
-    }
-    router.push({ name: 'execution-accueil' })
-    return
-  }
-  if (block.id === 'etape-7') {
-    settlementStore.ensureDemoSeed()
-    if (settlementStore.settled) {
-      router.push({
-        name: isPro.value ? 'settlement-revenu' : 'settlement-succes',
-      })
-      return
-    }
-    router.push({ name: 'settlement-accueil' })
-    return
-  }
-  if (block.id === 'etape-8') {
-    settlementStore.ensureDemoSeed()
-    if (!settlementStore.settled) {
-      router.push({ name: 'settlement-accueil' })
-      return
-    }
-    experienceStore.ensureDemoSeed()
-    if (experienceStore.recorded) {
-      router.push({ name: 'experience-succes' })
-      return
-    }
-    router.push({ name: 'experience-accueil' })
-    return
-  }
-  router.push({ name: block.routeName })
-}
-
-function resetFrameworkDemo() {
-  frameworkStore.resetDemo()
-}
-
-function resetCapacityDemo() {
-  capacityStore.resetDemo()
-}
-
-function resetDemandDemo() {
-  demandStore.resetDemo()
-}
-
-function resetMatchingDemo() {
-  matchingStore.resetDemo()
-}
-
-function resetProposalDemo() {
-  proposalStore.resetDemo()
-}
-
-function resetEngagementDemo() {
-  engagementStore.resetDemo()
-}
-
-function resetAppointmentDemo() {
-  executionStore.resetDemo()
-  appointmentStore.resetDemo()
-}
-
-function resetExecutionDemo() {
-  executionStore.resetDemo()
-}
-
-function resetSettlementDemo() {
-  experienceStore.resetDemo()
-  settlementStore.resetDemo()
-}
-
-function resetExperienceDemo() {
-  experienceStore.resetDemo()
-}
-
-function goCapacityListe() {
-  router.push({ name: 'capacity-liste' })
-}
-
-function goCapacityStart() {
-  capacityStore.startDraft()
-  router.push({ name: 'capacity-accueil' })
-}
-
-function goDemandStart() {
-  demandStore.startDraft()
-  router.push({ name: 'demand-accueil' })
-}
 </script>
 
 <template>
   <div class="bg-background text-on-surface font-body-md antialiased min-h-screen">
-    <header
-      class="sticky top-0 z-40 w-full bg-surface border-b border-surface-container flex items-center justify-between px-margin-mobile h-16"
-    >
-      <div class="font-headline-sm text-headline-sm text-primary font-bold tracking-tight">
-        Nolaya
-      </div>
-      <span
-        class="font-label-mono text-label-mono bg-surface-container text-on-surface-variant px-2 py-1 rounded uppercase"
-      >
-        MVP
-      </span>
-    </header>
-
-    <main class="max-w-lg mx-auto w-full px-margin-mobile py-xl pb-3xl">
-      <div class="flex items-center gap-md mb-lg">
-        <img
-          :src="persona.avatarUrl"
-          alt=""
-          class="w-12 h-12 rounded-full object-cover border border-surface-container"
-        />
-        <div>
-          <p class="font-headline-sm text-headline-sm text-primary">
-            {{ persona.firstName }}
-          </p>
-          <p class="font-body-sm text-body-sm text-on-surface-variant">
-            <template v-if="isPro">
-              {{ persona.role }} · {{ persona.specialty }}
-            </template>
-            <template v-else>
-              {{ persona.role }} · {{ persona.zoneLabel }}
-            </template>
-          </p>
-        </div>
-      </div>
-
-      <h1 class="font-display-lg-mobile text-display-lg-mobile text-primary mb-sm">
-        Blocs métier
-      </h1>
-      <p class="font-body-md text-body-md text-on-surface-variant mb-xl">
-        {{ homeIntro }}
-      </p>
-
-      <div
-        v-if="isPro && frameworkStore.isActive"
-        class="mb-lg p-md rounded-xl border border-secondary-container bg-secondary-container/30 flex flex-col gap-sm"
-      >
-        <div class="flex items-center justify-between gap-sm">
-          <span
-            class="font-label-mono text-label-mono bg-secondary-container text-on-secondary-container px-2 py-1 rounded uppercase"
-          >
-            Cadre ACTIF
-          </span>
-          <button
-            type="button"
-            class="font-button-text text-button-text text-secondary underline-offset-2 hover:underline"
-            @click="resetFrameworkDemo"
-          >
-            Réinitialiser
-          </button>
-        </div>
-        <p class="font-body-sm text-body-sm text-on-surface-variant">
-          PROFESSIONAL_FRAMEWORK_ACTIVE — hérité par les capacités.
+    <main class="max-w-lg mx-auto w-full px-margin-mobile py-xl pb-[calc(5.5rem+env(safe-area-inset-bottom))]">
+      <header v-if="activeTab" class="mb-lg">
+        <h1 class="font-headline-sm text-headline-sm text-primary leading-tight">
+          {{ activeTab.label }}
+        </h1>
+        <p class="font-body-sm text-body-sm text-on-surface-variant mt-xs leading-snug">
+          {{ activeTab.description }}
         </p>
-      </div>
+      </header>
 
-      <div
-        v-if="isPro && hasCapacities"
-        class="mb-lg p-md rounded-xl border border-surface-container bg-surface-container-low flex flex-col gap-sm"
-      >
-        <div class="flex items-center justify-between gap-sm">
-          <span
-            class="font-label-mono text-label-mono bg-surface-container text-on-surface-variant px-2 py-1 rounded uppercase"
-          >
-            Capacité · {{ capacityCountLabel }}
-          </span>
-          <button
-            type="button"
-            class="font-button-text text-button-text text-secondary underline-offset-2 hover:underline"
-            @click="resetCapacityDemo"
-          >
-            Réinitialiser
-          </button>
-        </div>
-        <p class="font-body-sm text-body-sm text-on-surface-variant">
-          Persisté dans localStorage (`as.mvp.capacities`).
-        </p>
-        <div class="flex flex-wrap gap-sm pt-xs">
-          <button
-            type="button"
-            class="font-button-text text-button-text bg-primary text-on-primary px-3 py-2 rounded"
-            @click="goCapacityListe"
-          >
-            Voir mes capacités
-          </button>
-          <button
-            type="button"
-            class="font-button-text text-button-text border border-outline-variant text-primary px-3 py-2 rounded"
-            @click="goCapacityStart"
-          >
-            Nouvelle
-          </button>
-        </div>
-      </div>
-
-      <div
-        v-if="isClient && hasDemands"
-        class="mb-lg p-md rounded-xl border border-surface-container bg-surface-container-low flex flex-col gap-sm"
-      >
-        <div class="flex items-center justify-between gap-sm">
-          <span
-            class="font-label-mono text-label-mono bg-surface-container text-on-surface-variant px-2 py-1 rounded uppercase"
-          >
-            Demande · {{ demandCountLabel }}
-          </span>
-          <button
-            type="button"
-            class="font-button-text text-button-text text-secondary underline-offset-2 hover:underline"
-            @click="resetDemandDemo"
-          >
-            Réinitialiser
-          </button>
-        </div>
-        <p class="font-body-sm text-body-sm text-on-surface-variant">
-          Persisté dans localStorage (`as.mvp.demands`).
-        </p>
-        <div class="flex flex-wrap gap-sm pt-xs">
-          <button
-            type="button"
-            class="font-button-text text-button-text bg-primary text-on-primary px-3 py-2 rounded"
-            @click="goDemandStart"
-          >
-            Continuer / ouvrir
-          </button>
-        </div>
-      </div>
-
-      <!-- Données de l’autre rôle (lecture seule) -->
-      <div
-        v-if="isPro && hasDemands"
-        class="mb-lg p-md rounded-xl border border-outline-variant bg-surface-container-lowest flex flex-col gap-sm"
-      >
-        <span
-          class="font-label-mono text-label-mono bg-surface-container text-on-surface-variant px-2 py-1 rounded uppercase self-start"
-        >
-          Demande cliente · {{ demandCountLabel }}
-        </span>
-        <p class="font-body-sm text-body-sm text-on-surface-variant">
-          La demande qualifiée de {{ personaOppositeName }} est visible dans votre parcours
-          (appariement → offre).
-        </p>
-      </div>
-
-      <div
-        v-if="isClient && hasCapacities"
-        class="mb-lg p-md rounded-xl border border-outline-variant bg-surface-container-lowest flex flex-col gap-sm"
-      >
-        <span
-          class="font-label-mono text-label-mono bg-surface-container text-on-surface-variant px-2 py-1 rounded uppercase self-start"
-        >
-          Capacité coiffeuse · {{ capacityCountLabel }}
-        </span>
-        <p class="font-body-sm text-body-sm text-on-surface-variant">
-          Les capacités ouvertes de {{ personaOppositeName }} alimentent le vivier d’appariement.
-        </p>
-      </div>
-
-      <div
-        v-if="hasMatching"
-        class="mb-lg p-md rounded-xl border border-surface-container bg-surface-container-low flex flex-col gap-sm"
-      >
-        <div class="flex items-center justify-between gap-sm">
-          <span
-            class="font-label-mono text-label-mono bg-surface-container text-on-surface-variant px-2 py-1 rounded uppercase"
-          >
-            Appariement · {{ matchingCountLabel }}
-          </span>
-          <button
-            type="button"
-            class="font-button-text text-button-text text-secondary underline-offset-2 hover:underline"
-            @click="resetMatchingDemo"
-          >
-            Réinitialiser
-          </button>
-        </div>
-        <p class="font-body-sm text-body-sm text-on-surface-variant">
-          Persisté dans localStorage (`as.mvp.campaigns`).
-        </p>
-      </div>
-
-      <div
-        v-if="hasProposal"
-        class="mb-lg p-md rounded-xl border border-surface-container bg-surface-container-low flex flex-col gap-sm"
-      >
-        <div class="flex items-center justify-between gap-sm">
-          <span
-            class="font-label-mono text-label-mono bg-surface-container text-on-surface-variant px-2 py-1 rounded uppercase"
-          >
-            Proposition · {{ proposalCountLabel }}
-          </span>
-          <button
-            type="button"
-            class="font-button-text text-button-text text-secondary underline-offset-2 hover:underline"
-            @click="resetProposalDemo"
-          >
-            Réinitialiser
-          </button>
-        </div>
-        <p class="font-body-sm text-body-sm text-on-surface-variant">
-          Persisté dans localStorage (`as.mvp.proposals`, `as.mvp.softHolds`).
-        </p>
-      </div>
-
-      <div
-        v-if="hasEngagement"
-        class="mb-lg p-md rounded-xl border border-surface-container bg-surface-container-low flex flex-col gap-sm"
-      >
-        <div class="flex items-center justify-between gap-sm">
-          <span
-            class="font-label-mono text-label-mono bg-surface-container text-on-surface-variant px-2 py-1 rounded uppercase"
-          >
-            Engagement · {{ engagementCountLabel }}
-          </span>
-          <button
-            type="button"
-            class="font-button-text text-button-text text-secondary underline-offset-2 hover:underline"
-            @click="resetEngagementDemo"
-          >
-            Réinitialiser
-          </button>
-        </div>
-        <p class="font-body-sm text-body-sm text-on-surface-variant">
-          Persisté dans localStorage (`as.mvp.engagements`, `as.mvp.payments`,
-          `as.mvp.policies`).
-        </p>
-      </div>
-
-      <div
-        v-if="hasAppointment"
-        class="mb-lg p-md rounded-xl border border-surface-container bg-surface-container-low flex flex-col gap-sm"
-      >
-        <div class="flex items-center justify-between gap-sm">
-          <span
-            class="font-label-mono text-label-mono bg-surface-container text-on-surface-variant px-2 py-1 rounded uppercase"
-          >
-            RDV · {{ appointmentCountLabel }}
-          </span>
-          <button
-            type="button"
-            class="font-button-text text-button-text text-secondary underline-offset-2 hover:underline"
-            @click="resetAppointmentDemo"
-          >
-            Réinitialiser
-          </button>
-        </div>
-        <p class="font-body-sm text-body-sm text-on-surface-variant">
-          Persisté dans localStorage (`as.mvp.appointments`, `as.mvp.prepPlans`).
-        </p>
-      </div>
-
-      <div
-        v-if="hasExecution"
-        class="mb-lg p-md rounded-xl border border-surface-container bg-surface-container-low flex flex-col gap-sm"
-      >
-        <div class="flex items-center justify-between gap-sm">
-          <span
-            class="font-label-mono text-label-mono bg-surface-container text-on-surface-variant px-2 py-1 rounded uppercase"
-          >
-            Exécution · {{ executionCountLabel }}
-          </span>
-          <button
-            type="button"
-            class="font-button-text text-button-text text-secondary underline-offset-2 hover:underline"
-            @click="resetExecutionDemo"
-          >
-            Réinitialiser
-          </button>
-        </div>
-        <p class="font-body-sm text-body-sm text-on-surface-variant">
-          Persisté dans localStorage (`as.mvp.executionEvents`, `as.mvp.executionDossier`).
-        </p>
-      </div>
-
-      <div
-        v-if="hasSettlement"
-        class="mb-lg p-md rounded-xl border border-surface-container bg-surface-container-low flex flex-col gap-sm"
-      >
-        <div class="flex items-center justify-between gap-sm">
-          <span
-            class="font-label-mono text-label-mono bg-surface-container text-on-surface-variant px-2 py-1 rounded uppercase"
-          >
-            Règlement · {{ settlementCountLabel }}
-          </span>
-          <button
-            type="button"
-            class="font-button-text text-button-text text-secondary underline-offset-2 hover:underline"
-            @click="resetSettlementDemo"
-          >
-            Réinitialiser
-          </button>
-        </div>
-        <p class="font-body-sm text-body-sm text-on-surface-variant">
-          Persisté dans localStorage (`as.mvp.settlement`, `as.mvp.ledgerLines`,
-          `as.mvp.payout`).
-        </p>
-      </div>
-
-      <div
-        v-if="hasExperience"
-        class="mb-lg p-md rounded-xl border border-surface-container bg-surface-container-low flex flex-col gap-sm"
-      >
-        <div class="flex items-center justify-between gap-sm">
-          <span
-            class="font-label-mono text-label-mono bg-surface-container text-on-surface-variant px-2 py-1 rounded uppercase"
-          >
-            Preuve · {{ experienceCountLabel }}
-          </span>
-          <button
-            type="button"
-            class="font-button-text text-button-text text-secondary underline-offset-2 hover:underline"
-            @click="resetExperienceDemo"
-          >
-            Réinitialiser
-          </button>
-        </div>
-        <p class="font-body-sm text-body-sm text-on-surface-variant">
-          Persisté dans localStorage (`as.mvp.experiences`, `as.mvp.feedbacks`,
-          `as.mvp.reviews`, `as.mvp.history`, `as.mvp.repeatDraft`).
-        </p>
-      </div>
-
-      <ul class="flex flex-col gap-md">
+      <ul class="flex flex-col gap-sm">
         <li v-for="block in visibleBlocks" :key="block.id">
           <button
             type="button"
-            class="w-full text-left rounded-xl border p-lg transition-colors"
+            class="relative w-full text-left rounded-xl border px-md py-sm transition-colors"
             :class="
               block.status === 'ready'
                 ? 'bg-surface-container-lowest border-surface-container hover:border-outline-variant cursor-pointer'
@@ -725,13 +68,27 @@ function goDemandStart() {
             :disabled="block.status !== 'ready'"
             @click="openBlock(block)"
           >
-            <div class="flex items-start justify-between gap-md mb-sm">
+            <span
+              v-if="badgeFor(block.id) > 0"
+              class="as-badge-bounce absolute -top-2 -right-2 font-label-mono text-label-mono min-w-[1.5rem] h-6 px-1.5 inline-flex items-center justify-center rounded-full bg-primary text-on-primary shadow-sm"
+              :aria-label="`${badgeFor(block.id)} à voir`"
+            >
+              {{ badgeFor(block.id) }}
+            </span>
+            <div class="flex items-center justify-between gap-md mb-xs">
               <span
                 class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider"
               >
                 {{ block.order }}
               </span>
               <span
+                v-if="badgeFor(block.id) > 0"
+                class="font-label-mono text-label-mono px-2 py-0.5 rounded uppercase bg-primary text-on-primary"
+              >
+                Voir
+              </span>
+              <span
+                v-else
                 class="font-label-mono text-label-mono px-2 py-0.5 rounded uppercase"
                 :class="
                   block.status === 'ready'
@@ -742,31 +99,11 @@ function goDemandStart() {
                 {{ block.status === 'ready' ? 'Dispo' : 'Bientôt' }}
               </span>
             </div>
-            <h2 class="font-headline-sm text-headline-sm text-primary mb-xs">
+            <h2 class="font-headline-sm text-headline-sm text-primary leading-tight">
               {{ block.title }}
             </h2>
-            <p class="font-body-sm text-body-sm text-on-surface-variant">
-              {{
-                block.id === 'etape-0' && hasCapacities
-                  ? `Voir la liste (${capacityCountLabel}).`
-                  : block.id === 'etape-1' && hasDemands
-                    ? `État : ${demandCountLabel}.`
-                    : block.id === 'etape-2' && hasMatching
-                      ? `État : ${matchingCountLabel}.`
-                      : block.id === 'etape-3' && hasProposal
-                        ? `État : ${proposalCountLabel}.`
-                        : block.id === 'etape-4' && hasEngagement
-                          ? `État : ${engagementCountLabel}.`
-                          : block.id === 'etape-5' && hasAppointment
-                            ? `État : ${appointmentCountLabel}.`
-                            : block.id === 'etape-6' && hasExecution
-                              ? `État : ${executionCountLabel}.`
-                              : block.id === 'etape-7' && hasSettlement
-                                ? `État : ${settlementCountLabel}.`
-                                : block.id === 'etape-8' && hasExperience
-                                  ? `État : ${experienceCountLabel}.`
-                                  : block.description
-              }}
+            <p class="font-body-sm text-body-sm text-on-surface-variant mt-xs leading-snug">
+              {{ block.description }}
             </p>
           </button>
         </li>

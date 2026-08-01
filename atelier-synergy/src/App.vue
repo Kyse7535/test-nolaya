@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted, provide, ref } from 'vue'
+import DemoBottomNav from './components/DemoBottomNav.vue'
 import DemoRoleSwitch from './components/DemoRoleSwitch.vue'
 import DemoWelcomeModal from './components/DemoWelcomeModal.vue'
 
@@ -36,6 +37,7 @@ provide('openDemoWelcome', openWelcome)
   <div class="as-app-shell">
     <DemoRoleSwitch />
     <RouterView />
+    <DemoBottomNav />
     <DemoWelcomeModal :open="welcomeOpen" @close="closeWelcome" />
   </div>
 </template>

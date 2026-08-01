@@ -8,7 +8,7 @@ import { useCapacityStore } from '../../stores/capacity'
 
 const router = useRouter()
 const capacityStore = useCapacityStore()
-const { currentCapacity, openCapacities } = storeToRefs(capacityStore)
+const { currentCapacity, userOpenCapacities } = storeToRefs(capacityStore)
 
 const heroSrc =
   'https://lh3.googleusercontent.com/aida-public/AB6AXuAlFe6jTJ5DdvUsoyHM4Mxh62Tug7u-TOUCDPLp3Tx2ynLQeqJ7ZCDbAF_hlgnztIXlgS6DvqJXEwG4TB4f6YokmzFdYN6lhWxhh4itzYRXw284B9Ym_GipkW0EksOLDW5s1FEVZK7dTNcxJKhHO0-yIRdCeBbYP8xpl3qETBkzjVbnSPsKcNTdjlcw3Hd8vuKULWnDK3QUDaEknVRIFcrIShk3TS74uGTTWMVbSuVrX-W87cmqOtY8Nw'
@@ -17,7 +17,7 @@ const capacity = computed(() => {
   if (currentCapacity.value?.status === CapacityStatus.OPEN) {
     return currentCapacity.value
   }
-  return openCapacities.value[openCapacities.value.length - 1] ?? null
+  return userOpenCapacities.value[userOpenCapacities.value.length - 1] ?? null
 })
 
 const headline = computed(() => openCapacityHeadline(capacity.value))

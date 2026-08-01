@@ -7,7 +7,6 @@ import {
   CampaignStatus,
   DEFAULT_THRESHOLD,
   InvitationStatus,
-  POOL_SIZE,
   ResponseType,
   STORAGE_KEY_CAMPAIGNS,
   STORAGE_KEY_CURRENT_CAMPAIGN_ID,
@@ -20,14 +19,14 @@ import {
   shortlistedInvitations,
   thresholdReached,
 } from '../domain/matching/model'
+import { seedDemoScenario } from '../mocks/demoScenario'
 import {
   MATCHING_POOL_PROFILES,
-  buildSeedOpenCapacity,
-  buildSeedQualifiedDemand,
   isSeedCapacityId,
   poolEntryFromProfile,
   poolEntryFromUserCapacity,
 } from '../mocks/matchingPool'
+import { isImmersionCapacityId } from '../mocks/immersionIds'
 import { mockClient, mockProfessional } from '../mocks/platform'
 import { useCapacityStore } from './capacity'
 import { useDemoRoleStore } from './demoRole'
@@ -124,43 +123,7 @@ export const useMatchingStore = defineStore('matching', () => {
    * Seeds into demand/capacity stores when missing.
    */
   function ensureDemoPrerequisites() {
-    const demandStore = useDemandStore()
-    const capacityStore = useCapacityStore()
-
-    let demand =
-      demandStore.qualifiedDemands[demandStore.qualifiedDemands.length - 1] ?? null
-    if (!demand) {
-      demand = buildSeedQualifiedDemand()
-      demandStore.importDemand(demand, { setAsCurrent: true })
-    } else if (demandStore.currentDemandId !== demand.id) {
-      demandStore.setCurrent(demand.id)
-    }
-
-    const open = capacityStore.openCapacities
-    const needed = POOL_SIZE - open.length
-    if (needed > 0) {
-      const existingIds = new Set(capacityStore.capacities.map((c) => c.id))
-      for (const profile of MATCHING_POOL_PROFILES) {
-        if (existingIds.has(profile.capacityId)) continue
-        if (capacityStore.openCapacities.length >= POOL_SIZE) break
-        capacityStore.importCapacity(buildSeedOpenCapacity(profile))
-      }
-      // If still short (ids collided with closed/draft), pad remaining profiles with new ids
-      let pad = 0
-      while (capacityStore.openCapacities.length < POOL_SIZE && pad < MATCHING_POOL_PROFILES.length) {
-        const profile = MATCHING_POOL_PROFILES[pad]
-        const id = `${profile.capacityId}_pad${pad}`
-        if (!capacityStore.capacities.some((c) => c.id === id)) {
-          capacityStore.importCapacity({
-            ...buildSeedOpenCapacity(profile),
-            id,
-          })
-        }
-        pad += 1
-      }
-    }
-
-    return { demand, openCapacities: capacityStore.openCapacities }
+    return seedDemoScenario()
   }
 
   function buildPoolAndInvitations(openCapacities) {
@@ -179,7 +142,12 @@ export const useMatchingStore = defineStore('matching', () => {
       )
     }
 
-    const userCapacities = openCapacities.filter((c) => !isSeedCapacityId(c.id))
+    const userCapacities = openCapacities.filter(
+      (c) => !isSeedCapacityId(c.id) && !isImmersionCapacityId(c.id),
+    )
+    const immersionCapacities = openCapacities.filter((c) =>
+      isImmersionCapacityId(c.id),
+    )
     const seedCapacities = openCapacities.filter((c) => isSeedCapacityId(c.id))
 
     // Wave 1 first: real coiffeuse capacities (so client demand reaches the pro tab).
@@ -191,6 +159,18 @@ export const useMatchingStore = defineStore('matching', () => {
         wave: 1,
       })
       if (capacity.displayName) entry.displayName = capacity.displayName
+      pool.push(entry)
+      pushInvitation(entry)
+    }
+
+    // Immersion mirror capacities (client autonomy) — keep their display names.
+    for (const capacity of immersionCapacities) {
+      const entry = poolEntryFromUserCapacity(capacity, {
+        displayName: capacity.displayName || mockProfessional.firstName,
+        avatarUrl: mockProfessional.avatarUrl,
+        distanceKm: 3.2,
+        wave: 1,
+      })
       pool.push(entry)
       pushInvitation(entry)
     }
@@ -313,6 +293,14 @@ export const useMatchingStore = defineStore('matching', () => {
     currentCampaignId.value = null
   }
 
+  /** Upsert a prebuilt campaign (immersion tree). */
+  function importCampaign(campaign, { setAsCurrent = false } = {}) {
+    if (!campaign?.id) return null
+    upsert(campaign)
+    if (setAsCurrent) currentCampaignId.value = campaign.id
+    return campaign
+  }
+
   return {
     campaigns,
     currentCampaignId,
@@ -332,6 +320,7 @@ export const useMatchingStore = defineStore('matching', () => {
     launchCampaign,
     acceptExact,
     getInvitation,
+    importCampaign,
     resetDemo,
     DemoRole,
   }

@@ -37,11 +37,20 @@ function toggleDossier() {
     class="bg-background text-on-background font-body-md min-h-screen flex flex-col relative"
   >
     <header
-      class="w-full h-16 flex justify-center items-center bg-surface border-b border-surface-container z-40 fixed top-0"
+      class="w-full h-16 flex items-center justify-between px-margin-mobile bg-surface border-b border-surface-container z-40 fixed top-0"
     >
+      <button
+        type="button"
+        aria-label="Retour"
+        class="p-2 -ml-2 text-primary active:opacity-70 transition-opacity rounded-full hover:bg-surface-container-low"
+        @click="goHome"
+      >
+        <span class="material-symbols-outlined">arrow_back</span>
+      </button>
       <h1 class="font-headline-md text-headline-md text-primary tracking-tight">
         Nolaya
       </h1>
+      <div class="w-10" />
     </header>
 
     <main class="flex-grow pt-16 pb-[160px] w-full max-w-lg mx-auto flex flex-col">

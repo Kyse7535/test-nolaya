@@ -53,5 +53,30 @@ export const EXPERIENCE_PILLARS = [
   },
 ]
 
+/** Hub / accueil coiffeuse — lecture des retours, pas la preuve cliente. */
+export const EXPERIENCE_PILLARS_PRO = [
+  {
+    icon: 'hourglass_top',
+    title: 'Confirmation cliente',
+    body: 'La cliente confirme l’outcome. Sans ça, pas encore d’avis à consulter.',
+  },
+  {
+    icon: 'rate_review',
+    title: 'Avis reçus',
+    body: 'Lire les notes et le témoignage une fois publiés.',
+    filled: true,
+  },
+  {
+    icon: 'reply',
+    title: 'Réponse',
+    body: 'Répondre au témoignage (mock) pour clôturer la relation.',
+  },
+  {
+    icon: 'history',
+    title: 'Historique',
+    body: 'Retrouver les prestations passées côté styliste.',
+  },
+]
+
 export const DEFAULT_STYLIST_REPLY =
   'Merci Awa pour votre confiance. Ce fut un plaisir de réaliser vos vanilles — à très bientôt.'

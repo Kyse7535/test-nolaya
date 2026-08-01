@@ -326,6 +326,23 @@ export const useExperienceStore = defineStore('experience', () => {
     }
   }
 
+  function importExperience(experience, { replaceAll = false } = {}) {
+    if (!experience?.id) return null
+    if (replaceAll) {
+      experiences.value = [experience]
+    } else {
+      upsertExperience(experience)
+    }
+    return experience
+  }
+
+  function importHistory(entry) {
+    if (!entry?.id) return null
+    const exists = history.value.some((h) => h.id === entry.id)
+    if (!exists) history.value = [entry, ...history.value]
+    return entry
+  }
+
   return {
     experiences,
     feedbacks,
@@ -352,6 +369,8 @@ export const useExperienceStore = defineStore('experience', () => {
     openRepeatPanel,
     closeRepeatPanel,
     confirmRepeatDemand,
+    importExperience,
+    importHistory,
     resetDemo,
     DemoRole,
   }

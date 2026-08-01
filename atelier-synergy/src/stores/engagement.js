@@ -321,6 +321,19 @@ export const useEngagementStore = defineStore('engagement', () => {
     }
   }
 
+  function importEngagement(engagement, { setAsCurrent = false } = {}) {
+    if (!engagement?.id) return null
+    upsertEngagement(engagement)
+    if (setAsCurrent) currentEngagementId.value = engagement.id
+    return engagement
+  }
+
+  function importPayment(payment) {
+    if (!payment?.id) return null
+    upsertPayment(payment)
+    return payment
+  }
+
   return {
     engagements,
     payments,
@@ -339,6 +352,8 @@ export const useEngagementStore = defineStore('engagement', () => {
     setConsentPolicy,
     acceptConsents,
     simulatePaymentSuccess,
+    importEngagement,
+    importPayment,
     resetDemo,
     isAwaitingAcceptance,
     isAwaitingPayment,

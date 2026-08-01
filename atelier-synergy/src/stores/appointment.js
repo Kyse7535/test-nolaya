@@ -347,6 +347,24 @@ export const useAppointmentStore = defineStore('appointment', () => {
     }
   }
 
+  /**
+   * Import appointment + prep plan (+ optional template) for immersion tree.
+   * @param {{ appointment: object, plan?: object, template?: object }} bundle
+   */
+  function importAppointmentBundle(bundle, { setAsCurrent = false } = {}) {
+    const appointment = bundle?.appointment
+    if (!appointment?.id) return null
+    if (bundle.template?.id) upsertList(prepTemplates, bundle.template)
+    let next = appointment
+    if (bundle.plan?.id) {
+      upsertList(prepPlans, bundle.plan)
+      next = { ...appointment, prepPlanId: bundle.plan.id }
+    }
+    upsertList(appointments, next)
+    if (setAsCurrent) currentAppointmentId.value = next.id
+    return next
+  }
+
   return {
     appointments,
     prepPlans,
@@ -372,6 +390,7 @@ export const useAppointmentStore = defineStore('appointment', () => {
     markInProgress,
     markCompleted,
     resetExecutionStatus,
+    importAppointmentBundle,
     resetDemo,
     DemoRole,
   }

@@ -1,27 +1,47 @@
 <script setup>
-import { onMounted } from 'vue'
+import { computed, onMounted } from 'vue'
+import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
+import { DemoRole } from '../../domain/demoRole'
 import {
   EXPERIENCE_HERO_ACCUEIL,
   EXPERIENCE_PILLARS,
+  EXPERIENCE_PILLARS_PRO,
 } from '../../mocks/experienceSeed'
+import { useDemoRoleStore } from '../../stores/demoRole'
 import { useExperienceStore } from '../../stores/experience'
 import { useSettlementStore } from '../../stores/settlement'
 
 const router = useRouter()
 const experienceStore = useExperienceStore()
 const settlementStore = useSettlementStore()
+const { demoRole } = storeToRefs(useDemoRoleStore())
+
+const isPro = computed(() => demoRole.value === DemoRole.PRO)
+const pillars = computed(() =>
+  isPro.value ? EXPERIENCE_PILLARS_PRO : EXPERIENCE_PILLARS,
+)
 
 onMounted(() => {
   if (!settlementStore.settled) {
     settlementStore.ensureDemoSeed()
   }
   if (!settlementStore.settled) {
-    router.replace({ name: 'settlement-accueil' })
+    router.replace({
+      name: isPro.value ? 'settlement-revenu' : 'settlement-accueil',
+    })
     return
   }
   experienceStore.ensureDemoSeed()
   if (experienceStore.recorded) {
+    if (isPro.value) {
+      router.replace({
+        name: experienceStore.publishedReview
+          ? 'experience-temoignage'
+          : 'experience-historique',
+      })
+      return
+    }
     router.replace({ name: 'experience-succes' })
   }
 })
@@ -31,6 +51,10 @@ function goBack() {
 }
 
 function confirmExperience() {
+  if (isPro.value) {
+    goBack()
+    return
+  }
   experienceStore.ensureDemoSeed()
   router.push({ name: 'experience-confirmation' })
 }
@@ -52,7 +76,7 @@ function confirmExperience() {
         <span class="material-symbols-outlined">arrow_back</span>
       </button>
       <h1 class="font-headline-sm text-headline-sm text-primary font-semibold ml-2">
-        Preuve d’expérience
+        {{ isPro ? 'Avis reçus' : 'Preuve d’expérience' }}
       </h1>
     </header>
 
@@ -69,7 +93,7 @@ function confirmExperience() {
           <span
             class="font-label-sm text-label-sm px-2 py-1 bg-secondary-container text-on-secondary-container rounded-sm uppercase tracking-wider"
           >
-            PREUVE
+            {{ isPro ? 'AVIS' : 'PREUVE' }}
           </span>
           <span
             v-if="experienceStore.statusCode"
@@ -79,12 +103,23 @@ function confirmExperience() {
           </span>
         </div>
         <h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-background text-balance">
-          Votre expérience est prête à être enregistrée
+          {{
+            isPro
+              ? 'En attente de la confirmation cliente'
+              : 'Votre expérience est prête à être enregistrée'
+          }}
         </h2>
         <p class="font-body-lg text-body-lg text-on-surface-variant mt-2">
-          Le règlement est clos. On capture les faits de la prestation. Vous pourrez
-          laisser un avis multidimensionnel — ou passer. L’historique reste disponible,
-          et vous pourrez refaire la même prestation avec des champs à reconfirmer.
+          <template v-if="isPro">
+            Le règlement est clos. La cliente confirme l’outcome et peut laisser un
+            avis. Vous pourrez alors lire le témoignage et y répondre.
+          </template>
+          <template v-else>
+            Le règlement est clos. On capture les faits de la prestation. Vous pourrez
+            laisser un avis multidimensionnel — ou passer. L’historique reste
+            disponible, et vous pourrez refaire la même prestation avec des champs à
+            reconfirmer.
+          </template>
         </p>
       </section>
 
@@ -103,18 +138,22 @@ function confirmExperience() {
           <p
             class="font-headline-md text-headline-md text-on-primary text-balance leading-tight"
           >
-            Une preuve factuelle, une relation qui continue.
+            {{
+              isPro
+                ? 'Des retours clairs, une relation qui continue.'
+                : 'Une preuve factuelle, une relation qui continue.'
+            }}
           </p>
         </div>
       </section>
 
       <section class="flex flex-col gap-lg">
         <h3 class="font-headline-sm text-headline-sm text-on-background">
-          Ce que vous allez faire
+          {{ isPro ? 'Ce que vous allez voir' : 'Ce que vous allez faire' }}
         </h3>
         <div class="grid grid-cols-1 gap-md">
           <div
-            v-for="pillar in EXPERIENCE_PILLARS"
+            v-for="pillar in pillars"
             :key="pillar.title"
             class="flex items-start gap-md p-md bg-surface-container-lowest border border-surface-container rounded-lg"
           >
@@ -145,8 +184,14 @@ function confirmExperience() {
       </section>
 
       <p class="font-body-sm text-body-sm text-on-surface-variant">
-        L’avis n’est jamais obligatoire. Pas de modération opérateur ni de galerie
-        vérifiée obligatoire dans cette démo.
+        <template v-if="isPro">
+          Vous ne confirmez pas l’expérience à la place de la cliente. Pas de
+          modération opérateur dans cette démo.
+        </template>
+        <template v-else>
+          L’avis n’est jamais obligatoire. Pas de modération opérateur ni de galerie
+          vérifiée obligatoire dans cette démo.
+        </template>
       </p>
     </main>
 
@@ -159,7 +204,7 @@ function confirmExperience() {
           class="w-full bg-primary text-on-primary font-body-md text-body-md font-semibold h-12 rounded-lg flex items-center justify-center transition-opacity hover:opacity-90 active:scale-[0.98]"
           @click="confirmExperience"
         >
-          Confirmer mon expérience
+          {{ isPro ? 'Compris — retour' : 'Confirmer mon expérience' }}
         </button>
       </div>
     </div>

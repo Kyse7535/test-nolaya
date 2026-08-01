@@ -59,7 +59,7 @@ function publish() {
 <template>
   <div
     v-if="proposal && offer"
-    class="bg-background text-on-background antialiased font-body-md min-h-screen flex flex-col pb-40"
+    class="bg-background text-on-background antialiased font-body-md min-h-screen flex flex-col pb-72"
   >
     <header class="w-full top-0 sticky z-40 bg-surface border-b border-outline-variant flex flex-col">
       <div class="flex items-center justify-between px-margin-mobile h-16">
@@ -229,12 +229,16 @@ function publish() {
           le créneau sera immobilisé temporairement jusqu’à acceptation cliente.
         </p>
       </div>
+    </main>
 
-      <div class="flex items-start gap-3 py-2">
+    <div
+      class="fixed bottom-[72px] left-0 right-0 w-full px-margin-mobile pb-4 pt-8 z-40 flex flex-col gap-3 max-w-lg mx-auto pointer-events-none bg-gradient-to-t from-background via-background to-transparent"
+    >
+      <div class="flex items-start gap-3 py-1 pointer-events-auto">
         <input
           id="confirm-offer"
           v-model="confirmed"
-          class="w-5 h-5 border-surface-container rounded text-primary focus:ring-primary bg-surface-container-lowest mt-0.5"
+          class="w-5 h-5 shrink-0 border border-outline-variant rounded text-primary focus:ring-primary bg-surface-container-lowest mt-0.5 cursor-pointer"
           type="checkbox"
         />
         <label
@@ -244,14 +248,9 @@ function publish() {
           Je confirme que cette offre correspond à ce que je peux réaliser
         </label>
       </div>
-    </main>
-
-    <div
-      class="fixed bottom-[72px] left-0 right-0 w-full px-margin-mobile pb-4 pt-8 z-40 flex flex-col gap-3 max-w-lg mx-auto bg-gradient-to-t from-background via-background to-transparent"
-    >
       <button
         type="button"
-        class="w-full font-body-md font-medium py-3 rounded transition-all duration-200"
+        class="w-full font-body-md font-medium py-3 rounded transition-all duration-200 pointer-events-auto"
         :class="
           confirmed && canPublish
             ? 'bg-primary text-on-primary active:scale-[0.98]'
@@ -264,7 +263,7 @@ function publish() {
       </button>
       <button
         type="button"
-        class="w-full bg-transparent text-primary border border-primary font-body-md font-medium py-3 rounded hover:bg-surface-container-lowest transition-colors active:scale-[0.98]"
+        class="w-full bg-transparent text-primary border border-primary font-body-md font-medium py-3 rounded hover:bg-surface-container-lowest transition-colors active:scale-[0.98] pointer-events-auto"
         @click="goBack"
       >
         Revenir

@@ -185,6 +185,14 @@ export const useSettlementStore = defineStore('settlement', () => {
     }
   }
 
+  function importSettlement(next, { ledger = [], payoutNext = null } = {}) {
+    if (!next?.id) return null
+    settlement.value = next
+    ledgerLines.value = Array.isArray(ledger) ? ledger : []
+    payout.value = payoutNext
+    return next
+  }
+
   return {
     settlement,
     ledgerLines,
@@ -204,6 +212,7 @@ export const useSettlementStore = defineStore('settlement', () => {
     payBalanceMock,
     acknowledgeDownloadReleve,
     clearDownloadNote,
+    importSettlement,
     resetDemo,
     DemoRole,
     SettlementStatus,

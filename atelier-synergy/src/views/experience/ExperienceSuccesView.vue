@@ -1,28 +1,43 @@
 <script setup>
 import { computed, onMounted } from 'vue'
+import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
+import { DemoRole } from '../../domain/demoRole'
 import {
   EXPERIENCE_HERO_SUCCES,
   EXPERIENCE_TEXTURE_THUMB,
 } from '../../mocks/experienceSeed'
+import { useDemoRoleStore } from '../../stores/demoRole'
 import { useExperienceStore } from '../../stores/experience'
 import { useSettlementStore } from '../../stores/settlement'
 
 const router = useRouter()
 const experienceStore = useExperienceStore()
 const settlementStore = useSettlementStore()
+const { demoRole } = storeToRefs(useDemoRoleStore())
 
+const isPro = computed(() => demoRole.value === DemoRole.PRO)
 const experience = computed(() => experienceStore.currentExperience)
 const hasReview = computed(() => experienceStore.publishedReview)
 
 onMounted(() => {
   if (!settlementStore.settled) {
-    router.replace({ name: 'settlement-accueil' })
+    router.replace({
+      name: isPro.value ? 'settlement-revenu' : 'settlement-accueil',
+    })
     return
   }
   experienceStore.ensureDemoSeed()
   if (!experienceStore.recorded) {
     router.replace({ name: 'experience-accueil' })
+    return
+  }
+  if (isPro.value) {
+    router.replace({
+      name: hasReview.value
+        ? 'experience-temoignage'
+        : 'experience-historique',
+    })
   }
 })
 
@@ -35,6 +50,14 @@ function goHistory() {
 }
 
 function goRepeat() {
+  if (isPro.value) {
+    router.push({
+      name: hasReview.value
+        ? 'experience-temoignage'
+        : 'experience-historique',
+    })
+    return
+  }
   experienceStore.openRepeatPanel()
   router.push({ name: 'experience-historique' })
 }
@@ -106,8 +129,15 @@ function goRepeat() {
         <p
           class="font-body-lg text-body-lg text-on-surface-variant text-center max-w-[320px] mx-auto"
         >
-          Votre preuve d’expérience est créée. Vous pouvez retrouver cette prestation
-          dans l’historique et la refaire plus tard en reconfirmant prix, date et lieu.
+          <template v-if="isPro">
+            La cliente a confirmé l’expérience. Consultez l’historique et répondez à
+            l’avis s’il a été publié.
+          </template>
+          <template v-else>
+            Votre preuve d’expérience est créée. Vous pouvez retrouver cette
+            prestation dans l’historique et la refaire plus tard en reconfirmant prix,
+            date et lieu.
+          </template>
         </p>
 
         <div
@@ -165,14 +195,20 @@ function goRepeat() {
             class="w-full h-12 bg-primary text-on-primary font-headline-sm text-headline-sm font-semibold rounded-lg flex items-center justify-center transition-colors active:scale-95"
             @click="goHistory"
           >
-            Voir mon historique
+            {{ isPro ? 'Voir l’historique' : 'Voir mon historique' }}
           </button>
           <button
             type="button"
             class="w-full h-12 bg-transparent border border-primary text-primary font-headline-sm text-headline-sm font-semibold rounded-lg flex items-center justify-center transition-colors active:scale-95"
             @click="goRepeat"
           >
-            Refaire cette prestation
+            {{
+              isPro
+                ? hasReview
+                  ? 'Voir l’avis'
+                  : 'Ouvrir l’historique'
+                : 'Refaire cette prestation'
+            }}
           </button>
         </div>
 

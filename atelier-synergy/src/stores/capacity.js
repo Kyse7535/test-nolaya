@@ -21,6 +21,9 @@ import {
   buildDefaultTasks,
   getCatalogService,
 } from '../mocks/catalog'
+import { isSeedCapacityId } from '../mocks/matchingPool'
+import { isImmersionCapacityId } from '../mocks/immersionIds'
+import { seedImmersionAfterCapacityOpen } from '../mocks/immersionTree'
 
 function createGalleryId() {
   return `g_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 6)}`
@@ -87,14 +90,33 @@ export const useCapacityStore = defineStore('capacity', () => {
     capacities.value.filter((c) => c.status === CapacityStatus.CLOSED),
   )
 
-  /** Open first, then drafts, then closed — newest first within each group. */
+  /** User-owned only (excludes matching vivier + immersion mirror capacities). */
+  const userCapacities = computed(() =>
+    capacities.value.filter(
+      (c) => !isSeedCapacityId(c.id) && !isImmersionCapacityId(c.id),
+    ),
+  )
+
+  const userOpenCapacities = computed(() =>
+    userCapacities.value.filter((c) => c.status === CapacityStatus.OPEN),
+  )
+
+  const userDraftCapacities = computed(() =>
+    userCapacities.value.filter((c) => c.status === CapacityStatus.DRAFT),
+  )
+
+  const userClosedCapacities = computed(() =>
+    userCapacities.value.filter((c) => c.status === CapacityStatus.CLOSED),
+  )
+
+  /** Open first, then drafts, then closed — newest first within each group. User-owned only. */
   const listedCapacities = computed(() => {
     const rank = {
       [CapacityStatus.OPEN]: 0,
       [CapacityStatus.DRAFT]: 1,
       [CapacityStatus.CLOSED]: 2,
     }
-    return [...capacities.value].sort((a, b) => {
+    return [...userCapacities.value].sort((a, b) => {
       const byStatus = (rank[a.status] ?? 9) - (rank[b.status] ?? 9)
       if (byStatus !== 0) return byStatus
       return String(b.createdAt ?? '').localeCompare(String(a.createdAt ?? ''))
@@ -422,12 +444,18 @@ export const useCapacityStore = defineStore('capacity', () => {
   function activate() {
     const current = currentCapacity.value
     if (!canActivate(current)) return false
-    upsert({
+    const opened = {
       ...current,
       status: CapacityStatus.OPEN,
       openedAt: new Date().toISOString(),
       confirmed: true,
-    })
+    }
+    upsert(opened)
+    try {
+      seedImmersionAfterCapacityOpen(opened)
+    } catch (error) {
+      console.warn('[immersion] capacity tree failed', error)
+    }
     return true
   }
 
@@ -462,6 +490,10 @@ export const useCapacityStore = defineStore('capacity', () => {
     openCapacities,
     draftCapacities,
     closedCapacities,
+    userCapacities,
+    userOpenCapacities,
+    userDraftCapacities,
+    userClosedCapacities,
     listedCapacities,
     isDraft,
     isOpen,

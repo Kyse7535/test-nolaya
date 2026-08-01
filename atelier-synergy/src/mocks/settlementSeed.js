@@ -37,3 +37,28 @@ export const SETTLEMENT_PILLARS = [
     body: 'Obtenir SETTLED et débloquer la preuve d’expérience.',
   },
 ]
+
+/** Hub / accueil coiffeuse — en attente du paiement cliente. */
+export const SETTLEMENT_PILLARS_PRO = [
+  {
+    icon: 'hourglass_top',
+    title: 'En attente',
+    body: 'La cliente règle le solde. Votre revenu n’apparaît qu’après SETTLED.',
+  },
+  {
+    icon: 'receipt_long',
+    title: 'Décompte partagé',
+    body: 'Mêmes lignes que la cliente : prix engagé, acompte, tip éventuel.',
+  },
+  {
+    icon: 'account_balance_wallet',
+    title: 'Net styliste',
+    body: 'Commission plateforme déduite une seule fois ; tip 100 % pour vous.',
+    filled: true,
+  },
+  {
+    icon: 'download',
+    title: 'Relevé',
+    body: 'Une fois payé, consultez et téléchargez votre relevé mock.',
+  },
+]

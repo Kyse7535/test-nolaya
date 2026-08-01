@@ -36,6 +36,12 @@ const pillars = [
 onMounted(() => {
   matchingStore.ensureDemoPrerequisites()
   const campaign = matchingStore.currentCampaign
+  if (matchingStore.isProRole) {
+    if (campaign) {
+      router.replace({ name: 'matching-suivi' })
+    }
+    return
+  }
   if (campaign?.status === CampaignStatus.SHORTLIST_READY) {
     router.replace({ name: 'matching-shortlist' })
     return

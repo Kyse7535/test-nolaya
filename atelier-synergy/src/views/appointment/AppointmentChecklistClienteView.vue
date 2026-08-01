@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onMounted } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import {
   actionStatusLabel,
@@ -10,6 +10,7 @@ import {
   ActionCriticality,
   ActionStatus,
   AppointmentStatus,
+  DemoRole,
 } from '../../domain/appointment/model'
 import { APPOINTMENT_CHECKLIST_CLIENT_HERO } from '../../mocks/appointmentSeed'
 import { useAppointmentStore } from '../../stores/appointment'
@@ -18,6 +19,8 @@ const router = useRouter()
 const appointmentStore = useAppointmentStore()
 
 const engagement = computed(() => appointmentStore.currentEngagement)
+const isPro = computed(() => appointmentStore.demoRole === DemoRole.PRO)
+const canEdit = computed(() => !isPro.value)
 const blocking = computed(() =>
   appointmentStore.clientActions.filter(
     (a) => a.criticality === ActionCriticality.BLOCKING,
@@ -35,6 +38,9 @@ const status = computed(
     AppointmentStatus.READINESS_PENDING,
 )
 
+const remindSent = ref(false)
+let remindTimer = null
+
 onMounted(() => {
   appointmentStore.ensureDemoSeed()
   if (appointmentStore.currentAppointment?.status === AppointmentStatus.READY) {
@@ -42,20 +48,56 @@ onMounted(() => {
   }
 })
 
+onUnmounted(() => {
+  if (remindTimer) clearTimeout(remindTimer)
+})
+
 function goBack() {
   router.push({ name: 'appointment-plan' })
 }
 
 function confirm(actionId) {
+  if (!canEdit.value) return
   appointmentStore.confirmAction(actionId)
   if (appointmentStore.currentAppointment?.status === AppointmentStatus.READY) {
     router.push({ name: 'appointment-ready' })
   }
 }
+
+function remindClient() {
+  if (!isPro.value) return
+  remindSent.value = true
+  if (remindTimer) clearTimeout(remindTimer)
+  remindTimer = setTimeout(() => {
+    remindSent.value = false
+    remindTimer = null
+  }, 3200)
+}
 </script>
 
 <template>
-  <div class="bg-background text-on-background min-h-screen pb-40">
+  <div
+    class="bg-background text-on-background min-h-screen"
+    :class="isPro ? 'pb-52' : 'pb-40'"
+  >
+    <div
+      v-if="remindSent"
+      class="fixed top-20 left-1/2 z-[70] w-[calc(100%-2rem)] max-w-lg -translate-x-1/2 rounded-lg border border-primary-container bg-primary-container px-4 py-3 text-on-primary shadow-md"
+      role="status"
+      aria-live="polite"
+    >
+      <p class="font-body-md text-body-md flex items-start gap-2">
+        <span class="material-symbols-outlined text-[20px] shrink-0">notifications_active</span>
+        <span>
+          Notification envoyée à
+          {{ engagement?.clientDisplayName || 'la cliente' }}
+          <span class="font-label-mono text-[10px] uppercase tracking-wider opacity-80">
+            (mock)
+          </span>
+        </span>
+      </p>
+    </div>
+
     <header
       class="fixed top-0 w-full z-50 bg-surface border-b border-surface-container flex items-center h-16 px-margin-mobile"
     >
@@ -69,6 +111,12 @@ function confirm(actionId) {
       </button>
       <h1 class="font-headline-sm text-headline-sm text-primary flex-1">Checklist cliente</h1>
       <span
+        v-if="isPro"
+        class="font-label-mono text-[10px] uppercase tracking-wider bg-secondary-container text-on-secondary-container px-2 py-1 rounded mr-2"
+      >
+        Lecture seule
+      </span>
+      <span
         class="font-label-mono text-[10px] uppercase tracking-wider bg-surface-container text-on-surface-variant px-2 py-1 rounded"
       >
         {{ appointmentStatusBadge(status) }}
@@ -80,8 +128,14 @@ function confirm(actionId) {
       </div>
 
       <p class="font-body-md text-body-md text-on-surface-variant mt-2">
-        Confirmez chaque action lorsque c’est fait. Les actions bloquantes sont indispensables pour
-        READY.
+        <template v-if="isPro">
+          Vue lecture seule de la préparation cliente. Seule la cliente peut confirmer ses
+          actions.
+        </template>
+        <template v-else>
+          Confirmez chaque action lorsque c’est fait. Les actions bloquantes sont indispensables
+          pour READY.
+        </template>
       </p>
       <p
         v-if="engagement"
@@ -157,7 +211,7 @@ function confirm(actionId) {
               {{ action.helper }}
             </p>
             <button
-              v-if="action.status === ActionStatus.TO_DO"
+              v-if="canEdit && action.status === ActionStatus.TO_DO"
               type="button"
               class="mt-2 w-full bg-primary text-on-primary font-caption text-caption py-2.5 rounded hover:bg-opacity-90 transition-opacity flex items-center justify-center gap-2"
               @click="confirm(action.id)"
@@ -183,6 +237,7 @@ function confirm(actionId) {
             class="flex items-center gap-3 py-3 px-4 bg-surface rounded-lg border border-surface-container"
           >
             <button
+              v-if="canEdit"
               type="button"
               class="material-symbols-outlined text-secondary text-[20px]"
               :aria-label="
@@ -200,6 +255,17 @@ function confirm(actionId) {
                   : 'check_box_outline_blank'
               }}
             </button>
+            <span
+              v-else
+              class="material-symbols-outlined text-secondary text-[20px]"
+              aria-hidden="true"
+            >
+              {{
+                action.status === ActionStatus.CONFIRMED
+                  ? 'check_box'
+                  : 'check_box_outline_blank'
+              }}
+            </span>
             <div class="flex-1">
               <p class="font-body-md text-body-md text-on-surface">{{ action.title }}</p>
             </div>
@@ -211,7 +277,12 @@ function confirm(actionId) {
           </div>
         </div>
         <p class="font-caption text-[11px] text-on-surface-variant mt-6 text-center italic">
-          Pas de preuve photo dans cette démo — une confirmation suffit.
+          <template v-if="isPro">
+            Seule la cliente peut cocher ces actions.
+          </template>
+          <template v-else>
+            Pas de preuve photo dans cette démo — une confirmation suffit.
+          </template>
         </p>
       </section>
     </main>
@@ -238,6 +309,15 @@ function confirm(actionId) {
           }"
         />
       </div>
+      <button
+        v-if="isPro"
+        type="button"
+        class="w-full bg-primary text-on-primary font-headline-sm text-[16px] py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-opacity-90 transition-opacity"
+        @click="remindClient"
+      >
+        <span class="material-symbols-outlined text-[20px]">notifications</span>
+        Rappeler la cliente
+      </button>
       <button
         type="button"
         class="w-full bg-surface-container text-on-surface border border-outline-variant font-headline-sm text-[16px] py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-surface-container-high transition-colors"
