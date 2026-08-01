@@ -1,26 +1,51 @@
-@import 'tailwindcss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  color: #213547;
-  background-color: #ffffff;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@layer base {
+  html {
+    @apply bg-background text-on-surface antialiased;
+  }
+
+  body {
+    @apply m-0 min-h-screen min-w-[320px] bg-background font-body-md text-body-md text-on-surface;
+  }
+
+  #app {
+    @apply min-h-screen w-full max-w-none m-0 p-0 text-left;
+  }
+
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
 }
 
-body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-}
+@layer components {
+  .custom-radio:checked + div {
+    border-color: #775a19;
+    background-color: #fbf9f8;
+  }
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  .custom-radio:checked + div .radio-inner {
+    background-color: #775a19;
+  }
+
+  .custom-radio:focus + div {
+    box-shadow: 0 0 0 2px rgba(119, 90, 25, 0.2);
+  }
+
+  .chip-checkbox:checked + label {
+    background-color: #fdd587;
+    color: #785a19;
+    border-color: #fdd587;
+  }
+
+  .delay-radio:checked + label {
+    border-color: #775a19;
+    box-shadow: 0 0 0 2px rgba(119, 90, 25, 0.2);
+  }
+
+  .ghost-shadow {
+    box-shadow: 0px 4px 12px rgba(27, 28, 28, 0.04);
+  }
 }
