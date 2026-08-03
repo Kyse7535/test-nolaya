@@ -96,8 +96,8 @@ function publish() {
           </span>
         </div>
         <p class="font-body-md text-body-md text-on-surface-variant">
-          En publiant, vous créez une offre ferme datée et réservez temporairement le créneau
-          (soft-hold).
+          En envoyant, vous proposez prix et créneau à la cliente, et le créneau est réservé
+          temporairement le temps de sa réponse.
         </p>
       </section>
 
@@ -116,7 +116,7 @@ function publish() {
             </div>
             <button
               type="button"
-              class="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium underline underline-offset-2"
+              class="text-on-surface-variant hover:text-primary transition-colors text-body-sm font-medium underline underline-offset-2"
               @click="goNav('proposal-faisabilite')"
             >
               modifier
@@ -143,10 +143,10 @@ function publish() {
                 class="text-on-surface-variant hover:text-primary"
                 @click="goNav('proposal-offre')"
               >
-                <span class="material-symbols-outlined text-[16px]">edit</span>
+                <span class="material-symbols-outlined text-icon-sm">edit</span>
               </button>
             </div>
-            <span class="font-label-mono text-label-mono text-primary text-lg">
+            <span class="font-label-mono text-body-lg text-primary">
               {{ offer.priceTotal }} €
             </span>
           </div>
@@ -160,10 +160,10 @@ function publish() {
                 class="text-on-surface-variant hover:text-primary"
                 @click="goNav('proposal-offre')"
               >
-                <span class="material-symbols-outlined text-[16px]">edit</span>
+                <span class="material-symbols-outlined text-icon-sm">edit</span>
               </button>
             </div>
-            <span class="font-label-mono text-label-mono text-primary text-lg">
+            <span class="font-label-mono text-body-lg text-primary">
               {{ offer.durationLabel }}
             </span>
           </div>
@@ -177,13 +177,13 @@ function publish() {
               <span class="block font-label-mono text-label-mono text-primary/60 mb-1 uppercase">
                 Créneau
               </span>
-              <span class="font-label-mono text-label-mono text-primary text-sm">
+              <span class="font-label-mono text-label-mono text-primary">
                 {{ slotLine }}
               </span>
             </div>
             <button
               type="button"
-              class="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium underline underline-offset-2"
+              class="text-on-surface-variant hover:text-primary transition-colors text-body-sm font-medium underline underline-offset-2"
               @click="goNav('proposal-offre')"
             >
               modifier
@@ -195,7 +195,7 @@ function publish() {
                 Lieu
               </span>
               <span class="font-body-md text-body-md text-primary flex items-center gap-2">
-                <span class="material-symbols-outlined text-[18px] text-on-surface-variant">home</span>
+                <span class="material-symbols-outlined text-icon text-on-surface-variant">home</span>
                 {{ offer.placeLabel }}
               </span>
             </div>
@@ -210,7 +210,7 @@ function publish() {
                 :key="i"
                 class="flex items-start gap-2"
               >
-                <span class="material-symbols-outlined text-[16px] text-secondary mt-0.5">
+                <span class="material-symbols-outlined text-icon-sm text-secondary mt-0.5">
                   check_circle
                 </span>
                 <span class="font-body-sm text-body-sm text-primary">{{ line }}</span>
@@ -251,15 +251,11 @@ function publish() {
       <button
         type="button"
         class="w-full font-body-md font-medium py-3 rounded transition-all duration-200 pointer-events-auto"
-        :class="
-          confirmed && canPublish
-            ? 'bg-primary text-on-primary active:scale-[0.98]'
-            : 'bg-primary/40 text-on-primary opacity-50 cursor-not-allowed'
-        "
+        :class="confirmed && canPublish ? 'bg-primary text-on-primary active:scale-[0.98]' : 'bg-primary/40 text-on-primary opacity-50 cursor-not-allowed'"
         :disabled="!confirmed || !canPublish"
         @click="publish"
       >
-        Publier l’offre ferme
+        Envoyer la proposition à la cliente
       </button>
       <button
         type="button"

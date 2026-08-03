@@ -149,6 +149,11 @@ export default {
           "ui-monospace",
           "monospace"
         ],
+        "label-micro": [
+          "JetBrains Mono",
+          "ui-monospace",
+          "monospace"
+        ],
         "headline-lg": [
           "Manrope",
           "ui-sans-serif",
@@ -322,6 +327,21 @@ export default {
             "fontWeight": "500"
           }
         ],
+        "label-micro": [
+          "10px",
+          {
+            "lineHeight": "14px",
+            "letterSpacing": "0.05em",
+            "fontWeight": "500"
+          }
+        ],
+        "icon-xs": ["14px", { "lineHeight": "1" }],
+        "icon-sm": ["16px", { "lineHeight": "1" }],
+        "icon": ["18px", { "lineHeight": "1" }],
+        "icon-md": ["20px", { "lineHeight": "1" }],
+        "icon-lg": ["24px", { "lineHeight": "1" }],
+        "icon-xl": ["28px", { "lineHeight": "1" }],
+        "icon-2xl": ["32px", { "lineHeight": "1" }],
         "headline-lg": [
           "24px",
           {

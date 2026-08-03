@@ -90,7 +90,7 @@ function openDossier() {
           class="inline-flex self-start px-2 py-1 bg-secondary-fixed rounded-sm border border-secondary-container items-center gap-1"
         >
           <span
-            class="material-symbols-outlined text-[14px] text-secondary"
+            class="material-symbols-outlined text-icon-xs text-secondary"
             style="font-variation-settings: 'FILL' 1"
           >schedule</span>
           <span class="font-label-status text-label-status text-secondary uppercase tracking-wider">
@@ -154,7 +154,7 @@ function openDossier() {
         <div
           class="mt-stack-sm p-4 bg-surface-container-low border border-surface-container rounded-sm flex items-start gap-3"
         >
-          <span class="material-symbols-outlined text-outline text-[20px] shrink-0 mt-0.5">info</span>
+          <span class="material-symbols-outlined text-outline text-icon-md shrink-0 mt-0.5">info</span>
           <p class="font-body-sm text-body-sm text-on-surface-variant italic">
             Pas de demande de précision ni de refus dans cette démo. Le paiement se fera plus tard,
             côté cliente.
@@ -172,7 +172,7 @@ function openDossier() {
         @click="openDossier"
       >
         Ouvrir le dossier
-        <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+        <span class="material-symbols-outlined text-icon-md">arrow_forward</span>
       </button>
     </div>
   </div>

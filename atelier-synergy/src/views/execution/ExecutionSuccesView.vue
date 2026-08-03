@@ -54,7 +54,7 @@ function toggleDossier() {
     </header>
 
     <main class="flex-grow pt-16 pb-[160px] w-full max-w-lg mx-auto flex flex-col">
-      <div class="w-full h-64 relative overflow-hidden">
+      <div class="w-full h-32 relative overflow-hidden">
         <img alt="" class="w-full h-full object-cover" :src="EXECUTION_HERO_SUCCES" />
         <div
           class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60"
@@ -173,7 +173,7 @@ function toggleDossier() {
         <p
           class="font-body-md text-body-md text-on-surface-variant text-center px-lg flex items-center justify-center gap-xs"
         >
-          <span class="material-symbols-outlined text-sm">info</span>
+          <span class="material-symbols-outlined text-icon-xs">info</span>
           Prochaine étape : régler le solde (étape 7).
         </p>
       </div>

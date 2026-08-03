@@ -67,7 +67,7 @@ function accept() {
 <template>
   <div
     v-if="invitation"
-    class="bg-background text-on-background font-body-md mx-auto max-w-md min-h-screen flex flex-col pb-[300px]"
+    class="bg-background text-on-background font-body-md mx-auto max-w-md min-h-screen flex flex-col pb-[280px]"
   >
     <header class="w-full sticky top-0 z-50 border-b border-outline-variant bg-background">
       <div class="flex items-center justify-between px-margin-mobile h-16 w-full">
@@ -88,8 +88,8 @@ function accept() {
       </div>
     </header>
 
-    <main class="flex-grow px-margin-mobile pt-lg flex flex-col gap-xl">
-      <section class="flex flex-col gap-sm">
+    <main class="flex-grow px-margin-mobile pt-4 flex flex-col gap-4">
+      <section class="flex flex-col gap-1.5">
         <div class="flex items-center gap-sm">
           <span
             class="bg-surface-container-highest text-on-surface px-2 py-1 rounded font-label-mono text-label-mono uppercase"
@@ -100,7 +100,7 @@ function accept() {
             {{ invitationStatusBadge(invitation.status) }}
           </span>
         </div>
-        <p class="font-body-lg text-body-lg text-on-background mt-2">
+        <p class="font-body-sm text-body-sm text-on-background">
           <template v-if="snapshot?.clientName">
             {{ snapshot.clientName }} sollicite une prestation alignée avec votre capacité
             ouverte.
@@ -115,7 +115,7 @@ function accept() {
       </section>
 
       <section
-        class="w-full h-48 rounded bg-surface-container-lowest border border-outline-variant overflow-hidden"
+        class="w-full h-28 rounded bg-surface-container-lowest border border-outline-variant overflow-hidden"
       >
         <div
           class="bg-cover bg-center w-full h-full"
@@ -130,7 +130,7 @@ function accept() {
           Capacité liée
         </span>
         <div class="flex items-center gap-2">
-          <span class="material-symbols-outlined text-primary text-[18px]">link</span>
+          <span class="material-symbols-outlined text-primary text-icon">link</span>
           <span class="font-label-mono text-label-mono text-primary">
             {{ capacityLinkLine(invitation) }}
           </span>
@@ -244,7 +244,7 @@ function accept() {
           </button>
         </div>
       </div>
-      <p class="font-label-mono text-[10px] text-outline text-center mt-2 uppercase">
+      <p class="font-label-micro text-label-micro text-outline text-center mt-2 uppercase">
         Seule l’acceptation exacte est active dans cette démo.
       </p>
     </div>

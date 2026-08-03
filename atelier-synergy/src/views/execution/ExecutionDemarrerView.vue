@@ -1,6 +1,7 @@
 <script setup>
 import { computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
+import DemoRoleHandoff from '../../components/DemoRoleHandoff.vue'
 import { AppointmentStatus } from '../../domain/appointment/model'
 import { DemoRole } from '../../domain/execution/model'
 import { EXECUTION_HERO_DEMARRER } from '../../mocks/executionSeed'
@@ -63,58 +64,55 @@ function start() {
       </h1>
     </header>
 
-    <div class="w-full h-48 relative bg-surface-container">
+    <div class="w-full h-28 relative bg-surface-container">
       <img alt="" class="w-full h-full object-cover" :src="EXECUTION_HERO_DEMARRER" />
       <div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-transparent" />
     </div>
 
-    <main class="flex-1 px-margin-mobile -mt-8 relative z-10 max-w-lg mx-auto w-full pb-[160px]">
-      <div class="mb-md">
-      </div>
-
+    <main class="flex-1 px-margin-mobile -mt-4 relative z-10 max-w-lg mx-auto w-full pb-28">
       <div class="bg-surface rounded-t-xl pt-sm">
-        <div class="inline-flex items-center bg-surface-container-high px-2 py-1 rounded mb-md">
+        <div class="inline-flex items-center bg-surface-container-high px-2 py-1 rounded mb-2">
           <span class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider">
             {{ executionStore.statusBadge }}
           </span>
         </div>
-        <h2 class="font-headline-md text-headline-md text-primary font-bold mb-xs">
+        <h2 class="font-headline-md text-headline-md text-primary font-bold mb-1">
           Confirmer le début
         </h2>
-        <p class="font-body-lg text-body-lg text-on-surface-variant mb-xl leading-relaxed">
+        <p class="font-body-sm text-body-sm text-on-surface-variant mb-4 leading-relaxed">
           En démarrant, le rendez-vous passe à
-          <span class="font-label-mono text-xs">EN COURS</span>. L’heure de début est enregistrée.
+          <span class="font-label-micro text-label-micro">EN COURS</span>. L’heure de début est enregistrée.
         </p>
       </div>
 
-      <section class="border border-surface-container bg-surface-container-lowest rounded-lg p-md mb-xl">
-        <div class="flex items-center mb-sm">
-          <span class="material-symbols-outlined text-on-surface-variant mr-sm text-[20px]">
+      <section class="border border-surface-container bg-surface-container-lowest rounded-lg p-3 mb-3">
+        <div class="flex items-center mb-1.5">
+          <span class="material-symbols-outlined text-on-surface-variant mr-sm text-[18px]">
             content_cut
           </span>
           <span class="font-label-mono text-label-mono text-on-surface-variant uppercase">
             Détails de la prestation
           </span>
         </div>
-        <p class="font-headline-sm text-headline-sm text-primary mb-2">
+        <p class="font-headline-sm text-headline-sm text-primary mb-1">
           {{ summary.serviceLabel }}
         </p>
-        <div class="w-full h-px bg-surface-container my-sm" />
+        <div class="w-full h-px bg-surface-container my-2" />
         <div class="flex items-center">
           <div
-            class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center mr-sm"
+            class="w-7 h-7 rounded-full bg-surface-container-high flex items-center justify-center mr-sm"
           >
             <span class="material-symbols-outlined text-on-surface text-[18px]">person</span>
           </div>
-          <p class="font-body-lg text-body-lg text-primary">{{ summary.clientDisplayName }}</p>
+          <p class="font-body-md text-body-md text-primary">{{ summary.clientDisplayName }}</p>
         </div>
       </section>
 
-      <section class="mb-xl">
-        <h3 class="font-headline-sm text-headline-sm text-primary font-bold mb-md">Conditions</h3>
-        <ul class="flex flex-col gap-sm">
+      <section class="mb-3">
+        <h3 class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider mb-2">Conditions</h3>
+        <ul class="flex flex-col gap-2">
           <li
-            class="flex items-center justify-between p-md bg-surface border border-surface-container rounded-lg gap-2"
+            class="flex items-center justify-between p-3 bg-surface border border-surface-container rounded-lg gap-2"
           >
             <div class="flex items-center">
               <span
@@ -134,7 +132,7 @@ function start() {
             </span>
           </li>
           <li
-            class="flex items-center justify-between p-md bg-surface border border-surface-container rounded-lg gap-2"
+            class="flex items-center justify-between p-3 bg-surface border border-surface-container rounded-lg gap-2"
           >
             <div class="flex items-center">
               <span
@@ -152,7 +150,7 @@ function start() {
             </span>
           </li>
           <li
-            class="flex items-center justify-between p-md bg-surface border border-surface-container rounded-lg gap-2"
+            class="flex items-center justify-between p-3 bg-surface border border-surface-container rounded-lg gap-2"
           >
             <div class="flex items-center">
               <span class="material-symbols-outlined text-primary mr-sm">check_circle</span>
@@ -166,13 +164,15 @@ function start() {
       <div
         class="flex items-start p-md bg-surface-container-low rounded-lg border border-surface-container"
       >
-        <span class="material-symbols-outlined text-on-surface-variant mr-sm mt-0.5 text-[20px]">
+        <span class="material-symbols-outlined text-on-surface-variant mr-sm mt-0.5 text-icon-md">
           info
         </span>
-        <p class="font-body-md text-body-md text-on-surface-variant">
-          Un seul démarrage explicite — pas de démarrage implicite.
-          <span v-if="!isPro" class="block mt-1">Passez en rôle Coiffeuse pour démarrer.</span>
-        </p>
+        <div class="flex flex-col gap-xs">
+          <p class="font-body-md text-body-md text-on-surface-variant">
+            Un seul démarrage explicite — pas de démarrage implicite.
+          </p>
+          <DemoRoleHandoff :target-role="DemoRole.PRO" action="démarrer" />
+        </div>
       </div>
     </main>
 

@@ -68,7 +68,7 @@ function goMatching() {
               class="bg-secondary-container text-on-secondary-container px-4 py-1.5 rounded-full inline-flex items-center space-x-2 border border-secondary/20"
             >
               <span
-                class="material-symbols-outlined text-secondary text-sm"
+                class="material-symbols-outlined text-secondary text-icon-xs"
                 style="font-variation-settings: 'FILL' 1"
               >
                 check_circle

@@ -85,7 +85,7 @@ function goSuivi() {
           {{ acceptCount }} ont accepté — vous pouvez passer aux offres fermes.
         </p>
         <div
-          class="font-label-mono text-[10px] leading-4 tracking-widest text-on-tertiary-container uppercase"
+          class="font-label-micro text-label-micro leading-4 tracking-widest text-on-tertiary-container uppercase"
         >
           SHORTLIST_READY · RESPONSES_TO_CONVERT
         </div>
@@ -99,18 +99,18 @@ function goSuivi() {
         </h3>
         <div class="flex items-center gap-md font-body-sm text-body-sm text-on-surface flex-wrap">
           <span class="flex items-center gap-xs">
-            <span class="material-symbols-outlined text-[16px] text-outline">content_cut</span>
+            <span class="material-symbols-outlined text-icon-sm text-outline">content_cut</span>
             {{ resultLabel }}
           </span>
           <span class="text-outline-variant">•</span>
           <span class="flex items-center gap-xs">
-            <span class="material-symbols-outlined text-[16px] text-outline">euro</span>
+            <span class="material-symbols-outlined text-icon-sm text-outline">euro</span>
             max {{ budgetMax }} €
           </span>
           <template v-if="radiusKm">
             <span class="text-outline-variant">•</span>
             <span class="flex items-center gap-xs">
-              <span class="material-symbols-outlined text-[16px] text-outline">location_on</span>
+              <span class="material-symbols-outlined text-icon-sm text-outline">location_on</span>
               {{ radiusKm }} km
             </span>
           </template>
@@ -156,10 +156,10 @@ function goSuivi() {
                 <div
                   class="inline-flex items-center gap-xs px-xs py-1 bg-surface-container rounded-xs border border-outline-variant"
                 >
-                  <span class="material-symbols-outlined text-[14px] text-primary">
+                  <span class="material-symbols-outlined text-icon-xs text-primary">
                     check_circle
                   </span>
-                  <span class="font-label-mono text-[10px] text-primary uppercase">
+                  <span class="font-label-micro text-label-micro text-primary uppercase">
                     Acceptation exacte
                   </span>
                 </div>
@@ -183,7 +183,7 @@ function goSuivi() {
             @click="goProposal"
           >
             Continuer vers l’offre ferme
-            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+            <span class="material-symbols-outlined text-icon">arrow_forward</span>
           </button>
           <button
             type="button"

@@ -1,6 +1,8 @@
 <script setup>
 import { computed, onMounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
+import DemoRoleHandoff from '../../components/DemoRoleHandoff.vue'
+import { DemoRole } from '../../domain/demoRole'
 import { tipDisplay } from '../../domain/settlement/labels'
 import { formatEuro } from '../../domain/settlement/model'
 import { SETTLEMENT_HERO_SUCCES } from '../../mocks/settlementSeed'
@@ -39,11 +41,6 @@ function goExperience() {
   router.push({ name: 'experience-accueil' })
 }
 
-function goRevenu() {
-  settlementStore.setDemoRole(settlementStore.DemoRole.PRO)
-  router.push({ name: 'settlement-revenu' })
-}
-
 function goBack() {
   router.push({ name: 'home' })
 }
@@ -76,7 +73,7 @@ function goBack() {
     >
       <section class="flex flex-col items-center text-center space-y-md">
         <div
-          class="w-full aspect-[4/3] rounded-xl overflow-hidden bg-surface-container-low mb-sm"
+          class="w-full h-28 rounded-lg overflow-hidden bg-surface-container-low mb-sm"
         >
           <img
             class="w-full h-full object-cover"
@@ -167,7 +164,7 @@ function goBack() {
           >
             <span class="font-bold text-on-secondary-container">Solde payé (mock)</span>
             <span
-              class="font-label-mono text-label-mono font-bold text-on-secondary-container text-lg"
+              class="font-label-mono text-body-lg font-bold text-on-secondary-container"
             >
               {{ formatEuro(settlement.balance) }}
             </span>
@@ -175,7 +172,7 @@ function goBack() {
         </div>
         <div class="mt-md pt-sm border-t border-outline-variant border-dashed">
           <p class="font-caption text-caption text-outline flex items-start">
-            <span class="material-symbols-outlined text-[16px] mr-xs mt-[2px]">info</span>
+            <span class="material-symbols-outlined text-icon-sm mr-xs mt-[2px]">info</span>
             Paiement mock — aucun débit réel. Pas de remboursement dans cette démo.
           </p>
         </div>
@@ -193,13 +190,11 @@ function goBack() {
         >
           Continuer vers la preuve d’expérience
         </button>
-        <button
-          type="button"
-          class="w-full bg-transparent text-primary border border-outline-variant h-12 rounded-lg font-headline-sm text-headline-sm flex items-center justify-center transition-colors hover:bg-surface-container-low"
-          @click="goRevenu"
-        >
-          Voir le revenu styliste
-        </button>
+        <DemoRoleHandoff
+          class="mx-auto"
+          :target-role="DemoRole.PRO"
+          action="voir le revenu"
+        />
         <button
           type="button"
           class="w-full bg-transparent text-on-surface-variant h-10 rounded-lg font-body-sm text-body-sm flex items-center justify-center hover:bg-surface-container-low"

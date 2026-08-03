@@ -3,7 +3,6 @@ import { computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { AppointmentStatus } from '../../domain/appointment/model'
 import { DemoRole } from '../../domain/execution/model'
-import { EXECUTION_HERO_SUIVI } from '../../mocks/executionSeed'
 import { useExecutionStore } from '../../stores/execution'
 
 const router = useRouter()
@@ -78,143 +77,133 @@ function goDemarrer() {
 </script>
 
 <template>
-  <div class="bg-background text-on-background font-body-md antialiased min-h-screen pb-[120px]">
+  <div class="bg-background text-on-background font-body-md antialiased min-h-screen pb-28">
     <header
       class="flex justify-between items-center w-full px-margin-mobile h-14 bg-surface border-b border-surface-container sticky top-0 z-10"
     >
-      <div class="flex items-center gap-sm">
+      <div class="flex items-center gap-sm min-w-0">
         <button
           type="button"
           aria-label="Retour"
-          class="flex items-center justify-center w-10 h-10 hover:bg-surface-container-low transition-colors rounded-full active:scale-95"
+          class="flex items-center justify-center w-10 h-10 hover:bg-surface-container-low transition-colors rounded-full active:scale-95 shrink-0"
           @click="goBack"
         >
           <span class="material-symbols-outlined">arrow_back</span>
         </button>
-        <h1 class="font-headline-sm text-headline-sm">Suivi jour J</h1>
+        <h1 class="font-headline-sm text-headline-sm truncate">Suivi jour J</h1>
       </div>
       <div
-        class="bg-surface-container-high px-sm py-xs rounded font-label-mono text-label-mono text-on-surface uppercase"
+        class="bg-surface-container-high px-sm py-xs rounded font-label-mono text-label-mono text-on-surface uppercase shrink-0"
       >
         {{ statusBadge }}
       </div>
     </header>
 
-    <main class="px-margin-mobile pt-lg flex flex-col gap-xl max-w-lg mx-auto">
-      <section>
-        <p class="font-body-lg text-body-lg text-on-surface-variant">
-          Déclarez votre arrivée. Ces événements comptent pour l’exécution.
-        </p>
-      </section>
-
-      <div class="w-full h-48 rounded-lg overflow-hidden border border-outline-variant">
-        <img alt="" class="w-full h-full object-cover" :src="EXECUTION_HERO_SUIVI" />
-      </div>
+    <main class="px-margin-mobile pt-4 flex flex-col gap-4 max-w-lg mx-auto">
+      <p class="font-body-sm text-body-sm text-on-surface-variant">
+        Déclarez votre arrivée. Ces événements comptent pour l’exécution.
+      </p>
 
       <section
-        class="bg-surface-container-lowest border border-surface-container p-md rounded-lg flex flex-col gap-sm"
+        class="bg-surface-container-lowest border border-surface-container p-3 rounded-lg flex flex-col gap-1.5"
       >
-        <h2 class="font-headline-md text-headline-md text-primary">
+        <h2 class="font-headline-sm text-headline-sm text-primary">
           {{ summary.serviceLabel }}
         </h2>
-        <p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-xs mt-xs">
-          <span class="material-symbols-outlined text-[16px]">calendar_today</span>
+        <p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-xs">
+          <span class="material-symbols-outlined text-[18px]">calendar_today</span>
           {{ summary.dateLabel }} · {{ summary.startTime }}
         </p>
-        <p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-xs mt-xs">
-          <span class="material-symbols-outlined text-[16px]">location_on</span>
+        <p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-xs">
+          <span class="material-symbols-outlined text-[18px]">location_on</span>
           {{ summary.placeLabel }}
         </p>
         <div
-          class="mt-sm pt-sm border-t border-surface-container flex items-center gap-sm bg-surface-container-low p-sm rounded"
+          class="mt-1 pt-2 border-t border-surface-container flex items-center gap-sm"
         >
           <span class="material-symbols-outlined text-secondary text-[20px]">lock</span>
-          <p class="font-body-md text-body-md text-on-surface">Accès confirmé · digicode ****</p>
+          <p class="font-body-sm text-body-sm text-on-surface">Accès confirmé · digicode ****</p>
         </div>
       </section>
 
-      <section class="flex flex-col gap-md">
-        <h3 class="font-headline-sm text-headline-sm text-on-surface">Arrivées</h3>
+      <section class="flex flex-col gap-2">
+        <h3 class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider">
+          Arrivées
+        </h3>
 
         <div
-          class="flex flex-col gap-sm border border-surface-container rounded-lg p-md bg-surface-container-lowest"
+          class="border border-surface-container rounded-lg overflow-hidden bg-surface-container-lowest divide-y divide-surface-container"
         >
-          <div class="flex justify-between items-center gap-2">
-            <p class="font-body-lg text-body-lg font-bold">
-              Cliente — {{ summary.clientDisplayName }}
-            </p>
-            <span
-              class="font-label-mono text-label-mono px-sm py-xs rounded shrink-0"
-              :class="
-                arrivalClient
-                  ? 'bg-secondary-container text-on-secondary-container'
-                  : 'bg-surface-container-high text-on-surface-variant'
-              "
+          <div class="flex flex-col gap-2 p-3">
+            <div class="flex justify-between items-center gap-2">
+              <p class="font-body-md text-body-md font-semibold text-primary min-w-0 truncate">
+                Cliente — {{ summary.clientDisplayName }}
+              </p>
+              <span
+                class="font-label-mono text-label-mono px-sm py-xs rounded shrink-0"
+                :class="arrivalClient ? 'bg-secondary-container text-on-secondary-container' : 'bg-surface-container-high text-on-surface-variant'"
+              >
+                {{
+                  arrivalClient
+                    ? `ARRIVÉE · ${executionStore.formatTime(arrivalClient.at)}`
+                    : 'NON DÉCLARÉE'
+                }}
+              </span>
+            </div>
+            <button
+              v-if="isReady && demoRole === DemoRole.CLIENT && !arrivalClient"
+              type="button"
+              class="w-full h-10 bg-secondary text-on-secondary font-body-md font-semibold rounded flex items-center justify-center hover:opacity-90 transition-opacity active:scale-[0.98]"
+              @click="declareMine"
             >
-              {{
-                arrivalClient
-                  ? `ARRIVÉE · ${executionStore.formatTime(arrivalClient.at)}`
-                  : 'NON DÉCLARÉE'
-              }}
-            </span>
+              Je suis arrivée
+            </button>
           </div>
-          <button
-            v-if="isReady && demoRole === DemoRole.CLIENT && !arrivalClient"
-            type="button"
-            class="mt-sm w-full h-[44px] bg-secondary text-on-secondary font-body-md font-semibold rounded flex items-center justify-center hover:opacity-90 transition-opacity active:scale-[0.98]"
-            @click="declareMine"
-          >
-            Je suis arrivée
-          </button>
-        </div>
 
-        <div
-          class="flex flex-col gap-sm border border-surface-container rounded-lg p-md bg-surface-container-lowest"
-        >
-          <div class="flex justify-between items-center gap-2">
-            <p class="font-body-lg text-body-lg font-bold">
-              Coiffeuse — {{ summary.proDisplayName }}
-            </p>
-            <span
-              class="font-label-mono text-label-mono px-sm py-xs rounded shrink-0"
-              :class="
-                arrivalPro
-                  ? 'bg-secondary-container text-on-secondary-container'
-                  : 'bg-surface-container-high text-on-surface-variant'
-              "
+          <div class="flex flex-col gap-2 p-3">
+            <div class="flex justify-between items-center gap-2">
+              <p class="font-body-md text-body-md font-semibold text-primary min-w-0 truncate">
+                Coiffeuse — {{ summary.proDisplayName }}
+              </p>
+              <span
+                class="font-label-mono text-label-mono px-sm py-xs rounded shrink-0"
+                :class="arrivalPro ? 'bg-secondary-container text-on-secondary-container' : 'bg-surface-container-high text-on-surface-variant'"
+              >
+                {{
+                  arrivalPro
+                    ? `ARRIVÉE · ${executionStore.formatTime(arrivalPro.at)}`
+                    : 'NON DÉCLARÉE'
+                }}
+              </span>
+            </div>
+            <button
+              v-if="isReady && demoRole === DemoRole.PRO && !arrivalPro"
+              type="button"
+              class="w-full h-10 bg-surface border border-outline text-primary font-body-md font-semibold rounded flex items-center justify-center hover:bg-surface-container-low transition-colors active:scale-[0.98]"
+              @click="declareMine"
             >
-              {{
-                arrivalPro
-                  ? `ARRIVÉE · ${executionStore.formatTime(arrivalPro.at)}`
-                  : 'NON DÉCLARÉE'
-              }}
-            </span>
+              Je suis sur place
+            </button>
           </div>
-          <button
-            v-if="isReady && demoRole === DemoRole.PRO && !arrivalPro"
-            type="button"
-            class="mt-sm w-full h-[44px] bg-surface-container-lowest border border-outline text-primary font-body-md font-semibold rounded flex items-center justify-center hover:bg-surface-container-low transition-colors active:scale-[0.98]"
-            @click="declareMine"
-          >
-            Je suis sur place
-          </button>
         </div>
       </section>
 
-      <section class="flex flex-col gap-md">
-        <h3 class="font-headline-sm text-headline-sm text-on-surface">Événements</h3>
+      <section class="flex flex-col gap-2 pb-2">
+        <h3 class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider">
+          Événements
+        </h3>
         <div
           v-if="!timeline.length"
-          class="border border-surface-container rounded-lg p-lg bg-surface-container-lowest flex flex-col items-center justify-center text-center gap-sm"
+          class="border border-surface-container rounded-lg px-3 py-4 bg-surface-container-lowest flex items-center justify-center gap-2 text-center"
         >
-          <span class="material-symbols-outlined text-outline text-[32px]">history</span>
-          <p class="font-body-md text-body-md text-on-surface-variant">
+          <span class="material-symbols-outlined text-outline text-[22px]">history</span>
+          <p class="font-body-sm text-body-sm text-on-surface-variant">
             Aucun événement pour l’instant
           </p>
         </div>
         <ul
           v-else
-          class="border border-surface-container rounded-lg p-md bg-surface-container-lowest flex flex-col gap-sm"
+          class="border border-surface-container rounded-lg px-3 py-2.5 bg-surface-container-lowest flex flex-col gap-1.5"
         >
           <li
             v-for="line in timeline"
@@ -227,7 +216,7 @@ function goDemarrer() {
 
         <p
           v-if="isReady && bothArrivals && demoRole === DemoRole.PRO"
-          class="font-body-md text-body-md text-on-surface-variant text-center"
+          class="font-body-sm text-body-sm text-on-surface-variant text-center pt-1"
         >
           Les arrivées sont déclarées —
           <button
@@ -240,7 +229,7 @@ function goDemarrer() {
         </p>
         <p
           v-else-if="isReady"
-          class="font-body-md text-body-md text-on-surface-variant text-center"
+          class="font-body-sm text-body-sm text-on-surface-variant text-center pt-1"
         >
           Ensuite, la coiffeuse pourra démarrer la prestation.
         </p>
@@ -248,12 +237,12 @@ function goDemarrer() {
     </main>
 
     <div
-      class="fixed bottom-0 left-0 w-full bg-surface border-t border-surface-container p-margin-mobile z-40"
+      class="fixed bottom-0 left-0 w-full bg-surface/95 backdrop-blur-sm border-t border-surface-container px-margin-mobile py-3 z-40"
     >
       <div class="max-w-lg mx-auto">
         <button
           type="button"
-          class="w-full h-[44px] bg-primary text-on-primary font-body-md font-semibold rounded flex items-center justify-center hover:bg-primary-container transition-colors active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
+          class="w-full h-12 bg-primary text-on-primary font-body-md font-semibold rounded flex items-center justify-center hover:bg-primary-container transition-colors active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
           :disabled="stickyDisabled"
           @click="onSticky"
         >

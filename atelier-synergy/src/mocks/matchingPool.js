@@ -129,7 +129,11 @@ export function buildSeedOpenCapacity(profile) {
     prestation: {
       id: `svc_${profile.seedKey}`,
       label: profile.prestationLabel,
-      variante: { taille: profile.prestationVariante, longueur: null, finition: null },
+      variante: {
+        taille: profile.prestationVariante ? [profile.prestationVariante] : [],
+        longueur: [],
+        finition: [],
+      },
     },
     gallery: [
       {

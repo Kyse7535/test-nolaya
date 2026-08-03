@@ -67,14 +67,14 @@ function openRecap() {
     </header>
 
     <main class="flex-grow flex flex-col">
-      <section class="w-full relative h-[50vh] min-h-[320px]">
+      <section class="w-full relative h-36">
         <img
           alt=""
           class="absolute inset-0 w-full h-full object-cover"
           :src="heroSrc"
         />
-        <div class="absolute inset-0 bg-primary/40 flex items-end p-container-margin">
-          <h2 class="font-display-lg-mobile text-display-lg-mobile text-on-primary max-w-2xl">
+        <div class="absolute inset-0 bg-primary/40 flex items-end p-3">
+          <h2 class="font-headline-sm text-headline-sm text-on-primary max-w-2xl">
             Une offre, un accord, un créneau réservé.
           </h2>
         </div>
@@ -92,7 +92,7 @@ function openRecap() {
           <div
             class="mt-stack-md flex items-start gap-2 p-stack-sm bg-surface-container-low border border-outline-variant rounded"
           >
-            <span class="material-symbols-outlined text-outline text-sm shrink-0">info</span>
+            <span class="material-symbols-outlined text-outline text-icon-xs shrink-0">info</span>
             <span class="font-body-sm text-body-sm text-on-surface-variant italic">
               Créneau actuellement en soft-hold jusqu’à votre engagement.
             </span>
@@ -118,7 +118,7 @@ function openRecap() {
             >
               <div class="flex items-center gap-3 text-primary">
                 <span class="material-symbols-outlined">{{ pillar.icon }}</span>
-                <span class="font-headline-sm text-headline-sm text-base">{{ pillar.title }}</span>
+                <span class="font-body-md text-body-md font-semibold">{{ pillar.title }}</span>
               </div>
               <p
                 v-if="pillar.title !== 'Engagement'"
@@ -157,7 +157,7 @@ function openRecap() {
         @click="openRecap"
       >
         <span>Voir le récapitulatif</span>
-        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        <span class="material-symbols-outlined text-icon-xs">arrow_forward</span>
       </button>
     </div>
   </div>

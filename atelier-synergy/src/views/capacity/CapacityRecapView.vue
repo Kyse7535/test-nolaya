@@ -11,7 +11,7 @@ import {
   taskOwnerLabel,
   volumeSummary,
 } from '../../domain/capacity/labels'
-import { ProofLevel } from '../../domain/capacity/model'
+import { ProofLevel, formatVarianteList } from '../../domain/capacity/model'
 import { useCapacityStore } from '../../stores/capacity'
 import { useFrameworkStore } from '../../stores/framework'
 
@@ -23,7 +23,10 @@ const { currentCapacity, canActivateNow, locationReady } = storeToRefs(capacityS
 const capacity = computed(() => currentCapacity.value)
 const varianteLine = computed(() => {
   const v = capacity.value?.prestation?.variante ?? {}
-  return [v.taille, v.longueur].filter(Boolean).join(' · ') || '—'
+  return (
+    [formatVarianteList(v.taille), formatVarianteList(v.longueur)].filter(Boolean).join(' · ') ||
+    '—'
+  )
 })
 const galleryThumbs = computed(() => (capacity.value?.gallery ?? []).slice(0, 4))
 const taskHighlights = computed(() => {
@@ -83,7 +86,7 @@ function activate() {
       </div>
     </header>
 
-    <main class="max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop pt-8 pb-12">
+    <main class="max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop pt-8">
       <div class="mb-8">
         <div class="flex items-center gap-3 mb-2">
           <h2
@@ -292,9 +295,7 @@ function activate() {
       <button
         type="button"
         class="w-full md:w-auto bg-primary text-on-primary font-label-sm text-label-sm px-6 py-3 rounded hover:opacity-90 transition-all"
-        :class="
-          canActivateNow ? 'cursor-pointer' : 'opacity-50 cursor-not-allowed'
-        "
+        :class="canActivateNow ? 'cursor-pointer' : 'opacity-50 cursor-not-allowed'"
         :disabled="!canActivateNow"
         @click="activate"
       >

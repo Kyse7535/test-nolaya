@@ -2,12 +2,21 @@
 import { computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
+import DemoRoleHandoff from '../../components/DemoRoleHandoff.vue'
+import { DemoRole } from '../../domain/demoRole'
 import { ProposalStatus } from '../../domain/proposal/model'
+import { useDemoRoleStore } from '../../stores/demoRole'
 import { useProposalStore } from '../../stores/proposal'
 
 const router = useRouter()
 const proposalStore = useProposalStore()
 const { currentProposal, currentSoftHold } = storeToRefs(proposalStore)
+const { demoRole } = storeToRefs(useDemoRoleStore())
+const isPro = computed(() => demoRole.value === DemoRole.PRO)
+
+function goOffreCliente() {
+  router.push({ name: 'proposal-offre-cliente' })
+}
 
 const heroSrc =
   'https://lh3.googleusercontent.com/aida-public/AB6AXuC9BWZucOXpYY5ODxCRHg4_TMc3InRzbC87gg3ch-hlhHoBa1SkMkHgGO3IYrRn8L5SLUqp2wAGWYmzkaKNpLVWkqgKarEtj5LRD6Kl3fZ7GKENPPx9KFA6MdeAm2t-lDfpxB5Dw2bx0qOHZ5Lnt0ZpLYFTnv_MkFE728YMXMxni39h_gSgmjyCT070NRsIPzRVVkIPjtHZeFqCBRyB_TDi1roFkKrMp9GWL4Jrl6zbxpr5qvTQIZbl'
@@ -51,7 +60,7 @@ function goHome() {
     <main class="flex-1 w-full flex flex-col relative pt-8 pb-32">
       <section class="w-full px-margin-mobile mb-stack-lg relative z-10">
         <div
-          class="relative w-full aspect-[4/5] bg-surface-container-low rounded-lg overflow-hidden border border-outline-variant p-1"
+          class="relative w-full h-36 bg-surface-container-low rounded-lg overflow-hidden border border-outline-variant p-1"
         >
           <div class="w-full h-full rounded border border-surface-variant relative overflow-hidden">
             <img class="w-full h-full object-cover" alt="" :src="heroSrc" />
@@ -106,10 +115,29 @@ function goHome() {
     <div
       class="fixed bottom-0 left-0 w-full bg-gradient-to-t from-surface via-surface to-transparent pt-12 pb-8 px-margin-mobile flex flex-col gap-unit z-50"
     >
-      <div class="w-full max-w-md mx-auto flex flex-col gap-stack-sm">
+      <div class="w-full max-w-md mx-auto flex flex-col gap-stack-sm items-stretch">
+        <DemoRoleHandoff
+          v-if="isPro"
+          class="mx-auto"
+          :target-role="DemoRole.CLIENT"
+          action="voir l’offre"
+        />
         <button
+          v-if="!isPro"
           type="button"
           class="w-full h-[56px] flex items-center justify-center bg-primary text-on-primary rounded font-body-md text-body-md transition-colors hover:opacity-90 active:scale-[0.98]"
+          @click="goOffreCliente"
+        >
+          Voir l’offre reçue
+        </button>
+        <button
+          type="button"
+          class="w-full h-[56px] flex items-center justify-center rounded font-body-md text-body-md transition-colors active:scale-[0.98]"
+          :class="
+            isPro
+              ? 'bg-primary text-on-primary hover:opacity-90'
+              : 'bg-transparent text-primary border border-outline-variant hover:bg-surface-container-low'
+          "
           @click="goHome"
         >
           Retour à l’accueil

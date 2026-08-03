@@ -45,10 +45,6 @@ function goBack() {
   router.push({ name: 'proposal-synthese' })
 }
 
-function goNav(name) {
-  router.push({ name })
-}
-
 function continueToOffer() {
   if (!canContinue.value) return
   proposalStore.setFeasibility(
@@ -60,7 +56,7 @@ function continueToOffer() {
 </script>
 
 <template>
-  <div class="bg-background text-on-background font-body-md min-h-screen pb-40">
+  <div class="bg-background text-on-background font-body-md min-h-screen pb-28">
     <header
       class="bg-surface border-b border-surface-container flex items-center justify-between px-margin-mobile w-full h-16 z-50 sticky top-0"
     >
@@ -70,7 +66,7 @@ function continueToOffer() {
         class="hover:bg-surface-container-low transition-colors active:opacity-80 p-2 -ml-2 rounded-full flex items-center justify-center"
         @click="goBack"
       >
-        <span class="material-symbols-outlined text-primary text-2xl">arrow_back</span>
+        <span class="material-symbols-outlined text-primary text-icon-lg">arrow_back</span>
       </button>
       <div class="font-headline-md text-headline-md font-bold text-primary">
         Nolaya
@@ -84,13 +80,13 @@ function continueToOffer() {
       </div>
     </header>
 
-    <div class="w-full h-56 md:h-72 bg-surface-container-low relative">
+    <div class="w-full h-32 md:h-40 bg-surface-container-low relative">
       <img alt="" class="w-full h-full object-cover absolute inset-0" :src="heroSrc" />
       <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
     </div>
 
     <main
-      class="px-margin-mobile max-w-4xl mx-auto -mt-12 relative z-10 space-y-stack-lg"
+      class="px-margin-mobile max-w-4xl mx-auto -mt-6 relative z-10 space-y-4"
     >
       <div class="flex flex-col gap-stack-sm">
         <div class="flex items-center justify-between gap-2 flex-wrap">
@@ -149,7 +145,7 @@ function continueToOffer() {
               />
             </div>
             <div>
-              <span class="block font-headline-md text-primary text-lg">Faisable exactement</span>
+              <span class="block font-headline-md text-headline-md text-primary">Faisable exactement</span>
               <span class="block font-body-sm text-body-sm text-on-surface-variant mt-1">
                 Je respecte la demande telle qu’exprimée.
               </span>
@@ -177,7 +173,7 @@ function continueToOffer() {
               />
             </div>
             <div class="flex-col w-full">
-              <span class="block font-headline-md text-primary text-lg">
+              <span class="block font-headline-md text-headline-md text-primary">
                 Faisable avec une variante
               </span>
               <span class="block font-body-sm text-body-sm text-on-surface-variant mt-1">
@@ -205,7 +201,7 @@ function continueToOffer() {
     </main>
 
     <div
-      class="fixed bottom-[72px] md:bottom-0 w-full p-margin-mobile z-40 flex justify-center pb-4 md:pb-margin-mobile"
+      class="fixed bottom-0 w-full p-margin-mobile z-40 flex justify-center pb-4"
     >
       <button
         type="button"
@@ -214,44 +210,8 @@ function continueToOffer() {
         @click="continueToOffer"
       >
         Configurer l’offre
-        <span class="material-symbols-outlined text-lg">arrow_forward</span>
+        <span class="material-symbols-outlined text-icon">arrow_forward</span>
       </button>
     </div>
-
-    <nav
-      class="fixed bottom-0 w-full z-50 flex justify-around items-center px-margin-mobile bg-surface border-t border-surface-container md:hidden h-[72px]"
-    >
-      <button
-        type="button"
-        class="flex flex-col items-center justify-center text-on-surface-variant pt-2 w-full hover:text-secondary"
-        @click="goNav('proposal-synthese')"
-      >
-        <span class="material-symbols-outlined mb-1">analytics</span>
-        <span class="font-label-mono text-[10px] uppercase tracking-widest">Synthèse</span>
-      </button>
-      <button
-        type="button"
-        class="flex flex-col items-center justify-center text-secondary border-t-2 border-secondary pt-2 w-full"
-      >
-        <span class="material-symbols-outlined mb-1">fact_check</span>
-        <span class="font-label-mono text-[10px] uppercase tracking-widest font-bold">Faisabilité</span>
-      </button>
-      <button
-        type="button"
-        class="flex flex-col items-center justify-center text-on-surface-variant pt-2 w-full hover:text-secondary"
-        @click="continueToOffer"
-      >
-        <span class="material-symbols-outlined mb-1">request_quote</span>
-        <span class="font-label-mono text-[10px] uppercase tracking-widest">Offre</span>
-      </button>
-      <button
-        type="button"
-        class="flex flex-col items-center justify-center text-on-surface-variant pt-2 w-full hover:text-secondary"
-        @click="goNav('proposal-recap')"
-      >
-        <span class="material-symbols-outlined mb-1">send</span>
-        <span class="font-label-mono text-[10px] uppercase tracking-widest">Publier</span>
-      </button>
-    </nav>
   </div>
 </template>

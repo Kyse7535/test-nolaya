@@ -59,9 +59,9 @@ function openSuivi() {
 </script>
 
 <template>
-  <div class="bg-background text-on-background font-body-md min-h-screen pb-32">
+  <div class="bg-background text-on-background font-body-md min-h-screen pb-28">
     <header
-      class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant flex items-center px-margin-mobile h-16"
+      class="sticky top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant flex items-center px-margin-mobile h-14"
     >
       <button
         type="button"
@@ -76,18 +76,18 @@ function openSuivi() {
       </h1>
     </header>
 
-    <main class="pt-24 px-margin-mobile max-w-lg mx-auto flex flex-col gap-xl">
-      <section class="flex flex-col gap-md">
+    <main class="pt-4 px-margin-mobile max-w-lg mx-auto flex flex-col gap-4">
+      <section class="flex flex-col gap-2">
         <div
-          class="inline-flex items-center self-start gap-2 px-3 py-1 bg-surface-container border border-outline-variant rounded-sm"
+          class="inline-flex items-center self-start gap-2 px-2 py-1 bg-surface-container border border-outline-variant rounded-sm"
         >
           <span class="w-2 h-2 rounded-full bg-secondary" />
           <span class="font-label-mono text-label-mono text-on-surface uppercase">
             {{ statusBadge }}
           </span>
         </div>
-        <h2 class="font-display-lg text-display-lg text-primary">Réaliser la prestation</h2>
-        <p class="font-body-lg text-body-lg text-on-surface-variant">
+        <h2 class="font-headline-md text-headline-md text-primary">Réaliser la prestation</h2>
+        <p class="font-body-sm text-body-sm text-on-surface-variant">
           Le rendez-vous est READY. Aujourd’hui vous déclarez les arrivées, démarrez la prestation,
           déclarez une fin complète, puis la cliente confirme. Le dossier devient COMPLETED, prêt
           pour le règlement.
@@ -95,45 +95,45 @@ function openSuivi() {
         <div
           class="flex items-center gap-sm p-sm bg-surface-container rounded-sm border border-outline-variant"
         >
-          <span class="material-symbols-outlined text-outline">event</span>
+          <span class="material-symbols-outlined text-outline text-[18px]">event</span>
           <span class="font-label-mono text-label-mono text-on-surface-variant">
             {{ context }}
           </span>
         </div>
       </section>
 
-      <section class="relative w-full h-64 rounded-lg overflow-hidden bg-surface-container">
+      <section class="relative w-full h-28 rounded-lg overflow-hidden bg-surface-container">
         <img
           alt=""
           class="w-full h-full object-cover"
           :src="EXECUTION_HERO_ACCUEIL"
         />
         <div
-          class="absolute bottom-0 left-0 w-full p-margin-mobile bg-gradient-to-t from-black/60 to-transparent"
+          class="absolute bottom-0 left-0 w-full p-3 bg-gradient-to-t from-black/60 to-transparent"
         >
-          <p class="font-headline-md text-headline-md text-white font-bold tracking-tight">
+          <p class="font-headline-sm text-headline-sm text-white font-bold tracking-tight">
             Du prêt au fait d’exécution.
           </p>
         </div>
       </section>
 
-      <section class="flex flex-col gap-lg">
-        <h3 class="font-headline-md text-headline-md text-primary border-b border-outline-variant pb-xs">
+      <section class="flex flex-col gap-2">
+        <h3 class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider">
           Ce que vous allez faire
         </h3>
-        <div class="flex flex-col gap-md">
+        <div class="border border-outline-variant rounded-lg overflow-hidden divide-y divide-outline-variant bg-surface-container-lowest">
           <div
             v-for="pillar in pillars"
             :key="pillar.n"
-            class="p-md bg-surface-container-lowest border border-outline-variant rounded flex gap-md items-start"
+            class="px-3 py-2.5 flex gap-3 items-start"
           >
             <div
-              class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center shrink-0 border border-outline-variant"
+              class="w-7 h-7 rounded-full bg-surface-container-highest flex items-center justify-center shrink-0 border border-outline-variant"
             >
               <span class="font-label-mono text-label-mono text-on-surface">{{ pillar.n }}</span>
             </div>
-            <div>
-              <h4 class="font-body-lg text-body-lg font-bold text-primary mb-xs">
+            <div class="min-w-0">
+              <h4 class="font-body-md text-body-md font-bold text-primary">
                 {{ pillar.title }}
               </h4>
               <p class="font-body-sm text-body-sm text-on-surface-variant">{{ pillar.body }}</p>
@@ -146,7 +146,7 @@ function openSuivi() {
         class="p-md bg-surface-container-low rounded border border-outline-variant border-dashed"
       >
         <p class="font-body-sm text-body-sm text-on-surface-variant italic flex items-center gap-sm">
-          <span class="material-symbols-outlined text-outline text-[18px]">info</span>
+          <span class="material-symbols-outlined text-outline text-icon">info</span>
           Pas de retard, d’avenant ni d’incident dans cette démo.
         </p>
       </section>

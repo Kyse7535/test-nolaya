@@ -76,7 +76,7 @@ function downloadReleve() {
 
     <main
       v-if="settlement && payout"
-      class="pt-24 pb-32 px-margin-mobile flex-1 flex flex-col gap-xl max-w-md mx-auto w-full"
+      class="pt-24 pb-8 px-margin-mobile flex-1 flex flex-col gap-xl max-w-md mx-auto w-full"
     >
       <section class="flex flex-col items-center text-center">
         <div
@@ -87,7 +87,7 @@ function downloadReleve() {
           >
             {{ settlementStore.payoutBadge }}
           </span>
-          <span class="material-symbols-outlined text-secondary text-sm">check_circle</span>
+          <span class="material-symbols-outlined text-secondary text-icon-xs">check_circle</span>
         </div>
         <p class="font-body-sm text-body-sm text-on-surface-variant mb-1">
           Montant net reversé
@@ -119,7 +119,7 @@ function downloadReleve() {
             </span>
           </div>
         </div>
-        <p class="font-label-mono text-[10px] text-outline mt-2 uppercase tracking-wider">
+        <p class="font-label-micro text-label-micro text-outline mt-2 uppercase tracking-wider">
           PAID_OUT
         </p>
       </section>
@@ -135,7 +135,7 @@ function downloadReleve() {
         </div>
         <div class="flex-1">
           <div class="flex justify-between items-center mb-1">
-            <h3 class="font-headline-sm text-headline-sm text-primary text-base">
+            <h3 class="font-body-md text-body-md font-semibold text-primary">
               Pourboire cliente
             </h3>
             <span class="font-label-mono text-body-sm text-secondary font-bold">
@@ -154,7 +154,7 @@ function downloadReleve() {
         <div
           class="p-md flex justify-between items-center border-b border-outline-variant/50 bg-surface"
         >
-          <h3 class="font-headline-sm text-headline-sm text-primary text-base">
+          <h3 class="font-body-md text-body-md font-semibold text-primary">
             Détail comptable
           </h3>
           <span class="font-label-mono text-caption text-on-surface-variant">
@@ -190,7 +190,7 @@ function downloadReleve() {
         <div
           class="p-md bg-surface-container-high flex justify-between items-center border-t border-outline-variant"
         >
-          <span class="font-headline-sm text-headline-sm text-primary text-base">
+          <span class="font-body-md text-body-md font-semibold text-primary">
             Total net à reverser
           </span>
           <span class="font-label-mono text-headline-sm text-primary font-bold">

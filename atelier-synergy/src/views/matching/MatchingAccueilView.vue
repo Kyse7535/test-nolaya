@@ -77,7 +77,7 @@ function launch() {
         class="text-primary hover:opacity-80 transition-opacity active:scale-95 flex items-center justify-center p-2 -ml-2"
         @click="goBack"
       >
-        <span class="material-symbols-outlined text-[24px]">arrow_back</span>
+        <span class="material-symbols-outlined text-icon-lg">arrow_back</span>
       </button>
       <h1 class="font-headline-lg-mobile text-headline-lg-mobile uppercase font-bold tracking-tight text-primary">
         Appariement

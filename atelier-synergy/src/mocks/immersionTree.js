@@ -13,6 +13,7 @@ import {
   createPrepPlanFromTemplate,
   createReadySnapshot,
 } from '../domain/appointment/model'
+import { asVarianteList } from '../domain/capacity/model'
 import { DemandStatus } from '../domain/demand/model'
 import {
   EngagementStatus,
@@ -100,7 +101,7 @@ const IMMERSION_CLIENTS = [
 function buildImmersionDemand(persona, suffix, capacity) {
   const base = buildSeedQualifiedDemand()
   const label = capacity?.prestation?.label || base.result.label
-  const variante = capacity?.prestation?.variante?.taille || base.result.variante
+  const variante = asVarianteList(capacity?.prestation?.variante?.taille)[0] || base.result.variante
   return {
     ...base,
     id: `dem_imm_${persona.key}_${suffix}`,

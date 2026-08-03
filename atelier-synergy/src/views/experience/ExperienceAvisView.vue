@@ -67,9 +67,9 @@ function skip() {
 </script>
 
 <template>
-  <div class="bg-surface text-on-surface font-body-lg antialiased min-h-screen pb-32">
+  <div class="bg-surface text-on-surface font-body-lg antialiased min-h-screen pb-28">
     <header
-      class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 bg-surface border-b border-surface-variant"
+      class="sticky top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile h-14 bg-surface border-b border-surface-variant"
     >
       <button
         type="button"
@@ -86,9 +86,9 @@ function skip() {
       </h1>
     </header>
 
-    <main v-if="experience" class="pt-24 px-margin-mobile max-w-lg mx-auto">
-      <section class="flex flex-col items-center mb-xl text-center">
-        <div class="relative w-20 h-20 mb-md">
+    <main v-if="experience" class="pt-4 px-margin-mobile max-w-lg mx-auto">
+      <section class="flex flex-col items-center mb-4 text-center">
+        <div class="relative w-14 h-14 mb-2">
           <img
             alt=""
             class="w-full h-full object-cover rounded-full border border-surface-container"
@@ -102,28 +102,24 @@ function skip() {
             </span>
           </div>
         </div>
-        <h2 class="font-headline-md text-headline-md text-primary mb-sm">
+        <h2 class="font-headline-md text-headline-md text-primary mb-1">
           Votre retour d'expérience
         </h2>
-        <p class="font-body-md text-body-md text-on-surface-variant max-w-sm">
+        <p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">
           Votre avis aide {{ experience.proDisplayName }} et les autres clientes — il
           reste facultatif.
         </p>
       </section>
 
-      <section class="mb-xl">
+      <section class="mb-4">
         <div
-          class="bg-surface-container-lowest border border-surface-variant rounded-xl p-md"
+          class="bg-surface-container-lowest border border-surface-variant rounded-lg p-3"
         >
           <div
             v-for="(dim, index) in dimensions"
             :key="dim.key"
             class="flex flex-col"
-            :class="
-              index < dimensions.length - 1
-                ? 'mb-lg pb-md border-b border-surface-container-highest'
-                : ''
-            "
+            :class="index < dimensions.length - 1 ? 'mb-3 pb-3 border-b border-surface-container-highest' : ''"
           >
             <div class="flex justify-between items-start mb-xs gap-sm">
               <label class="font-headline-sm text-body-lg text-primary">
@@ -134,12 +130,8 @@ function skip() {
                   v-for="n in 5"
                   :key="n"
                   type="button"
-                  class="material-symbols-outlined text-2xl transition-colors"
-                  :class="
-                    n <= ratings[dim.key]
-                      ? 'text-secondary'
-                      : 'text-outline-variant'
-                  "
+                  class="material-symbols-outlined text-icon-lg transition-colors"
+                  :class="n <= ratings[dim.key] ? 'text-secondary' : 'text-outline-variant'"
                   :style="
                     n <= ratings[dim.key]
                       ? { fontVariationSettings: `'FILL' 1` }
@@ -215,11 +207,7 @@ function skip() {
         <button
           type="button"
           class="w-full h-12 rounded-lg font-body-md text-body-md font-semibold flex items-center justify-center transition-opacity active:scale-[0.98]"
-          :class="
-            canPublish
-              ? 'bg-primary text-on-primary hover:opacity-90'
-              : 'bg-surface-container text-on-surface-variant cursor-not-allowed'
-          "
+          :class="canPublish ? 'bg-primary text-on-primary hover:opacity-90' : 'bg-surface-container text-on-surface-variant cursor-not-allowed'"
           :disabled="!canPublish"
           @click="publish"
         >

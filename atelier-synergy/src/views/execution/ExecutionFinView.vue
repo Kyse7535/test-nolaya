@@ -1,6 +1,7 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
+import DemoRoleHandoff from '../../components/DemoRoleHandoff.vue'
 import { AppointmentStatus } from '../../domain/appointment/model'
 import { DemoRole } from '../../domain/execution/model'
 import { EXECUTION_HERO_FIN } from '../../mocks/executionSeed'
@@ -139,7 +140,7 @@ function declareEnd() {
         </div>
       </div>
 
-      <div class="mb-lg rounded-xl overflow-hidden aspect-[4/3] bg-surface-container">
+      <div class="mb-3 rounded-lg overflow-hidden h-28 bg-surface-container">
         <img alt="" class="w-full h-full object-cover" :src="EXECUTION_HERO_FIN" />
       </div>
 
@@ -179,10 +180,12 @@ function declareEnd() {
     <div
       class="fixed bottom-0 left-0 w-full bg-surface border-t border-surface-container-highest p-margin-mobile flex flex-col gap-3 z-40"
     >
-      <p class="font-body-md text-body-md text-on-surface-variant text-center opacity-80">
-        La cliente devra encore confirmer la réalisation pour passer à COMPLETED.
-        <span v-if="!isPro" class="block mt-1">Passez en rôle Cliente après la déclaration.</span>
-      </p>
+      <div class="flex flex-col items-center gap-xs">
+        <p class="font-body-md text-body-md text-on-surface-variant text-center opacity-80">
+          La cliente devra encore confirmer la réalisation pour passer à COMPLETED.
+        </p>
+        <DemoRoleHandoff :target-role="DemoRole.PRO" action="déclarer la fin" />
+      </div>
       <button
         type="button"
         class="w-full bg-primary text-on-primary font-body-md font-semibold h-[44px] rounded flex items-center justify-center active:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"

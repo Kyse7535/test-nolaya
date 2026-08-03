@@ -95,7 +95,7 @@ function continueToFeasibility() {
           <span
             class="font-label-mono text-label-mono text-on-surface-variant opacity-80 uppercase tracking-widest flex items-center gap-2"
           >
-            <span class="material-symbols-outlined text-[16px]">style</span>
+            <span class="material-symbols-outlined text-icon-sm">style</span>
             Prestation
           </span>
           <p class="font-body-lg text-body-lg text-on-surface">{{ brief.prestationLabel }}</p>
@@ -106,7 +106,7 @@ function continueToFeasibility() {
           <span
             class="font-label-mono text-label-mono text-on-surface-variant opacity-80 uppercase tracking-widest flex items-center gap-2"
           >
-            <span class="material-symbols-outlined text-[16px]">psychology</span>
+            <span class="material-symbols-outlined text-icon-sm">psychology</span>
             Résultat attendu
           </span>
           <p class="font-body-md text-body-md text-on-surface">{{ brief.resultExpected }}</p>
@@ -117,7 +117,7 @@ function continueToFeasibility() {
           <span
             class="font-label-mono text-label-mono text-on-surface-variant opacity-80 uppercase tracking-widest flex items-center gap-2"
           >
-            <span class="material-symbols-outlined text-[16px]">payments</span>
+            <span class="material-symbols-outlined text-icon-sm">payments</span>
             Budget indicatif
           </span>
           <p class="font-body-lg text-body-lg text-on-surface">{{ budgetLabel }}</p>
@@ -128,7 +128,7 @@ function continueToFeasibility() {
           <span
             class="font-label-mono text-label-mono text-on-surface-variant opacity-80 uppercase tracking-widest flex items-center gap-2"
           >
-            <span class="material-symbols-outlined text-[16px]">warning</span>
+            <span class="material-symbols-outlined text-icon-sm">warning</span>
             Contraintes
           </span>
           <div class="flex flex-wrap gap-2 mt-1">
@@ -147,7 +147,7 @@ function continueToFeasibility() {
           <span
             class="font-label-mono text-label-mono text-on-surface-variant opacity-80 uppercase tracking-widest flex items-center gap-2"
           >
-            <span class="material-symbols-outlined text-[16px]">location_on</span>
+            <span class="material-symbols-outlined text-icon-sm">location_on</span>
             Lieu souhaité
           </span>
           <p class="font-body-md text-body-md text-on-surface">{{ brief.placeDesired }}</p>
@@ -158,7 +158,7 @@ function continueToFeasibility() {
           <span
             class="font-label-mono text-label-mono text-on-surface-variant opacity-80 uppercase tracking-widest flex items-center gap-2"
           >
-            <span class="material-symbols-outlined text-[16px]">calendar_month</span>
+            <span class="material-symbols-outlined text-icon-sm">calendar_month</span>
             Créneau préféré
           </span>
           <p class="font-body-md text-body-md text-on-surface">{{ brief.preferredSlot }}</p>
@@ -170,7 +170,7 @@ function continueToFeasibility() {
           class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-widest flex justify-between items-end"
         >
           Références de la capacité
-          <span class="text-[10px] lowercase text-outline">Galerie prestation — lecture seule</span>
+          <span class="text-label-micro lowercase text-outline">Galerie prestation — lecture seule</span>
         </h3>
         <div class="flex overflow-x-auto space-x-gutter pb-4 snap-x">
           <div

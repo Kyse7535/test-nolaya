@@ -2,13 +2,16 @@
 import { computed } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
+import { DemoRole } from '../../domain/demoRole'
 import { ENGAGEMENT_HERO_CONFIRM_CLIENT } from '../../mocks/engagementSeed'
-import { useEngagementStore } from '../../stores/engagement'
 import { useAppointmentStore } from '../../stores/appointment'
+import { useDemoRoleStore } from '../../stores/demoRole'
+import { useEngagementStore } from '../../stores/engagement'
 
 const router = useRouter()
 const engagementStore = useEngagementStore()
 const appointmentStore = useAppointmentStore()
+const demoRoleStore = useDemoRoleStore()
 const { currentEngagement, currentPayment } = storeToRefs(engagementStore)
 
 const heroSrc = ENGAGEMENT_HERO_CONFIRM_CLIENT
@@ -33,6 +36,7 @@ function goAppointment() {
 }
 
 function goPro() {
+  demoRoleStore.setDemoRole(DemoRole.PRO)
   router.push({ name: 'engagement-confirmation-pro' })
 }
 
@@ -63,7 +67,7 @@ function goHome() {
 
     <main class="flex-grow flex flex-col pt-[80px] px-container-margin pb-stack-lg">
       <div
-        class="w-full aspect-[4/5] mb-stack-lg relative overflow-hidden bg-surface-container-low rounded-lg"
+        class="w-full h-36 mb-4 relative overflow-hidden bg-surface-container-low rounded-lg"
       >
         <img
           class="w-full h-full object-cover grayscale-[20%]"
@@ -72,10 +76,10 @@ function goHome() {
         />
         <div class="absolute inset-0 flex items-center justify-center bg-background/10">
           <div
-            class="w-20 h-20 bg-background/90 rounded-full flex items-center justify-center border border-outline-variant shadow-sm backdrop-blur-sm"
+            class="w-14 h-14 bg-background/90 rounded-full flex items-center justify-center border border-outline-variant shadow-sm backdrop-blur-sm"
           >
             <span
-              class="material-symbols-outlined text-display-lg-mobile text-primary"
+              class="material-symbols-outlined text-[32px] text-primary"
               style="font-variation-settings: 'FILL' 1"
             >check_circle</span>
           </div>

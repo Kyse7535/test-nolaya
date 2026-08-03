@@ -177,7 +177,7 @@ function continueNext() {
           </div>
 
           <p class="font-body-sm text-body-sm text-on-surface-variant flex items-center">
-            <span class="material-symbols-outlined text-[16px] mr-2">info</span>
+            <span class="material-symbols-outlined text-icon-sm mr-2">info</span>
             Choisissez au moins un contexte.
           </p>
         </div>
@@ -219,11 +219,7 @@ function continueNext() {
         <button
           type="button"
           class="bg-primary-container text-white font-button-text text-button-text px-6 h-11 rounded transition-opacity flex items-center justify-center min-w-[120px]"
-          :class="
-            contextsReady
-              ? 'hover:bg-tertiary shadow-sm'
-              : 'opacity-50 cursor-not-allowed hover:opacity-60'
-          "
+          :class="contextsReady ? 'hover:bg-tertiary shadow-sm' : 'opacity-50 cursor-not-allowed hover:opacity-60'"
           :disabled="!contextsReady"
           @click="continueNext"
         >

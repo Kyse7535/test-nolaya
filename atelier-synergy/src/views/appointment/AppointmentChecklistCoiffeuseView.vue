@@ -1,6 +1,7 @@
 <script setup>
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
+import DemoRoleHandoff from '../../components/DemoRoleHandoff.vue'
 import {
   actionStatusLabel,
   appointmentStatusBadge,
@@ -87,11 +88,11 @@ function remindPro() {
       aria-live="polite"
     >
       <p class="font-body-md text-body-md flex items-start gap-2">
-        <span class="material-symbols-outlined text-[20px] shrink-0">notifications_active</span>
+        <span class="material-symbols-outlined text-icon-md shrink-0">notifications_active</span>
         <span>
           Notification envoyée à
           {{ engagement?.proDisplayName || 'la coiffeuse' }}
-          <span class="font-label-mono text-[10px] uppercase tracking-wider opacity-80">
+          <span class="font-label-micro text-label-micro uppercase tracking-wider opacity-80">
             (mock)
           </span>
         </span>
@@ -114,12 +115,12 @@ function remindPro() {
       </h1>
       <span
         v-if="isClient"
-        class="font-label-mono text-[10px] uppercase tracking-wider bg-secondary-container text-on-secondary-container px-2 py-1 rounded mr-2"
+        class="font-label-micro text-label-micro uppercase tracking-wider bg-secondary-container text-on-secondary-container px-2 py-1 rounded mr-2"
       >
         Lecture seule
       </span>
       <span
-        class="font-label-mono text-[10px] uppercase tracking-wider bg-surface-container text-on-surface-variant px-2 py-1 rounded"
+        class="font-label-micro text-label-micro uppercase tracking-wider bg-surface-container text-on-surface-variant px-2 py-1 rounded"
       >
         {{ appointmentStatusBadge(status) }}
       </span>
@@ -137,6 +138,11 @@ function remindPro() {
             pas passer à READY.
           </template>
         </p>
+        <DemoRoleHandoff
+          v-if="isClient"
+          :target-role="DemoRole.PRO"
+          action="valider"
+        />
         <div
           v-if="engagement"
           class="flex items-center gap-3 py-3 px-3 bg-surface-container-lowest rounded-lg border border-surface-container"
@@ -150,7 +156,7 @@ function remindPro() {
           </div>
           <div>
             <span class="font-headline-sm text-primary">{{ engagement.proDisplayName }}</span>
-            <p class="font-label-mono text-[11px] text-on-surface-variant mt-0.5">
+            <p class="font-label-technical text-label-technical text-on-surface-variant mt-0.5">
               {{ engagement.serviceLabel }} · {{ engagement.dateLabel }}
             </p>
           </div>
@@ -159,7 +165,7 @@ function remindPro() {
 
       <section class="flex flex-col">
         <h2 class="font-headline-sm text-primary mb-4 flex items-center gap-2">
-          <span class="material-symbols-outlined text-[20px] text-error">warning</span>
+          <span class="material-symbols-outlined text-icon-md text-error">warning</span>
           Actions bloquantes
         </h2>
         <div
@@ -169,44 +175,32 @@ function remindPro() {
             v-for="action in blocking"
             :key="action.id"
             class="p-4 flex flex-col gap-3 border-b border-surface-container-highest last:border-0"
-            :class="
-              action.status === ActionStatus.CONFIRMED
-                ? 'bg-surface-container-low opacity-70'
-                : ''
-            "
+            :class="action.status === ActionStatus.CONFIRMED ? 'bg-surface-container-low opacity-70' : ''"
           >
             <div class="flex justify-between items-start gap-4">
               <div class="flex flex-col gap-1 flex-1 min-w-0">
                 <div class="flex items-center gap-2 flex-wrap mb-1">
                   <span
-                    class="px-2 py-1 bg-error-container text-on-error-container font-label-mono rounded text-[10px]"
+                    class="px-2 py-1 bg-error-container text-on-error-container font-label-mono rounded text-label-micro"
                   >
                     {{ criticalityLabel(action.criticality) }}
                   </span>
                   <span
-                    class="px-2 py-1 font-label-mono rounded text-[10px]"
-                    :class="
-                      action.status === ActionStatus.CONFIRMED
-                        ? 'bg-primary-container text-on-primary'
-                        : 'bg-surface-container-highest text-on-surface'
-                    "
+                    class="px-2 py-1 font-label-mono rounded text-label-micro"
+                    :class="action.status === ActionStatus.CONFIRMED ? 'bg-primary-container text-on-primary' : 'bg-surface-container-highest text-on-surface'"
                   >
                     {{ actionStatusLabel(action.status) }}
                   </span>
                 </div>
                 <h3
-                  class="font-headline-sm text-primary text-base"
-                  :class="
-                    action.status === ActionStatus.CONFIRMED
-                      ? 'line-through decoration-outline-variant'
-                      : ''
-                  "
+                  class="font-body-md text-body-md font-semibold text-primary"
+                  :class="action.status === ActionStatus.CONFIRMED ? 'line-through decoration-outline-variant' : ''"
                 >
                   {{ action.title }}
                 </h3>
                 <p
                   v-if="action.helper"
-                  class="font-body-md text-on-surface-variant text-sm"
+                  class="font-body-sm text-body-sm text-on-surface-variant"
                 >
                   {{ action.helper }}
                 </p>
@@ -218,16 +212,12 @@ function remindPro() {
                 aria-label="Confirmer"
                 @click="confirm(action.id)"
               >
-                <span class="material-symbols-outlined text-[28px]">check_circle_outline</span>
+                <span class="material-symbols-outlined text-icon-xl">check_circle_outline</span>
               </button>
               <div v-else class="shrink-0 pt-1">
                 <span
-                  class="material-symbols-outlined text-[24px]"
-                  :class="
-                    action.status === ActionStatus.CONFIRMED
-                      ? 'text-primary-container'
-                      : 'text-outline-variant'
-                  "
+                  class="material-symbols-outlined text-icon-lg"
+                  :class="action.status === ActionStatus.CONFIRMED ? 'text-primary-container' : 'text-outline-variant'"
                 >
                   {{
                     action.status === ActionStatus.CONFIRMED
@@ -243,7 +233,7 @@ function remindPro() {
 
       <section class="flex flex-col">
         <h2 class="font-headline-sm text-primary mb-4 flex items-center gap-2">
-          <span class="material-symbols-outlined text-[20px] text-secondary">info</span>
+          <span class="material-symbols-outlined text-icon-md text-secondary">info</span>
           Actions informatives
         </h2>
         <div
@@ -258,15 +248,15 @@ function remindPro() {
               <div class="flex flex-col gap-1 flex-1">
                 <div class="flex items-center gap-2 mb-1">
                   <span
-                    class="px-2 py-1 bg-secondary-container text-on-secondary-container font-label-mono rounded text-[10px]"
+                    class="px-2 py-1 bg-secondary-container text-on-secondary-container font-label-mono rounded text-label-micro"
                   >
                     {{ criticalityLabel(action.criticality) }}
                   </span>
                 </div>
-                <h3 class="font-headline-sm text-primary text-base">{{ action.title }}</h3>
+                <h3 class="font-body-md text-body-md font-semibold text-primary">{{ action.title }}</h3>
                 <p
                   v-if="action.helper"
-                  class="font-body-md text-on-surface-variant text-sm"
+                  class="font-body-sm text-body-sm text-on-surface-variant"
                 >
                   {{ action.helper }}
                 </p>
@@ -284,7 +274,7 @@ function remindPro() {
                   action.status === ActionStatus.TO_DO ? confirm(action.id) : undefined
                 "
               >
-                <span class="material-symbols-outlined text-[28px]">
+                <span class="material-symbols-outlined text-icon-xl">
                   {{
                     action.status === ActionStatus.CONFIRMED
                       ? 'check_circle'
@@ -294,12 +284,8 @@ function remindPro() {
               </button>
               <div v-else class="shrink-0 pt-1">
                 <span
-                  class="material-symbols-outlined text-[24px]"
-                  :class="
-                    action.status === ActionStatus.CONFIRMED
-                      ? 'text-primary'
-                      : 'text-outline-variant'
-                  "
+                  class="material-symbols-outlined text-icon-lg"
+                  :class="action.status === ActionStatus.CONFIRMED ? 'text-primary' : 'text-outline-variant'"
                   aria-hidden="true"
                 >
                   {{
@@ -343,15 +329,15 @@ function remindPro() {
       <button
         v-if="isClient"
         type="button"
-        class="w-full max-w-lg mx-auto h-12 bg-primary text-on-primary rounded-lg font-headline-sm text-base flex justify-center items-center gap-2 active:scale-95 transition-transform"
+        class="w-full max-w-lg mx-auto h-12 bg-primary text-on-primary rounded-lg font-body-md text-body-md font-semibold flex justify-center items-center gap-2 active:scale-95 transition-transform"
         @click="remindPro"
       >
-        <span class="material-symbols-outlined text-[20px]">notifications</span>
+        <span class="material-symbols-outlined text-icon-md">notifications</span>
         Rappeler la coiffeuse
       </button>
       <button
         type="button"
-        class="w-full max-w-lg mx-auto h-12 bg-primary-container text-on-primary rounded-lg font-headline-sm text-base flex justify-center items-center gap-2 active:scale-95 transition-transform"
+        class="w-full max-w-lg mx-auto h-12 bg-primary-container text-on-primary rounded-lg font-body-md text-body-md font-semibold flex justify-center items-center gap-2 active:scale-95 transition-transform"
         @click="goBack"
       >
         Retour au plan

@@ -92,7 +92,7 @@ function goListe() {
           class="bg-surface-container-low border border-outline-variant rounded p-md"
         >
           <div class="flex items-start gap-sm">
-            <span class="material-symbols-outlined text-primary mt-xs text-[20px]">info</span>
+            <span class="material-symbols-outlined text-primary mt-xs text-icon-md">info</span>
             <div>
               <h3 class="font-body-md text-body-md font-semibold text-primary">
                 Cadre professionnel actif — hérité
@@ -108,7 +108,7 @@ function goListe() {
           class="bg-surface-container-low border border-outline-variant rounded p-md"
         >
           <div class="flex items-start gap-sm">
-            <span class="material-symbols-outlined text-secondary mt-xs text-[20px]">info</span>
+            <span class="material-symbols-outlined text-secondary mt-xs text-icon-md">info</span>
             <div>
               <h3 class="font-body-md text-body-md font-semibold text-primary">
                 Cadre professionnel mock — hérité
@@ -160,7 +160,7 @@ function goListe() {
                 <span class="material-symbols-outlined text-primary">{{ pillar.icon }}</span>
               </div>
               <div>
-                <h4 class="font-headline-sm text-headline-sm text-primary text-[16px] mb-xs">
+                <h4 class="font-body-md text-body-md font-semibold text-primary mb-xs">
                   {{ pillar.title }}
                 </h4>
                 <p class="font-body-md text-body-md text-on-surface-variant">
@@ -196,7 +196,7 @@ function goListe() {
         @click="start"
       >
         Ouvrir une capacité
-        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+        <span class="material-symbols-outlined text-icon">arrow_forward</span>
       </button>
     </div>
   </div>

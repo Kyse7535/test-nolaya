@@ -2,6 +2,7 @@
 import { computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
+import { asVarianteList } from '../../domain/capacity/model'
 import { catalogServices, getCatalogService } from '../../mocks/catalog'
 import { useCapacityStore } from '../../stores/capacity'
 import { useFrameworkStore } from '../../stores/framework'
@@ -25,7 +26,15 @@ const tailleOptions = computed(() => selectedService.value?.variantes?.taille ??
 const longueurOptions = computed(() => selectedService.value?.variantes?.longueur ?? [])
 const finitionOptions = computed(() => selectedService.value?.variantes?.finition ?? [])
 
-const variante = computed(() => currentCapacity.value?.prestation?.variante ?? {})
+const selectedTaille = computed(() =>
+  asVarianteList(currentCapacity.value?.prestation?.variante?.taille),
+)
+const selectedLongueur = computed(() =>
+  asVarianteList(currentCapacity.value?.prestation?.variante?.longueur),
+)
+const selectedFinition = computed(() =>
+  asVarianteList(currentCapacity.value?.prestation?.variante?.finition),
+)
 
 onMounted(() => {
   if (!capacityStore.currentCapacity) {
@@ -41,8 +50,12 @@ function selectPrestation(serviceId) {
   capacityStore.setPrestation(serviceId)
 }
 
-function selectVariante(key, value) {
-  capacityStore.setVariante({ [key]: value })
+function toggleVariante(key, value) {
+  capacityStore.toggleVariante(key, value)
+}
+
+function isSelected(list, value) {
+  return list.includes(value)
 }
 
 function continueNext() {
@@ -173,7 +186,7 @@ function continueNext() {
               <div
                 class="h-full bg-surface-container-lowest border border-surface-variant rounded-lg p-md transition-colors peer-checked:border-primary peer-checked:ring-1 peer-checked:ring-primary hover:bg-surface-container-low flex flex-col items-center justify-center text-center gap-2"
               >
-                <span class="font-headline-sm text-primary text-[16px] leading-snug">
+                <span class="font-body-md text-body-md font-semibold text-primary leading-snug">
                   {{ service.label }}
                 </span>
               </div>
@@ -196,7 +209,12 @@ function continueNext() {
         <hr class="border-t border-surface-variant w-full my-sm" />
 
         <section v-if="selectedService" class="flex flex-col gap-lg">
-          <h3 class="font-headline-md text-headline-md text-primary">Variante</h3>
+          <div class="flex flex-col gap-1">
+            <h3 class="font-headline-md text-headline-md text-primary">Variante</h3>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">
+              Sélectionnez une ou plusieurs options par dimension.
+            </p>
+          </div>
 
           <div v-if="tailleOptions.length" class="flex flex-col gap-sm">
             <span class="font-body-md font-semibold text-primary">Taille</span>
@@ -204,11 +222,11 @@ function continueNext() {
               <label v-for="option in tailleOptions" :key="option" class="cursor-pointer">
                 <input
                   class="capacity-chip sr-only"
-                  type="radio"
+                  type="checkbox"
                   name="taille"
                   :value="option"
-                  :checked="variante.taille === option"
-                  @change="selectVariante('taille', option)"
+                  :checked="isSelected(selectedTaille, option)"
+                  @change="toggleVariante('taille', option)"
                 />
                 <div
                   class="px-md py-2 border border-surface-variant rounded-lg font-body-md text-on-surface-variant hover:bg-surface-container-low transition-colors"
@@ -225,11 +243,11 @@ function continueNext() {
               <label v-for="option in longueurOptions" :key="option" class="cursor-pointer">
                 <input
                   class="capacity-chip sr-only"
-                  type="radio"
+                  type="checkbox"
                   name="longueur"
                   :value="option"
-                  :checked="variante.longueur === option"
-                  @change="selectVariante('longueur', option)"
+                  :checked="isSelected(selectedLongueur, option)"
+                  @change="toggleVariante('longueur', option)"
                 />
                 <div
                   class="px-md py-2 border border-surface-variant rounded-lg font-body-md text-on-surface-variant hover:bg-surface-container-low transition-colors"
@@ -246,11 +264,11 @@ function continueNext() {
               <label v-for="option in finitionOptions" :key="option" class="cursor-pointer">
                 <input
                   class="capacity-chip sr-only"
-                  type="radio"
+                  type="checkbox"
                   name="finition"
                   :value="option"
-                  :checked="variante.finition === option"
-                  @change="selectVariante('finition', option)"
+                  :checked="isSelected(selectedFinition, option)"
+                  @change="toggleVariante('finition', option)"
                 />
                 <div
                   class="px-md py-2 border border-surface-variant rounded-lg font-body-md text-on-surface-variant hover:bg-surface-container-low transition-colors"
@@ -273,11 +291,7 @@ function continueNext() {
         <button
           type="button"
           class="w-full md:w-auto bg-primary-container text-on-primary font-headline-sm text-headline-sm py-3 px-6 rounded-lg transition-opacity flex items-center justify-center gap-2"
-          :class="
-            prestationReady
-              ? 'hover:opacity-90'
-              : 'opacity-50 cursor-not-allowed'
-          "
+          :class="prestationReady ? 'hover:opacity-90' : 'opacity-50 cursor-not-allowed'"
           :disabled="!prestationReady"
           @click="continueNext"
         >

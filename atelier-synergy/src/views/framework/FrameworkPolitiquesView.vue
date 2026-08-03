@@ -80,11 +80,7 @@ function continueNext() {
                   :key="policy.id"
                   type="button"
                   class="text-left border rounded-xl p-md bg-surface-container-lowest cursor-pointer transition-colors"
-                  :class="
-                    framework.policyId === policy.id
-                      ? 'border-secondary shadow-[0px_4px_12px_rgba(27,28,28,0.04)]'
-                      : 'border-surface-container hover:border-outline-variant group'
-                  "
+                  :class="framework.policyId === policy.id ? 'border-secondary shadow-[0px_4px_12px_rgba(27,28,28,0.04)]' : 'border-surface-container hover:border-outline-variant group'"
                   @click="store.patch({ policyId: policy.id })"
                 >
                   <div class="flex items-center justify-between mb-sm">
@@ -96,11 +92,7 @@ function continueNext() {
                     </span>
                     <div
                       class="w-5 h-5 rounded-full flex items-center justify-center"
-                      :class="
-                        framework.policyId === policy.id
-                          ? 'border-2 border-secondary'
-                          : 'border border-outline group-hover:border-secondary'
-                      "
+                      :class="framework.policyId === policy.id ? 'border-2 border-secondary' : 'border border-outline group-hover:border-secondary'"
                     >
                       <div
                         v-if="framework.policyId === policy.id"
@@ -158,7 +150,7 @@ function continueNext() {
             <p
               class="font-body-sm text-body-sm text-on-surface-variant italic border-l-2 border-surface-container pl-md"
             >
-              <span class="material-symbols-outlined text-lg align-bottom mr-1">info</span>
+              <span class="material-symbols-outlined text-icon align-bottom mr-1">info</span>
               Vous pourrez préciser une prestation plus tard ; ici c’est le cadre général.
             </p>
           </div>

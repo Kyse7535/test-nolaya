@@ -8,6 +8,7 @@ import {
   ProofLevel,
   ServiceLevel,
   TaskOwner,
+  formatVarianteList,
 } from './model'
 
 export function statusLabel(status) {
@@ -44,8 +45,8 @@ export function prestationSummary(capacity) {
   if (!id) return '—'
   const fromCatalog = catalogServices.find((s) => s.id === id)
   const label = capacity.prestation.label ?? fromCatalog?.label ?? id
-  const taille = capacity.prestation.variante?.taille
-  const longueur = capacity.prestation.variante?.longueur
+  const taille = formatVarianteList(capacity.prestation.variante?.taille)
+  const longueur = formatVarianteList(capacity.prestation.variante?.longueur)
   const parts = [label, taille, longueur].filter(Boolean)
   return parts.join(' · ')
 }
@@ -87,7 +88,7 @@ export function pricingTotal(capacity) {
 /** Demo line for success screen, e.g. "Knotless braids — Medium — 180 € — Chez moi — Capacité ouverte". */
 export function openCapacityHeadline(capacity) {
   const label = capacity?.prestation?.label ?? 'Prestation'
-  const taille = capacity?.prestation?.variante?.taille
+  const taille = formatVarianteList(capacity?.prestation?.variante?.taille)
   const price = Number(capacity?.pricing?.basePrice ?? 0)
   const place = locationLabel(capacity?.location?.context)
   const parts = [label, taille, price > 0 ? `${price} €` : null, place, 'Capacité ouverte'].filter(

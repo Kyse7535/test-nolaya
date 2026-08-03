@@ -60,11 +60,7 @@ function resetAll() {
         <button
           type="button"
           class="flex-1 font-label-sm text-label-sm uppercase tracking-wider px-sm py-2 rounded transition-colors"
-          :class="
-            demoRole === DemoRole.CLIENT
-              ? 'bg-primary text-on-primary'
-              : 'text-on-surface-variant hover:bg-surface-container'
-          "
+          :class="demoRole === DemoRole.CLIENT ? 'bg-primary text-on-primary' : 'text-on-surface-variant hover:bg-surface-container'"
           :aria-pressed="demoRole === DemoRole.CLIENT"
           @click="setRole(DemoRole.CLIENT)"
         >
@@ -73,11 +69,7 @@ function resetAll() {
         <button
           type="button"
           class="flex-1 font-label-sm text-label-sm uppercase tracking-wider px-sm py-2 rounded transition-colors"
-          :class="
-            demoRole === DemoRole.PRO
-              ? 'bg-primary text-on-primary'
-              : 'text-on-surface-variant hover:bg-surface-container'
-          "
+          :class="demoRole === DemoRole.PRO ? 'bg-primary text-on-primary' : 'text-on-surface-variant hover:bg-surface-container'"
           :aria-pressed="demoRole === DemoRole.PRO"
           @click="setRole(DemoRole.PRO)"
         >

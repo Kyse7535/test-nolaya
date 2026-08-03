@@ -83,7 +83,7 @@ function createDemand() {
 
 <template>
   <div
-    class="bg-surface text-on-surface font-body-md antialiased min-h-screen pb-24"
+    class="bg-surface text-on-surface font-body-md antialiased min-h-screen pb-8"
   >
     <header
       class="fixed top-0 left-0 w-full z-50 flex items-center px-margin-mobile h-16 bg-surface border-b border-surface-container"
@@ -123,7 +123,7 @@ function createDemand() {
           <span
             class="font-label-mono text-label-mono text-on-surface-variant flex items-center gap-xs"
           >
-            <span class="material-symbols-outlined text-[16px]">verified</span>
+            <span class="material-symbols-outlined text-icon-sm">verified</span>
             EXPERIENCE_RECORDED
           </span>
         </div>
@@ -233,7 +233,7 @@ function createDemand() {
               step="1"
               class="w-full bg-surface-container-lowest border border-surface-container rounded px-sm py-[10px] font-label-mono text-label-mono text-primary focus:border-primary focus:ring-0 outline-none transition-colors"
             />
-            <p class="font-body-md text-[12px] text-on-surface-variant">
+            <p class="font-body-sm text-body-sm text-on-surface-variant">
               Référence historique :
               {{ formatEuro(experience.priceEngaged || experience.finalAmount) }}
               — non appliqué automatiquement
@@ -321,7 +321,7 @@ function createDemand() {
               <div
                 class="w-10 h-10 bg-surface-container flex items-center justify-center rounded-full text-on-surface-variant"
               >
-                <span class="material-symbols-outlined text-[20px]">
+                <span class="material-symbols-outlined text-icon-md">
                   content_cut
                 </span>
               </div>

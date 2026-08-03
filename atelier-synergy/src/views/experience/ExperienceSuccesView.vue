@@ -86,7 +86,7 @@ function goRepeat() {
     </header>
 
     <main v-if="experience" class="flex-1 pt-16 pb-xxl flex flex-col">
-      <div class="w-full h-64 relative overflow-hidden">
+      <div class="w-full h-32 relative overflow-hidden">
         <img
           alt=""
           class="absolute inset-0 w-full h-full object-cover object-top"
@@ -103,7 +103,7 @@ function goRepeat() {
             class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary text-on-primary mb-2"
           >
             <span
-              class="material-symbols-outlined text-[18px]"
+              class="material-symbols-outlined text-icon"
               style="font-variation-settings: 'FILL' 1"
             >
               check
@@ -152,13 +152,13 @@ function goRepeat() {
               <span
                 class="font-body-md text-body-md text-on-surface-variant flex items-center gap-1"
               >
-                <span class="material-symbols-outlined text-[16px]">person</span>
+                <span class="material-symbols-outlined text-icon-sm">person</span>
                 {{ experience.proDisplayName }}
               </span>
               <span
                 class="font-body-md text-body-md text-on-surface-variant flex items-center gap-1"
               >
-                <span class="material-symbols-outlined text-[16px]">
+                <span class="material-symbols-outlined text-icon-sm">
                   calendar_today
                 </span>
                 {{ experience.dateLabel || '—' }}
@@ -214,7 +214,7 @@ function goRepeat() {
 
         <div class="mt-lg text-center pb-8">
           <p
-            class="font-label-mono text-label-mono text-on-surface-variant text-[11px] opacity-70"
+            class="font-label-mono text-label-mono text-on-surface-variant text-label-technical opacity-70"
           >
             Pas de modération opérateur.<br />
             Galerie vérifiée hors cœur de cette démo.

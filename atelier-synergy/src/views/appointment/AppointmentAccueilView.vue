@@ -123,16 +123,12 @@ function goPlan() {
           >
             <div
               class="w-10 h-10 rounded-full flex items-center justify-center"
-              :class="
-                pillar.accent
-                  ? 'bg-secondary-container text-on-secondary-container'
-                  : 'bg-surface-container-low text-primary'
-              "
+              :class="pillar.accent ? 'bg-secondary-container text-on-secondary-container' : 'bg-surface-container-low text-primary'"
             >
               <span class="material-symbols-outlined">{{ pillar.icon }}</span>
             </div>
             <div>
-              <h4 class="font-headline-sm text-[16px] font-semibold text-primary">
+              <h4 class="font-body-md text-body-md font-semibold text-primary">
                 {{ pillar.title }}
               </h4>
               <p class="font-body-md text-body-md text-on-surface-variant mt-1">
@@ -154,11 +150,11 @@ function goPlan() {
       <div class="max-w-2xl mx-auto">
         <button
           type="button"
-          class="w-full bg-primary-container text-on-primary font-headline-sm text-[16px] py-4 rounded-lg flex items-center justify-center gap-2 hover:bg-opacity-90 active:scale-[0.98] transition-all shadow-sm"
+          class="w-full bg-primary-container text-on-primary font-body-md text-body-md font-semibold py-4 rounded-lg flex items-center justify-center gap-2 hover:bg-opacity-90 active:scale-[0.98] transition-all shadow-sm"
           @click="goPlan"
         >
           <span>Voir le plan de préparation</span>
-          <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+          <span class="material-symbols-outlined text-icon-md">arrow_forward</span>
         </button>
       </div>
     </div>

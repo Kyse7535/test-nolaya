@@ -105,11 +105,7 @@ function continueNext() {
             :key="opt.id"
             type="button"
             class="w-full text-left px-md py-3 rounded-lg border transition-colors"
-            :class="
-              protectionIds.includes(opt.id)
-                ? 'border-secondary bg-secondary-container/40'
-                : 'border-outline-variant bg-surface-container-lowest'
-            "
+            :class="protectionIds.includes(opt.id) ? 'border-secondary bg-secondary-container/40' : 'border-outline-variant bg-surface-container-lowest'"
             @click="toggleProtection(opt.id)"
           >
             {{ opt.label }}
@@ -125,11 +121,7 @@ function continueNext() {
             :key="opt.id"
             type="button"
             class="w-full text-left px-md py-3 rounded-lg border transition-colors"
-            :class="
-              serviceLevel === opt.id
-                ? 'border-secondary bg-secondary-container/40'
-                : 'border-outline-variant bg-surface-container-lowest'
-            "
+            :class="serviceLevel === opt.id ? 'border-secondary bg-secondary-container/40' : 'border-outline-variant bg-surface-container-lowest'"
             @click="selectService(opt.id)"
           >
             <span class="font-headline-sm text-headline-sm block mb-xs">{{ opt.label }}</span>
@@ -149,11 +141,7 @@ function continueNext() {
               :key="opt.id"
               type="button"
               class="w-full text-left px-md py-3 rounded-lg border transition-colors"
-              :class="
-                clientTasks.includes(opt.id)
-                  ? 'border-secondary bg-secondary-container/40'
-                  : 'border-outline-variant bg-surface-container-lowest'
-              "
+              :class="clientTasks.includes(opt.id) ? 'border-secondary bg-secondary-container/40' : 'border-outline-variant bg-surface-container-lowest'"
               @click="toggleTask(opt.id)"
             >
               {{ opt.label }}
@@ -170,11 +158,7 @@ function continueNext() {
             :key="opt.id"
             type="button"
             class="w-full text-left px-md py-3 rounded-lg border transition-colors"
-            :class="
-              searchPriority === opt.id
-                ? 'border-secondary bg-secondary-container/40'
-                : 'border-outline-variant bg-surface-container-lowest'
-            "
+            :class="searchPriority === opt.id ? 'border-secondary bg-secondary-container/40' : 'border-outline-variant bg-surface-container-lowest'"
             @click="selectPriority(opt.id)"
           >
             <span class="font-headline-sm text-headline-sm block mb-xs">{{ opt.label }}</span>

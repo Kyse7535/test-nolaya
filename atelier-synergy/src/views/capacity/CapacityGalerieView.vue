@@ -123,7 +123,7 @@ function continueNext() {
         <div
           class="inline-flex self-start items-center px-3 py-1.5 bg-surface-container-high rounded-full border border-outline-variant"
         >
-          <span class="material-symbols-outlined text-[16px] mr-2 text-on-surface-variant">
+          <span class="material-symbols-outlined text-icon-sm mr-2 text-on-surface-variant">
             content_cut
           </span>
           <span class="font-label-caps text-label-caps text-on-surface">
@@ -176,7 +176,7 @@ function continueNext() {
             class="absolute top-2 right-2 w-8 h-8 flex items-center justify-center bg-surface/90 backdrop-blur-sm border border-outline-variant text-on-surface-variant hover:text-error transition-colors"
             @click="removeItem(item.id)"
           >
-            <span class="material-symbols-outlined text-[18px]">close</span>
+            <span class="material-symbols-outlined text-icon">close</span>
           </button>
         </div>
 

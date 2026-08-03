@@ -75,7 +75,7 @@ function goHome() {
           class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full inline-flex items-center gap-1.5 border border-secondary/20"
         >
           <span
-            class="material-symbols-outlined text-secondary text-[16px]"
+            class="material-symbols-outlined text-secondary text-icon-sm"
             style="font-variation-settings: 'FILL' 1"
           >
             check_circle
@@ -124,7 +124,7 @@ function goHome() {
         @click="goListe"
       >
         <span>Voir mes capacités</span>
-        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+        <span class="material-symbols-outlined text-icon">arrow_forward</span>
       </button>
       <button
         type="button"

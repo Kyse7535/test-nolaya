@@ -63,7 +63,7 @@ function goPlan() {
         class="flex-1 flex flex-col px-margin-mobile pt-stack-lg pb-stack-lg gap-stack-lg overflow-y-auto"
       >
         <div
-          class="w-full aspect-[4/5] bg-surface-container-low rounded-lg overflow-hidden relative border border-surface-container-highest"
+          class="w-full h-36 bg-surface-container-low rounded-lg overflow-hidden relative border border-surface-container-highest"
         >
           <img
             class="w-full h-full object-cover object-center absolute inset-0"
@@ -80,7 +80,7 @@ function goPlan() {
               PRÊT
             </span>
             <span
-              class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-widest text-[10px]"
+              class="font-label-micro text-label-micro text-on-surface-variant uppercase tracking-widest"
             >
               Ready
             </span>

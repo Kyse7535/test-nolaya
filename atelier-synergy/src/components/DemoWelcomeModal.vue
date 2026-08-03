@@ -69,7 +69,7 @@ const journey = ['Besoin ↔ offre', 'Appariement', 'Engagement', 'RDV', 'Paieme
                 </span>
                 <span
                   v-if="index < journey.length - 1"
-                  class="material-symbols-outlined text-[14px] text-outline"
+                  class="material-symbols-outlined text-icon-xs text-outline"
                   aria-hidden="true"
                 >
                   chevron_right
@@ -85,7 +85,7 @@ const journey = ['Besoin ↔ offre', 'Appariement', 'Engagement', 'RDV', 'Paieme
                   class="mt-unit flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-secondary-container text-on-secondary-container"
                   aria-hidden="true"
                 >
-                  <span class="material-symbols-outlined text-[18px]">person</span>
+                  <span class="material-symbols-outlined text-icon">person</span>
                 </span>
                 <div class="min-w-0 flex flex-col gap-unit">
                   <span
@@ -106,7 +106,7 @@ const journey = ['Besoin ↔ offre', 'Appariement', 'Engagement', 'RDV', 'Paieme
                   class="mt-unit flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-on-primary"
                   aria-hidden="true"
                 >
-                  <span class="material-symbols-outlined text-[18px]">content_cut</span>
+                  <span class="material-symbols-outlined text-icon">content_cut</span>
                 </span>
                 <div class="min-w-0 flex flex-col gap-unit">
                   <span

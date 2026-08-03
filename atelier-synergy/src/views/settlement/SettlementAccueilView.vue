@@ -2,6 +2,7 @@
 import { computed, onMounted } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
+import DemoRoleHandoff from '../../components/DemoRoleHandoff.vue'
 import { DemoRole } from '../../domain/demoRole'
 import {
   SETTLEMENT_HERO_ACCUEIL,
@@ -63,7 +64,7 @@ function openDecompte() {
         class="flex items-center justify-center w-10 h-10 -ml-2 text-primary hover:bg-surface-container-low transition-colors rounded-full active:scale-95"
         @click="goBack"
       >
-        <span class="material-symbols-outlined text-[24px]">arrow_back</span>
+        <span class="material-symbols-outlined text-icon-lg">arrow_back</span>
       </button>
       <h1 class="ml-2 font-headline-sm text-headline-sm text-primary">
         {{ isPro ? 'Mon revenu' : 'Règlement' }}
@@ -81,7 +82,7 @@ function openDecompte() {
             {{ settlementStore.statusBadge }}
           </span>
           <span
-            class="ml-2 font-label-mono text-[10px] text-on-surface-variant uppercase tracking-wider opacity-60"
+            class="ml-2 font-label-micro text-label-micro text-on-surface-variant uppercase tracking-wider opacity-60"
           >
             {{ settlementStore.statusCode }}
           </span>
@@ -140,11 +141,7 @@ function openDecompte() {
           >
             <div
               class="w-10 h-10 rounded-full flex items-center justify-center mr-md shrink-0"
-              :class="
-                pillar.filled
-                  ? 'bg-secondary-fixed/30'
-                  : 'bg-surface-container'
-              "
+              :class="pillar.filled ? 'bg-secondary-fixed/30' : 'bg-surface-container'"
             >
               <span
                 class="material-symbols-outlined"
@@ -157,7 +154,7 @@ function openDecompte() {
               </span>
             </div>
             <div>
-              <h4 class="font-headline-sm text-[16px] text-on-surface mb-xs">
+              <h4 class="font-body-md text-body-md font-semibold text-on-surface mb-xs">
                 {{ pillar.title }}
               </h4>
               <p class="font-body-sm text-body-sm text-on-surface-variant">
@@ -187,10 +184,16 @@ function openDecompte() {
     <div
       class="fixed bottom-0 w-full px-margin-mobile pt-md pb-margin-mobile bg-background/95 backdrop-blur-md border-t border-surface-variant z-50"
     >
-      <div class="max-w-lg mx-auto w-full">
+      <div class="max-w-lg mx-auto w-full flex flex-col gap-sm items-stretch">
+        <DemoRoleHandoff
+          v-if="isPro && !settlementStore.settled"
+          class="mx-auto"
+          :target-role="DemoRole.CLIENT"
+          action="payer le solde"
+        />
         <button
           type="button"
-          class="w-full h-12 bg-primary text-on-primary font-headline-sm text-[16px] rounded-lg transition-transform active:scale-[0.98] flex items-center justify-center"
+          class="w-full h-12 bg-primary text-on-primary font-body-md text-body-md font-semibold rounded-lg transition-transform active:scale-[0.98] flex items-center justify-center"
           @click="openDecompte"
         >
           {{ isPro ? 'Compris — retour' : 'Voir mon décompte' }}

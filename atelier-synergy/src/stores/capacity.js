@@ -14,7 +14,9 @@ import {
   canContinuePrestation,
   canContinuePricing,
   canContinueService,
+  asVarianteList,
   createDefaultCapacity,
+  normalizeVariante,
 } from '../domain/capacity/model'
 import {
   LOCATION_OPTIONS,
@@ -200,7 +202,7 @@ export const useCapacityStore = defineStore('capacity', () => {
       prestation: {
         id: service.id,
         label: service.label,
-        variante: { ...service.defaultVariante },
+        variante: normalizeVariante(service.defaultVariante),
       },
       gallery: changing ? [] : current.gallery,
       pricing: changing
@@ -216,14 +218,38 @@ export const useCapacityStore = defineStore('capacity', () => {
   function setVariante(partial) {
     const current = currentCapacity.value
     if (!current || current.status !== CapacityStatus.DRAFT) return
+    const variante = normalizeVariante(current.prestation.variante)
+    for (const key of ['taille', 'longueur', 'finition']) {
+      if (partial?.[key] !== undefined) {
+        variante[key] = asVarianteList(partial[key])
+      }
+    }
     upsert({
       ...current,
       prestation: {
         ...current.prestation,
-        variante: {
-          ...current.prestation.variante,
-          ...partial,
-        },
+        variante,
+      },
+    })
+  }
+
+  /** Toggle one option in a multi-select variante dimension (taille / longueur / finition). */
+  function toggleVariante(key, value) {
+    const current = currentCapacity.value
+    if (!current || current.status !== CapacityStatus.DRAFT) return
+    if (!value || !['taille', 'longueur', 'finition'].includes(key)) return
+
+    const variante = normalizeVariante(current.prestation.variante)
+    const list = variante[key]
+    const next = list.includes(value)
+      ? list.filter((item) => item !== value)
+      : [...list, value]
+
+    upsert({
+      ...current,
+      prestation: {
+        ...current.prestation,
+        variante: { ...variante, [key]: next },
       },
     })
   }
@@ -510,6 +536,7 @@ export const useCapacityStore = defineStore('capacity', () => {
     patchNested,
     setPrestation,
     setVariante,
+    toggleVariante,
     addGalleryItem,
     removeGalleryItem,
     setGalleryProofLevel,

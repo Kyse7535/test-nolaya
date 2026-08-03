@@ -153,7 +153,7 @@ function goSucces() {
           <span
             class="inline-flex items-center gap-1 bg-surface-container-low px-2 py-0.5 rounded font-label-sm text-label-sm text-on-surface-variant border border-surface-container uppercase"
           >
-            <span class="material-symbols-outlined text-[14px]">verified</span>
+            <span class="material-symbols-outlined text-icon-xs">verified</span>
             Expérience enregistrée
           </span>
         </div>

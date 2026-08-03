@@ -49,7 +49,7 @@ function start() {
         class="w-10 h-10 flex items-center justify-center text-on-surface hover:bg-surface-container-low rounded-lg active:scale-95 duration-150"
         @click="goBack"
       >
-        <span class="material-symbols-outlined text-[24px]">arrow_back</span>
+        <span class="material-symbols-outlined text-icon-lg">arrow_back</span>
       </button>
       <h1 class="font-headline-sm text-headline-sm text-primary font-bold tracking-tight">
         Cadre professionnel

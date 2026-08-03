@@ -36,7 +36,7 @@ function continueNext() {
         class="flex items-center justify-center p-2 rounded-full hover:bg-surface-container-low active:scale-95 transition-transform duration-150 text-primary"
         @click="goBack"
       >
-        <span class="material-symbols-outlined text-[24px]">arrow_back</span>
+        <span class="material-symbols-outlined text-icon-lg">arrow_back</span>
       </button>
       <h1 class="font-headline-sm text-headline-sm font-bold text-primary flex-1 text-center">
         Cadre professionnel

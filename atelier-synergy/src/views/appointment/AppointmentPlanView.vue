@@ -45,7 +45,7 @@ function goProChecklist() {
 </script>
 
 <template>
-  <div class="bg-background text-on-background antialiased min-h-screen pb-24">
+  <div class="bg-background text-on-background antialiased min-h-screen pb-8">
     <header
       class="flex items-center justify-between px-margin-mobile w-full h-16 bg-surface border-b border-surface-container-highest sticky top-0 z-40"
     >
@@ -98,10 +98,10 @@ function goProChecklist() {
             {{ progress.confirmed }} sur {{ progress.total }} actions bloquantes confirmées
           </p>
           <div class="flex gap-4 mt-2">
-            <span class="font-label-mono text-[11px] text-on-surface-variant">
+            <span class="font-label-technical text-label-technical text-on-surface-variant">
               Confirmées · {{ progress.confirmed }}
             </span>
-            <span class="font-label-mono text-[11px] text-on-surface-variant">
+            <span class="font-label-technical text-label-technical text-on-surface-variant">
               À faire · {{ progress.remaining }}
             </span>
           </div>
@@ -127,12 +127,12 @@ function goProChecklist() {
           <div
             class="flex items-center gap-2 mt-1 font-body-md text-body-md text-on-surface-variant"
           >
-            <span class="material-symbols-outlined text-[16px]">calendar_today</span>
+            <span class="material-symbols-outlined text-icon-sm">calendar_today</span>
             <span>{{ engagement.dateLabel }}, {{ engagement.startTime }}</span>
           </div>
           <div class="flex items-center gap-2 mt-2 font-body-md text-body-md text-primary">
             <span class="font-medium">{{ engagement.clientDisplayName }}</span>
-            <span class="material-symbols-outlined text-[14px] text-outline">sync_alt</span>
+            <span class="material-symbols-outlined text-icon-xs text-outline">sync_alt</span>
             <span class="font-medium">{{ engagement.proDisplayName }}</span>
           </div>
         </div>
@@ -213,18 +213,14 @@ function goProChecklist() {
               <div class="flex items-center gap-2 mt-1">
                 <span
                   class="font-label-mono text-label-mono"
-                  :class="
-                    action.owner === ActionOwner.PRO
-                      ? 'text-secondary'
-                      : 'text-on-surface-variant'
-                  "
+                  :class="action.owner === ActionOwner.PRO ? 'text-secondary' : 'text-on-surface-variant'"
                 >
                   {{ ownerLabel(action.owner) }}
                 </span>
               </div>
             </div>
             <div class="bg-surface-container px-2 py-1 rounded shrink-0">
-              <span class="font-label-mono text-[10px] text-primary tracking-wide">
+              <span class="font-label-micro text-label-micro text-primary tracking-wide">
                 {{ actionStatusLabel(action.status) }}
               </span>
             </div>

@@ -216,7 +216,7 @@ function continueNext() {
                 class="text-outline hover:text-error transition-colors p-1"
                 @click="removeSupplement(index)"
               >
-                <span class="material-symbols-outlined text-[20px]">delete</span>
+                <span class="material-symbols-outlined text-icon-md">delete</span>
               </button>
             </div>
           </div>
@@ -225,7 +225,7 @@ function continueNext() {
         <div class="bg-surface-container rounded-lg p-sm relative overflow-hidden">
           <div class="absolute top-0 left-0 w-full h-1 bg-secondary-container" />
           <h3 class="font-body-md text-body-md font-semibold text-primary flex items-center gap-xs mb-sm pt-xs">
-            <span class="material-symbols-outlined text-[20px]">receipt_long</span>
+            <span class="material-symbols-outlined text-icon-md">receipt_long</span>
             Aperçu devis
           </h3>
           <div class="flex flex-col gap-xs">

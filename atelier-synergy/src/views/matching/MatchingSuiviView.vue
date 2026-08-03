@@ -2,6 +2,7 @@
 import { computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
+import DemoRoleHandoff from '../../components/DemoRoleHandoff.vue'
 import { invitationStatusLabel } from '../../domain/matching/labels'
 import { CampaignStatus, DemoRole, InvitationStatus } from '../../domain/matching/model'
 import { useMatchingStore } from '../../stores/matching'
@@ -45,6 +46,14 @@ function onRowClick(invitation) {
 function isAccepted(invitation) {
   return invitation.status === InvitationStatus.ACCEPTED
 }
+
+const hasPendingInvitations = computed(() =>
+  invitations.value.some((inv) => inv.status !== InvitationStatus.ACCEPTED),
+)
+
+const showAcceptHandoff = computed(
+  () => !isProRole.value && hasPendingInvitations.value && !isThresholdReached.value,
+)
 </script>
 
 <template>
@@ -60,7 +69,7 @@ function isAccepted(invitation) {
         class="text-primary hover:opacity-80 transition-opacity active:scale-95 flex items-center justify-center w-10 h-10 -ml-2 rounded-full"
         @click="goBack"
       >
-        <span class="material-symbols-outlined text-[24px]">arrow_back</span>
+        <span class="material-symbols-outlined text-icon-lg">arrow_back</span>
       </button>
       <h1
         class="font-headline-lg-mobile text-headline-lg-mobile font-bold tracking-tight text-primary uppercase absolute left-1/2 -translate-x-1/2 whitespace-nowrap"
@@ -84,7 +93,7 @@ function isAccepted(invitation) {
             class="text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center p-2 -mr-2 rounded-full"
             @click="() => {}"
           >
-            <span class="material-symbols-outlined text-[20px]">refresh</span>
+            <span class="material-symbols-outlined text-icon-md">refresh</span>
           </button>
         </div>
         <h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary">
@@ -122,7 +131,7 @@ function isAccepted(invitation) {
             class="bg-secondary-fixed/20 border border-secondary-fixed-dim px-md py-xs rounded flex items-center gap-xs"
           >
             <span
-              class="material-symbols-outlined text-[16px] text-on-secondary-fixed-variant"
+              class="material-symbols-outlined text-icon-sm text-on-secondary-fixed-variant"
               style="font-variation-settings: 'FILL' 1"
             >
               check_circle
@@ -149,20 +158,14 @@ function isAccepted(invitation) {
             :key="invitation.id"
             type="button"
             class="flex items-center justify-between py-md border-b border-outline-variant transition-colors w-full text-left"
-            :class="
-              isProRole && !isAccepted(invitation)
-                ? 'hover:bg-surface-container-low/50 cursor-pointer'
-                : 'cursor-default'
-            "
+            :class="isProRole && !isAccepted(invitation) ? 'hover:bg-surface-container-low/50 cursor-pointer' : 'cursor-default'"
             :disabled="!isProRole"
             @click="onRowClick(invitation)"
           >
             <div class="flex items-center gap-md">
               <div
                 class="w-12 h-12 rounded-full overflow-hidden border border-outline-variant bg-surface-container flex-shrink-0"
-                :class="{
-                  'opacity-80 mix-blend-luminosity grayscale-[20%]': !isAccepted(invitation),
-                }"
+                :class="{ 'opacity-80 mix-blend-luminosity grayscale-[20%]': !isAccepted(invitation), }"
               >
                 <img
                   v-if="invitation.avatarUrl"
@@ -189,11 +192,7 @@ function isAccepted(invitation) {
             <div class="flex-shrink-0">
               <span
                 class="inline-flex items-center justify-center px-sm py-[2px] rounded font-label-mono text-label-mono uppercase tracking-wide border"
-                :class="
-                  isAccepted(invitation)
-                    ? 'bg-secondary-fixed text-on-secondary-fixed-variant border-secondary-fixed-dim'
-                    : 'bg-surface-container-high text-on-surface-variant border-outline-variant'
-                "
+                :class="isAccepted(invitation) ? 'bg-secondary-fixed text-on-secondary-fixed-variant border-secondary-fixed-dim' : 'bg-surface-container-high text-on-surface-variant border-outline-variant'"
               >
                 {{ invitationStatusLabel(invitation.status) }}
               </span>
@@ -205,12 +204,19 @@ function isAccepted(invitation) {
       <div
         class="flex items-start gap-sm bg-surface-bright border border-outline-variant p-md rounded"
       >
-        <span class="material-symbols-outlined text-[18px] text-on-surface-variant mt-[2px]">
+        <span class="material-symbols-outlined text-icon text-on-surface-variant mt-[2px]">
           info
         </span>
-        <p class="font-body-sm text-body-sm text-on-surface-variant">
-          {{ threshold }} acceptations exactes suffisent pour constituer la shortlist.
-        </p>
+        <div class="flex flex-col gap-xs">
+          <p class="font-body-sm text-body-sm text-on-surface-variant">
+            {{ threshold }} acceptations exactes suffisent pour constituer la shortlist.
+          </p>
+          <DemoRoleHandoff
+            v-if="showAcceptHandoff"
+            :target-role="DemoRole.PRO"
+            action="accepter"
+          />
+        </div>
       </div>
     </main>
 
@@ -225,7 +231,7 @@ function isAccepted(invitation) {
           @click="goShortlist"
         >
           <span>Voir la shortlist</span>
-          <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+          <span class="material-symbols-outlined text-icon">arrow_forward</span>
         </button>
       </div>
     </div>

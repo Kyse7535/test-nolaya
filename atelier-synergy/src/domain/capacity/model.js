@@ -41,7 +41,7 @@ export function createDefaultCapacity(overrides = {}) {
     prestation: {
       id: null,
       label: null,
-      variante: { taille: null, longueur: null, finition: null },
+      variante: { taille: [], longueur: [], finition: [] },
     },
     gallery: [],
     serviceLevel: null,
@@ -64,6 +64,26 @@ export function createDefaultCapacity(overrides = {}) {
     closedAt: null,
     createdAt: new Date().toISOString(),
     ...overrides,
+  }
+}
+
+/** Normalize a variante field to a string list (supports legacy single values). */
+export function asVarianteList(value) {
+  if (Array.isArray(value)) return value.filter((item) => item != null && item !== '')
+  if (value == null || value === '') return []
+  return [value]
+}
+
+export function formatVarianteList(value, separator = ', ') {
+  const list = asVarianteList(value)
+  return list.length ? list.join(separator) : null
+}
+
+export function normalizeVariante(variante = {}) {
+  return {
+    taille: asVarianteList(variante?.taille),
+    longueur: asVarianteList(variante?.longueur),
+    finition: asVarianteList(variante?.finition),
   }
 }
 

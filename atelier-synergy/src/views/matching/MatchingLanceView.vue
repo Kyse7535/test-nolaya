@@ -61,7 +61,7 @@ function goDemand() {
 </script>
 
 <template>
-  <div class="bg-surface text-on-surface font-body-md pb-24 min-h-screen">
+  <div class="bg-surface text-on-surface font-body-md pb-8 min-h-screen">
     <header
       class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-margin-mobile h-16 bg-surface border-b border-outline-variant"
     >
@@ -170,7 +170,7 @@ function goDemand() {
           <div
             class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0 z-10 border-2 border-surface"
           >
-            <span class="material-symbols-outlined text-[16px]">check</span>
+            <span class="material-symbols-outlined text-icon-sm">check</span>
           </div>
           <div class="ml-md pt-1">
             <p class="font-body-md text-body-md text-primary font-semibold">Campagne créée</p>
@@ -180,7 +180,7 @@ function goDemand() {
           <div
             class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0 z-10 border-2 border-surface"
           >
-            <span class="material-symbols-outlined text-[16px]">check</span>
+            <span class="material-symbols-outlined text-icon-sm">check</span>
           </div>
           <div class="ml-md pt-1">
             <p class="font-body-md text-body-md text-primary font-semibold">Vague 1 envoyée</p>
@@ -189,14 +189,10 @@ function goDemand() {
         <div class="flex items-start relative">
           <div
             class="w-8 h-8 rounded-full flex items-center justify-center shrink-0 z-10 border-2 border-surface"
-            :class="
-              isThresholdReached
-                ? 'bg-primary text-on-primary'
-                : 'bg-secondary-fixed text-on-secondary-fixed-variant'
-            "
+            :class="isThresholdReached ? 'bg-primary text-on-primary' : 'bg-secondary-fixed text-on-secondary-fixed-variant'"
           >
             <span
-              class="material-symbols-outlined text-[16px]"
+              class="material-symbols-outlined text-icon-sm"
               :class="{ 'animate-spin': !isThresholdReached }"
             >
               {{ isThresholdReached ? 'check' : 'sync' }}

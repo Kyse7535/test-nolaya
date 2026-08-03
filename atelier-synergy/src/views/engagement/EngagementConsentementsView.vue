@@ -161,7 +161,7 @@ function goNext() {
                   {{ policyAcceptLabel(policy) }}
                 </p>
                 <span
-                  class="bg-surface-container px-2 py-0.5 rounded font-label-technical text-[10px] text-on-surface-variant"
+                  class="bg-surface-container px-2 py-0.5 rounded font-label-micro text-label-micro text-on-surface-variant"
                 >
                   v{{ policy.version }}
                 </span>
@@ -191,7 +191,7 @@ function goNext() {
         @click="goNext"
       >
         Continuer vers le paiement
-        <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+        <span class="material-symbols-outlined text-icon-md">arrow_forward</span>
       </button>
       <button
         type="button"

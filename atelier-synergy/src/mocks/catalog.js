@@ -17,7 +17,7 @@ export const catalogServices = [
     label: 'Knotless braids',
     description: 'Tresses sans nœud, rendu naturel et durable.',
     previewSrc: GALLERY_POOL.knotless[2],
-    defaultVariante: { taille: 'Medium', longueur: 'Waist', finition: 'Standard' },
+    defaultVariante: { taille: ['Medium'], longueur: ['Waist'], finition: ['Standard'] },
     variantes: {
       taille: ['Small', 'Medium', 'Large'],
       longueur: ['Shoulder', 'Waist', 'Mid-back'],
@@ -36,7 +36,7 @@ export const catalogServices = [
     label: 'Vanilles / twists',
     description: 'Twists vanille, entretien et volume maîtrisés.',
     previewSrc: GALLERY_POOL.twists[0],
-    defaultVariante: { taille: 'Medium', longueur: 'Shoulder', finition: 'Standard' },
+    defaultVariante: { taille: ['Medium'], longueur: ['Shoulder'], finition: ['Standard'] },
     variantes: {
       taille: ['Small', 'Medium', 'Large'],
       longueur: ['Shoulder', 'Waist'],
@@ -55,7 +55,7 @@ export const catalogServices = [
     label: 'Retwist locs',
     description: 'Entretien des locs, ligne propre et confort.',
     previewSrc: GALLERY_POOL.knotless[0],
-    defaultVariante: { taille: 'Standard', longueur: null, finition: 'Standard' },
+    defaultVariante: { taille: ['Standard'], longueur: [], finition: ['Standard'] },
     variantes: {
       taille: ['Standard', 'Tight'],
       longueur: [],
@@ -76,7 +76,7 @@ export const catalogServices = [
     label: 'Ponytail',
     description: 'Queue de cheval installée, finition soignée.',
     previewSrc: GALLERY_POOL.knotless[1],
-    defaultVariante: { taille: 'Medium', longueur: 'Waist', finition: 'Standard' },
+    defaultVariante: { taille: ['Medium'], longueur: ['Waist'], finition: ['Standard'] },
     variantes: {
       taille: ['Small', 'Medium', 'Large'],
       longueur: ['Shoulder', 'Waist', 'Mid-back'],

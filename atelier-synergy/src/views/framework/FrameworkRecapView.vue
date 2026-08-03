@@ -162,11 +162,7 @@ function activate() {
             <p
               v-for="(line, index) in section.lines"
               :key="`${section.key}-${index}`"
-              :class="
-                index === 0
-                  ? 'font-body-md text-body-md text-on-surface'
-                  : 'font-body-sm text-body-sm text-on-surface-variant'
-              "
+              :class="index === 0 ? 'font-body-md text-body-md text-on-surface' : 'font-body-sm text-body-sm text-on-surface-variant'"
             >
               {{ line }}
             </p>
@@ -184,7 +180,7 @@ function activate() {
               @change="store.patch({ confirmed: $event.target.checked })"
             />
             <span
-              class="material-symbols-outlined absolute text-on-primary opacity-0 peer-checked:opacity-100 pointer-events-none text-[16px]"
+              class="material-symbols-outlined absolute text-on-primary opacity-0 peer-checked:opacity-100 pointer-events-none text-icon-sm"
             >
               check
             </span>

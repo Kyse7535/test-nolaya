@@ -1,6 +1,7 @@
 <script setup>
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
+import DemoRoleHandoff from '../../components/DemoRoleHandoff.vue'
 import {
   actionStatusLabel,
   appointmentStatusBadge,
@@ -87,11 +88,11 @@ function remindClient() {
       aria-live="polite"
     >
       <p class="font-body-md text-body-md flex items-start gap-2">
-        <span class="material-symbols-outlined text-[20px] shrink-0">notifications_active</span>
+        <span class="material-symbols-outlined text-icon-md shrink-0">notifications_active</span>
         <span>
           Notification envoyée à
           {{ engagement?.clientDisplayName || 'la cliente' }}
-          <span class="font-label-mono text-[10px] uppercase tracking-wider opacity-80">
+          <span class="font-label-micro text-label-micro uppercase tracking-wider opacity-80">
             (mock)
           </span>
         </span>
@@ -112,12 +113,12 @@ function remindClient() {
       <h1 class="font-headline-sm text-headline-sm text-primary flex-1">Checklist cliente</h1>
       <span
         v-if="isPro"
-        class="font-label-mono text-[10px] uppercase tracking-wider bg-secondary-container text-on-secondary-container px-2 py-1 rounded mr-2"
+        class="font-label-micro text-label-micro uppercase tracking-wider bg-secondary-container text-on-secondary-container px-2 py-1 rounded mr-2"
       >
         Lecture seule
       </span>
       <span
-        class="font-label-mono text-[10px] uppercase tracking-wider bg-surface-container text-on-surface-variant px-2 py-1 rounded"
+        class="font-label-micro text-label-micro uppercase tracking-wider bg-surface-container text-on-surface-variant px-2 py-1 rounded"
       >
         {{ appointmentStatusBadge(status) }}
       </span>
@@ -137,15 +138,21 @@ function remindClient() {
           pour READY.
         </template>
       </p>
+      <DemoRoleHandoff
+        v-if="isPro"
+        class="mt-2"
+        :target-role="DemoRole.CLIENT"
+        action="valider"
+      />
       <p
         v-if="engagement"
-        class="font-label-mono text-[11px] text-on-surface-variant mt-2 uppercase tracking-wider"
+        class="font-label-technical text-label-technical text-on-surface-variant mt-2 uppercase tracking-wider"
       >
         {{ engagement.serviceLabel }} · {{ engagement.dateLabel }} ·
         {{ engagement.placeLabel }}
       </p>
 
-      <div class="mt-4 rounded-lg overflow-hidden w-full h-48 bg-surface-container mb-stack-lg">
+      <div class="mt-3 rounded-lg overflow-hidden w-full h-28 bg-surface-container mb-4">
         <img
           alt="Préparation cliente"
           class="w-full h-full object-cover"
@@ -165,29 +172,21 @@ function remindClient() {
             v-for="action in blocking"
             :key="action.id"
             class="rounded-lg p-4 border border-surface-container shadow-sm flex flex-col gap-stack-sm"
-            :class="
-              action.status === ActionStatus.CONFIRMED
-                ? 'bg-surface-container-low opacity-80'
-                : 'bg-surface'
-            "
+            :class="action.status === ActionStatus.CONFIRMED ? 'bg-surface-container-low opacity-80' : 'bg-surface'"
           >
             <div class="flex items-center gap-2 mb-1 flex-wrap">
               <span
-                class="font-label-mono text-[10px] uppercase tracking-wider bg-error-container text-on-error-container px-1.5 py-0.5 rounded"
+                class="font-label-micro text-label-micro uppercase tracking-wider bg-error-container text-on-error-container px-1.5 py-0.5 rounded"
               >
                 {{ criticalityLabel(action.criticality) }}
               </span>
               <span
-                class="font-label-mono text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded flex items-center gap-1"
-                :class="
-                  action.status === ActionStatus.CONFIRMED
-                    ? 'bg-surface-container-high text-on-surface'
-                    : 'border border-surface-container text-on-surface-variant'
-                "
+                class="font-label-micro text-label-micro uppercase tracking-wider px-1.5 py-0.5 rounded flex items-center gap-1"
+                :class="action.status === ActionStatus.CONFIRMED ? 'bg-surface-container-high text-on-surface' : 'border border-surface-container text-on-surface-variant'"
               >
                 <span
                   v-if="action.status === ActionStatus.CONFIRMED"
-                  class="material-symbols-outlined text-[12px]"
+                  class="material-symbols-outlined text-icon-xs"
                 >
                   done_all
                 </span>
@@ -195,12 +194,8 @@ function remindClient() {
               </span>
             </div>
             <h3
-              class="font-headline-sm text-[16px] text-on-surface"
-              :class="
-                action.status === ActionStatus.CONFIRMED
-                  ? 'line-through decoration-surface-variant'
-                  : ''
-              "
+              class="font-body-md text-body-md font-semibold text-on-surface"
+              :class="action.status === ActionStatus.CONFIRMED ? 'line-through decoration-surface-variant' : ''"
             >
               {{ action.title }}
             </h3>
@@ -216,7 +211,7 @@ function remindClient() {
               class="mt-2 w-full bg-primary text-on-primary font-caption text-caption py-2.5 rounded hover:bg-opacity-90 transition-opacity flex items-center justify-center gap-2"
               @click="confirm(action.id)"
             >
-              <span class="material-symbols-outlined text-[18px]">check_circle</span>
+              <span class="material-symbols-outlined text-icon">check_circle</span>
               Confirmer
             </button>
           </div>
@@ -225,9 +220,9 @@ function remindClient() {
 
       <section class="mb-stack-lg">
         <h2
-          class="font-headline-sm text-[16px] text-on-surface-variant mb-stack-md flex items-center gap-2"
+          class="font-body-md text-body-md font-semibold text-on-surface-variant mb-stack-md flex items-center gap-2"
         >
-          <span class="material-symbols-outlined text-[20px]">info</span>
+          <span class="material-symbols-outlined text-icon-md">info</span>
           Actions informatives
         </h2>
         <div class="flex flex-col gap-2">
@@ -239,7 +234,7 @@ function remindClient() {
             <button
               v-if="canEdit"
               type="button"
-              class="material-symbols-outlined text-secondary text-[20px]"
+              class="material-symbols-outlined text-secondary text-icon-md"
               :aria-label="
                 action.status === ActionStatus.CONFIRMED
                   ? 'Déjà confirmée'
@@ -257,7 +252,7 @@ function remindClient() {
             </button>
             <span
               v-else
-              class="material-symbols-outlined text-secondary text-[20px]"
+              class="material-symbols-outlined text-secondary text-icon-md"
               aria-hidden="true"
             >
               {{
@@ -270,13 +265,13 @@ function remindClient() {
               <p class="font-body-md text-body-md text-on-surface">{{ action.title }}</p>
             </div>
             <span
-              class="font-label-mono text-[10px] uppercase tracking-wider text-secondary"
+              class="font-label-micro text-label-micro uppercase tracking-wider text-secondary"
             >
               INFO
             </span>
           </div>
         </div>
-        <p class="font-caption text-[11px] text-on-surface-variant mt-6 text-center italic">
+        <p class="font-label-technical text-label-technical text-on-surface-variant mt-6 text-center italic">
           <template v-if="isPro">
             Seule la cliente peut cocher ces actions.
           </template>
@@ -312,18 +307,18 @@ function remindClient() {
       <button
         v-if="isPro"
         type="button"
-        class="w-full bg-primary text-on-primary font-headline-sm text-[16px] py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-opacity-90 transition-opacity"
+        class="w-full bg-primary text-on-primary font-body-md text-body-md font-semibold py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-opacity-90 transition-opacity"
         @click="remindClient"
       >
-        <span class="material-symbols-outlined text-[20px]">notifications</span>
+        <span class="material-symbols-outlined text-icon-md">notifications</span>
         Rappeler la cliente
       </button>
       <button
         type="button"
-        class="w-full bg-surface-container text-on-surface border border-outline-variant font-headline-sm text-[16px] py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-surface-container-high transition-colors"
+        class="w-full bg-surface-container text-on-surface border border-outline-variant font-body-md text-body-md font-semibold py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-surface-container-high transition-colors"
         @click="goBack"
       >
-        <span class="material-symbols-outlined text-[20px]">arrow_back</span>
+        <span class="material-symbols-outlined text-icon-md">arrow_back</span>
         Retour au plan
       </button>
     </div>

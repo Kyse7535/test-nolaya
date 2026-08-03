@@ -36,26 +36,14 @@ defineProps({
     >
       <div
         class="w-7 h-7 rounded-full flex items-center justify-center font-label-mono text-label-mono"
-        :class="
-          i + 1 < step
-            ? 'bg-primary text-on-primary'
-            : i + 1 === step
-              ? 'bg-secondary-container text-on-secondary-container border border-secondary'
-              : 'bg-surface-container text-on-surface-variant'
-        "
+        :class="i + 1 < step ? 'bg-primary text-on-primary' : i + 1 === step ? 'bg-secondary-container text-on-secondary-container border border-secondary' : 'bg-surface-container text-on-surface-variant'"
       >
-        <span v-if="i + 1 < step" class="material-symbols-outlined text-[14px]">check</span>
+        <span v-if="i + 1 < step" class="material-symbols-outlined text-icon-xs">check</span>
         <span v-else>{{ i + 1 }}</span>
       </div>
       <span
         class="font-label-status text-label-status text-center"
-        :class="
-          i + 1 === step
-            ? 'text-secondary font-semibold'
-            : i + 1 < step
-              ? 'text-on-surface-variant'
-              : 'text-on-surface-variant opacity-60'
-        "
+        :class="i + 1 === step ? 'text-secondary font-semibold' : i + 1 < step ? 'text-on-surface-variant' : 'text-on-surface-variant opacity-60'"
       >
         {{ s.label }}
       </span>

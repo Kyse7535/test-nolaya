@@ -95,9 +95,9 @@ function goEngagement() {
     </header>
 
     <main class="flex-1 overflow-y-auto pt-16 pb-32">
-      <div class="px-margin-mobile py-stack-lg space-y-stack-lg">
-        <section class="space-y-stack-sm">
-          <div class="flex flex-wrap gap-2 mb-2">
+      <div class="px-margin-mobile py-4 space-y-4">
+        <section class="space-y-1.5">
+          <div class="flex flex-wrap gap-1.5">
             <span
               class="inline-flex items-center px-2 py-1 rounded bg-secondary-container text-on-secondary-container font-label-status text-label-status"
             >
@@ -108,45 +108,40 @@ function goEngagement() {
             >
               EN ATTENTE D’ACCEPTATION
             </span>
-            <span
-              class="inline-flex items-center px-2 py-1 border border-outline-variant rounded text-on-surface-variant font-label-status text-label-status opacity-60"
-            >
-              FIRM_PROPOSAL
-            </span>
           </div>
-          <h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary">
+          <h2 class="font-headline-md text-headline-md text-primary">
             Proposition de prestation
           </h2>
-          <p class="font-body-md text-body-md text-on-surface-variant">
+          <p class="font-body-sm text-body-sm text-on-surface-variant">
             {{ proName }} vous a envoyé une offre ferme. Vérifiez les détails avant d’accepter.
           </p>
         </section>
 
         <section
-          class="flex items-center gap-4 bg-surface-container-lowest p-4 rounded-lg border border-surface-container"
+          class="flex items-center gap-3 bg-surface-container-lowest p-3 rounded-lg border border-surface-container"
         >
           <div
-            class="relative w-12 h-12 rounded-full overflow-hidden border border-surface-container shrink-0"
+            class="relative w-10 h-10 rounded-full overflow-hidden border border-surface-container shrink-0"
           >
             <img class="w-full h-full object-cover" alt="" :src="proAvatar" />
           </div>
-          <div>
-            <h3 class="font-body-md text-body-md font-semibold text-primary">{{ proName }}</h3>
+          <div class="min-w-0">
+            <h3 class="font-body-md text-body-md font-semibold text-primary truncate">{{ proName }}</h3>
             <p class="font-body-sm text-body-sm text-on-surface-variant">{{ proSpecialty }}</p>
           </div>
         </section>
 
         <section
-          class="w-full aspect-square rounded-xl overflow-hidden border border-surface-container relative"
+          class="w-full h-32 rounded-lg overflow-hidden border border-surface-container relative"
         >
           <img class="w-full h-full object-cover" alt="" :src="heroSrc" />
           <div
-            class="absolute bottom-4 left-4 right-4 bg-surface-container-lowest/90 backdrop-blur-sm p-4 rounded-lg border border-surface-container"
+            class="absolute bottom-2 left-2 right-2 bg-surface-container-lowest/90 backdrop-blur-sm px-3 py-2 rounded-lg border border-surface-container"
           >
-            <p class="font-body-sm text-body-sm text-on-surface-variant mb-1">
+            <p class="font-body-sm text-body-sm text-on-surface-variant">
               Prestation proposée
             </p>
-            <p class="font-body-lg text-body-lg text-primary font-medium">
+            <p class="font-body-md text-body-md text-primary font-medium">
               {{ prestationShort }}
             </p>
           </div>
@@ -160,7 +155,7 @@ function goEngagement() {
               <span class="font-body-sm text-body-sm text-on-surface-variant mb-1 block">
                 Prix convenu
               </span>
-              <span class="font-label-mono text-label-mono text-xl font-bold text-primary">
+              <span class="font-label-mono text-headline-sm font-bold text-primary">
                 {{ offer.priceTotal }} €
               </span>
             </div>
@@ -170,7 +165,7 @@ function goEngagement() {
               <span
                 class="font-body-sm text-body-sm text-on-surface-variant mb-1 flex items-center gap-1"
               >
-                <span class="material-symbols-outlined text-[16px]">schedule</span>
+                <span class="material-symbols-outlined text-icon-sm">schedule</span>
                 Créneau
               </span>
               <span class="font-label-mono text-label-mono text-primary whitespace-pre-line">
@@ -202,7 +197,7 @@ function goEngagement() {
               <span
                 class="font-body-sm text-body-sm text-on-surface-variant mb-1 flex items-center gap-1"
               >
-                <span class="material-symbols-outlined text-[16px]">check_circle</span>
+                <span class="material-symbols-outlined text-icon-sm">check_circle</span>
                 Ce qui est inclus
               </span>
               <p class="font-body-md text-body-md text-primary">{{ suppliesLine }}</p>
@@ -212,7 +207,7 @@ function goEngagement() {
               <span
                 class="font-body-sm text-body-sm text-on-surface-variant mb-1 flex items-center gap-1"
               >
-                <span class="material-symbols-outlined text-[16px]">info</span>
+                <span class="material-symbols-outlined text-icon-sm">info</span>
                 À préparer
               </span>
               <p class="font-body-md text-body-md text-primary">{{ clientTask }}</p>

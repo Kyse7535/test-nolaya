@@ -72,7 +72,7 @@ function start() {
         class="mr-stack-md text-on-surface hover:opacity-80 transition-opacity active:scale-95 duration-150"
         @click="goBack"
       >
-        <span class="material-symbols-outlined text-[24px]">arrow_back</span>
+        <span class="material-symbols-outlined text-icon-lg">arrow_back</span>
       </button>
       <h1 class="font-headline-md text-headline-md-mobile text-primary tracking-tight">
         Qualifier mon besoin
@@ -133,7 +133,7 @@ function start() {
             class="flex items-start bg-surface-container-lowest border border-outline-variant rounded-lg p-stack-md"
           >
             <div class="mr-stack-md text-secondary mt-1">
-              <span class="material-symbols-outlined text-[24px]">{{ pillar.icon }}</span>
+              <span class="material-symbols-outlined text-icon-lg">{{ pillar.icon }}</span>
             </div>
             <div>
               <h4 class="font-headline-md text-headline-md-mobile text-primary mb-unit">
@@ -163,7 +163,7 @@ function start() {
         @click="start"
       >
         Commencer ma demande
-        <span class="material-symbols-outlined ml-stack-sm text-[20px]">arrow_forward</span>
+        <span class="material-symbols-outlined ml-stack-sm text-icon-md">arrow_forward</span>
       </button>
     </div>
   </div>

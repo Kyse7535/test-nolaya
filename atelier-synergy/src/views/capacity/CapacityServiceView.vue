@@ -120,11 +120,7 @@ function continueNext() {
                 <span class="material-symbols-outlined text-primary mb-3">auto_awesome</span>
                 <div
                   class="w-5 h-5 rounded-full border-2 flex items-center justify-center"
-                  :class="
-                    serviceLevel === ServiceLevel.COMPLETE
-                      ? 'border-primary'
-                      : 'border-outline-variant'
-                  "
+                  :class="serviceLevel === ServiceLevel.COMPLETE ? 'border-primary' : 'border-outline-variant'"
                 >
                   <div
                     v-if="serviceLevel === ServiceLevel.COMPLETE"
@@ -154,11 +150,7 @@ function continueNext() {
                 <span class="material-symbols-outlined text-on-surface-variant mb-3">group</span>
                 <div
                   class="w-5 h-5 rounded-full border-2 flex items-center justify-center"
-                  :class="
-                    serviceLevel === ServiceLevel.ASSISTED
-                      ? 'border-primary'
-                      : 'border-outline-variant'
-                  "
+                  :class="serviceLevel === ServiceLevel.ASSISTED ? 'border-primary' : 'border-outline-variant'"
                 >
                   <div
                     v-if="serviceLevel === ServiceLevel.ASSISTED"
@@ -188,11 +180,7 @@ function continueNext() {
                   <button
                     type="button"
                     class="flex-1 sm:w-24 py-1.5 text-label-sm font-label-sm rounded transition-colors text-center"
-                    :class="
-                      task.owner === TaskOwner.STYLIST
-                        ? 'text-on-primary bg-primary shadow-sm'
-                        : 'text-on-surface-variant hover:text-on-surface'
-                    "
+                    :class="task.owner === TaskOwner.STYLIST ? 'text-on-primary bg-primary shadow-sm' : 'text-on-surface-variant hover:text-on-surface'"
                     @click="setOwner(task.id, TaskOwner.STYLIST)"
                   >
                     Styliste
@@ -200,14 +188,7 @@ function continueNext() {
                   <button
                     type="button"
                     class="flex-1 sm:w-24 py-1.5 text-label-sm font-label-sm rounded transition-colors text-center"
-                    :class="[
-                      task.stylistOnly
-                        ? 'cursor-not-allowed opacity-50'
-                        : '',
-                      task.owner === TaskOwner.CLIENT
-                        ? 'text-on-primary bg-primary shadow-sm'
-                        : 'text-on-surface-variant hover:text-on-surface',
-                    ]"
+                    :class="[ task.stylistOnly ? 'cursor-not-allowed opacity-50' : '', task.owner === TaskOwner.CLIENT ? 'text-on-primary bg-primary shadow-sm' : 'text-on-surface-variant hover:text-on-surface', ]"
                     :disabled="task.stylistOnly"
                     @click="setOwner(task.id, TaskOwner.CLIENT)"
                   >

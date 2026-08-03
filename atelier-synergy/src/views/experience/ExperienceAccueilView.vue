@@ -65,51 +65,45 @@ function confirmExperience() {
     class="bg-background text-on-background antialiased min-h-screen flex flex-col"
   >
     <header
-      class="fixed top-0 left-0 w-full z-50 flex items-center px-margin-mobile h-16 bg-surface border-b border-surface-container"
+      class="sticky top-0 left-0 w-full z-50 flex items-center px-margin-mobile h-14 bg-surface border-b border-surface-container"
     >
       <button
         type="button"
         aria-label="Retour"
-        class="w-11 h-11 flex items-center justify-center -ml-2 rounded-full hover:bg-surface-container-low transition-colors active:scale-95 text-primary"
+        class="w-10 h-10 flex items-center justify-center -ml-2 rounded-full hover:bg-surface-container-low transition-colors active:scale-95 text-primary shrink-0"
         @click="goBack"
       >
         <span class="material-symbols-outlined">arrow_back</span>
       </button>
-      <h1 class="font-headline-sm text-headline-sm text-primary font-semibold ml-2">
+      <h1 class="font-headline-sm text-headline-sm text-primary font-semibold ml-1 flex-1 truncate">
         {{ isPro ? 'Avis reçus' : 'Preuve d’expérience' }}
       </h1>
+      <div class="flex items-center gap-1.5 shrink-0">
+        <span
+          class="font-label-mono text-label-mono px-2 py-1 bg-surface-container text-on-surface border border-outline-variant rounded-sm uppercase tracking-wider"
+        >
+          SETTLED
+        </span>
+        <span
+          class="font-label-sm text-label-sm px-2 py-1 bg-secondary-container text-on-secondary-container rounded-sm uppercase tracking-wider"
+        >
+          {{ isPro ? 'AVIS' : 'PREUVE' }}
+        </span>
+      </div>
     </header>
 
     <main
-      class="flex-1 pt-[88px] pb-[140px] px-margin-mobile flex flex-col gap-xl max-w-2xl mx-auto w-full"
+      class="flex-1 pt-4 pb-28 px-margin-mobile flex flex-col gap-4 max-w-2xl mx-auto w-full"
     >
-      <section class="flex flex-col gap-sm">
-        <div class="flex items-center gap-sm mb-2 flex-wrap">
-          <span
-            class="font-label-mono text-label-mono px-2 py-1 bg-surface-container text-on-surface border border-outline-variant rounded-sm uppercase tracking-wider"
-          >
-            SETTLED
-          </span>
-          <span
-            class="font-label-sm text-label-sm px-2 py-1 bg-secondary-container text-on-secondary-container rounded-sm uppercase tracking-wider"
-          >
-            {{ isPro ? 'AVIS' : 'PREUVE' }}
-          </span>
-          <span
-            v-if="experienceStore.statusCode"
-            class="font-label-mono text-[10px] text-on-surface-variant uppercase tracking-wider opacity-60"
-          >
-            {{ experienceStore.statusCode }}
-          </span>
-        </div>
-        <h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-background text-balance">
+      <section class="flex flex-col gap-1.5">
+        <h2 class="font-headline-md text-headline-md text-on-background text-balance">
           {{
             isPro
               ? 'En attente de la confirmation cliente'
               : 'Votre expérience est prête à être enregistrée'
           }}
         </h2>
-        <p class="font-body-lg text-body-lg text-on-surface-variant mt-2">
+        <p class="font-body-sm text-body-sm text-on-surface-variant">
           <template v-if="isPro">
             Le règlement est clos. La cliente confirme l’outcome et peut laisser un
             avis. Vous pourrez alors lire le témoignage et y répondre.
@@ -124,7 +118,7 @@ function confirmExperience() {
       </section>
 
       <section
-        class="relative w-full aspect-[4/3] rounded-lg overflow-hidden border border-surface-container bg-surface-container-low"
+        class="relative w-full h-36 rounded-lg overflow-hidden border border-surface-container bg-surface-container-low"
       >
         <img
           alt=""
@@ -132,11 +126,11 @@ function confirmExperience() {
           :src="EXPERIENCE_HERO_ACCUEIL"
         />
         <div
-          class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/10 to-transparent"
+          class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent"
         />
-        <div class="absolute bottom-0 left-0 w-full p-md">
+        <div class="absolute bottom-0 left-0 w-full p-3">
           <p
-            class="font-headline-md text-headline-md text-on-primary text-balance leading-tight"
+            class="font-headline-sm text-headline-sm text-on-primary text-balance leading-tight"
           >
             {{
               isPro
@@ -147,21 +141,21 @@ function confirmExperience() {
         </div>
       </section>
 
-      <section class="flex flex-col gap-lg">
-        <h3 class="font-headline-sm text-headline-sm text-on-background">
+      <section class="flex flex-col gap-2">
+        <h3 class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider">
           {{ isPro ? 'Ce que vous allez voir' : 'Ce que vous allez faire' }}
         </h3>
-        <div class="grid grid-cols-1 gap-md">
+        <div class="border border-surface-container rounded-lg overflow-hidden divide-y divide-surface-container bg-surface-container-lowest">
           <div
             v-for="pillar in pillars"
             :key="pillar.title"
-            class="flex items-start gap-md p-md bg-surface-container-lowest border border-surface-container rounded-lg"
+            class="flex items-start gap-3 px-3 py-2.5"
           >
             <div
-              class="w-11 h-11 flex items-center justify-center rounded-full bg-surface-container-low shrink-0"
+              class="w-9 h-9 flex items-center justify-center rounded-full bg-surface-container-low shrink-0"
             >
               <span
-                class="material-symbols-outlined text-secondary"
+                class="material-symbols-outlined text-secondary text-[20px]"
                 :style="
                   pillar.filled
                     ? { fontVariationSettings: `'FILL' 1` }
@@ -171,11 +165,11 @@ function confirmExperience() {
                 {{ pillar.icon }}
               </span>
             </div>
-            <div class="flex flex-col gap-xs pt-1">
-              <h4 class="font-body-lg text-body-lg font-semibold text-on-background">
+            <div class="flex flex-col gap-0.5 min-w-0 pt-0.5">
+              <h4 class="font-body-md text-body-md font-semibold text-on-background">
                 {{ pillar.title }}
               </h4>
-              <p class="font-body-md text-body-md text-on-surface-variant">
+              <p class="font-body-sm text-body-sm text-on-surface-variant">
                 {{ pillar.body }}
               </p>
             </div>
@@ -196,7 +190,7 @@ function confirmExperience() {
     </main>
 
     <div
-      class="fixed bottom-0 left-0 w-full bg-surface border-t border-surface-container px-margin-mobile pt-md pb-6 z-50"
+      class="fixed bottom-0 left-0 w-full bg-surface/95 backdrop-blur-sm border-t border-surface-container px-margin-mobile py-3 z-50"
     >
       <div class="max-w-2xl mx-auto">
         <button

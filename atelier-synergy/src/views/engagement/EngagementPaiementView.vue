@@ -113,7 +113,7 @@ function cancel() {
         >BOOKED</span>.
       </p>
 
-      <div class="w-full aspect-[4/3] rounded-lg overflow-hidden border border-surface-container">
+      <div class="w-full h-28 rounded-lg overflow-hidden border border-surface-container">
         <img alt="" class="w-full h-full object-cover" :src="heroSrc" />
       </div>
     </main>

@@ -107,11 +107,7 @@ function continueNext() {
             :key="opt.id"
             type="button"
             class="py-3 rounded-lg border text-label-sm font-label-sm transition-colors"
-            :class="
-              radiusKm === opt.id
-                ? 'border-secondary bg-secondary-container text-on-secondary-container'
-                : 'border-outline-variant bg-surface-container-lowest'
-            "
+            :class="radiusKm === opt.id ? 'border-secondary bg-secondary-container text-on-secondary-container' : 'border-outline-variant bg-surface-container-lowest'"
             @click="selectRadius(opt.id)"
           >
             {{ opt.label }}
@@ -127,11 +123,7 @@ function continueNext() {
             :key="opt.id"
             type="button"
             class="w-full text-left px-md py-3 rounded-lg border transition-colors"
-            :class="
-              mobility === opt.id
-                ? 'border-secondary bg-secondary-container/40'
-                : 'border-outline-variant bg-surface-container-lowest'
-            "
+            :class="mobility === opt.id ? 'border-secondary bg-secondary-container/40' : 'border-outline-variant bg-surface-container-lowest'"
             @click="selectMobility(opt.id)"
           >
             {{ opt.label }}
@@ -147,17 +139,13 @@ function continueNext() {
             :key="opt.id"
             type="button"
             class="w-full text-left px-md py-3 rounded-lg border flex items-center justify-between transition-colors"
-            :class="
-              placeIds.includes(opt.id)
-                ? 'border-secondary bg-secondary-container/40'
-                : 'border-outline-variant bg-surface-container-lowest'
-            "
+            :class="placeIds.includes(opt.id) ? 'border-secondary bg-secondary-container/40' : 'border-outline-variant bg-surface-container-lowest'"
             @click="togglePlace(opt.id)"
           >
             <span>{{ opt.label }}</span>
             <span
               v-if="placeIds.includes(opt.id)"
-              class="material-symbols-outlined text-secondary text-[20px]"
+              class="material-symbols-outlined text-secondary text-icon-md"
             >
               check
             </span>

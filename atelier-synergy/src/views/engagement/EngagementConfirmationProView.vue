@@ -76,7 +76,7 @@ function goOffer() {
 
     <main class="flex-1 px-container-margin pt-[80px] pb-section-gap flex flex-col">
       <div
-        class="w-full aspect-[4/5] mt-stack-sm rounded-lg overflow-hidden border border-surface-variant bg-surface-container-lowest"
+        class="w-full h-36 mt-2 rounded-lg overflow-hidden border border-surface-variant bg-surface-container-lowest"
       >
         <img alt="" class="w-full h-full object-cover" :src="heroSrc" />
       </div>

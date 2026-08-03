@@ -100,11 +100,7 @@ function continueNext() {
           :key="item.id"
           type="button"
           class="relative aspect-[3/4] overflow-hidden bg-surface-variant text-left transition-all"
-          :class="
-            selectedId === item.id
-              ? 'ring-2 ring-secondary outline outline-1 outline-primary'
-              : 'opacity-90'
-          "
+          :class="selectedId === item.id ? 'ring-2 ring-secondary outline outline-1 outline-primary' : 'opacity-90'"
           @click="selectInspiration(item.id)"
         >
           <img :src="item.src" :alt="item.label" class="w-full h-full object-cover" />
@@ -132,11 +128,7 @@ function continueNext() {
           :key="opt.id"
           type="button"
           class="w-full text-left px-md py-3 rounded-lg border transition-colors"
-          :class="
-            selectedVariante === opt.id
-              ? 'border-secondary bg-secondary-container/40 text-on-secondary-container'
-              : 'border-outline-variant bg-surface-container-lowest'
-          "
+          :class="selectedVariante === opt.id ? 'border-secondary bg-secondary-container/40 text-on-secondary-container' : 'border-outline-variant bg-surface-container-lowest'"
           @click="selectVariante(opt.id)"
         >
           {{ opt.label }}
@@ -150,11 +142,7 @@ function continueNext() {
           :key="opt.id"
           type="button"
           class="px-3 py-2 rounded-lg border text-body-sm font-body-sm transition-colors"
-          :class="
-            selectedContexts.includes(opt.id)
-              ? 'border-secondary bg-secondary-container text-on-secondary-container'
-              : 'border-outline-variant bg-surface-container-lowest'
-          "
+          :class="selectedContexts.includes(opt.id) ? 'border-secondary bg-secondary-container text-on-secondary-container' : 'border-outline-variant bg-surface-container-lowest'"
           @click="toggleContext(opt.id)"
         >
           {{ opt.label }}

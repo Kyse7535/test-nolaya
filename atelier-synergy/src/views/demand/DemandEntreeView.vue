@@ -91,11 +91,7 @@ function continueNext() {
         <button
           type="button"
           class="text-left bg-surface-container-lowest border rounded-lg p-container-margin flex gap-gutter items-center transition-colors"
-          :class="
-            selected === EntryPath.KNOWN
-              ? 'border-secondary ring-1 ring-secondary'
-              : 'border-surface-container-highest hover:bg-surface-bright'
-          "
+          :class="selected === EntryPath.KNOWN ? 'border-secondary ring-1 ring-secondary' : 'border-surface-container-highest hover:bg-surface-bright'"
           @click="select(EntryPath.KNOWN)"
         >
           <div class="w-16 h-16 shrink-0 bg-surface-variant rounded overflow-hidden">
@@ -115,7 +111,7 @@ function continueNext() {
           >
             <span
               v-if="selected === EntryPath.KNOWN"
-              class="material-symbols-outlined text-on-primary text-[16px]"
+              class="material-symbols-outlined text-on-primary text-icon-sm"
             >
               check
             </span>
@@ -125,11 +121,7 @@ function continueNext() {
         <button
           type="button"
           class="text-left bg-surface-container-lowest border rounded-lg p-container-margin flex gap-gutter items-center transition-colors"
-          :class="
-            selected === EntryPath.CATALOG
-              ? 'border-secondary ring-1 ring-secondary'
-              : 'border-surface-container-highest hover:bg-surface-bright'
-          "
+          :class="selected === EntryPath.CATALOG ? 'border-secondary ring-1 ring-secondary' : 'border-surface-container-highest hover:bg-surface-bright'"
           @click="select(EntryPath.CATALOG)"
         >
           <div class="w-16 h-16 shrink-0 bg-surface-variant rounded overflow-hidden">
@@ -149,7 +141,7 @@ function continueNext() {
           >
             <span
               v-if="selected === EntryPath.CATALOG"
-              class="material-symbols-outlined text-on-primary text-[16px]"
+              class="material-symbols-outlined text-on-primary text-icon-sm"
             >
               check
             </span>

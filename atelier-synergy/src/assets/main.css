@@ -217,11 +217,11 @@
 }
 
 .as-bottom-nav__icon {
-  font-size: 22px;
+  font-size: 20px; /* = text-icon-md */
 }
 
 .as-bottom-nav__label {
-  font-size: 10px;
+  font-size: 10px; /* = text-label-micro */
   line-height: 1.2;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -244,7 +244,7 @@
   border-radius: 9999px;
   background: #775a19;
   color: #fff;
-  font-size: 10px;
+  font-size: 10px; /* = text-label-micro */
   font-variant-numeric: tabular-nums;
 }
 

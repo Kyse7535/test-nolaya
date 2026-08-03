@@ -172,11 +172,7 @@ function continueNext() {
             :key="opt.id"
             type="button"
             class="w-full text-left px-md py-3 rounded-lg border transition-colors"
-            :class="
-              hairInclusion === opt.id
-                ? 'border-secondary bg-secondary-container/40'
-                : 'border-outline-variant bg-surface-container-lowest'
-            "
+            :class="hairInclusion === opt.id ? 'border-secondary bg-secondary-container/40' : 'border-outline-variant bg-surface-container-lowest'"
             @click="selectHair(opt.id)"
           >
             {{ opt.label }}

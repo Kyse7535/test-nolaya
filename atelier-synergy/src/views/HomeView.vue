@@ -45,7 +45,7 @@ watch(
 
 <template>
   <div class="bg-background text-on-surface font-body-md antialiased min-h-screen">
-    <main class="max-w-lg mx-auto w-full px-margin-mobile py-xl pb-[calc(5.5rem+env(safe-area-inset-bottom))]">
+    <main class="max-w-lg mx-auto w-full px-margin-mobile py-xl">
       <header v-if="activeTab" class="mb-lg">
         <h1 class="font-headline-sm text-headline-sm text-primary leading-tight">
           {{ activeTab.label }}
@@ -60,11 +60,7 @@ watch(
           <button
             type="button"
             class="relative w-full text-left rounded-xl border px-md py-sm transition-colors"
-            :class="
-              block.status === 'ready'
-                ? 'bg-surface-container-lowest border-surface-container hover:border-outline-variant cursor-pointer'
-                : 'bg-surface-container-low border-surface-container opacity-70 cursor-not-allowed'
-            "
+            :class="block.status === 'ready' ? 'bg-surface-container-lowest border-surface-container hover:border-outline-variant cursor-pointer' : 'bg-surface-container-low border-surface-container opacity-70 cursor-not-allowed'"
             :disabled="block.status !== 'ready'"
             @click="openBlock(block)"
           >
@@ -90,11 +86,7 @@ watch(
               <span
                 v-else
                 class="font-label-mono text-label-mono px-2 py-0.5 rounded uppercase"
-                :class="
-                  block.status === 'ready'
-                    ? 'bg-secondary-container text-on-secondary-container'
-                    : 'bg-surface-container text-on-surface-variant'
-                "
+                :class="block.status === 'ready' ? 'bg-secondary-container text-on-secondary-container' : 'bg-surface-container text-on-surface-variant'"
               >
                 {{ block.status === 'ready' ? 'Dispo' : 'Bientôt' }}
               </span>

@@ -3,7 +3,7 @@ import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { locationLabel, statusLabel } from '../../domain/capacity/labels'
-import { CapacityStatus } from '../../domain/capacity/model'
+import { CapacityStatus, formatVarianteList } from '../../domain/capacity/model'
 import { LOCATION_OPTIONS } from '../../mocks/catalog'
 import { useCapacityStore } from '../../stores/capacity'
 
@@ -98,7 +98,7 @@ function badgeClass(status) {
             class="text-primary hover:opacity-80 transition-opacity active:scale-95 duration-150 p-2 -ml-2 rounded-full hover:bg-surface-variant"
             @click="goBack"
           >
-            <span class="material-symbols-outlined text-2xl">arrow_back</span>
+            <span class="material-symbols-outlined text-icon-lg">arrow_back</span>
           </button>
           <h1 class="text-headline-md font-headline-md font-bold tracking-tight text-primary">
             Mes capacités
@@ -113,7 +113,7 @@ function badgeClass(status) {
     </header>
 
     <main
-      class="flex-grow w-full max-w-[800px] mx-auto px-margin-mobile md:px-margin-desktop pt-8 pb-32"
+      class="flex-grow w-full max-w-[800px] mx-auto px-margin-mobile md:px-margin-desktop pt-8 pb-12"
     >
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
         <div class="max-w-xl">
@@ -126,7 +126,7 @@ function badgeClass(status) {
           class="bg-primary text-on-primary hover:opacity-90 transition-opacity rounded px-5 py-3 flex items-center justify-center gap-2 text-label-sm font-label-sm font-bold shadow-sm active:scale-95 flex-shrink-0"
           @click="createNew"
         >
-          <span class="material-symbols-outlined text-xl">add</span>
+          <span class="material-symbols-outlined text-icon-md">add</span>
           Nouvelle capacité
         </button>
       </div>
@@ -149,13 +149,7 @@ function badgeClass(status) {
           v-for="capacity in listedCapacities"
           :key="capacity.id"
           class="border border-outline-variant rounded-lg p-4 flex flex-col sm:flex-row gap-4 transition-shadow duration-300 relative group cursor-pointer"
-          :class="
-            capacity.status === CapacityStatus.OPEN
-              ? 'bg-surface-container-low hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)]'
-              : capacity.status === CapacityStatus.CLOSED
-                ? 'bg-surface opacity-60'
-                : 'bg-surface opacity-90 hover:shadow-[0_4px_12px_rgba(0,0,0,0.02)]'
-          "
+          :class="capacity.status === CapacityStatus.OPEN ? 'bg-surface-container-low hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)]' : capacity.status === CapacityStatus.CLOSED ? 'bg-surface opacity-60' : 'bg-surface opacity-90 hover:shadow-[0_4px_12px_rgba(0,0,0,0.02)]'"
           @click="openItem(capacity)"
         >
           <div
@@ -182,16 +176,12 @@ function badgeClass(status) {
                 <div class="flex items-center gap-2 mb-1 flex-wrap">
                   <h2
                     class="text-headline-md font-headline-md font-bold"
-                    :class="
-                      capacity.status === CapacityStatus.OPEN
-                        ? 'text-primary'
-                        : 'text-on-surface-variant'
-                    "
+                    :class="capacity.status === CapacityStatus.OPEN ? 'text-primary' : 'text-on-surface-variant'"
                   >
                     {{ capacity.prestation?.label || 'Nouvelle capacité' }}
                   </h2>
                   <span
-                    class="text-[10px] font-label-sm px-2 py-0.5 rounded tracking-wide uppercase font-bold border"
+                    class="font-label-micro text-label-micro px-2 py-0.5 rounded tracking-wide uppercase font-bold border"
                     :class="badgeClass(capacity.status)"
                   >
                     {{ statusLabel(capacity.status) }}
@@ -208,21 +198,21 @@ function badgeClass(status) {
                   v-else
                   class="text-body-md font-body-md text-on-surface-variant flex items-center gap-1.5 flex-wrap"
                 >
-                  <template v-if="capacity.prestation?.variante?.taille">
-                    <span>{{ capacity.prestation.variante.taille }}</span>
-                    <span class="text-outline text-[10px]">•</span>
+                  <template v-if="formatVarianteList(capacity.prestation?.variante?.taille)">
+                    <span>{{ formatVarianteList(capacity.prestation.variante.taille) }}</span>
+                    <span class="text-outline text-label-micro">•</span>
                   </template>
-                  <template v-if="capacity.prestation?.variante?.longueur">
-                    <span>{{ capacity.prestation.variante.longueur }}</span>
-                    <span class="text-outline text-[10px]">•</span>
+                  <template v-if="formatVarianteList(capacity.prestation?.variante?.longueur)">
+                    <span>{{ formatVarianteList(capacity.prestation.variante.longueur) }}</span>
+                    <span class="text-outline text-label-micro">•</span>
                   </template>
                   <span v-if="capacity.pricing?.basePrice" class="font-semibold text-primary">
                     {{ capacity.pricing.basePrice }} €
                   </span>
                   <template v-if="capacity.location?.context">
-                    <span class="text-outline text-[10px]">•</span>
+                    <span class="text-outline text-label-micro">•</span>
                     <span class="flex items-center gap-1">
-                      <span class="material-symbols-outlined text-[16px]">
+                      <span class="material-symbols-outlined text-icon-sm">
                         {{ locationIcon(capacity) }}
                       </span>
                       {{ locationLabel(capacity.location.context) }}
@@ -254,7 +244,7 @@ function badgeClass(status) {
                       class="w-full text-left px-4 py-2 text-label-sm font-label-sm text-error hover:bg-surface-variant flex items-center gap-2"
                       @click="closeItem($event, capacity.id)"
                     >
-                      <span class="material-symbols-outlined text-[18px]">close</span>
+                      <span class="material-symbols-outlined text-icon">close</span>
                       Fermer la capacité
                     </button>
                   </div>
@@ -267,11 +257,7 @@ function badgeClass(status) {
             >
               <span
                 class="font-label-sm text-label-sm tracking-wider"
-                :class="
-                  capacity.status === CapacityStatus.OPEN
-                    ? 'text-on-surface-variant/60'
-                    : 'text-on-surface-variant/40'
-                "
+                :class="capacity.status === CapacityStatus.OPEN ? 'text-on-surface-variant/60' : 'text-on-surface-variant/40'"
               >
                 CODE: {{ capacity.status }}
               </span>
@@ -281,7 +267,7 @@ function badgeClass(status) {
                 class="sm:hidden text-error hover:opacity-80 transition-colors flex items-center gap-1 text-label-sm font-label-sm border border-outline-variant rounded px-2 py-1"
                 @click="closeItem($event, capacity.id)"
               >
-                <span class="material-symbols-outlined text-[16px]">close</span>
+                <span class="material-symbols-outlined text-icon-sm">close</span>
                 Fermer
               </button>
               <button
@@ -290,7 +276,7 @@ function badgeClass(status) {
                 class="sm:hidden text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1 text-label-sm font-label-sm border border-outline-variant rounded px-2 py-1"
                 @click.stop="openItem(capacity)"
               >
-                <span class="material-symbols-outlined text-[16px]">edit</span>
+                <span class="material-symbols-outlined text-icon-sm">edit</span>
                 Éditer
               </button>
             </div>
@@ -298,37 +284,5 @@ function badgeClass(status) {
         </div>
       </div>
     </main>
-
-    <nav
-      class="md:hidden bg-surface-container border-t border-outline-variant fixed bottom-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-6 shadow-[0_-4px_24px_rgba(0,0,0,0.05)]"
-    >
-      <button
-        type="button"
-        class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:text-secondary transition-colors"
-        @click="goBack"
-      >
-        <span class="material-symbols-outlined text-2xl">home</span>
-        <span class="text-[10px] font-label-sm mt-1">Accueil</span>
-      </button>
-      <div
-        class="flex flex-col items-center justify-center text-secondary-fixed-dim font-bold bg-secondary-container/20 rounded-xl px-4 py-1.5"
-      >
-        <span
-          class="material-symbols-outlined text-2xl text-secondary"
-          style="font-variation-settings: 'FILL' 1"
-        >
-          content_cut
-        </span>
-        <span class="text-[10px] font-label-sm mt-1 text-secondary">Prestations</span>
-      </div>
-      <button
-        type="button"
-        class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:text-secondary transition-colors"
-        @click="createNew"
-      >
-        <span class="material-symbols-outlined text-2xl">add_circle</span>
-        <span class="text-[10px] font-label-sm mt-1">Nouvelle</span>
-      </button>
-    </nav>
   </div>
 </template>
