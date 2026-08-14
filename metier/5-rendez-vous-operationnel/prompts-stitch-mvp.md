@@ -4,7 +4,7 @@
 > Device : Mobile (≈390×844)  
 > Prompt language : English  
 > UI text language : French  
-> Design system : Atelier Synergy  
+> Design system : Nolaya  
 > Visual identity : Afro / textured hair — Black & mixed-race women  
 > Scope : Happy path only (`READINESS_PENDING` → `READY`) — actions `TO_DO` → `CONFIRMED` — no AT_RISK, no operator, no real notifications
 
@@ -34,7 +34,7 @@
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy — premium B2B2C mobile platform for Afro / textured hair clients and professionals (braids, twists/vanilles, ponytails, locs, natural coils). MVP demo flow: Operational appointment readiness happy path only — from COMMITTED engagement, a preparation plan is generated; when all blocking actions are CONFIRMED, the appointment becomes READY. No AT_RISK, no operator.
+Product context: Nolaya — premium B2B2C mobile platform for Afro / textured hair clients and professionals (braids, twists/vanilles, ponytails, locs, natural coils). MVP demo flow: Operational appointment readiness happy path only — from COMMITTED engagement, a preparation plan is generated; when all blocking actions are CONFIRMED, the appointment becomes READY. No AT_RISK, no operator.
 
 Device: Mobile app screen only, portrait ~390×844. Scrollable. No desktop.
 
@@ -71,7 +71,7 @@ Interactions: Only CTA « Voir le plan de préparation ».
 
 Visual: Hero of a Black and/or mixed-race woman with coily/curly/textured Afro hair preparing for a braiding appointment (client packing hair products or stylist organizing braiding tools in a calm premium home studio). Realistic, respectful. No straight Eurocentric hair as default.
 
-Design system Atelier Synergy: Manrope UI, JetBrains Mono for badges. Charcoal #000000 / #1b1c1c, soft gold #775a19 / #fed488 sparingly, surfaces #fbf9f8 / #ffffff / #efeded. Soft 0.25rem radii; hero media sharper OK. No purple gradients, no neon glow, no emoji, no dark mode, no heavy multi-shadows.
+Design system Nolaya: Manrope UI, JetBrains Mono for badges. Charcoal #000000 / #1b1c1c, soft gold #775a19 / #fed488 sparingly, surfaces #fbf9f8 / #ffffff / #efeded. Soft 0.25rem radii; hero media sharper OK. No purple gradients, no neon glow, no emoji, no dark mode, no heavy multi-shadows.
 
 Quality bar: Premium enterprise mobile UI, calm editorial whitespace, accessible touch targets. All visible UI text in French.
 ```
@@ -88,7 +88,7 @@ Quality bar: Premium enterprise mobile UI, calm editorial whitespace, accessible
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy MVP — Shared preparation plan progress for Afro / textured hair appointments. Happy path only: READINESS_PENDING until all blocking actions are CONFIRMED. No AT_RISK UI.
+Product context: Nolaya MVP — Shared preparation plan progress for Afro / textured hair appointments. Happy path only: READINESS_PENDING until all blocking actions are CONFIRMED. No AT_RISK UI.
 
 Device: Mobile portrait ~390×844 only.
 
@@ -129,7 +129,7 @@ Interactions: Tapping checklist rows navigates to S03 or S04. Progress is read-o
 
 Visual: Optional small editorial of Black woman with textured Afro hair checking a prep list on phone; optional thumbnail of knotless/box braids on Black woman. Premium realistic.
 
-Design system Atelier Synergy: Manrope + JetBrains Mono for %, statuses, codes. Charcoal/gold, light surfaces, soft radii. Progress accent soft gold sparingly. All visible UI text in French.
+Design system Nolaya: Manrope + JetBrains Mono for %, statuses, codes. Charcoal/gold, light surfaces, soft radii. Progress accent soft gold sparingly. All visible UI text in French.
 ```
 
 ---
@@ -144,7 +144,7 @@ Design system Atelier Synergy: Manrope + JetBrains Mono for %, statuses, codes. 
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy MVP — Client preparation checklist. Actions move TO_DO → CONFIRMED by manual toggle/confirm. Blocking actions gate READY. Happy path only — no AT_RISK, no photo proof, no WAIVED.
+Product context: Nolaya MVP — Client preparation checklist. Actions move TO_DO → CONFIRMED by manual toggle/confirm. Blocking actions gate READY. Happy path only — no AT_RISK, no photo proof, no WAIVED.
 
 Device: Mobile portrait ~390×844.
 
@@ -182,7 +182,7 @@ Interactions: Toggle or button per action: TO_DO → CONFIRMED (happy path only;
 
 Visual: Optional calm image of Black woman client with textured hair preparing mèches/hair extensions or checking address on phone. Premium respectful.
 
-Design system Atelier Synergy. Status chips JetBrains Mono uppercase. Criticality chips subtle. All visible UI text in French.
+Design system Nolaya. Status chips JetBrains Mono uppercase. Criticality chips subtle. All visible UI text in French.
 ```
 
 ---
@@ -197,7 +197,7 @@ Design system Atelier Synergy. Status chips JetBrains Mono uppercase. Criticalit
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy MVP — Stylist preparation checklist. Actions TO_DO → CONFIRMED manually. Blocking actions required for READY. Happy path only — no AT_RISK, no operator, no photo verification.
+Product context: Nolaya MVP — Stylist preparation checklist. Actions TO_DO → CONFIRMED manually. Blocking actions required for READY. Happy path only — no AT_RISK, no operator, no photo verification.
 
 Device: Mobile portrait ~390×844.
 
@@ -234,7 +234,7 @@ Interactions: Confirm toggles TO_DO → CONFIRMED. Return to shared plan. No ris
 
 Visual: Optional editorial of Black woman stylist with textured Afro hair organizing braiding tools / workstation in premium home studio or salon. Realistic, respectful. No straight Eurocentric hair as default.
 
-Design system Atelier Synergy: Manrope + JetBrains Mono badges, charcoal/gold, light surfaces. All visible UI text in French.
+Design system Nolaya: Manrope + JetBrains Mono badges, charcoal/gold, light surfaces. All visible UI text in French.
 ```
 
 ---
@@ -249,7 +249,7 @@ Design system Atelier Synergy: Manrope + JetBrains Mono badges, charcoal/gold, l
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy MVP — Success / readiness confirmation. Appointment lifecycle: READINESS_PENDING → READY when all blocking prep actions are CONFIRMED. Demo proof screen for both parties. Bridge to day-of execution (étape 6) without implementing it here.
+Product context: Nolaya MVP — Success / readiness confirmation. Appointment lifecycle: READINESS_PENDING → READY when all blocking prep actions are CONFIRMED. Demo proof screen for both parties. Bridge to day-of execution (étape 6) without implementing it here.
 
 Device: Mobile portrait ~390×844. Mostly short success screen; light scroll OK.
 
@@ -285,5 +285,5 @@ Interactions: Two CTAs only. No AT_RISK reverse path in MVP. No reopen-action dr
 
 Visual: Joyful but premium moment — Black woman client and/or stylist with textured Afro hair ready for braiding day, calm confidence, not cartoonish. Protective styles or natural coils visible.
 
-Design system Atelier Synergy. Status labels JetBrains Mono. All visible UI text in French.
+Design system Nolaya. Status labels JetBrains Mono. All visible UI text in French.
 ```

@@ -5,7 +5,7 @@
 > Device : Mobile (≈390×844) 
 > Prompt language : English 
 > UI text language : French 
-> Design system : Atelier Synergy (aligné `demo-precurseur/`) 
+> Design system : Nolaya (aligné `demo-precurseur/`) 
 > Visual identity : Afro / textured hair — Black & mixed-race women 
 > Scope : Parcours transactionnel Sarah/Inès — **17 écrans** — Actes A–E · `SCHEDULE_ACTIVE` → `SETTLED` · feedback collecté 
 > Hors scope : objet « capacité », `CAPACITY_OPEN`, messagerie libre, auth réelle, PSP réel 
@@ -106,7 +106,7 @@ Pas de violet/indigo, glow néon, dark mode, pills excessives, card spam, ombres
 ```text
 Independent screen. Generate ONLY this one screen. Do not generate other screens from this document.
 
-Product context: Atelier Synergy — premium B2B2C mobile platform for Afro / textured hair professionals. DEMO ENTRY for the transactional Sarah/Inès demo (short path: validate offer & planning → receive demand → engage → realize → settle). Inès is a simulated client. NO “capacity” / CAPACITY_OPEN wording anywhere.
+Product context: Nolaya — premium B2B2C mobile platform for Afro / textured hair professionals. DEMO ENTRY for the transactional Sarah/Inès demo (short path: validate offer & planning → receive demand → engage → realize → settle). Inès is a simulated client. NO “capacity” / CAPACITY_OPEN wording anywhere.
 
 Device: Mobile app screen only, portrait ~390×844. No desktop. One screen only.
 
@@ -116,7 +116,7 @@ Screen purpose: Present the scenario without spoiling every reaction. Mission: p
 
 Layout:
 1) Slim demo banner top: « Mode démo — Créez votre offre · Étape 1 sur 8 » with subtle reset/quit
-2) Brand mark / product name Atelier Synergy as a calm hero-level signal
+2) Brand mark / product name Nolaya as a calm hero-level signal
 3) Mission headline + short supporting sentence
 4) « Vous dans cette démo » line: Inès, 27 ans, knotless braids for 15 August
 5) Duration chip: 12–15 min
@@ -144,7 +144,7 @@ Interactions: Only primary CTA. Optional quit. No forms.
 
 Visual: Full-bleed or edge-dominant calm hero of a Black and/or mixed-race woman with coily/curly/textured Afro hair (knotless braids preferred) in a premium salon mood. Realistic, respectful. No straight Eurocentric hair as default. No floating badges on the hero.
 
-Design system Atelier Synergy: Manrope UI, JetBrains Mono sparingly. Charcoal #000101, soft gold #775a19 / #fdd587 sparingly, surfaces #fbf9f8 / #ffffff / #efedec. Soft 0.25rem radii. No purple, no neon glow, no emoji, no dark mode, no heavy multi-shadows. Less UI is better — generous whitespace, one purpose.
+Design system Nolaya: Manrope UI, JetBrains Mono sparingly. Charcoal #000101, soft gold #775a19 / #fdd587 sparingly, surfaces #fbf9f8 / #ffffff / #efedec. Soft 0.25rem radii. No purple, no neon glow, no emoji, no dark mode, no heavy multi-shadows. Less UI is better — generous whitespace, one purpose.
 
 Quality bar: Premium mobile demo entry, calm editorial whitespace, accessible touch targets. All visible UI text in French.
 ```
@@ -154,7 +154,7 @@ Quality bar: Premium mobile demo entry, calm editorial whitespace, accessible to
 ```text
 Independent screen. Generate ONLY this one screen. Do not generate other screens from this document.
 
-Product context: Atelier Synergy transactional demo — stylist home after start. SHORT PATH: a realistic DRAFT prestation already exists; framework is present but needs (re)validation. Sarah FINALIZES — she does not create from empty. Inès not yet injected. NO capacity / CAPACITY_OPEN.
+Product context: Nolaya transactional demo — stylist home after start. SHORT PATH: a realistic DRAFT prestation already exists; framework is present but needs (re)validation. Sarah FINALIZES — she does not create from empty. Inès not yet injected. NO capacity / CAPACITY_OPEN.
 
 Device: Mobile portrait ~390×844. One screen only.
 
@@ -189,7 +189,7 @@ Interactions: ONE primary product CTA only. Secondary opens bottom sheet only �
 
 Visual: Optional small avatar of Black woman stylist with textured Afro hair named Sarah. Calm, premium, not cartoonish.
 
-Design system Atelier Synergy. Manrope + JetBrains Mono for status chips. Charcoal/gold, light surfaces, soft radii. No purple, no glow, no emoji, no dark mode, no card spam. All visible UI text in French.
+Design system Nolaya. Manrope + JetBrains Mono for status chips. Charcoal/gold, light surfaces, soft radii. No purple, no glow, no emoji, no dark mode, no card spam. All visible UI text in French.
 ```
 ========== END SCREEN 02 ==========
 
@@ -197,7 +197,7 @@ Design system Atelier Synergy. Manrope + JetBrains Mono for status chips. Charco
 ```text
 Independent screen. Generate ONLY this one screen. Do not generate other screens from this document.
 
-Product context: Atelier Synergy transactional demo Act A — Professional rules (framework) short path. Sarah RE-READS, adjusts from short catalogs, and validates a PREFILLED framework. Pause is READ-ONLY (inherited, not recalculated into slot durations). Target → PROFESSIONAL_FRAMEWORK_ACTIVE. NO capacity wording.
+Product context: Nolaya transactional demo Act A — Professional rules (framework) short path. Sarah RE-READS, adjusts from short catalogs, and validates a PREFILLED framework. Pause is READ-ONLY (inherited, not recalculated into slot durations). Target → PROFESSIONAL_FRAMEWORK_ACTIVE. NO capacity wording.
 
 Device: Mobile portrait ~390×844. Scrollable. One screen only.
 
@@ -238,7 +238,7 @@ Interactions: Catalog edits allowed except pause (locked). CTA confirms / re-val
 
 Visual: Optional calm studio mood — Black woman stylist with textured Afro hair. Premium respectful.
 
-Design system Atelier Synergy. JetBrains Mono for « 15 min », « 5 min / h ». Soft radii, generous whitespace, minimal chrome. No purple, no glow, no emoji. All visible UI text in French.
+Design system Nolaya. JetBrains Mono for « 15 min », « 5 min / h ». Soft radii, generous whitespace, minimal chrome. No purple, no glow, no emoji. All visible UI text in French.
 ```
 ========== END SCREEN 03 ==========
 
@@ -246,7 +246,7 @@ Design system Atelier Synergy. JetBrains Mono for « 15 min », « 5 min / h ».
 ```text
 Independent screen. Generate ONLY this one screen. Do not generate other screens from this document.
 
-Product context: Atelier Synergy transactional demo Act A — Configure prestation with REAL micro-choices on rail. Pricing model: FULL price per length + non-length option (mèches). Inès transaction rail: Mi-dos 150 € + mèches +20 €. Gallery belongs to THIS knotless prestation. NO slots, NO planning activation, NO capacity on this screen. Target → OFFER_ACTIVE.
+Product context: Nolaya transactional demo Act A — Configure prestation with REAL micro-choices on rail. Pricing model: FULL price per length + non-length option (mèches). Inès transaction rail: Mi-dos 150 € + mèches +20 €. Gallery belongs to THIS knotless prestation. NO slots, NO planning activation, NO capacity on this screen. Target → OFFER_ACTIVE.
 
 Device: Mobile portrait ~390×844. Scrollable. One screen only.
 
@@ -285,7 +285,7 @@ Interactions: Confirm mi-dos; toggle mèches on; select gallery ≥1; CTA gated.
 
 Visual: Gallery tiles MUST show Black and/or mixed-race women with coily/curly/textured Afro hair in knotless braids. Sharp media corners. Premium, realistic, respectful. No straight Eurocentric hair as default.
 
-Design system Atelier Synergy. JetBrains Mono for amounts/durations. Charcoal/gold, light surfaces. Minimal cards — only where interaction needs a container. No purple, no glow, no emoji. All visible UI text in French.
+Design system Nolaya. JetBrains Mono for amounts/durations. Charcoal/gold, light surfaces. Minimal cards — only where interaction needs a container. No purple, no glow, no emoji. All visible UI text in French.
 ```
 ========== END SCREEN 04 ==========
 
@@ -293,7 +293,7 @@ Design system Atelier Synergy. JetBrains Mono for amounts/durations. Charcoal/go
 ```text
 Independent screen. Generate ONLY this one screen. Do not generate other screens from this document.
 
-Product context: Atelier Synergy transactional demo Act A — Confirm REAL planning (days/hours/load) and select the DERIVED slot for the Inès rail. Saturday 15 August 9:00 is a consequence of planning rules — NOT a “capacity” to open. Other slots visible but disabled (“hors scénario démo”). After activation → SCHEDULE_ACTIVE; banner will become Étape 4 sur 8 next; Inès demand injects. NO CAPACITY_OPEN.
+Product context: Nolaya transactional demo Act A — Confirm REAL planning (days/hours/load) and select the DERIVED slot for the Inès rail. Saturday 15 August 9:00 is a consequence of planning rules — NOT a “capacity” to open. Other slots visible but disabled (“hors scénario démo”). After activation → SCHEDULE_ACTIVE; banner will become Étape 4 sur 8 next; Inès demand injects. NO CAPACITY_OPEN.
 
 Device: Mobile portrait ~390×844. Scrollable. One screen only.
 
@@ -334,7 +334,7 @@ Interactions: Tap to confirm 15 Aug 9h (preselected). Other slots disabled. CTA 
 
 Visual: Calm planner mood with Black woman stylist context. Premium, not generic calendar spam.
 
-Design system Atelier Synergy. JetBrains Mono for dates/times. No purple, no glow, no emoji, no capacity vocabulary. All visible UI text in French.
+Design system Nolaya. JetBrains Mono for dates/times. No purple, no glow, no emoji, no capacity vocabulary. All visible UI text in French.
 ```
 ========== END SCREEN 05 ==========
 
@@ -342,7 +342,7 @@ Design system Atelier Synergy. JetBrains Mono for dates/times. No purple, no glo
 ```text
 Independent screen. Generate ONLY this one screen. Do not generate other screens from this document.
 
-Product context: Atelier Synergy transactional demo Act B — New opportunity after SCHEDULE_ACTIVE. Banner Étape 4 sur 8. Inès demand injected. ONE strong CTA + secondary immersive sheet explaining match criteria. NO opaque “cliente idéale” / “score 92%”. NO capacity wording.
+Product context: Nolaya transactional demo Act B — New opportunity after SCHEDULE_ACTIVE. Banner Étape 4 sur 8. Inès demand injected. ONE strong CTA + secondary immersive sheet explaining match criteria. NO opaque “cliente idéale” / “score 92%”. NO capacity wording.
 
 Device: Mobile portrait ~390×844. One screen only.
 
@@ -380,7 +380,7 @@ Interactions: ONE primary navigation CTA. Secondary opens sheet only. No fake sc
 
 Visual: Optional small inspiration thumbnail of knotless braids on a Black woman with textured hair. Premium respectful.
 
-Design system Atelier Synergy. Generous whitespace, one purpose. No purple, no glow, no emoji. All visible UI text in French.
+Design system Nolaya. Generous whitespace, one purpose. No purple, no glow, no emoji. All visible UI text in French.
 ```
 ========== END SCREEN 06 ==========
 
@@ -388,7 +388,7 @@ Design system Atelier Synergy. Generous whitespace, one purpose. No purple, no g
 ```text
 Independent screen. Generate ONLY this one screen. Do not generate other screens from this document.
 
-Product context: Atelier Synergy transactional demo Act B — Client demand. Sarah DECIDES without private messaging. Three distinct professional gestures. « Préparer une proposition » is GATED until photo/precision enrichment. Refuse is a real gesture with structured motive + demo recovery « Reprendre la demande d’Inès ». Target demo path: Demander une précision. Étape 4 sur 8. NO capacity.
+Product context: Nolaya transactional demo Act B — Client demand. Sarah DECIDES without private messaging. Three distinct professional gestures. « Préparer une proposition » is GATED until photo/precision enrichment. Refuse is a real gesture with structured motive + demo recovery « Reprendre la demande d’Inès ». Target demo path: Demander une précision. Étape 4 sur 8. NO capacity.
 
 Device: Mobile portrait ~390×844. Scrollable. One screen only.
 
@@ -431,7 +431,7 @@ Interactions: Demander une précision always active (demo). Proposition gated. R
 
 Visual: Inspiration image must depict Black and/or mixed-race woman with coily/textured hair / knotless braids. Premium respectful.
 
-Design system Atelier Synergy. Clear hierarchy, alert uses error #ba1a1a sparingly. No purple, no glow, no emoji. All visible UI text in French.
+Design system Nolaya. Clear hierarchy, alert uses error #ba1a1a sparingly. No purple, no glow, no emoji. All visible UI text in French.
 ```
 ========== END SCREEN 07 ==========
 
@@ -439,7 +439,7 @@ Design system Atelier Synergy. Clear hierarchy, alert uses error #ba1a1a sparing
 ```text
 Independent screen. Generate ONLY this one screen. Do not generate other screens from this document.
 
-Product context: Atelier Synergy transactional demo Act B — Clarification as PANEL / BOTTOM SHEET from the demand — NOT free messaging. Sarah SELECTS questions (1 required photo + 1 optional allergies — NO chemical treatment date). Simulator then shows deterministic Inès response. After enrichment, missing-photo alert clears and proposition unlocks. Étape 4 sur 8.
+Product context: Nolaya transactional demo Act B — Clarification as PANEL / BOTTOM SHEET from the demand — NOT free messaging. Sarah SELECTS questions (1 required photo + 1 optional allergies — NO chemical treatment date). Simulator then shows deterministic Inès response. After enrichment, missing-photo alert clears and proposition unlocks. Étape 4 sur 8.
 
 Device: Mobile portrait ~390×844. Design as a focused panel/sheet screen (can include dimmed demand behind). One screen composition only.
 
@@ -476,7 +476,7 @@ Interactions: Checkboxes; CTA only when required photo is checked; no free-text 
 
 Visual: Recent hair photo MUST show Black woman with natural coily/textured hair (sensitive-scalp context, dignified). Premium realistic.
 
-Design system Atelier Synergy. Minimal panel UI, generous whitespace. No purple, no glow, no emoji. All visible UI text in French.
+Design system Nolaya. Minimal panel UI, generous whitespace. No purple, no glow, no emoji. All visible UI text in French.
 ```
 ========== END SCREEN 08 ==========
 
@@ -484,7 +484,7 @@ Design system Atelier Synergy. Minimal panel UI, generous whitespace. No purple,
 ```text
 Independent screen. Generate ONLY this one screen. Do not generate other screens from this document.
 
-Product context: Atelier Synergy transactional demo Act B — ONE screen, TWO sequential decisions: (9a) strong realization decision then (9b) firm proposal confirmation on rail. Offer zone LOCKED/masked until she confirms she can realize. Rail amounts/slot FIXED: total 170 € · deposit 50 € · 15 Aug 9h · mi-dos · mèches +20 €. Prefer decision language (I can realize / confirm) over sterile checklist jargon in headlines. After send → FIRM_PROPOSAL + SOFT_HOLD; banner becomes Étape 5 sur 8 (proposition envoyée) / then 6 next. NO capacity. Étape 4 sur 8 now.
+Product context: Nolaya transactional demo Act B — ONE screen, TWO sequential decisions: (9a) strong realization decision then (9b) firm proposal confirmation on rail. Offer zone LOCKED/masked until she confirms she can realize. Rail amounts/slot FIXED: total 170 € · deposit 50 € · 15 Aug 9h · mi-dos · mèches +20 €. Prefer decision language (I can realize / confirm) over sterile checklist jargon in headlines. After send → FIRM_PROPOSAL + SOFT_HOLD; banner becomes Étape 5 sur 8 (proposition envoyée) / then 6 next. NO capacity. Étape 4 sur 8 now.
 
 Device: Mobile portrait ~390×844. Scrollable. One screen only.
 
@@ -534,7 +534,7 @@ Interactions: Confirm she can realize first; then confirm mèches included + rev
 
 Visual: Optional small knotless braids reference on Black woman with textured hair. Premium.
 
-Design system Atelier Synergy. JetBrains Mono for € and times. Clear two-step hierarchy, not a dense form wall. No purple, no glow, no emoji. All visible UI text in French.
+Design system Nolaya. JetBrains Mono for € and times. Clear two-step hierarchy, not a dense form wall. No purple, no glow, no emoji. All visible UI text in French.
 ```
 ========== END SCREEN 09 ==========
 
@@ -542,7 +542,7 @@ Design system Atelier Synergy. JetBrains Mono for € and times. Clear two-step 
 ```text
 Independent screen. Generate ONLY this one screen. Do not generate other screens from this document.
 
-Product context: Atelier Synergy transactional demo Act C — Proposal accepted / COMMITTED. Banner Étape 6 sur 8. Simulator shows VISIBLE sequence (Inès accepts V1 → accepte les règles → pays 50 €) then confirmation with CONSULTABLE proofs (consent sheet + payment sheet). Sarah does NOT accept for Inès. No “Accepter pour Inès” CTA. Primary: Préparer le rendez-vous.
+Product context: Nolaya transactional demo Act C — Proposal accepted / COMMITTED. Banner Étape 6 sur 8. Simulator shows VISIBLE sequence (Inès accepts V1 → accepte les règles → pays 50 €) then confirmation with CONSULTABLE proofs (consent sheet + payment sheet). Sarah does NOT accept for Inès. No “Accepter pour Inès” CTA. Primary: Préparer le rendez-vous.
 
 Device: Mobile portrait ~390×844. Scrollable. One screen only.
 
@@ -583,7 +583,7 @@ Interactions: Open/close proof sheets. No CTA to accept as Inès. Primary CTA af
 
 Visual: Calm confirmed appointment mood — Black woman stylist / client context with textured Afro hair. Premium respectful. No confetti spam.
 
-Design system Atelier Synergy. JetBrains Mono for amounts. Minimal, proof-first. No purple, no glow, no emoji. All visible UI text in French.
+Design system Nolaya. JetBrains Mono for amounts. Minimal, proof-first. No purple, no glow, no emoji. All visible UI text in French.
 ```
 ========== END SCREEN 10 ==========
 
@@ -591,7 +591,7 @@ Design system Atelier Synergy. JetBrains Mono for amounts. Minimal, proof-first.
 ```text
 Independent screen. Generate ONLY this one screen. Do not generate other screens from this document.
 
-Product context: Atelier Synergy transactional demo Act C — Readiness. Sarah checklist REAL checkboxes (4) with gated confirm; secondary « Tout cocher ». Inès checklist AUTO-fills AFTER Sarah confirms (visible fill). Then READY message + clear time-compression control « Continuer la démonstration » (not opaque auto-skip) → day-of (Étape 7 sur 8 next). Banner now Étape 6 sur 8. NO capacity.
+Product context: Nolaya transactional demo Act C — Readiness. Sarah checklist REAL checkboxes (4) with gated confirm; secondary « Tout cocher ». Inès checklist AUTO-fills AFTER Sarah confirms (visible fill). Then READY message + clear time-compression control « Continuer la démonstration » (not opaque auto-skip) → day-of (Étape 7 sur 8 next). Banner now Étape 6 sur 8. NO capacity.
 
 Device: Mobile portrait ~390×844. Scrollable. One screen only.
 
@@ -634,7 +634,7 @@ Interactions: Real checks; CTA gated on 4; Tout cocher secondary; Inès auto aft
 
 Visual: Prep/studio mood — Black woman stylist with textured hair preparing braiding materials. Premium.
 
-Design system Atelier Synergy. Clear two-list asymmetry. No purple, no glow, no emoji. All visible UI text in French.
+Design system Nolaya. Clear two-list asymmetry. No purple, no glow, no emoji. All visible UI text in French.
 ```
 ========== END SCREEN 11 ==========
 
@@ -642,7 +642,7 @@ Design system Atelier Synergy. Clear two-list asymmetry. No purple, no glow, no 
 ```text
 Independent screen. Generate ONLY this one screen. Do not generate other screens from this document.
 
-Product context: Atelier Synergy transactional demo Act D — Day-of demand after « Continuer la démonstration ». Banner Étape 7 sur 8. Inès arrival already signaled 8:57 for 9:00. Engagement V1 consultable. Primary: Commencer la prestation → IN_PROGRESS. NO pearls request BEFORE start. NO capacity.
+Product context: Nolaya transactional demo Act D — Day-of demand after « Continuer la démonstration ». Banner Étape 7 sur 8. Inès arrival already signaled 8:57 for 9:00. Engagement V1 consultable. Primary: Commencer la prestation → IN_PROGRESS. NO pearls request BEFORE start. NO capacity.
 
 Device: Mobile portrait ~390×844. One screen only.
 
@@ -678,7 +678,7 @@ Interactions: Primary starts service. V1 sheet read-only. No modification event 
 
 Visual: Day-of salon mood — Black woman client with natural textured hair arriving / Black stylist ready. Premium respectful.
 
-Design system Atelier Synergy. JetBrains Mono for times/amounts. Calm single-purpose screen. No purple, no glow, no emoji. All visible UI text in French.
+Design system Nolaya. JetBrains Mono for times/amounts. Calm single-purpose screen. No purple, no glow, no emoji. All visible UI text in French.
 ```
 ========== END SCREEN 12 ==========
 
@@ -686,7 +686,7 @@ Design system Atelier Synergy. JetBrains Mono for times/amounts. Calm single-pur
 ```text
 Independent screen. Generate ONLY this one screen. Do not generate other screens from this document.
 
-Product context: Atelier Synergy transactional demo Act D — In progress + IMMERSIVE pearls modification EVENT. After start, an interruptive sheet/modal opens (not a flat banner). Sarah decides: Évaluer la modification (demo target) OR Refuser with structured motive + recovery « Reprendre l’évaluation ». V1 remains active until accepted modification. Banner Étape 7 sur 8. NO “Accepter pour Inès”. NO capacity.
+Product context: Nolaya transactional demo Act D — In progress + IMMERSIVE pearls modification EVENT. After start, an interruptive sheet/modal opens (not a flat banner). Sarah decides: Évaluer la modification (demo target) OR Refuser with structured motive + recovery « Reprendre l’évaluation ». V1 remains active until accepted modification. Banner Étape 7 sur 8. NO “Accepter pour Inès”. NO capacity.
 
 Device: Mobile portrait ~390×844. Design the operational in-progress screen WITH the interruptive event sheet as the focus of the composition (event must dominate). One screen only.
 
@@ -721,7 +721,7 @@ Interactions: Interruptive modal must feel unavoidable. Evaluate → next compos
 
 Visual: In-progress braiding on Black woman with textured hair; beads/pearls allusion subtle and premium — not cartoon stickers.
 
-Design system Atelier Synergy. Modal is calm and serious, not neon alert spam. No purple, no glow, no emoji. All visible UI text in French.
+Design system Nolaya. Modal is calm and serious, not neon alert spam. No purple, no glow, no emoji. All visible UI text in French.
 ```
 ========== END SCREEN 13 ==========
 
@@ -729,7 +729,7 @@ Design system Atelier Synergy. Modal is calm and serious, not neon alert spam. N
 ```text
 Independent screen. Generate ONLY this one screen. Do not generate other screens from this document.
 
-Product context: Atelier Synergy transactional demo Act D — Compose modification on rail then observe Inès agreement + consultable V1/V2 trace/accord (NOT « annotations » jargon). Micro-choices REQUIRED: supplement +10 € and +20 minutes. Off-rail options visible but disabled (« hors scénario démo »). New total 180 € · new duration 5 h 50. After send: visible sequence Inès consults → accepts at 11:18 → V2 active. Sarah does NOT accept for Inès. Banner Étape 7 sur 8. NO capacity.
+Product context: Nolaya transactional demo Act D — Compose modification on rail then observe Inès agreement + consultable V1/V2 trace/accord (NOT « annotations » jargon). Micro-choices REQUIRED: supplement +10 € and +20 minutes. Off-rail options visible but disabled (« hors scénario démo »). New total 180 € · new duration 5 h 50. After send: visible sequence Inès consults → accepts at 11:18 → V2 active. Sarah does NOT accept for Inès. Banner Étape 7 sur 8. NO capacity.
 
 Device: Mobile portrait ~390×844. Scrollable. Prefer ONE composed screen showing composition + accepted confirmation state as the primary success of this step (composition with results block), or composition with clear preview of post-accept facts — keep minimal. One screen only.
 
@@ -781,7 +781,7 @@ Interactions: Select required +10/+20; send gated; proofs consultable; no accept
 
 Visual: Subtle pearls on finished/in-progress knotless braids on Black woman with textured hair. Premium.
 
-Design system Atelier Synergy. JetBrains Mono for €/times. Minimal micro-choice lists. No purple, no glow, no emoji. All visible UI text in French.
+Design system Nolaya. JetBrains Mono for €/times. Minimal micro-choice lists. No purple, no glow, no emoji. All visible UI text in French.
 ```
 ========== END SCREEN 14 ==========
 
@@ -789,7 +789,7 @@ Design system Atelier Synergy. JetBrains Mono for €/times. Minimal micro-choic
 ```text
 Independent screen. Generate ONLY this one screen. Do not generate other screens from this document.
 
-Product context: Atelier Synergy transactional demo Act D — End qualification. REAL choice: fully completed (demo target) / partial / trigger resolution. Happy path = intégralement → COMPLETED and banner becomes Étape 8 sur 8 next. Off-rail options must offer recovery (« Clôturer intégralement pour la démo »). Summary shows V2 180 € · 5 h 50 · pearls added · no incidents. Banner still Étape 7 sur 8 on this screen. NO capacity.
+Product context: Nolaya transactional demo Act D — End qualification. REAL choice: fully completed (demo target) / partial / trigger resolution. Happy path = intégralement → COMPLETED and banner becomes Étape 8 sur 8 next. Off-rail options must offer recovery (« Clôturer intégralement pour la démo »). Summary shows V2 180 € · 5 h 50 · pearls added · no incidents. Banner still Étape 7 sur 8 on this screen. NO capacity.
 
 Device: Mobile portrait ~390×844. One screen only.
 
@@ -826,7 +826,7 @@ Interactions: Explicit selection required. Target path intégralement. Recovery 
 
 Visual: Finished knotless braids with subtle pearls on Black woman with textured hair — premium portfolio close. Sharp media OK.
 
-Design system Atelier Synergy. Clear decision UI, not a dense report. No purple, no glow, no emoji. All visible UI text in French.
+Design system Nolaya. Clear decision UI, not a dense report. No purple, no glow, no emoji. All visible UI text in French.
 ```
 ========== END SCREEN 15 ==========
 
@@ -834,7 +834,7 @@ Design system Atelier Synergy. Clear decision UI, not a dense report. No purple,
 ```text
 Independent screen. Generate ONLY this one screen. Do not generate other screens from this document.
 
-Product context: Atelier Synergy transactional demo Act E — Settlement SETTLED. Banner Étape 8 sur 8. Visible payment sequence: déduit 50 € → balance due 130 € → Inès pays 130 €. Then confirmation separating billed price vs Sarah’s net. Explicit demo amounts: total 180 · deposit 50 · balance 130 · platform fee 18 (10%) · net 162. Consultable proof sheets (final payment + fee detail + V2 reminder). Sarah does not pay for Inès. Primary: Voir l’avis et la suite.
+Product context: Nolaya transactional demo Act E — Settlement SETTLED. Banner Étape 8 sur 8. Visible payment sequence: déduit 50 € → balance due 130 € → Inès pays 130 €. Then confirmation separating billed price vs Sarah’s net. Explicit demo amounts: total 180 · deposit 50 · balance 130 · platform fee 18 (10%) · net 162. Consultable proof sheets (final payment + fee detail + V2 reminder). Sarah does not pay for Inès. Primary: Voir l’avis et la suite.
 
 Device: Mobile portrait ~390×844. Scrollable. One screen only.
 
@@ -875,7 +875,7 @@ Interactions: Open proof/fee sheets; close returns to SETTLED recap. Consultatio
 
 Visual: Calm financial confirmation — optional small finished style thumb of Black woman with textured braids. Premium, not fintech neon.
 
-Design system Atelier Synergy. JetBrains Mono for all money figures. Strong net emphasis without card spam. No purple, no glow, no emoji. All visible UI text in French.
+Design system Nolaya. JetBrains Mono for all money figures. Strong net emphasis without card spam. No purple, no glow, no emoji. All visible UI text in French.
 ```
 ========== END SCREEN 16 ==========
 
@@ -883,7 +883,7 @@ Design system Atelier Synergy. JetBrains Mono for all money figures. Strong net 
 ```text
 Independent screen. Generate ONLY this one screen. Do not generate other screens from this document.
 
-Product context: Atelier Synergy transactional demo Act E — FUSED screen: review + reply + coups de cœur relation + demo closure feedback. Banner Étape 8 sur 8. Inès review is DETERMINISTIC and must be READ (not a disposable toast). Sarah REALLY replies (tone/model choice + send confirmation). Then immersive favorite sheet (not flat banner). Closing branch opens ANSWERABLE feedback form (5 required + 1 optional) then thank-you with restart/incident/close. NO preference configuration by Sarah. NO capacity.
+Product context: Nolaya transactional demo Act E — FUSED screen: review + reply + coups de cœur relation + demo closure feedback. Banner Étape 8 sur 8. Inès review is DETERMINISTIC and must be READ (not a disposable toast). Sarah REALLY replies (tone/model choice + send confirmation). Then immersive favorite sheet (not flat banner). Closing branch opens ANSWERABLE feedback form (5 required + 1 optional) then thank-you with restart/incident/close. NO preference configuration by Sarah. NO capacity.
 
 Device: Mobile portrait ~390×844. Scrollable. Design the PRIMARY state as the review + reply screen with visible alternative actions; include the favorite sheet and the feedback/thank-you as clearly labeled overlay variants in the same prompt if needed — but generate ONE main mobile frame focused on the avis + actions (favorite sheet can be shown as an open overlay on that frame). One screen composition only — do not output a multi-screen flow diagram.
 
@@ -941,7 +941,7 @@ Interactions: Read → reply with tone → send confirmed. Favorite is constat (
 
 Visual: Review/relation mood — finished knotless braids with subtle pearls on Black woman with textured hair; Sarah avatar Black stylist. Premium, warm, not emoji-heavy.
 
-Design system Atelier Synergy. Manrope + JetBrains Mono for scores. Minimal fused closure — avoid survey wall density; keep form readable. No purple, no glow, no emoji, no dark mode. All visible UI text in French.
+Design system Nolaya. Manrope + JetBrains Mono for scores. Minimal fused closure — avoid survey wall density; keep form readable. No purple, no glow, no emoji, no dark mode. All visible UI text in French.
 ```
 ========== END SCREEN 17 ==========
 
@@ -968,4 +968,4 @@ Design system Atelier Synergy. Manrope + JetBrains Mono for scores. Minimal fuse
 - [ ] Immersion A–E reflétée ; WHY perles + WHY trace/accord ; discoverability `#nouveaux-ajouts` ; nav Demandes ; toasts Simulation Inès 
 - [ ] Pas de CAPACITY_OPEN 
 - [ ] Prompts EN · UI FR · Mobile 390×844 · identité afro / textured hair 
-- [ ] Design system Atelier Synergy / tokens `demo-precurseur`
+- [ ] Design system Nolaya / tokens `demo-precurseur`

@@ -5,7 +5,7 @@
 > Device : Mobile (≈390×844)  
 > Prompt language : English  
 > UI text language : French  
-> Design system : Atelier Synergy (aligné `demo-precurseur/`)  
+> Design system : Nolaya (aligné `demo-precurseur/`)  
 > Visual identity : Afro / textured hair — Black & mixed-race women  
 > Scope : Parcours précurseur Sarah — **19 écrans** — happy path `PROFESSIONAL_FRAMEWORK_DRAFT` → `PROFESSIONAL_FRAMEWORK_ACTIVE` → `OFFER_DRAFT` → `OFFER_ACTIVE` → `SCHEDULE_DRAFT` → `SCHEDULE_ACTIVE`  
 > Hors scope : cliente Inès (sauf CTA optionnel de sortie), opérateur, IN_REVIEW, paiement réel, auth  
@@ -91,7 +91,7 @@ Femmes noires et/ou métissées, cheveux crépus / bouclés / texturés (braids,
 | S19 | Planning actif (+ fin / enchaînement) | Opérationnel | Sarah | Fin `SCHEDULE_ACTIVE` | P0 |
 
 **Stepper P1 (S04–S08) :** 1 Contextes · 2 Accueil · 3 Pause · 4 Communication · 5 Politiques  
-**Stepper P2 (S11–S14) :** 1 Prestation · 2 Galerie · 3 Préparation · 4 Prix — **pas de lieu/dispos dans P2**
+**Stepper P2 (S11–S14) :** 1 Prestation · 2 Galerie de la prestation · 3 Préparation · 4 Prix — **pas de lieu/dispos dans P2**
 
 ---
 
@@ -105,7 +105,7 @@ Femmes noires et/ou métissées, cheveux crépus / bouclés / texturés (braids,
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy — premium B2B2C mobile platform for Afro / textured hair professionals. This is the DEMO ENTRY screen for the precursor flow (Professional Framework → Prestations → Planning → SCHEDULE_ACTIVE). Not part of the final product chrome, but must feel premium and intentional. No “capacity” concept.
+Product context: Nolaya — premium B2B2C mobile platform for Afro / textured hair professionals. This is the DEMO ENTRY screen for the precursor flow (Professional Framework → Prestations → Planning → SCHEDULE_ACTIVE). Not part of the final product chrome, but must feel premium and intentional. No “capacity” concept.
 
 Device: Mobile app screen only, portrait ~390×844. No desktop.
 
@@ -115,7 +115,7 @@ Screen purpose: Introduce Sarah’s demo mission: define how she works, create a
 
 Layout:
 1) Slim demo banner top: « Mode démo — Créez votre offre · Étape 1 sur 8 » with subtle reset/quit affordances
-2) Brand mark / product name Atelier Synergy as a calm hero-level signal (not tiny nav text)
+2) Brand mark / product name Nolaya as a calm hero-level signal (not tiny nav text)
 3) Mission headline + short supporting sentence
 4) « Vous dans cette démo » line: Sarah, coiffeuse en tresses à Saint-Denis
 5) Duration chip: 8–12 min
@@ -139,7 +139,7 @@ Interactions: Only primary CTA « Commencer ». Optional ghost « Quitter la dé
 
 Visual: Full-bleed or edge-dominant calm hero of a Black and/or mixed-race woman stylist with coily/curly/textured Afro hair (braids, twists/vanilles, ponytails, locs, natural coils) in a premium home salon / studio. Realistic, respectful. No straight Eurocentric hair as default. No floating badges on the hero.
 
-Design system Atelier Synergy: Manrope UI, JetBrains Mono sparingly. Charcoal #000101, soft gold #775a19 / #fdd587 sparingly, surfaces #fbf9f8 / #ffffff / #efedec. Soft 0.25rem radii. No purple gradients, no neon glow, no emoji, no dark mode, no heavy multi-shadows.
+Design system Nolaya: Manrope UI, JetBrains Mono sparingly. Charcoal #000101, soft gold #775a19 / #fdd587 sparingly, surfaces #fbf9f8 / #ffffff / #efedec. Soft 0.25rem radii. No purple gradients, no neon glow, no emoji, no dark mode, no heavy multi-shadows.
 
 Quality bar: Premium mobile demo entry, calm editorial whitespace, accessible touch targets. All visible UI text in French.
 ```
@@ -156,7 +156,7 @@ Quality bar: Premium mobile demo entry, calm editorial whitespace, accessible to
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy precursor demo — stylist home after login. Empty state: no ACTIVE professional framework, no active offer, no planning defined. Sarah must create (not finalize a prefilled draft).
+Product context: Nolaya precursor demo — stylist home after login. Empty state: no ACTIVE professional framework, no active offer, no planning defined. Sarah must create (not finalize a prefilled draft).
 
 Device: Mobile portrait ~390×844.
 
@@ -191,7 +191,7 @@ Interactions: Primary CTA → framework welcome. Secondary opens bottom sheet on
 
 Visual: Optional small avatar of Black woman stylist with textured Afro hair named Sarah. Premium calm empty-state atmosphere, not cartoonish empty illustration spam.
 
-Design system Atelier Synergy. Manrope + JetBrains Mono for any status chips. Charcoal/gold, light surfaces, soft radii. All visible UI text in French.
+Design system Nolaya. Manrope + JetBrains Mono for any status chips. Charcoal/gold, light surfaces, soft radii. All visible UI text in French.
 ```
 
 ---
@@ -206,7 +206,7 @@ Design system Atelier Synergy. Manrope + JetBrains Mono for any status chips. Ch
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy precursor demo — Professional Framework entry. Happy path only. Status PROFESSIONAL_FRAMEWORK_DRAFT.
+Product context: Nolaya precursor demo — Professional Framework entry. Happy path only. Status PROFESSIONAL_FRAMEWORK_DRAFT.
 
 Device: Mobile portrait ~390×844. Scrollable.
 
@@ -243,7 +243,7 @@ Interactions: Only CTA « Commencer ». Back allowed.
 
 Visual: Hero of a Black and/or mixed-race woman stylist with coily/curly/textured Afro hair in a calm premium studio. Realistic, respectful. No straight Eurocentric hair as default.
 
-Design system Atelier Synergy: Manrope, JetBrains Mono badges, charcoal #000101, soft gold #775a19 / #fdd587 sparingly, surfaces #fbf9f8 / #ffffff. Soft 0.25rem radii; hero media sharper OK. No purple, no glow, no emoji, no dark mode.
+Design system Nolaya: Manrope, JetBrains Mono badges, charcoal #000101, soft gold #775a19 / #fdd587 sparingly, surfaces #fbf9f8 / #ffffff. Soft 0.25rem radii; hero media sharper OK. No purple, no glow, no emoji, no dark mode.
 
 Quality bar: Premium enterprise mobile UI, calm editorial whitespace. All visible UI text in French.
 ```
@@ -260,7 +260,7 @@ Quality bar: Premium enterprise mobile UI, calm editorial whitespace. All visibl
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy precursor demo — Professional Framework step 1/5. Demo target: Salon selected; address masked until engagement. Reasonable default may be pre-checked but Sarah can change it.
+Product context: Nolaya precursor demo — Professional Framework step 1/5. Demo target: Salon selected; address masked until engagement. Reasonable default may be pre-checked but Sarah can change it.
 
 Device: Mobile portrait ~390×844.
 
@@ -294,7 +294,7 @@ Interactions: Multi-select contexts; single confidentiality; CTA gated; back all
 
 Visual: Optional small editorial image of a Black woman with textured Afro hair styling in a salon. Premium realistic.
 
-Design system Atelier Synergy. All visible UI text in French.
+Design system Nolaya. All visible UI text in French.
 ```
 
 ---
@@ -309,7 +309,7 @@ Design system Atelier Synergy. All visible UI text in French.
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy precursor demo — Professional Framework step 2/5. Demo target: companions not allowed; minors accepted with accompanying adult; access note « Sonner à l’entrée du salon ».
+Product context: Nolaya precursor demo — Professional Framework step 2/5. Demo target: companions not allowed; minors accepted with accompanying adult; access note « Sonner à l’entrée du salon ».
 
 Device: Mobile portrait ~390×844.
 
@@ -342,7 +342,7 @@ Interactions: Single-select per group; access note optional but prefilled for de
 
 Visual: Optional calm welcoming Afro hair studio with Black woman stylist. Premium respectful.
 
-Design system Atelier Synergy. All visible UI text in French.
+Design system Nolaya. All visible UI text in French.
 ```
 
 ---
@@ -357,7 +357,7 @@ Design system Atelier Synergy. All visible UI text in French.
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy precursor demo — Professional Framework step 3/5. Unique product moment: pauses during a long service. Demo does NOT auto-recalculate slot durations from this rule. Default: 5 minutes every hour. « Aucune » is a valid choice. Simple lexicon.
+Product context: Nolaya precursor demo — Professional Framework step 3/5. Unique product moment: pauses during a long service. Demo does NOT auto-recalculate slot durations from this rule. Default: 5 minutes every hour. « Aucune » is a valid choice. Simple lexicon.
 
 Device: Mobile portrait ~390×844.
 
@@ -391,7 +391,7 @@ Interactions: Single-select; customize fields if needed; CTA enabled when a choi
 
 Visual: Optional calm break-in-studio mood with Black woman stylist with textured hair — dignified, not lazy/cliché. Premium.
 
-Design system Atelier Synergy. JetBrains Mono for « 5 min / h » chips if used. All visible UI text in French.
+Design system Nolaya. JetBrains Mono for « 5 min / h » chips if used. All visible UI text in French.
 ```
 
 ---
@@ -406,7 +406,7 @@ Design system Atelier Synergy. JetBrains Mono for « 5 min / h » chips if used.
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy precursor demo — Professional Framework step 4/5. Payment methods are DECLARATIVE only (no PSP, no card numbers). Demo target: via platform (+ Instagram/TikTok available); expected reply under 2h; Card + Platform accepted; remaining balance paid at end (fixed path).
+Product context: Nolaya precursor demo — Professional Framework step 4/5. Payment methods are DECLARATIVE only (no PSP, no card numbers). Demo target: via platform (+ Instagram/TikTok available); expected reply under 2h; Card + Platform accepted; remaining balance paid at end (fixed path).
 
 Device: Mobile portrait ~390×844.
 
@@ -437,7 +437,7 @@ Interactions: Channel multi-select; delay field; payment multi-select; CTA gated
 
 Visual: Optional editorial of Black woman stylist with textured hair checking messages on phone. Premium.
 
-Design system Atelier Synergy. All visible UI text in French. No PSP UI.
+Design system Nolaya. All visible UI text in French. No PSP UI.
 ```
 
 ---
@@ -452,7 +452,7 @@ Design system Atelier Synergy. All visible UI text in French. No PSP UI.
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy precursor demo — Professional Framework final config step before recap. Short catalog policies. Demo target: 15 min late; « Annulation selon le délai restant »; interruption + photos as `.platform-rule` (NOT `choice-active`); photos with client agreement.
+Product context: Nolaya precursor demo — Professional Framework final config step before recap. Short catalog policies. Demo target: 15 min late; « Annulation selon le délai restant »; interruption + photos as `.platform-rule` (NOT `choice-active`); photos with client agreement.
 
 Device: Mobile portrait ~390×844.
 
@@ -489,7 +489,7 @@ Interactions: Late + cancellation editable; interruption AND photos locked via `
 
 Visual: Optional finished protective style on Black woman with textured hair — portfolio mood, not a legal document look.
 
-Design system Atelier Synergy. All visible UI text in French.
+Design system Nolaya. All visible UI text in French.
 ```
 
 ---
@@ -504,7 +504,7 @@ Design system Atelier Synergy. All visible UI text in French.
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy precursor demo — Professional Framework recap + deliberate activation via CTA. No operator review. Instant ACTIVE after CTA. No silent/auto activation.
+Product context: Nolaya precursor demo — Professional Framework recap + deliberate activation via CTA. No operator review. Instant ACTIVE after CTA. No silent/auto activation.
 
 Device: Mobile portrait ~390×844.
 
@@ -535,7 +535,7 @@ Interactions: Deliberate CTA activates framework (no silent/auto activation). Mo
 
 Visual: Optional small avatar of Black woman stylist with textured hair.
 
-Design system Atelier Synergy. Status labels JetBrains Mono. All visible UI text in French.
+Design system Nolaya. Status labels JetBrains Mono. All visible UI text in French.
 ```
 
 ---
@@ -550,7 +550,7 @@ Design system Atelier Synergy. Status labels JetBrains Mono. All visible UI text
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy precursor demo — BRIDGE screen after PROFESSIONAL_FRAMEWORK_ACTIVE. Fuses former framework success + prestations welcome into ONE screen. Demo banner switches to Étape 2 sur 8. Entry status for next act: OFFER_DRAFT. No second explanatory screen. NO “capacity” wording. Stylist: Sarah.
+Product context: Nolaya precursor demo — BRIDGE screen after PROFESSIONAL_FRAMEWORK_ACTIVE. Fuses former framework success + prestations welcome into ONE screen. Demo banner switches to Étape 2 sur 8. Entry status for next act: OFFER_DRAFT. No second explanatory screen. NO “capacity” wording. Stylist: Sarah.
 
 Device: Mobile portrait ~390×844. Scrollable. Calm bridge — not a form.
 
@@ -569,7 +569,7 @@ Layout:
 
 French UI text:
 - Confirmation: « Votre cadre professionnel est actif »
-- What changes: « Vous pouvez maintenant créer ce que vous proposez aux clientes. Le cadre s’applique par défaut — vous ne le redéfinirez pas à chaque fois. »
+- What changes: « Vous pouvez maintenant créer ce que vous proposez aux clientes »
 - Status chip: « Cadre professionnel actif »
 - Next title: « Créer ce que vous proposez »
 - Next body: « Choisissez une prestation, montrez comment elle se présente, dites qui prépare quoi, puis fixez prix et durée. Le planning viendra ensuite. »
@@ -585,7 +585,7 @@ Interactions: Primary → prestation configuration. Secondary → framework reca
 
 Visual: Calm premium success + studio mood — Black woman stylist with textured Afro hair. Realistic, respectful.
 
-Design system Atelier Synergy. All visible UI text in French.
+Design system Nolaya. All visible UI text in French.
 ```
 
 ---
@@ -600,7 +600,7 @@ Design system Atelier Synergy. All visible UI text in French.
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy precursor demo — Offer step 1/4. One offer = one identifiable prestation. Épaisseur is multi-select (not single « Taille » size). Lengths are offered formats (multi-select). Demo target: Knotless braids · Moyen · lengths Épaules (reference) + Mi-dos; length « Taille » optional. Each length will later have its own full price. Status OFFER_DRAFT.
+Product context: Nolaya precursor demo — Offer step 1/4. One offer = one identifiable prestation. Épaisseur is multi-select (not single « Taille » size). Lengths are offered formats (multi-select). Demo target: Knotless braids · Moyen · lengths Épaules (reference) + Mi-dos; length « Taille » optional. Each length will later have its own full price. Status OFFER_DRAFT.
 
 Device: Mobile portrait ~390×844.
 
@@ -613,7 +613,7 @@ Layout:
 - Header back + « Prestation »
 - Badge « BROUILLON »
 - Step indicator: « Étape 1 / 4 · Prestation »
-- Vertical stepper: 1 Prestation · 2 Galerie · 3 Préparation · 4 Prix (step 1 active)
+- Vertical stepper: 1 Prestation · 2 Galerie de la prestation · 3 Préparation · 4 Prix (step 1 active)
 - Single-select catalog list
 - Épaisseur multi-select
 - Multi-select lengths
@@ -638,7 +638,7 @@ Interactions: Single prestation; multi épaisseur; multi lengths; CTA gated. Bac
 
 Visual: Optional editorial of knotless braids on a Black woman with textured Afro hair. Premium realistic.
 
-Design system Atelier Synergy. All visible UI text in French.
+Design system Nolaya. All visible UI text in French.
 ```
 
 ---
@@ -653,7 +653,7 @@ Design system Atelier Synergy. All visible UI text in French.
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy precursor demo — Offer gallery for Knotless braids only. No moderation / IN_REVIEW. Proof levels: Réalisation déclarée or Inspiration. Minimum 1 image; demo target 3 realizations. Forbidden: mixing vanilles, wigs, or other prestations into this gallery.
+Product context: Nolaya precursor demo — Offer gallery for Knotless braids only. No moderation / IN_REVIEW. Proof levels: Réalisation déclarée or Inspiration. Minimum 1 image; demo target 3 realizations. Forbidden: mixing vanilles, wigs, or other prestations into this gallery.
 
 Device: Mobile portrait ~390×844.
 
@@ -663,8 +663,8 @@ Screen purpose: Add/select photos for THIS prestation with a proof level each.
 
 Layout:
 - Demo banner Étape 2 sur 8
-- Header + BROUILLON
-- Stepper step 2
+- Header « Galerie de la prestation » + BROUILLON
+- Stepper step 2 active — label « Galerie de la prestation » (rôle de l’étape)
 - Context line: Knotless braids moyen — selected lengths
 - 3 photo slots (sharp media corners) + add control
 - Per-photo proof-level control
@@ -672,6 +672,7 @@ Layout:
 - Sticky CTA Continuer (≥1 photo with proof level)
 
 French UI text:
+- Header: « Galerie de la prestation »
 - Title: « Galerie de la prestation »
 - Intro: « Montrez cette prestation. Chaque photo indique si c’est une réalisation déclarée ou une inspiration. »
 - Context: « Knotless braids · Épaisseur Moyen · Épaules · Mi-dos »
@@ -686,7 +687,7 @@ Interactions: Add/remove photos; per-photo proof; CTA gated.
 
 Visual: Photo tiles MUST show Black and/or mixed-race women with coily/curly/textured Afro hair wearing knotless braids. Sharp media corners. Premium, realistic, respectful. No straight Eurocentric hair as default.
 
-Design system Atelier Synergy. JetBrains Mono for proof chips. All visible UI text in French.
+Design system Nolaya. JetBrains Mono for proof chips. All visible UI text in French.
 ```
 
 ---
@@ -701,7 +702,7 @@ Design system Atelier Synergy. JetBrains Mono for proof chips. All visible UI te
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy precursor demo — Offer step 3/4 « Préparation ». NO « Niveau de service » tab. NO task distribution. NO Pose / Finition task rows. Focus: clear client prep instruction visible on the client-facing prestation. Demo TARGET: « Cheveux lavés et démêlés avant le rendez-vous ».
+Product context: Nolaya precursor demo — Offer step 3/4 « Préparation ». NO « Niveau de service » tab. NO task distribution. NO Pose / Finition task rows. Focus: clear client prep instruction visible on the client-facing prestation. Demo TARGET: « Cheveux lavés et démêlés avant le rendez-vous ».
 
 Device: Mobile portrait ~390×844.
 
@@ -731,7 +732,7 @@ Interactions: Edit textarea; no service-level tabs; no task owner toggles; no Po
 
 Visual: Calm prep mood — Black woman stylist with textured hair. Premium respectful.
 
-Design system Atelier Synergy. All visible UI text in French.
+Design system Nolaya. All visible UI text in French.
 ```
 
 ---
@@ -746,7 +747,7 @@ Design system Atelier Synergy. All visible UI text in French.
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy precursor demo — Offer PRICING (final step before offer recap). Critical corrected pricing model (NOT “base price + vague length supplement”):
+Product context: Nolaya precursor demo — Offer PRICING (final step before offer recap). Critical corrected pricing model (NOT “base price + vague length supplement”):
 
 1) REFERENCE LENGTH = shortest activated length (Épaules) → base full price of the prestation.
 2) OTHER LENGTHS → each has its own COMPLETE adapted price (Sarah sets full price per length; not a delta-only UX).
@@ -803,7 +804,7 @@ Interactions: Edit price/duration per length; add/remove non-length option; CTA 
 
 Visual: Optional editorial close-up of finished knotless braids on Black woman with textured hair — portfolio pricing mood, NOT shopping cart / ecommerce checkout.
 
-Design system Atelier Synergy. JetBrains Mono for amounts, durations, badges (RÉFÉRENCE). Charcoal/gold, light surfaces. No purple, no glow. All visible UI text in French.
+Design system Nolaya. JetBrains Mono for amounts, durations, badges (RÉFÉRENCE). Charcoal/gold, light surfaces. No purple, no glow. All visible UI text in French.
 ```
 
 ---
@@ -818,7 +819,7 @@ Design system Atelier Synergy. JetBrains Mono for amounts, durations, badges (R�
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy precursor demo — Offer recap + deliberate activation. Instant OFFER_ACTIVE. No operator, no IN_REVIEW. MUST show client-side preview of the prestation. Include cadre actif summary (no « hérité ») AND pricing summary. CRITICAL: NO place, NO slot, NO date/time — offer exists but is not yet matchable until planning is activated.
+Product context: Nolaya precursor demo — Offer recap + deliberate activation. Instant OFFER_ACTIVE. No operator, no IN_REVIEW. MUST show client-side preview of the prestation. Include cadre actif summary (no « hérité ») AND pricing summary. CRITICAL: NO place, NO slot, NO date/time — offer exists but is not yet matchable until planning is activated.
 
 Device: Mobile portrait ~390×844.
 
@@ -852,7 +853,7 @@ Interactions: Deliberate CTA → OFFER_ACTIVE. NO location or availability field
 
 Visual: Gallery thumbs of Black women with textured Afro hair in knotless braids. Premium respectful.
 
-Design system Atelier Synergy. JetBrains Mono for amounts/status. All visible UI text in French.
+Design system Nolaya. JetBrains Mono for amounts/status. All visible UI text in French.
 ```
 
 ---
@@ -867,7 +868,7 @@ Design system Atelier Synergy. JetBrains Mono for amounts/status. All visible UI
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy precursor demo — BRIDGE screen after OFFER_ACTIVE. Fuses former offer success + planning welcome into ONE screen. Demo banner switches to Étape 3 sur 8. Status entry for next act: SCHEDULE_DRAFT. No second explanatory screen. NO “capacity” wording.
+Product context: Nolaya precursor demo — BRIDGE screen after OFFER_ACTIVE. Fuses former offer success + planning welcome into ONE screen. Demo banner switches to Étape 3 sur 8. Status entry for next act: SCHEDULE_DRAFT. No second explanatory screen. NO “capacity” wording.
 
 Device: Mobile portrait ~390×844. Scrollable.
 
@@ -902,7 +903,7 @@ Interactions: Primary → planning configuration (S17). Secondary → offer reca
 
 Visual: Calm premium success + calendar mood — Black woman stylist with textured Afro hair.
 
-Design system Atelier Synergy. All visible UI text in French.
+Design system Nolaya. All visible UI text in French.
 ```
 
 ---
@@ -917,7 +918,7 @@ Design system Atelier Synergy. All visible UI text in French.
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy precursor demo — Planning configuration. Contexte d’accueil and lieu MUST be dynamic from cadre data (not a static « hérité » label). Working days each have their own proposed open/close hours. Demo target: En salon from cadre · Saint-Denis · Tue–Sat · 9h–18h per day · max 1 RDV/day. Preview week Aug 12–18 with Saturday Aug 15 9h as CONSEQUENCE. Status SCHEDULE_DRAFT. Simple lexicon for varied education levels.
+Product context: Nolaya precursor demo — Planning configuration. Contexte d’accueil and lieu MUST be dynamic from cadre data (not a static « hérité » label). Working days each have their own proposed open/close hours. Demo target: En salon from cadre · Saint-Denis · Tue–Sat · 9h–18h per day · max 1 RDV/day. Preview week Aug 12–18 with Saturday Aug 15 9h as CONSEQUENCE. Status SCHEDULE_DRAFT. Simple lexicon for varied education levels.
 
 Device: Mobile portrait ~390×844.
 
@@ -954,7 +955,7 @@ Interactions: Context locked from cadre; place editable; days + per-day hours; C
 
 Visual: Calm planner mood. Premium.
 
-Design system Atelier Synergy. JetBrains Mono for times. All visible UI text in French.
+Design system Nolaya. JetBrains Mono for times. All visible UI text in French.
 ```
 
 ---
@@ -969,7 +970,7 @@ Design system Atelier Synergy. JetBrains Mono for times. All visible UI text in 
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy precursor demo — Schedule recap + deliberate activation. Instant SCHEDULE_ACTIVE. Shows cadre actif + offre active (no « hérité ») plus planning details and Aug 15 9h consequence. No “capacity” / CAPACITY_OPEN.
+Product context: Nolaya precursor demo — Schedule recap + deliberate activation. Instant SCHEDULE_ACTIVE. Shows cadre actif + offre active (no « hérité ») plus planning details and Aug 15 9h consequence. No “capacity” / CAPACITY_OPEN.
 
 Device: Mobile portrait ~390×844.
 
@@ -999,7 +1000,7 @@ Interactions: Deliberate CTA → SCHEDULE_ACTIVE.
 
 Visual: Optional small calendar preview chip. Premium respectful.
 
-Design system Atelier Synergy. All visible UI text in French.
+Design system Nolaya. All visible UI text in French.
 ```
 
 ---
@@ -1014,7 +1015,7 @@ Design system Atelier Synergy. All visible UI text in French.
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy precursor demo — FINAL fused success + demo closure. Status SCHEDULE_ACTIVE (cadre + offre + planning all active). Trigger for Inès handoff = SCHEDULE_ACTIVE (NOT CAPACITY_OPEN). No client Inès on the success surface except as an optional handoff CTA label. Branch B opens an answerable feedback sheet/modal (not read-only questions). Without saving feedback, return is not considered collected.
+Product context: Nolaya precursor demo — FINAL fused success + demo closure. Status SCHEDULE_ACTIVE (cadre + offre + planning all active). Trigger for Inès handoff = SCHEDULE_ACTIVE (NOT CAPACITY_OPEN). No client Inès on the success surface except as an optional handoff CTA label. Branch B opens an answerable feedback sheet/modal (not read-only questions). Without saving feedback, return is not considered collected.
 
 Device: Mobile portrait ~390×844. Design TWO related states: (A) success screen (B) feedback sheet/modal overlay.
 
@@ -1069,7 +1070,7 @@ Interactions:
 
 Visual: Joyful but premium success — Black woman stylist with textured Afro hair. Feedback sheet is clean form UI, not a survey spam wall. Any images: Black and/or mixed-race women with coily/curly/textured hair. Premium, realistic, respectful.
 
-Design system Atelier Synergy. Manrope + JetBrains Mono for amounts/status labels (French only). Charcoal/gold, light surfaces, soft radii. No purple, no glow, no emoji, no dark mode. All visible UI text in French.
+Design system Nolaya. Manrope + JetBrains Mono for amounts/status labels (French only). Charcoal/gold, light surfaces, soft radii. No purple, no glow, no emoji, no dark mode. All visible UI text in French.
 ```
 
 ---
@@ -1100,6 +1101,6 @@ Design system Atelier Synergy. Manrope + JetBrains Mono for amounts/status label
 - [ ] Prompts en anglais, UI en français  
 - [ ] Mobile ≈390×844  
 - [ ] Identité afro / textured hair rappelée dès qu’il y a des images  
-- [ ] Design system Atelier Synergy / tokens `demo-precurseur`  
+- [ ] Design system Nolaya / tokens `demo-precurseur`  
 - [ ] Pas d’invention hors `3-storyboard-precurseur-cible.md`  
 - [ ] Aucune mention CAPACITY_OPEN / « ouvrir une capacité »

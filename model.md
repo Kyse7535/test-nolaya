@@ -1,4 +1,4 @@
-# Modèle de données — Hairstylist OS / Atelier Synergy
+# Modèle de données — Hairstylist OS / Nolaya
 
 > Document construit progressivement, dossier par dossier.  
 > Périmètre : **entités + champs + relations** uniquement.

@@ -4,7 +4,7 @@
 > Device : Mobile (≈390×844)  
 > Prompt language : English  
 > UI text language : French  
-> Design system : Atelier Synergy  
+> Design system : Nolaya  
 > Visual identity : Afro / textured hair — Black & mixed-race women  
 > Scope : Happy path only (post-`SETTLED` → `EXPERIENCE_RECORDED`) — review optional with explicit Skip, history always, stylist reply optional, « Refaire » with prefill + forced reconfirm — no moderation, no recommendation engine, gallery `VERIFIED_REALIZATION` out of core
 
@@ -35,7 +35,7 @@
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy — premium B2B2C mobile platform for Afro / textured hair clients and professionals (braids, twists/vanilles, ponytails, locs, natural coils). MVP demo flow: Experience proof after SETTLED — create a factual ExperienceRecord, optional multidimensional review, optional stylist reply, always history, optional « Refaire cette prestation » with prefill + forced reconfirm. No moderation. Gallery verified out of core.
+Product context: Nolaya — premium B2B2C mobile platform for Afro / textured hair clients and professionals (braids, twists/vanilles, ponytails, locs, natural coils). MVP demo flow: Experience proof after SETTLED — create a factual ExperienceRecord, optional multidimensional review, optional stylist reply, always history, optional « Refaire cette prestation » with prefill + forced reconfirm. No moderation. Gallery verified out of core.
 
 Device: Mobile app screen only, portrait ~390×844. Scrollable. No desktop.
 
@@ -71,7 +71,7 @@ Interactions: Only CTA « Confirmer mon expérience ».
 
 Visual: Hero of a Black and/or mixed-race woman with coily/curly/textured Afro hair admiring a finished protective style (braids, twists/vanilles, ponytails, locs, or natural coils) in a calm premium setting. Realistic, respectful. No straight Eurocentric hair as default.
 
-Design system Atelier Synergy: Manrope UI, JetBrains Mono for badges. Charcoal #000000 / #1b1c1c, soft gold #775a19 / #fed488 sparingly, surfaces #fbf9f8 / #ffffff / #efeded. Soft 0.25rem radii; hero media sharper OK. No purple gradients, no neon glow, no emoji, no dark mode, no heavy multi-shadows.
+Design system Nolaya: Manrope UI, JetBrains Mono for badges. Charcoal #000000 / #1b1c1c, soft gold #775a19 / #fed488 sparingly, surfaces #fbf9f8 / #ffffff / #efeded. Soft 0.25rem radii; hero media sharper OK. No purple gradients, no neon glow, no emoji, no dark mode, no heavy multi-shadows.
 
 Quality bar: Premium enterprise mobile UI, calm editorial whitespace, accessible touch targets. All visible UI text in French.
 ```
@@ -88,7 +88,7 @@ Quality bar: Premium enterprise mobile UI, calm editorial whitespace, accessible
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy MVP — Experience proof confirmation after SETTLED. Happy path only: outcome OK (« réalisée comme prévu »). Auto ExperienceRecord from execution facts. No OUTCOME_DISPUTED UI. No moderation.
+Product context: Nolaya MVP — Experience proof confirmation after SETTLED. Happy path only: outcome OK (« réalisée comme prévu »). Auto ExperienceRecord from execution facts. No OUTCOME_DISPUTED UI. No moderation.
 
 Device: Mobile portrait ~390×844 only.
 
@@ -125,7 +125,7 @@ Interactions: Outcome OK selected. Primary CTA continues to multidimensional eva
 
 Visual: Optional verified-mood image of finished twists/vanilles on Black woman with textured hair; stylist avatar Black woman with textured Afro hair. Premium respectful.
 
-Design system Atelier Synergy. Amounts/status JetBrains Mono. All visible UI text in French.
+Design system Nolaya. Amounts/status JetBrains Mono. All visible UI text in French.
 ```
 
 ---
@@ -140,7 +140,7 @@ Design system Atelier Synergy. Amounts/status JetBrains Mono. All visible UI tex
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy MVP — Optional multidimensional review after experience confirmation. Review is NEVER mandatory. Explicit Skip path must be visible and equal in legitimacy to publish. Dimensions: technique, réservation, communication, ponctualité, prix. No moderation queue. No reputation scoring UI.
+Product context: Nolaya MVP — Optional multidimensional review after experience confirmation. Review is NEVER mandatory. Explicit Skip path must be visible and equal in legitimacy to publish. Dimensions: technique, réservation, communication, ponctualité, prix. No moderation queue. No reputation scoring UI.
 
 Device: Mobile portrait ~390×844.
 
@@ -180,7 +180,7 @@ Interactions: Stars optional per dimension for publish path; if publishing, requ
 
 Visual: Circular avatar of Black woman stylist with textured Afro hair; premium calm. Any imagery: Black and/or mixed-race women with coily/curly/textured hair. No straight Eurocentric hair as default.
 
-Design system Atelier Synergy: Manrope + JetBrains Mono labels if needed, charcoal primary CTA, ghost secondary for Skip, soft gold for star fill. Soft radii. No emoji. All visible UI text in French.
+Design system Nolaya: Manrope + JetBrains Mono labels if needed, charcoal primary CTA, ghost secondary for Skip, soft gold for star fill. Soft radii. No emoji. All visible UI text in French.
 ```
 
 ---
@@ -195,7 +195,7 @@ Design system Atelier Synergy: Manrope + JetBrains Mono labels if needed, charco
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy MVP — Published public review + optional stylist reply. Instant publish (no FLAGGED / moderation). This screen may be shown after client publishes on S03. Stylist reply is optional and light. No « Signaler un abus ». No operator console.
+Product context: Nolaya MVP — Published public review + optional stylist reply. Instant publish (no FLAGGED / moderation). This screen may be shown after client publishes on S03. Stylist reply is optional and light. No « Signaler un abus ». No operator console.
 
 Device: Mobile portrait ~390×844.
 
@@ -232,7 +232,7 @@ Interactions: Read review; optional reply publish (one tap). CTA to history. MUS
 
 Visual: Avatars of Black woman client and Black woman stylist with textured Afro hair; optional small finished-style thumbnail (twists/vanilles). Premium realistic. No straight Eurocentric hair as default.
 
-Design system Atelier Synergy. Soft gold accent on reply border optional. All visible UI text in French.
+Design system Nolaya. Soft gold accent on reply border optional. All visible UI text in French.
 ```
 
 ---
@@ -247,7 +247,7 @@ Design system Atelier Synergy. Soft gold accent on reply border optional. All vi
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy MVP — Experience history always available after EXPERIENCE_RECORDED (with or without review). Core relational action: « Refaire cette prestation » creates a prefilled RepeatDemand draft — NEVER silent reuse of old price/date/place. Forced reconfirm fields required. Gallery verified out of core. No CRM/loyalty.
+Product context: Nolaya MVP — Experience history always available after EXPERIENCE_RECORDED (with or without review). Core relational action: « Refaire cette prestation » creates a prefilled RepeatDemand draft — NEVER silent reuse of old price/date/place. Forced reconfirm fields required. Gallery verified out of core. No CRM/loyalty.
 
 Device: Mobile portrait ~390×844. Scrollable.
 
@@ -296,7 +296,7 @@ Interactions: History always visible. Refaire reveals reconfirm. CTA « Créer l
 
 Visual: Stylist/client avatars Black women with textured Afro hair; optional finished twists thumbnail sharp corners. Premium. No straight Eurocentric hair as default.
 
-Design system Atelier Synergy: Manrope + JetBrains Mono for status/price, charcoal CTA, ghost secondary, light surfaces, soft radii. All visible UI text in French.
+Design system Nolaya: Manrope + JetBrains Mono for status/price, charcoal CTA, ghost secondary, light surfaces, soft radii. All visible UI text in French.
 ```
 
 ---
@@ -311,7 +311,7 @@ Design system Atelier Synergy: Manrope + JetBrains Mono for status/price, charco
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy MVP — Clear end-state success after experience is recorded (with or without published review). Status EXPERIENCE_RECORDED. History exists. Optional review may be PUBLISHED or skipped. Bridge back to history or home. No moderation waiting. No gallery verification requirement.
+Product context: Nolaya MVP — Clear end-state success after experience is recorded (with or without published review). Status EXPERIENCE_RECORDED. History exists. Optional review may be PUBLISHED or skipped. Bridge back to history or home. No moderation waiting. No gallery verification requirement.
 
 Device: Mobile portrait ~390×844. Mostly non-scrolling short screen OK.
 
@@ -343,5 +343,5 @@ Interactions: Two CTAs only. No further forms. No flag/report.
 
 Visual: Joyful but premium moment — Black woman client with textured Afro hair / protective style after a successful experience, calm celebration, not cartoonish. Realistic, respectful. No straight Eurocentric hair as default.
 
-Design system Atelier Synergy: Manrope + JetBrains Mono, charcoal/gold, light surfaces. All visible UI text in French.
+Design system Nolaya: Manrope + JetBrains Mono, charcoal/gold, light surfaces. All visible UI text in French.
 ```

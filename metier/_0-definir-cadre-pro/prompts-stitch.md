@@ -4,7 +4,7 @@
 > Device : Mobile (≈390×844)
 > Prompt language : English
 > UI text language : French
-> Design system : Atelier Synergy
+> Design system : Nolaya
 > Visual identity : Afro / textured hair — Black & mixed-race women
 
 ---
@@ -47,7 +47,7 @@
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy — premium B2B2C mobile platform for Afro / textured hair professionals (braids, twists/vanilles, ponytails, locs, natural coils). Enterprise-grade configuration flow.
+Product context: Nolaya — premium B2B2C mobile platform for Afro / textured hair professionals (braids, twists/vanilles, ponytails, locs, natural coils). Enterprise-grade configuration flow.
 
 Device: Mobile app screen only, portrait ~390×844. Scrollable. No desktop layout.
 
@@ -82,7 +82,7 @@ Interactions: Only primary CTA « Commencer la configuration ». No secondary fo
 
 Visual / imagery: Hero shows a premium Afro hair studio moment featuring a Black and/or mixed-race woman with coily, curly, or textured hair (braids, twists/vanilles, ponytails, locs, or natural coils). Premium, realistic, respectful. No straight Eurocentric hair as default.
 
-Design system Atelier Synergy: Manrope for UI, JetBrains Mono for status labels. Deep charcoal primary (#000000 / #1b1c1c), soft gold accent (#775a19 / #fed488) sparingly, surfaces #fbf9f8 / #ffffff / #efeded. Soft 0.25rem radii; hero media can be sharper. Tonal layers, no heavy multi-shadows, no purple gradients, no neon glow, no emoji decoration, no dark mode.
+Design system Nolaya: Manrope for UI, JetBrains Mono for status labels. Deep charcoal primary (#000000 / #1b1c1c), soft gold accent (#775a19 / #fed488) sparingly, surfaces #fbf9f8 / #ffffff / #efeded. Soft 0.25rem radii; hero media can be sharper. Tonal layers, no heavy multi-shadows, no purple gradients, no neon glow, no emoji decoration, no dark mode.
 
 Quality bar: Premium enterprise mobile UI, calm editorial whitespace, clear hierarchy, accessible touch targets, French text only in UI.
 ```
@@ -99,7 +99,7 @@ Quality bar: Premium enterprise mobile UI, calm editorial whitespace, clear hier
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy — premium B2B2C mobile app for Afro / textured hair stylists. Professional Framework configuration.
+Product context: Nolaya — premium B2B2C mobile app for Afro / textured hair stylists. Professional Framework configuration.
 
 Device: Mobile portrait ~390×844 only.
 
@@ -137,7 +137,7 @@ Interactions: CTA disabled until checkbox checked. Back allowed. No free-form ru
 
 Visual: Optional small editorial header image of a Black woman stylist with textured Afro hair in a calm professional setting. Premium realistic representation.
 
-Design system Atelier Synergy: Manrope + JetBrains Mono labels, charcoal/gold, light surfaces #fbf9f8, soft radii, no purple, no clutter, enterprise-grade mobile UI. All visible UI text in French.
+Design system Nolaya: Manrope + JetBrains Mono labels, charcoal/gold, light surfaces #fbf9f8, soft radii, no purple, no clutter, enterprise-grade mobile UI. All visible UI text in French.
 ```
 
 ---
@@ -152,7 +152,7 @@ Design system Atelier Synergy: Manrope + JetBrains Mono labels, charcoal/gold, l
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy mobile — Afro / textured hair professional platform. Configuring PROFESSIONAL_FRAMEWORK_DRAFT.
+Product context: Nolaya mobile — Afro / textured hair professional platform. Configuring PROFESSIONAL_FRAMEWORK_DRAFT.
 
 Device: Mobile ~390×844 portrait only.
 
@@ -190,7 +190,7 @@ Interactions: At least one context required to proceed in happy path; soft warni
 
 Visual: Small contextual illustration or photo of Black / mixed-race women with coily or braided textured hair in professional Afro hair settings matching selected contexts. No Eurocentric straight hair default.
 
-Design system Atelier Synergy: Manrope, JetBrains Mono for micro-labels, charcoal primary buttons, soft gold for active selection markers, light tonal surfaces, soft 0.25rem corners, clean enterprise mobile UI. All UI text in French.
+Design system Nolaya: Manrope, JetBrains Mono for micro-labels, charcoal primary buttons, soft gold for active selection markers, light tonal surfaces, soft 0.25rem corners, clean enterprise mobile UI. All UI text in French.
 ```
 
 ---
@@ -205,7 +205,7 @@ Design system Atelier Synergy: Manrope, JetBrains Mono for micro-labels, charcoa
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy — premium Afro hair stylist mobile configuration for Professional Framework.
+Product context: Nolaya — premium Afro hair stylist mobile configuration for Professional Framework.
 
 Device: Mobile portrait ~390×844 only.
 
@@ -242,7 +242,7 @@ Interactions: Justification required when companions are forbidden or minors acc
 
 Visual: Optional editorial photo of welcoming Afro textured-hair studio with Black women clients/stylists — premium, respectful.
 
-Design system Atelier Synergy: charcoal/gold, Manrope + JetBrains Mono status/labels, light surfaces, soft radii, no purple, no heavy shadows. All visible UI text in French. Enterprise-grade clarity.
+Design system Nolaya: charcoal/gold, Manrope + JetBrains Mono status/labels, light surfaces, soft radii, no purple, no heavy shadows. All visible UI text in French. Enterprise-grade clarity.
 ```
 
 ---
@@ -257,7 +257,7 @@ Design system Atelier Synergy: charcoal/gold, Manrope + JetBrains Mono status/la
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy mobile app for Afro / textured hair professionals configuring their Professional Framework.
+Product context: Nolaya mobile app for Afro / textured hair professionals configuring their Professional Framework.
 
 Device: Mobile ~390×844 portrait only.
 
@@ -293,7 +293,7 @@ Interactions: Require at least one channel and one language. Primary charcoal bu
 
 Visual: Subtle header image of a Black woman stylist with braids or natural coils calmly managing messages in a premium setting.
 
-Design system Atelier Synergy. All UI text in French. Clean, professional, mobile-first, no clutter.
+Design system Nolaya. All UI text in French. Clean, professional, mobile-first, no clutter.
 ```
 
 ---
@@ -308,7 +308,7 @@ Design system Atelier Synergy. All UI text in French. Clean, professional, mobil
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy — Professional Framework for Afro hair stylists (braids, vanilles, ponytails, locs).
+Product context: Nolaya — Professional Framework for Afro hair stylists (braids, vanilles, ponytails, locs).
 
 Device: Mobile portrait ~390×844 only.
 
@@ -340,7 +340,7 @@ Interactions: Clear defaults favoring safety. No free legal essay — structured
 
 Visual: Premium photo of Black / mixed-race women with textured hair in consultation — respectful, professional.
 
-Design system Atelier Synergy: Manrope, JetBrains Mono for ages/numbers, charcoal/gold, light surfaces. All UI text in French.
+Design system Nolaya: Manrope, JetBrains Mono for ages/numbers, charcoal/gold, light surfaces. All UI text in French.
 ```
 
 ---
@@ -355,7 +355,7 @@ Design system Atelier Synergy: Manrope, JetBrains Mono for ages/numbers, charcoa
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy mobile Professional Framework configuration for Afro / textured hair stylists.
+Product context: Nolaya mobile Professional Framework configuration for Afro / textured hair stylists.
 
 Device: Mobile ~390×844 only.
 
@@ -388,7 +388,7 @@ Interactions: Platform-required items locked on; optional refinements as short n
 
 Visual: Calm premium imagery with Black women (stylist + client cues) with coily/braided hair — dignity and mutual respect tone.
 
-Design system Atelier Synergy. All UI text in French. Enterprise, clean, no emoji.
+Design system Nolaya. All UI text in French. Enterprise, clean, no emoji.
 ```
 
 ---
@@ -403,7 +403,7 @@ Design system Atelier Synergy. All UI text in French. Enterprise, clean, no emoj
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy — Afro hair professional mobile platform. Professional Framework payment methods (general rules only).
+Product context: Nolaya — Afro hair professional mobile platform. Professional Framework payment methods (general rules only).
 
 Device: Mobile portrait ~390×844.
 
@@ -432,7 +432,7 @@ French UI text:
 
 Visual: Minimal — optional abstract premium payment UI moment with Black woman stylist with textured hair reviewing a clean payment summary (no card numbers).
 
-Design system Atelier Synergy: JetBrains Mono for method labels, Manrope body, charcoal buttons, soft gold accents. All UI text in French.
+Design system Nolaya: JetBrains Mono for method labels, Manrope body, charcoal buttons, soft gold accents. All UI text in French.
 ```
 
 ---
@@ -447,7 +447,7 @@ Design system Atelier Synergy: JetBrains Mono for method labels, Manrope body, c
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy Professional Framework — operational policies selection for Afro / textured hair stylists.
+Product context: Nolaya Professional Framework — operational policies selection for Afro / textured hair stylists.
 
 Device: Mobile ~390×844 portrait only.
 
@@ -487,7 +487,7 @@ Interactions: Each sensitive topic needs one selected policy before continue. Se
 
 Visual: Clean UI only or subtle textured-hair professional photo (Black woman stylist). Premium enterprise look.
 
-Design system Atelier Synergy. All UI text in French. No purple, no clutter.
+Design system Nolaya. All UI text in French. No purple, no clutter.
 ```
 
 ---
@@ -502,7 +502,7 @@ Design system Atelier Synergy. All UI text in French. No purple, no clutter.
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy mobile — Professional Framework safety & interruption rules for Afro hair professionals.
+Product context: Nolaya mobile — Professional Framework safety & interruption rules for Afro hair professionals.
 
 Device: Mobile portrait ~390×844.
 
@@ -546,7 +546,7 @@ French UI text:
 
 Visual: Serious, calm premium tone — Black woman stylist with textured hair in a safe professional studio. No dramatic fear imagery.
 
-Design system Atelier Synergy. Error color #ba1a1a only for validation. All UI text in French.
+Design system Nolaya. Error color #ba1a1a only for validation. All UI text in French.
 ```
 
 ---
@@ -561,7 +561,7 @@ Design system Atelier Synergy. Error color #ba1a1a only for validation. All UI t
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy Professional Framework — privacy & consent settings for Afro / textured hair stylists.
+Product context: Nolaya Professional Framework — privacy & consent settings for Afro / textured hair stylists.
 
 Device: Mobile ~390×844 only.
 
@@ -590,7 +590,7 @@ French UI text:
 
 Visual: Portfolio-style sharp-corner media thumbnail showing Black woman with braids/twists/natural coils — illustrating consent-gated gallery, premium respectful.
 
-Design system Atelier Synergy: sharp 0px for media thumbs, soft radii for controls, Manrope + JetBrains Mono. All UI text in French.
+Design system Nolaya: sharp 0px for media thumbs, soft radii for controls, Manrope + JetBrains Mono. All UI text in French.
 ```
 
 ---
@@ -605,7 +605,7 @@ Design system Atelier Synergy: sharp 0px for media thumbs, soft radii for contro
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy — Professional Framework exceptions policy map for Afro hair stylists.
+Product context: Nolaya — Professional Framework exceptions policy map for Afro hair stylists.
 
 Device: Mobile portrait ~390×844.
 
@@ -640,7 +640,7 @@ Interactions: All listed rules must have a mode selected.
 
 Visual: Clean structured UI; optional small Afro textured-hair editorial image.
 
-Design system Atelier Synergy. All UI text in French. Enterprise clarity.
+Design system Nolaya. All UI text in French. Enterprise clarity.
 ```
 
 ---
@@ -655,7 +655,7 @@ Design system Atelier Synergy. All UI text in French. Enterprise clarity.
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy Professional Framework submission screen for Afro / textured hair stylists.
+Product context: Nolaya Professional Framework submission screen for Afro / textured hair stylists.
 
 Device: Mobile ~390×844 portrait.
 
@@ -691,7 +691,7 @@ French UI text:
 
 Visual: Black woman stylist with textured hair reviewing a clean summary on phone — premium, calm confidence.
 
-Design system Atelier Synergy. JetBrains Mono for status EN RÉVISION. All UI text in French.
+Design system Nolaya. JetBrains Mono for status EN RÉVISION. All UI text in French.
 ```
 
 ---
@@ -706,7 +706,7 @@ Design system Atelier Synergy. JetBrains Mono for status EN RÉVISION. All UI te
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy — verification report UI for Professional Framework (Afro hair stylist platform).
+Product context: Nolaya — verification report UI for Professional Framework (Afro hair stylist platform).
 
 Device: Mobile portrait ~390×844.
 
@@ -736,7 +736,7 @@ Interactions: Tapping Corriger implies jump to relevant section (visual affordan
 
 Visual: No panic UI — precise enterprise review. Optional small avatar of Black woman stylist with coils/braids.
 
-Design system Atelier Synergy: error #ba1a1a for blocking, amber/gold for clarifications. All UI text in French.
+Design system Nolaya: error #ba1a1a for blocking, amber/gold for clarifications. All UI text in French.
 ```
 
 ---
@@ -751,7 +751,7 @@ Design system Atelier Synergy: error #ba1a1a for blocking, amber/gold for clarif
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy pilot mode — operator-assisted Professional Framework formalization for Afro / textured hair stylists.
+Product context: Nolaya pilot mode — operator-assisted Professional Framework formalization for Afro / textured hair stylists.
 
 Device: Mobile ~390×844 (stylist-facing screen).
 
@@ -788,7 +788,7 @@ French UI text:
 
 Visual: Collaborative premium tone — Black woman stylist with textured hair and a professional operator cue (neutral), respectful, not hierarchical caricature.
 
-Design system Atelier Synergy. All UI text in French.
+Design system Nolaya. All UI text in French.
 ```
 
 ---
@@ -803,7 +803,7 @@ Design system Atelier Synergy. All UI text in French.
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy — Professional Framework final recap & explicit validation for Afro hair stylists.
+Product context: Nolaya — Professional Framework final recap & explicit validation for Afro hair stylists.
 
 Device: Mobile portrait ~390×844.
 
@@ -840,7 +840,7 @@ French UI text:
 
 Visual: Premium calm recap; optional small portrait of Black woman stylist with braids/locs/natural coils affirming professionally.
 
-Design system Atelier Synergy. JetBrains Mono for version placeholder « v1 · brouillon final ». All UI text in French.
+Design system Nolaya. JetBrains Mono for version placeholder « v1 · brouillon final ». All UI text in French.
 ```
 
 ---
@@ -855,7 +855,7 @@ Design system Atelier Synergy. JetBrains Mono for version placeholder « v1 · b
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy success confirmation — Professional Framework activated for Afro / textured hair stylist.
+Product context: Nolaya success confirmation — Professional Framework activated for Afro / textured hair stylist.
 
 Device: Mobile ~390×844 portrait.
 
@@ -888,7 +888,7 @@ French UI text:
 
 Visual: Celebratory but restrained premium moment — Black woman stylist with textured Afro hair (braids/twists/ponytail/locs) in a high-end studio, confident and professional. No confetti spam, no emoji.
 
-Design system Atelier Synergy: soft gold used sparingly for success accent, charcoal CTAs, light surfaces. All UI text in French.
+Design system Nolaya: soft gold used sparingly for success accent, charcoal CTAs, light surfaces. All UI text in French.
 ```
 
 ---
@@ -903,7 +903,7 @@ Design system Atelier Synergy: soft gold used sparingly for success accent, char
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy compliance block screen for incompatible Professional Framework rule (Afro hair stylist platform).
+Product context: Nolaya compliance block screen for incompatible Professional Framework rule (Afro hair stylist platform).
 
 Device: Mobile ~390×844.
 
@@ -937,7 +937,7 @@ French UI text:
 
 Visual: Precise, serious enterprise UI — not aggressive. Optional small avatar Black woman stylist with textured hair.
 
-Design system Atelier Synergy with error #ba1a1a. All UI text in French.
+Design system Nolaya with error #ba1a1a. All UI text in French.
 ```
 
 ---
@@ -952,7 +952,7 @@ Design system Atelier Synergy with error #ba1a1a. All UI text in French.
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy — Professional Framework update flow after significant organization change (Afro / textured hair stylists).
+Product context: Nolaya — Professional Framework update flow after significant organization change (Afro / textured hair stylists).
 
 Device: Mobile portrait ~390×844.
 
@@ -988,7 +988,7 @@ French UI text:
 
 Visual: Premium relocation/organization tone with Black woman stylist with natural coils or braids packing/setting up a professional Afro hair workspace — realistic, dignified.
 
-Design system Atelier Synergy: warm amber/gold for UPDATE_REQUIRED badge, charcoal structure, Manrope + JetBrains Mono. All UI text in French. Enterprise-grade mobile UI.
+Design system Nolaya: warm amber/gold for UPDATE_REQUIRED badge, charcoal structure, Manrope + JetBrains Mono. All UI text in French. Enterprise-grade mobile UI.
 ```
 
 ---

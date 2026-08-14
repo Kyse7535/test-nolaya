@@ -82,7 +82,7 @@ S’inspirer de la structure de l’écran Stitch « Cadre Professionnel » (wel
 - **Un écran explicatif d’entrée minimum par bloc** (`S01`)
 - Contenu pédagogique tiré du domain storytelling (périmètre, objets métier, résultat attendu) — pas de marketing générique
 - Mobile only, texte UI en français
-- Design system **Atelier Synergy** (Manrope / JetBrains Mono, charcoal + soft gold) — on reprend la **structure** de la référence, pas forcément ses couleurs/fonts d’export
+- Design system **Nolaya** (Manrope / JetBrains Mono, charcoal + soft gold) — on reprend la **structure** de la référence, pas forcément ses couleurs/fonts d’export
 - Visuels : identité afro / textured hair (§7)
 - Exception UX pour cet écran uniquement : les **blocs piliers** sont autorisés (même si la règle générale évite les cards partout ailleurs)
 - Ne pas y mélanger de champs de saisie, toggles métier, ni listes opérationnelles
@@ -152,7 +152,7 @@ Inclure une contrainte du type :
 
 ---
 
-## 8. Design system de référence — Atelier Synergy
+## 8. Design system de référence — Nolaya
 
 S’appuyer sur `atelier_synergy/DESIGN.md` présent dans chaque bloc.
 
@@ -223,7 +223,7 @@ Ne pas inventer de fonctionnalités hors récit. Si une branche alternative est 
 > Device : Mobile (≈390×844)
 > Prompt language : English
 > UI text language : French
-> Design system : Atelier Synergy
+> Design system : Nolaya
 > Visual identity : Afro / textured hair — Black & mixed-race women
 
 ## Cartographie des écrans
@@ -254,7 +254,7 @@ Ne pas inventer de fonctionnalités hors récit. Si une branche alternative est 
 
 Chaque prompt (bloc ` ```text `) doit contenir, dans cet ordre :
 
-1. **Product context** — plateforme B2B2C coiffure afro / textured hair, Atelier Synergy
+1. **Product context** — plateforme B2B2C coiffure afro / textured hair, Nolaya
 2. **Device** — mobile app screen, portrait, ~390×844
 3. **Screen purpose** — qui fait quoi, pourquoi maintenant (préciser `Explicatif` ou `Opérationnel`)
 4. **Layout** — structure de l’écran (header, sections, sticky CTA, etc.)
@@ -291,7 +291,7 @@ Checklist à vérifier pour chaque `prompts-stitch.md` :
 - [ ] Chaque prompt impose le texte UI en français
 - [ ] Chaque prompt avec image impose la représentation afro / textured hair
 - [ ] Cible mobile exclusive
-- [ ] Design system Atelier Synergy rappelé
+- [ ] Design system Nolaya rappelé
 - [ ] Aucune invention hors domain storytelling
 - [ ] Fichier placé dans le bon dossier bloc
 

@@ -1,5 +1,5 @@
 ---
-name: Atelier Synergy
+name: Nolaya
 colors:
   surface: '#fbf9f8'
   surface-dim: '#dbdad9'

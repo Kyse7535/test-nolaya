@@ -4,7 +4,7 @@
 > Device : Mobile (≈390×844)  
 > Prompt language : English  
 > UI text language : French  
-> Design system : Atelier Synergy  
+> Design system : Nolaya  
 > Visual identity : Afro / textured hair — Black & mixed-race women  
 > Scope : Happy path only (`CAPACITY_DRAFT` → `CAPACITY_OPEN`) — no review gate, no operator, no exception branches, no auth, no real payment
 
@@ -38,7 +38,7 @@
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy — premium B2B2C mobile platform for Afro / textured hair professionals (braids, twists/vanilles, ponytails, locs, natural coils). MVP demo flow: Open a Professional Capacity happy path only. Professional Framework is ALREADY ACTIVE (mocked, inherited — not configured in this step).
+Product context: Nolaya — premium B2B2C mobile platform for Afro / textured hair professionals (braids, twists/vanilles, ponytails, locs, natural coils). MVP demo flow: Open a Professional Capacity happy path only. Professional Framework is ALREADY ACTIVE (mocked, inherited — not configured in this step).
 
 Device: Mobile app screen only, portrait ~390×844. Scrollable. No desktop.
 
@@ -75,7 +75,7 @@ Interactions: Only CTA « Ouvrir une capacité ». Banner is read-only (no edit 
 
 Visual: Hero of a Black and/or mixed-race woman stylist with coily/curly/textured Afro hair (braids, twists/vanilles, ponytails, locs, or natural coils) preparing a protective style in a calm premium studio. Realistic, respectful. No straight Eurocentric hair as default. Any photos, illustrations, avatars, or portfolio images must depict Black and/or mixed-race women with coily, curly, or textured hair (Afro hair: braids, twists/vanilles, ponytails, locs, natural coils). Premium, realistic, respectful representation. No straight Eurocentric hair as the default visual.
 
-Design system Atelier Synergy: Manrope UI, JetBrains Mono for badges. Charcoal #000000 / #1b1c1c, soft gold #775a19 / #fed488 sparingly, surfaces #fbf9f8 / #ffffff / #efeded. Soft 0.25rem radii; hero media sharper OK. No purple gradients, no neon glow, no emoji, no dark mode, no heavy multi-shadows.
+Design system Nolaya: Manrope UI, JetBrains Mono for badges. Charcoal #000000 / #1b1c1c, soft gold #775a19 / #fed488 sparingly, surfaces #fbf9f8 / #ffffff / #efeded. Soft 0.25rem radii; hero media sharper OK. No purple gradients, no neon glow, no emoji, no dark mode, no heavy multi-shadows.
 
 Quality bar: Premium enterprise mobile UI, calm editorial whitespace, accessible touch targets. All visible UI text in French.
 ```
@@ -92,7 +92,7 @@ Quality bar: Premium enterprise mobile UI, calm editorial whitespace, accessible
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy MVP — Open Professional Capacity for Afro / textured hair stylists. Happy path only. Professional Framework already ACTIVE (inherited banner optional small).
+Product context: Nolaya MVP — Open Professional Capacity for Afro / textured hair stylists. Happy path only. Professional Framework already ACTIVE (inherited banner optional small).
 
 Device: Mobile portrait ~390×844 only.
 
@@ -130,7 +130,7 @@ Interactions: Single-select prestation; variante fields required (taille + longu
 
 Visual: Optional small editorial image of finished knotless braids or twists on a Black woman with textured Afro hair. Premium realistic. Any photos, illustrations, avatars, or portfolio images must depict Black and/or mixed-race women with coily, curly, or textured hair (Afro hair: braids, twists/vanilles, ponytails, locs, natural coils). Premium, realistic, respectful representation. No straight Eurocentric hair as the default visual.
 
-Design system Atelier Synergy: Manrope + JetBrains Mono, charcoal/gold, light surfaces, soft radii, no clutter. All visible UI text in French.
+Design system Nolaya: Manrope + JetBrains Mono, charcoal/gold, light surfaces, soft radii, no clutter. All visible UI text in French.
 ```
 
 ---
@@ -145,7 +145,7 @@ Design system Atelier Synergy: Manrope + JetBrains Mono, charcoal/gold, light su
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy MVP — Professional Capacity gallery for the selected prestation. No moderation, no IN_REVIEW, no operator. Photos publish immediately into the capacity draft. Proof levels only: DECLARED_REALIZATION or REFERENCE_INSPIRATION.
+Product context: Nolaya MVP — Professional Capacity gallery for the selected prestation. No moderation, no IN_REVIEW, no operator. Photos publish immediately into the capacity draft. Proof levels only: DECLARED_REALIZATION or REFERENCE_INSPIRATION.
 
 Device: Mobile portrait ~390×844.
 
@@ -177,7 +177,7 @@ Interactions: Add photos (mock); per-photo single-select proof level; remove pho
 
 Visual: Photo tiles must show Black and/or mixed-race women with coily/curly/textured Afro hair wearing the selected style (braids, twists, etc.). Sharp media corners. Any photos, illustrations, avatars, or portfolio images must depict Black and/or mixed-race women with coily, curly, or textured hair (Afro hair: braids, twists/vanilles, ponytails, locs, natural coils). Premium, realistic, respectful representation. No straight Eurocentric hair as the default visual.
 
-Design system Atelier Synergy. JetBrains Mono for proof chips / status. All visible UI text in French. No IN_REVIEW badge, no reject UI.
+Design system Nolaya. JetBrains Mono for proof chips / status. All visible UI text in French. No IN_REVIEW badge, no reject UI.
 ```
 
 ---
@@ -192,7 +192,7 @@ Design system Atelier Synergy. JetBrains Mono for proof chips / status. All visi
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy MVP — Professional Capacity service model for Afro hair stylists. Levels: COMPLET (full service) or ASSISTÉ (assisted). No advanced consequence engine.
+Product context: Nolaya MVP — Professional Capacity service model for Afro hair stylists. Levels: COMPLET (full service) or ASSISTÉ (assisted). No advanced consequence engine.
 
 Device: Mobile portrait ~390×844.
 
@@ -230,7 +230,7 @@ Interactions: Single-select service level; per-task owner toggle; optional note;
 
 Visual: Optional calm image of Black woman stylist with textured hair working with a client on a braid install — collaborative studio mood. Any photos, illustrations, avatars, or portfolio images must depict Black and/or mixed-race women with coily, curly, or textured hair (Afro hair: braids, twists/vanilles, ponytails, locs, natural coils). Premium, realistic, respectful representation. No straight Eurocentric hair as the default visual.
 
-Design system Atelier Synergy. All visible UI text in French.
+Design system Nolaya. All visible UI text in French.
 ```
 
 ---
@@ -245,7 +245,7 @@ Design system Atelier Synergy. All visible UI text in French.
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy MVP — Professional Capacity pricing. Declarative only — no real payment, no PSP, no card fields, no “target net revenue”.
+Product context: Nolaya MVP — Professional Capacity pricing. Declarative only — no real payment, no PSP, no card fields, no “target net revenue”.
 
 Device: Mobile portrait ~390×844.
 
@@ -279,7 +279,7 @@ Interactions: Numeric inputs; add/remove up to 2 supplements; CTA gated on price
 
 Visual: Optional editorial close-up of finished protective style on Black woman with textured hair — portfolio pricing mood, not shopping cart. Any photos, illustrations, avatars, or portfolio images must depict Black and/or mixed-race women with coily, curly, or textured hair (Afro hair: braids, twists/vanilles, ponytails, locs, natural coils). Premium, realistic, respectful representation. No straight Eurocentric hair as the default visual.
 
-Design system Atelier Synergy. JetBrains Mono for amounts and duration. All visible UI text in French.
+Design system Nolaya. JetBrains Mono for amounts and duration. All visible UI text in French.
 ```
 
 ---
@@ -294,7 +294,7 @@ Design system Atelier Synergy. JetBrains Mono for amounts and duration. All visi
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy MVP — Professional Capacity placement: one execution context, simplified weekly availability, capacity max + desired demand volume. No multi-location conflict engine.
+Product context: Nolaya MVP — Professional Capacity placement: one execution context, simplified weekly availability, capacity max + desired demand volume. No multi-location conflict engine.
 
 Device: Mobile portrait ~390×844.
 
@@ -329,7 +329,7 @@ Interactions: Single location; multi-select days and slots; numeric fields; CTA 
 
 Visual: Optional calm image of home studio or salon with Black woman stylist and textured Afro hair client context. Any photos, illustrations, avatars, or portfolio images must depict Black and/or mixed-race women with coily, curly, or textured hair (Afro hair: braids, twists/vanilles, ponytails, locs, natural coils). Premium, realistic, respectful representation. No straight Eurocentric hair as the default visual.
 
-Design system Atelier Synergy. All visible UI text in French.
+Design system Nolaya. All visible UI text in French.
 ```
 
 ---
@@ -344,7 +344,7 @@ Design system Atelier Synergy. All visible UI text in French.
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy MVP — Professional Capacity activation. No operator review, no verification report, no IN_REVIEW. Explicit stylist confirmation required. Instant CAPACITY_OPEN.
+Product context: Nolaya MVP — Professional Capacity activation. No operator review, no verification report, no IN_REVIEW. Explicit stylist confirmation required. Instant CAPACITY_OPEN.
 
 Device: Mobile portrait ~390×844.
 
@@ -377,7 +377,7 @@ Interactions: CTA disabled until checkbox checked. Modifier links are visual aff
 
 Visual: Optional small avatar or gallery thumbs of Black women with textured Afro hair in the selected style. Any photos, illustrations, avatars, or portfolio images must depict Black and/or mixed-race women with coily, curly, or textured hair (Afro hair: braids, twists/vanilles, ponytails, locs, natural coils). Premium, realistic, respectful representation. No straight Eurocentric hair as the default visual.
 
-Design system Atelier Synergy. Status labels JetBrains Mono. All visible UI text in French.
+Design system Nolaya. Status labels JetBrains Mono. All visible UI text in French.
 ```
 
 ---
@@ -392,7 +392,7 @@ Design system Atelier Synergy. Status labels JetBrains Mono. All visible UI text
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy MVP — success confirmation after Professional Capacity activation.
+Product context: Nolaya MVP — success confirmation after Professional Capacity activation.
 
 Device: Mobile portrait ~390×844. Mostly non-scrolling short screen OK.
 
@@ -422,7 +422,7 @@ Interactions: Two CTAs only.
 
 Visual: Joyful but premium moment — Black woman stylist with textured Afro hair in professional setting, subtle celebration, not cartoonish. Any photos, illustrations, avatars, or portfolio images must depict Black and/or mixed-race women with coily, curly, or textured hair (Afro hair: braids, twists/vanilles, ponytails, locs, natural coils). Premium, realistic, respectful representation. No straight Eurocentric hair as the default visual.
 
-Design system Atelier Synergy. All visible UI text in French.
+Design system Nolaya. All visible UI text in French.
 ```
 
 ---
@@ -437,7 +437,7 @@ Design system Atelier Synergy. All visible UI text in French.
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy MVP — list of the stylist’s professional capacities from local mock data. Bonus demo screen (P1). Happy path only: show OPEN and maybe DRAFT. Optional minimal “Fermer” → CAPACITY_CLOSED without workflow. No operator, no IN_REVIEW filters.
+Product context: Nolaya MVP — list of the stylist’s professional capacities from local mock data. Bonus demo screen (P1). Happy path only: show OPEN and maybe DRAFT. Optional minimal “Fermer” → CAPACITY_CLOSED without workflow. No operator, no IN_REVIEW filters.
 
 Device: Mobile portrait ~390×844.
 
@@ -472,5 +472,5 @@ Interactions: Nouvelle capacité; tap row; optional Fermer on OPEN. No auth, no 
 
 Visual: Optional thumbnail per row — Black woman with textured Afro hair wearing that style. Any photos, illustrations, avatars, or portfolio images must depict Black and/or mixed-race women with coily, curly, or textured hair (Afro hair: braids, twists/vanilles, ponytails, locs, natural coils). Premium, realistic, respectful representation. No straight Eurocentric hair as the default visual.
 
-Design system Atelier Synergy. Manrope + JetBrains Mono badges. Charcoal/gold, light surfaces. No purple, no glow, no dark mode. All visible UI text in French.
+Design system Nolaya. Manrope + JetBrains Mono badges. Charcoal/gold, light surfaces. No purple, no glow, no dark mode. All visible UI text in French.
 ```

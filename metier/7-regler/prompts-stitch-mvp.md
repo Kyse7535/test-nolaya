@@ -4,7 +4,7 @@
 > Device : Mobile (≈390×844)  
 > Prompt language : English  
 > UI text language : French  
-> Design system : Atelier Synergy  
+> Design system : Nolaya  
 > Visual identity : Afro / textured hair — Black & mixed-race women  
 > Scope : Happy path only (`COMPLETED` → `SETTLEMENT_PENDING` → `SETTLED` + payout `PAID_OUT` mock) — mock payment only, one commission rate, optional tip, no refunds, no disputes, no real PSP
 
@@ -33,7 +33,7 @@
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy — premium B2B2C mobile platform for Afro / textured hair professionals and clients (braids, twists/vanilles, ponytails, locs, natural coils). MVP demo flow: Settlement happy path only — after COMPLETED, produce an explainable statement, mock-pay the balance, allocate value, reach SETTLED. No real PSP. No refunds.
+Product context: Nolaya — premium B2B2C mobile platform for Afro / textured hair professionals and clients (braids, twists/vanilles, ponytails, locs, natural coils). MVP demo flow: Settlement happy path only — after COMPLETED, produce an explainable statement, mock-pay the balance, allocate value, reach SETTLED. No real PSP. No refunds.
 
 Device: Mobile app screen only, portrait ~390×844. Scrollable. No desktop.
 
@@ -69,7 +69,7 @@ Interactions: Only CTA « Voir mon décompte ».
 
 Visual: Hero of a Black and/or mixed-race woman with coily/curly/textured Afro hair (braids, twists/vanilles, ponytails, locs, or natural coils) calmly reviewing a finished protective style moment / phone statement mood in a premium studio. Realistic, respectful. No straight Eurocentric hair as default.
 
-Design system Atelier Synergy: Manrope UI, JetBrains Mono for badges. Charcoal #000000 / #1b1c1c, soft gold #775a19 / #fed488 sparingly, surfaces #fbf9f8 / #ffffff / #efeded. Soft 0.25rem radii; hero media sharper OK. No purple gradients, no neon glow, no emoji, no dark mode, no heavy multi-shadows.
+Design system Nolaya: Manrope UI, JetBrains Mono for badges. Charcoal #000000 / #1b1c1c, soft gold #775a19 / #fed488 sparingly, surfaces #fbf9f8 / #ffffff / #efeded. Soft 0.25rem radii; hero media sharper OK. No purple gradients, no neon glow, no emoji, no dark mode, no heavy multi-shadows.
 
 Quality bar: Premium enterprise mobile UI, calm editorial whitespace, accessible touch targets. All visible UI text in French.
 ```
@@ -86,7 +86,7 @@ Quality bar: Premium enterprise mobile UI, calm editorial whitespace, accessible
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy MVP — Client settlement payment. Happy path from COMPLETED. Formula ONLY: final = engaged price (+ optional tip); balance = final − deposit. Mock payment only via « Payer le solde ». NO refunds, NO adjustments/amendments engine, NO real PSP, NO card number / CVV fields.
+Product context: Nolaya MVP — Client settlement payment. Happy path from COMPLETED. Formula ONLY: final = engaged price (+ optional tip); balance = final − deposit. Mock payment only via « Payer le solde ». NO refunds, NO adjustments/amendments engine, NO real PSP, NO card number / CVV fields.
 
 Device: Mobile portrait ~390×844 only.
 
@@ -129,7 +129,7 @@ Interactions: Tip optional (default none). Selecting tip updates final and balan
 
 Visual: Optional small avatar of Black woman stylist with textured Afro hair; optional thumbnail of finished twists/vanilles on Black woman client. Premium realistic. No straight Eurocentric hair as default.
 
-Design system Atelier Synergy: Manrope + JetBrains Mono for amounts/badges, charcoal/gold, light surfaces, soft radii. Emphasize mock nature (banner + wording). All visible UI text in French.
+Design system Nolaya: Manrope + JetBrains Mono for amounts/badges, charcoal/gold, light surfaces, soft radii. Emphasize mock nature (banner + wording). All visible UI text in French.
 ```
 
 ---
@@ -144,7 +144,7 @@ Design system Atelier Synergy: Manrope + JetBrains Mono for amounts/badges, char
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy MVP — Stylist revenue & payout view after client mock-paid the balance (or concurrently once allocation is written). ONE fixed mock commission rate on the engaged price (not on tip). Tip 100% to stylist. Instant mock payout status PAID_OUT. No refunds, no multi-beneficiary splits, no real bank payout UI, no Stripe fee line.
+Product context: Nolaya MVP — Stylist revenue & payout view after client mock-paid the balance (or concurrently once allocation is written). ONE fixed mock commission rate on the engaged price (not on tip). Tip 100% to stylist. Instant mock payout status PAID_OUT. No refunds, no multi-beneficiary splits, no real bank payout UI, no Stripe fee line.
 
 Device: Mobile portrait ~390×844 only.
 
@@ -188,7 +188,7 @@ Interactions: Read-only amounts. Download is a visual affordance (no real file r
 
 Visual: Optional avatar of Black woman stylist with textured Afro hair in premium studio; calm finance-editorial mood — not a bank dashboard clutter. Any photos must depict Black and/or mixed-race women with coily/curly/textured hair. No straight Eurocentric hair as default.
 
-Design system Atelier Synergy: Manrope + JetBrains Mono for amounts/status, charcoal/gold, light surfaces, soft radii, tonal elevation not heavy shadows. All visible UI text in French.
+Design system Nolaya: Manrope + JetBrains Mono for amounts/status, charcoal/gold, light surfaces, soft radii, tonal elevation not heavy shadows. All visible UI text in French.
 ```
 
 ---
@@ -203,7 +203,7 @@ Design system Atelier Synergy: Manrope + JetBrains Mono for amounts/status, char
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy MVP — Client receipt + SETTLED success after mock balance payment. Closes settlement demo and bridges to étape 8 (experience proof). No refunds. No real PSP receipt branding.
+Product context: Nolaya MVP — Client receipt + SETTLED success after mock balance payment. Closes settlement demo and bridges to étape 8 (experience proof). No refunds. No real PSP receipt branding.
 
 Device: Mobile portrait ~390×844. Scrollable short-to-medium screen OK.
 
@@ -243,5 +243,5 @@ Interactions: Two CTAs only. Primary is the bridge to étape 8. No refund CTA. N
 
 Visual: Joyful but premium moment — Black woman client with textured Afro hair / protective style (twists, braids, ponytail, locs, or natural coils) after a successful finish, calm celebration, not cartoonish. Realistic, respectful. No straight Eurocentric hair as default.
 
-Design system Atelier Synergy: Manrope + JetBrains Mono for amounts/status, charcoal/gold, light surfaces. All visible UI text in French.
+Design system Nolaya: Manrope + JetBrains Mono for amounts/status, charcoal/gold, light surfaces. All visible UI text in French.
 ```

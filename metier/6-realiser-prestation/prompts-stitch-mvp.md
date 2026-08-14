@@ -4,7 +4,7 @@
 > Device : Mobile (≈390×844)  
 > Prompt language : English  
 > UI text language : French  
-> Design system : Atelier Synergy  
+> Design system : Nolaya  
 > Visual identity : Afro / textured hair — Black & mixed-race women  
 > Scope : Happy path only (`READY` → `IN_PROGRESS` → `COMPLETED`) — arrivals → start → complete end → client confirm — no delay, no amendment, no incident
 
@@ -35,7 +35,7 @@
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy — premium B2B2C mobile platform for Afro / textured hair clients and professionals (braids, twists/vanilles, ponytails, locs, natural coils). MVP demo flow: Perform the service happy path only — a READY appointment becomes an execution fact: arrivals → start → complete end → client confirmation → COMPLETED, then handoff to settlement. No delay, no amendment, no incident.
+Product context: Nolaya — premium B2B2C mobile platform for Afro / textured hair clients and professionals (braids, twists/vanilles, ponytails, locs, natural coils). MVP demo flow: Perform the service happy path only — a READY appointment becomes an execution fact: arrivals → start → complete end → client confirmation → COMPLETED, then handoff to settlement. No delay, no amendment, no incident.
 
 Device: Mobile app screen only, portrait ~390×844. Scrollable. No desktop.
 
@@ -72,7 +72,7 @@ Interactions: Only CTA « Ouvrir le suivi ».
 
 Visual: Hero of a Black and/or mixed-race woman with coily/curly/textured Afro hair on appointment day — arriving at a calm premium braiding studio, or stylist ready at her station with braiding tools. Protective styles (braids, twists/vanilles, ponytails, locs, or natural coils) visible. Realistic, respectful. No straight Eurocentric hair as default.
 
-Design system Atelier Synergy: Manrope UI, JetBrains Mono for badges. Charcoal #000000 / #1b1c1c, soft gold #775a19 / #fed488 sparingly, surfaces #fbf9f8 / #ffffff / #efeded. Soft 0.25rem radii; hero media sharper OK. No purple gradients, no neon glow, no emoji, no dark mode, no heavy multi-shadows.
+Design system Nolaya: Manrope UI, JetBrains Mono for badges. Charcoal #000000 / #1b1c1c, soft gold #775a19 / #fed488 sparingly, surfaces #fbf9f8 / #ffffff / #efeded. Soft 0.25rem radii; hero media sharper OK. No purple gradients, no neon glow, no emoji, no dark mode, no heavy multi-shadows.
 
 Quality bar: Premium enterprise mobile UI, calm editorial whitespace, accessible touch targets. All visible UI text in French.
 ```
@@ -89,7 +89,7 @@ Quality bar: Premium enterprise mobile UI, calm editorial whitespace, accessible
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy MVP — Day-of operational tracking for Afro / textured hair appointments. Happy path: READY appointment, declare arrivals (client + stylist). No delay signaling, no amendment, no incident report CTAs.
+Product context: Nolaya MVP — Day-of operational tracking for Afro / textured hair appointments. Happy path: READY appointment, declare arrivals (client + stylist). No delay signaling, no amendment, no incident report CTAs.
 
 Device: Mobile portrait ~390×844 only.
 
@@ -129,7 +129,7 @@ Interactions: One tap declares arrival with timestamp. Timeline updates. No undo
 
 Visual: Optional editorial of Black woman with textured Afro hair arriving at a braiding appointment / greeting at the door of a premium home studio. Realistic, respectful.
 
-Design system Atelier Synergy: Manrope + JetBrains Mono for times and statuses. Charcoal/gold, light surfaces. All visible UI text in French.
+Design system Nolaya: Manrope + JetBrains Mono for times and statuses. Charcoal/gold, light surfaces. All visible UI text in French.
 ```
 
 ---
@@ -144,7 +144,7 @@ Design system Atelier Synergy: Manrope + JetBrains Mono for times and statuses. 
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy MVP — Explicit start of service. Coiffeuse action transitions appointment READY → IN_PROGRESS. Happy path only. Arrivals already declared (or demo-light: at least this start screen is clear and not buried). No delay, no amendment.
+Product context: Nolaya MVP — Explicit start of service. Coiffeuse action transitions appointment READY → IN_PROGRESS. Happy path only. Arrivals already declared (or demo-light: at least this start screen is clear and not buried). No delay, no amendment.
 
 Device: Mobile portrait ~390×844.
 
@@ -180,7 +180,7 @@ Interactions: Primary CTA required; on tap → IN_PROGRESS. Secondary returns wi
 
 Visual: Optional close-up of Black woman stylist with textured Afro hair about to begin braiding on a Black client with coily/textured hair — calm focus, premium studio light. Realistic, respectful. No straight Eurocentric hair as default.
 
-Design system Atelier Synergy. Strong charcoal primary CTA. JetBrains Mono for IN_PROGRESS. All visible UI text in French.
+Design system Nolaya. Strong charcoal primary CTA. JetBrains Mono for IN_PROGRESS. All visible UI text in French.
 ```
 
 ---
@@ -195,7 +195,7 @@ Design system Atelier Synergy. Strong charcoal primary CTA. JetBrains Mono for I
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy MVP — End-of-service declaration. Happy path COMPLETE end only. Status currently IN_PROGRESS. Coiffeuse declares complete finish; client confirmation happens on the next screen. No PARTIALLY_COMPLETED, no interruption, no amendment, no incident.
+Product context: Nolaya MVP — End-of-service declaration. Happy path COMPLETE end only. Status currently IN_PROGRESS. Coiffeuse declares complete finish; client confirmation happens on the next screen. No PARTIALLY_COMPLETED, no interruption, no amendment, no incident.
 
 Device: Mobile portrait ~390×844.
 
@@ -234,7 +234,7 @@ Interactions: CTA declares complete end with timestamp. No partial/interrupted p
 
 Visual: Optional image of finished protective style (knotless/box braids) on a Black woman with textured hair — tasteful portfolio mood, premium realistic. Not a legal form look.
 
-Design system Atelier Synergy. All visible UI text in French.
+Design system Nolaya. All visible UI text in French.
 ```
 
 ---
@@ -249,7 +249,7 @@ Design system Atelier Synergy. All visible UI text in French.
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy MVP — Client confirmation of completed service. Required to reach COMPLETED. Distinct from stylist end synthesis. Happy path only — no dispute, no contestation, no partial accept.
+Product context: Nolaya MVP — Client confirmation of completed service. Required to reach COMPLETED. Distinct from stylist end synthesis. Happy path only — no dispute, no contestation, no partial accept.
 
 Device: Mobile portrait ~390×844.
 
@@ -285,7 +285,7 @@ Interactions: Checkbox gates CTA. On confirm → COMPLETED (success screen next)
 
 Visual: Optional calm image of Black woman client with finished braids/twists looking at phone to confirm — premium, respectful, joyful restraint.
 
-Design system Atelier Synergy. JetBrains Mono for times. All visible UI text in French.
+Design system Nolaya. JetBrains Mono for times. All visible UI text in French.
 ```
 
 ---
@@ -300,7 +300,7 @@ Design system Atelier Synergy. JetBrains Mono for times. All visible UI text in 
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy MVP — Success after execution COMPLETED. Lifecycle: READY → IN_PROGRESS → COMPLETED. Execution dossier ready for settlement (étape 7). No payment UI here — only a bridge CTA. No gallery/reviews (étape 8).
+Product context: Nolaya MVP — Success after execution COMPLETED. Lifecycle: READY → IN_PROGRESS → COMPLETED. Execution dossier ready for settlement (étape 7). No payment UI here — only a bridge CTA. No gallery/reviews (étape 8).
 
 Device: Mobile portrait ~390×844. Mostly non-scrolling short screen OK.
 
@@ -336,5 +336,5 @@ Interactions: Two CTAs only. Bridge to étape 7; no PSP on this screen. No revie
 
 Visual: Joyful but premium moment — Black woman client with finished knotless/box braids and/or stylist with textured Afro hair, subtle celebration, studio atmosphere, not cartoonish.
 
-Design system Atelier Synergy. Status labels JetBrains Mono. All visible UI text in French.
+Design system Nolaya. Status labels JetBrains Mono. All visible UI text in French.
 ```

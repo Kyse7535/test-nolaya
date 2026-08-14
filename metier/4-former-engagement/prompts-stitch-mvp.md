@@ -4,7 +4,7 @@
 > Device : Mobile (≈390×844)  
 > Prompt language : English  
 > UI text language : French  
-> Design system : Atelier Synergy  
+> Design system : Nolaya  
 > Visual identity : Afro / textured hair — Black & mixed-race women  
 > Scope : Happy path only — Model A (engagement after mock payment): `AWAITING_CLIENT_ACCEPTANCE` → `AWAITING_PAYMENT` → `COMMITTED` + `BOOKED` — no real PSP, no refunds, no disputes, no payment failure branches
 
@@ -35,7 +35,7 @@
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy — premium B2B2C mobile platform for Afro / textured hair clients and professionals (braids, twists/vanilles, ponytails, locs, natural coils). MVP demo flow: Form engagement (Model A) — client accepts the same firm offer version, consents to versioned policies, then completes a clearly mocked deposit payment to reach COMMITTED + BOOKED. No real PSP.
+Product context: Nolaya — premium B2B2C mobile platform for Afro / textured hair clients and professionals (braids, twists/vanilles, ponytails, locs, natural coils). MVP demo flow: Form engagement (Model A) — client accepts the same firm offer version, consents to versioned policies, then completes a clearly mocked deposit payment to reach COMMITTED + BOOKED. No real PSP.
 
 Device: Mobile app screen only, portrait ~390×844. Scrollable. No desktop.
 
@@ -72,7 +72,7 @@ Interactions: Only CTA « Voir le récapitulatif ».
 
 Visual: Hero of a Black and/or mixed-race woman with coily/curly/textured Afro hair reading an offer on her phone, calm premium mood; protective styles (braids, twists/vanilles, ponytails, locs, or natural coils) visible. Realistic, respectful. No straight Eurocentric hair as default.
 
-Design system Atelier Synergy: Manrope UI, JetBrains Mono for badges. Charcoal #000000 / #1b1c1c, soft gold #775a19 / #fed488 sparingly, surfaces #fbf9f8 / #ffffff / #efeded. Soft 0.25rem radii; hero media sharper OK. No purple gradients, no neon glow, no emoji, no dark mode, no heavy multi-shadows.
+Design system Nolaya: Manrope UI, JetBrains Mono for badges. Charcoal #000000 / #1b1c1c, soft gold #775a19 / #fed488 sparingly, surfaces #fbf9f8 / #ffffff / #efeded. Soft 0.25rem radii; hero media sharper OK. No purple gradients, no neon glow, no emoji, no dark mode, no heavy multi-shadows.
 
 Quality bar: Premium enterprise mobile UI, calm editorial whitespace, accessible touch targets. All visible UI text in French.
 ```
@@ -89,7 +89,7 @@ Quality bar: Premium enterprise mobile UI, calm editorial whitespace, accessible
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy MVP — Contractual recap before engagement. Model A: acceptance then mock payment. Read-focused screen before versioned consent checkboxes.
+Product context: Nolaya MVP — Contractual recap before engagement. Model A: acceptance then mock payment. Read-focused screen before versioned consent checkboxes.
 
 Device: Mobile portrait ~390×844 only.
 
@@ -129,7 +129,7 @@ Interactions: Scroll + CTAs. Read-only amounts. No card inputs. No accept checkb
 
 Visual: Optional small avatar of Black woman stylist with textured Afro hair; optional thumbnail of finished twists/vanilles on Black woman. Premium realistic.
 
-Design system Atelier Synergy: Manrope + JetBrains Mono for amounts/refs, charcoal/gold, light surfaces, soft radii. All visible UI text in French.
+Design system Nolaya: Manrope + JetBrains Mono for amounts/refs, charcoal/gold, light surfaces, soft radii. All visible UI text in French.
 ```
 
 ---
@@ -144,7 +144,7 @@ Design system Atelier Synergy: Manrope + JetBrains Mono for amounts/refs, charco
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy MVP — Versioned policy consents before mock payment. Happy path only. Recording consents transitions conceptually toward AWAITING_PAYMENT.
+Product context: Nolaya MVP — Versioned policy consents before mock payment. Happy path only. Recording consents transitions conceptually toward AWAITING_PAYMENT.
 
 Device: Mobile portrait ~390×844.
 
@@ -175,7 +175,7 @@ Interactions: Required checkboxes gate CTA. Selecting CTA implies move to AWAITI
 
 Visual: None required; optional calm editorial of Black woman client with textured hair reviewing terms on phone — not a dense legal wall.
 
-Design system Atelier Synergy. Version chips in JetBrains Mono. All visible UI text in French.
+Design system Nolaya. Version chips in JetBrains Mono. All visible UI text in French.
 ```
 
 ---
@@ -190,7 +190,7 @@ Design system Atelier Synergy. Version chips in JetBrains Mono. All visible UI t
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy MVP — Isolated MOCK payment screen. Model A: engagement forms only after mock payment success. CRITICAL: This is NOT a real payment service provider UI. No production-looking card number / CVV / expiry form that could be mistaken for real checkout. One clear demo action: « Simuler le succès ».
+Product context: Nolaya MVP — Isolated MOCK payment screen. Model A: engagement forms only after mock payment success. CRITICAL: This is NOT a real payment service provider UI. No production-looking card number / CVV / expiry form that could be mistaken for real checkout. One clear demo action: « Simuler le succès ».
 
 Device: Mobile portrait ~390×844.
 
@@ -224,7 +224,7 @@ Interactions: Primary CTA only happy path → success/confirmation. MUST NOT inc
 
 Visual: Optional abstract calm illustration or small image of Black woman client with textured Afro hair confirming on phone — not a bank app lookalike.
 
-Design system Atelier Synergy. Amounts JetBrains Mono. All visible UI text in French. Emphasize mock nature visually (banner + wording), without emoji or neon.
+Design system Nolaya. Amounts JetBrains Mono. All visible UI text in French. Emphasize mock nature visually (banner + wording), without emoji or neon.
 ```
 
 ---
@@ -239,7 +239,7 @@ Design system Atelier Synergy. Amounts JetBrains Mono. All visible UI text in Fr
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy MVP — Client success confirmation after mock payment. Engagement is COMMITTED; slot is BOOKED; initial payment status SUCCEEDED (mock).
+Product context: Nolaya MVP — Client success confirmation after mock payment. Engagement is COMMITTED; slot is BOOKED; initial payment status SUCCEEDED (mock).
 
 Device: Mobile portrait ~390×844. Mostly non-scrolling short screen OK.
 
@@ -270,7 +270,7 @@ Interactions: Two CTAs only.
 
 Visual: Joyful but premium moment — Black woman client with textured Afro hair / protective style, calm celebration after booking confirmation, not cartoonish.
 
-Design system Atelier Synergy. All visible UI text in French.
+Design system Nolaya. All visible UI text in French.
 ```
 
 ---
@@ -285,7 +285,7 @@ Design system Atelier Synergy. All visible UI text in French.
 ### Prompt Stitch
 
 ```text
-Product context: Atelier Synergy MVP — Stylist confirmation that the client committed after mock payment. Stylist does NOT re-validate; she receives the bilateral confirmation. Status COMMITTED + BOOKED.
+Product context: Nolaya MVP — Stylist confirmation that the client committed after mock payment. Stylist does NOT re-validate; she receives the bilateral confirmation. Status COMMITTED + BOOKED.
 
 Device: Mobile portrait ~390×844. Mostly non-scrolling short screen OK.
 
@@ -315,5 +315,5 @@ Interactions: Informational confirmation + two CTAs. No approve/reject. No payme
 
 Visual: Premium moment — Black woman stylist with textured Afro hair seeing a confirmed booking on her phone in studio. Realistic, respectful. No straight Eurocentric hair as default.
 
-Design system Atelier Synergy: Manrope + JetBrains Mono, charcoal/gold, light surfaces. All visible UI text in French.
+Design system Nolaya: Manrope + JetBrains Mono, charcoal/gold, light surfaces. All visible UI text in French.
 ```

@@ -5,7 +5,7 @@
 > Device : Mobile (≈390×844)  
 > Prompt language : English  
 > UI text language : French  
-> Design system : Atelier Synergy (aligné `demo-precurseur/`)  
+> Design system : Nolaya (aligné `demo-precurseur/`)  
 > Visual identity : Afro / textured hair — Black & mixed-race women  
 > Scope : Parcours précurseur Sarah — **19 écrans indépendants** — `PROFESSIONAL_FRAMEWORK_DRAFT` → `PROFESSIONAL_FRAMEWORK_ACTIVE` → `OFFER_DRAFT` → `OFFER_ACTIVE` → `SCHEDULE_DRAFT` → `SCHEDULE_ACTIVE`  
 > Hors scope : cliente Inès (sauf CTA optionnel de sortie), opérateur, IN_REVIEW, paiement réel, auth  
@@ -28,7 +28,7 @@ Bandeau démo : **Étape 1 sur 8** (S01–S09) · **2 sur 8** (S10–S15) · **3
 ## GLOBAL INSTRUCTION FOR STITCH (ENGLISH)
 
 ```text
-BATCH OF INDEPENDENT SCREENS — Atelier Synergy precursor demo (Sarah)
+BATCH OF INDEPENDENT SCREENS — Nolaya precursor demo (Sarah)
 
 This document contains exactly 19 independent mobile UI screens.
 Generate exactly ONE mobile screen per SCREEN PROMPT below (SCREEN 01 … SCREEN 19).
@@ -105,7 +105,7 @@ Navigation produit (quand visible) : Accueil · Demandes · Rendez-vous · Prest
 | S19 | Planning actif (+ fin / enchaînement) | Opérationnel | Sarah | Fin `SCHEDULE_ACTIVE` | P0 |
 
 **Stepper P1 (S04–S08) :** 1 Contextes · 2 Accueil · 3 Pause · 4 Communication · 5 Politiques  
-**Stepper P2 (S11–S14) :** 1 Prestation · 2 Galerie · 3 Préparation · 4 Prix — **pas de lieu/dispos dans P2**  
+**Stepper P2 (S11–S14) :** 1 Prestation · 2 Galerie de la prestation · 3 Préparation · 4 Prix — **pas de lieu/dispos dans P2**  
 **Fusions :** S10 (anciens 10+11) · S16 (anciens 17+18) · S19 (anciens 21+22)
 
 ---
@@ -114,7 +114,7 @@ Navigation produit (quand visible) : Accueil · Demandes · Rendez-vous · Prest
 ```text
 Independent screen. Generate ONLY this one screen. Do not generate other screens from this document.
 
-Product context: Atelier Synergy — premium B2B2C mobile platform for Afro / textured hair professionals. This is SCREEN 01 of 19 in a precursor demo (Professional Framework → Prestations → Planning → SCHEDULE_ACTIVE). Demo entry only — not final product chrome, but must feel premium. No “capacity” concept. Stylist: Sarah, braid stylist in Saint-Denis. No client persona.
+Product context: Nolaya — premium B2B2C mobile platform for Afro / textured hair professionals. This is SCREEN 01 of 19 in a precursor demo (Professional Framework → Prestations → Planning → SCHEDULE_ACTIVE). Demo entry only — not final product chrome, but must feel premium. No “capacity” concept. Stylist: Sarah, braid stylist in Saint-Denis. No client persona.
 
 Device: Mobile app screen only, portrait ~390×844. No desktop. One composition, not a dashboard.
 
@@ -124,7 +124,7 @@ Screen purpose: Introduce Sarah’s demo mission: define how she works, create a
 
 Layout (maximize whitespace):
 1) Slim demo banner top: « Mode démo — Créez votre offre · Étape 1 sur 8 » with subtle reset/quit
-2) Brand mark / product name Atelier Synergy as a calm hero-level signal
+2) Brand mark / product name Nolaya as a calm hero-level signal
 3) One mission headline + one short supporting sentence
 4) « Vous dans cette démo » block + duration chip
 5) « Ce que vous allez faire » — 3 simple steps (not card spam)
@@ -149,7 +149,7 @@ Interactions: Primary CTA « Commencer ». Optional quit. Nothing else.
 
 Visual: Full-bleed or edge-dominant calm hero of a Black and/or mixed-race woman stylist with coily/curly/textured Afro hair (braids, twists/vanilles, ponytails, locs, natural coils) in a premium home salon / studio. Realistic, respectful. No straight Eurocentric hair as default. No floating badges on the hero.
 
-Design system Atelier Synergy (self-contained): Manrope UI, JetBrains Mono sparingly. Charcoal #000101 / #1b1c1c, soft gold #775a19 / #fdd587 sparingly, surfaces #fbf9f8 / #ffffff / #efedec. Soft 0.25rem radii. No purple gradients, no neon glow, no emoji, no dark mode, no heavy multi-shadows, no pill clusters.
+Design system Nolaya (self-contained): Manrope UI, JetBrains Mono sparingly. Charcoal #000101 / #1b1c1c, soft gold #775a19 / #fdd587 sparingly, surfaces #fbf9f8 / #ffffff / #efedec. Soft 0.25rem radii. No purple gradients, no neon glow, no emoji, no dark mode, no heavy multi-shadows, no pill clusters.
 
 Quality bar: Premium mobile demo entry, calm editorial whitespace, one job. All visible UI text in French.
 ```
@@ -159,7 +159,7 @@ Quality bar: Premium mobile demo entry, calm editorial whitespace, one job. All 
 ```text
 Independent screen. Generate ONLY this one screen. Do not generate other screens from this document.
 
-Product context: Atelier Synergy precursor demo — stylist home. Empty state: no ACTIVE professional framework, no active offer, no planning. Sarah must create (not finalize a prefilled draft). No “capacity” vocabulary. Stylist: Sarah.
+Product context: Nolaya precursor demo — stylist home. Empty state: no ACTIVE professional framework, no active offer, no planning. Sarah must create (not finalize a prefilled draft). No “capacity” vocabulary. Stylist: Sarah.
 
 Device: Mobile portrait ~390×844. One calm hub composition — not a dense dashboard.
 
@@ -194,7 +194,7 @@ Interactions: Primary → framework welcome. Secondary opens bottom sheet only. 
 
 Visual: Optional small avatar of Black woman stylist with textured Afro hair named Sarah. Calm empty-state atmosphere — not cartoonish illustration spam.
 
-Design system Atelier Synergy: Manrope + JetBrains Mono for status chips. Charcoal #000101, soft gold #775a19 / #fdd587 sparingly, surfaces #fbf9f8 / #ffffff / #efedec, soft 0.25rem radii. No purple, glow, emoji, dark mode, multi-shadows, pill clusters. All visible UI text in French.
+Design system Nolaya: Manrope + JetBrains Mono for status chips. Charcoal #000101, soft gold #775a19 / #fdd587 sparingly, surfaces #fbf9f8 / #ffffff / #efedec, soft 0.25rem radii. No purple, glow, emoji, dark mode, multi-shadows, pill clusters. All visible UI text in French.
 ```
 ========== END SCREEN 02 ==========
 
@@ -202,7 +202,7 @@ Design system Atelier Synergy: Manrope + JetBrains Mono for status chips. Charco
 ```text
 Independent screen. Generate ONLY this one screen. Do not generate other screens from this document.
 
-Product context: Atelier Synergy precursor demo — Professional Framework entry. Demo target path: status PROFESSIONAL_FRAMEWORK_DRAFT. Explains HOW Sarah works — not what she sells. No “capacity”. Stylist: Sarah.
+Product context: Nolaya precursor demo — Professional Framework entry. Demo target path: status PROFESSIONAL_FRAMEWORK_DRAFT. Explains HOW Sarah works — not what she sells. No “capacity”. Stylist: Sarah.
 
 Device: Mobile portrait ~390×844. Scrollable. Calm editorial spacing.
 
@@ -240,7 +240,7 @@ Interactions: Only CTA « Commencer ». Back allowed.
 
 Visual: Hero of a Black and/or mixed-race woman stylist with coily/curly/textured Afro hair in a calm premium studio. Realistic, respectful. No straight Eurocentric hair as default. No floating badges on hero.
 
-Design system Atelier Synergy: Manrope, JetBrains Mono badges, charcoal #000101, soft gold #775a19 / #fdd587 sparingly, surfaces #fbf9f8 / #ffffff. Soft 0.25rem radii; hero media sharper OK. No purple, glow, emoji, dark mode, card spam. All visible UI text in French.
+Design system Nolaya: Manrope, JetBrains Mono badges, charcoal #000101, soft gold #775a19 / #fdd587 sparingly, surfaces #fbf9f8 / #ffffff. Soft 0.25rem radii; hero media sharper OK. No purple, glow, emoji, dark mode, card spam. All visible UI text in French.
 ```
 ========== END SCREEN 03 ==========
 
@@ -248,7 +248,7 @@ Design system Atelier Synergy: Manrope, JetBrains Mono badges, charcoal #000101,
 ```text
 Independent screen. Generate ONLY this one screen. Do not generate other screens from this document.
 
-Product context: Atelier Synergy precursor demo — Professional Framework step 1/5. Demo target (dans le cadre de la démo): Salon selected; address masked until engagement. Reasonable default may be pre-checked; Sarah can change it. No “capacity”. Stylist: Sarah.
+Product context: Nolaya precursor demo — Professional Framework step 1/5. Demo target (dans le cadre de la démo): Salon selected; address masked until engagement. Reasonable default may be pre-checked; Sarah can change it. No “capacity”. Stylist: Sarah.
 
 Device: Mobile portrait ~390×844.
 
@@ -281,7 +281,7 @@ Interactions: Multi-select contexts; single confidentiality; CTA gated; back all
 
 Visual: Optional small editorial image of a Black woman with textured Afro hair styling in a salon. Premium realistic.
 
-Design system Atelier Synergy: Manrope, JetBrains Mono for badges, charcoal #000101, soft gold #775a19 / #fdd587 sparingly, surfaces #fbf9f8 / #ffffff / #efedec, soft 0.25rem radii. No purple, glow, emoji, dark mode, multi-shadows. All visible UI text in French.
+Design system Nolaya: Manrope, JetBrains Mono for badges, charcoal #000101, soft gold #775a19 / #fdd587 sparingly, surfaces #fbf9f8 / #ffffff / #efedec, soft 0.25rem radii. No purple, glow, emoji, dark mode, multi-shadows. All visible UI text in French.
 ```
 ========== END SCREEN 04 ==========
 
@@ -289,7 +289,7 @@ Design system Atelier Synergy: Manrope, JetBrains Mono for badges, charcoal #000
 ```text
 Independent screen. Generate ONLY this one screen. Do not generate other screens from this document.
 
-Product context: Atelier Synergy precursor demo — Professional Framework step 2/5. Demo target (dans le cadre de la démo): companions not allowed; minors accepted with accompanying adult; access note « Sonner à l’entrée du salon ». No “capacity”. Stylist: Sarah.
+Product context: Nolaya precursor demo — Professional Framework step 2/5. Demo target (dans le cadre de la démo): companions not allowed; minors accepted with accompanying adult; access note « Sonner à l’entrée du salon ». No “capacity”. Stylist: Sarah.
 
 Device: Mobile portrait ~390×844.
 
@@ -321,7 +321,7 @@ Interactions: Single-select per group; access note optional but prefilled for de
 
 Visual: Optional calm welcoming Afro hair studio with Black woman stylist. Premium respectful.
 
-Design system Atelier Synergy: Manrope, JetBrains Mono badges, charcoal/gold, light surfaces, soft radii. No purple, glow, emoji, dark mode, pill clusters. All visible UI text in French.
+Design system Nolaya: Manrope, JetBrains Mono badges, charcoal/gold, light surfaces, soft radii. No purple, glow, emoji, dark mode, pill clusters. All visible UI text in French.
 ```
 ========== END SCREEN 05 ==========
 
@@ -329,7 +329,7 @@ Design system Atelier Synergy: Manrope, JetBrains Mono badges, charcoal/gold, li
 ```text
 Independent screen. Generate ONLY this one screen. Do not generate other screens from this document.
 
-Product context: Atelier Synergy precursor demo — Professional Framework step 3/5. Unique product moment: “pauses pendant une longue prestation”. Demo does NOT auto-recalculate slot durations from this rule; it makes the right exist. Default: 5 minutes every hour. « Aucune » is a valid choice. No “capacity”. Stylist: Sarah.
+Product context: Nolaya precursor demo — Professional Framework step 3/5. Unique product moment: “pauses pendant une longue prestation”. Demo does NOT auto-recalculate slot durations from this rule; it makes the right exist. Default: 5 minutes every hour. « Aucune » is a valid choice. No “capacity”. Stylist: Sarah.
 
 Device: Mobile portrait ~390×844.
 
@@ -362,7 +362,7 @@ Interactions: Single-select; customize fields if needed; CTA enabled when a choi
 
 Visual: Optional calm break-in-studio mood with Black woman stylist with textured hair — dignified, not lazy/cliché. Premium.
 
-Design system Atelier Synergy: Manrope, JetBrains Mono for « 5 min / h » chips if used. Charcoal #000101, soft gold #775a19 / #fdd587 sparingly, surfaces #fbf9f8 / #ffffff. Soft radii. No purple, glow, emoji, dark mode. All visible UI text in French.
+Design system Nolaya: Manrope, JetBrains Mono for « 5 min / h » chips if used. Charcoal #000101, soft gold #775a19 / #fdd587 sparingly, surfaces #fbf9f8 / #ffffff. Soft radii. No purple, glow, emoji, dark mode. All visible UI text in French.
 ```
 ========== END SCREEN 06 ==========
 
@@ -370,7 +370,7 @@ Design system Atelier Synergy: Manrope, JetBrains Mono for « 5 min / h » chips
 ```text
 Independent screen. Generate ONLY this one screen. Do not generate other screens from this document.
 
-Product context: Atelier Synergy precursor demo — Professional Framework step 4/5. Payment methods are DECLARATIVE only (no PSP, no card numbers). Demo target (dans le cadre de la démo): via platform (+ Instagram/TikTok available); expected reply under 2h during open slots; Card + Platform payment accepted; remaining balance paid at end (fixed path, not a choice). No “capacity”. Stylist: Sarah.
+Product context: Nolaya precursor demo — Professional Framework step 4/5. Payment methods are DECLARATIVE only (no PSP, no card numbers). Demo target (dans le cadre de la démo): via platform (+ Instagram/TikTok available); expected reply under 2h during open slots; Card + Platform payment accepted; remaining balance paid at end (fixed path, not a choice). No “capacity”. Stylist: Sarah.
 
 Device: Mobile portrait ~390×844.
 
@@ -400,7 +400,7 @@ Interactions: Channel multi-select; delay field; payment multi-select; CTA gated
 
 Visual: Optional editorial of Black woman stylist with textured hair checking messages on phone. Premium.
 
-Design system Atelier Synergy: Manrope, JetBrains Mono sparingly, charcoal/gold, light surfaces, soft radii. No purple, glow, emoji, dark mode, PSP UI. All visible UI text in French.
+Design system Nolaya: Manrope, JetBrains Mono sparingly, charcoal/gold, light surfaces, soft radii. No purple, glow, emoji, dark mode, PSP UI. All visible UI text in French.
 ```
 ========== END SCREEN 07 ==========
 
@@ -408,7 +408,7 @@ Design system Atelier Synergy: Manrope, JetBrains Mono sparingly, charcoal/gold,
 ```text
 Independent screen. Generate ONLY this one screen. Do not generate other screens from this document.
 
-Product context: Atelier Synergy precursor demo — Professional Framework final config step before recap. Short catalog policies. Demo target: 15 min late; cancellation catalog choice; interruption + photos as `.platform-rule` platform defaults (grayed, NOT `choice-active`); photos only with client agreement. No “capacity”. Stylist: Sarah.
+Product context: Nolaya precursor demo — Professional Framework final config step before recap. Short catalog policies. Demo target: 15 min late; cancellation catalog choice; interruption + photos as `.platform-rule` platform defaults (grayed, NOT `choice-active`); photos only with client agreement. No “capacity”. Stylist: Sarah.
 
 Device: Mobile portrait ~390×844.
 
@@ -445,7 +445,7 @@ Interactions: Late + cancellation editable; interruption AND photos are `.platfo
 
 Visual: Optional finished protective style on Black woman with textured hair — portfolio mood, not a legal document look.
 
-Design system Atelier Synergy: Manrope, JetBrains Mono, charcoal/gold, light surfaces, soft radii. No purple, glow, emoji, dark mode. All visible UI text in French.
+Design system Nolaya: Manrope, JetBrains Mono, charcoal/gold, light surfaces, soft radii. No purple, glow, emoji, dark mode. All visible UI text in French.
 ```
 ========== END SCREEN 08 ==========
 
@@ -453,7 +453,7 @@ Design system Atelier Synergy: Manrope, JetBrains Mono, charcoal/gold, light sur
 ```text
 Independent screen. Generate ONLY this one screen. Do not generate other screens from this document.
 
-Product context: Atelier Synergy precursor demo — Professional Framework recap + deliberate activation via CTA. No operator review. Instant ACTIVE after CTA. No silent/auto activation. Status before confirm: BROUILLON → after: PROFESSIONAL_FRAMEWORK_ACTIVE. No “capacity”. Stylist: Sarah.
+Product context: Nolaya precursor demo — Professional Framework recap + deliberate activation via CTA. No operator review. Instant ACTIVE after CTA. No silent/auto activation. Status before confirm: BROUILLON → after: PROFESSIONAL_FRAMEWORK_ACTIVE. No “capacity”. Stylist: Sarah.
 
 Device: Mobile portrait ~390×844.
 
@@ -483,7 +483,7 @@ Interactions: CTA enabled when framework draft is complete. Modifier links navig
 
 Visual: Optional small avatar of Black woman stylist with textured hair.
 
-Design system Atelier Synergy: Manrope, JetBrains Mono for status labels, charcoal #000101, soft gold sparingly, surfaces #fbf9f8 / #ffffff, soft radii. No purple, glow, emoji, dark mode. All visible UI text in French.
+Design system Nolaya: Manrope, JetBrains Mono for status labels, charcoal #000101, soft gold sparingly, surfaces #fbf9f8 / #ffffff, soft radii. No purple, glow, emoji, dark mode. All visible UI text in French.
 ```
 ========== END SCREEN 09 ==========
 
@@ -491,7 +491,7 @@ Design system Atelier Synergy: Manrope, JetBrains Mono for status labels, charco
 ```text
 Independent screen. Generate ONLY this one screen. Do not generate other screens from this document.
 
-Product context: Atelier Synergy precursor demo — BRIDGE screen after PROFESSIONAL_FRAMEWORK_ACTIVE. Fuses former framework success + prestations welcome into ONE screen (do not split). Demo banner switches to Étape 2 sur 8. Entry status for next act: OFFER_DRAFT. No second explanatory screen after this. NO “capacity” / “ouvrir une capacité” wording. Stylist: Sarah.
+Product context: Nolaya precursor demo — BRIDGE screen after PROFESSIONAL_FRAMEWORK_ACTIVE. Fuses former framework success + prestations welcome into ONE screen (do not split). Demo banner switches to Étape 2 sur 8. Entry status for next act: OFFER_DRAFT. No second explanatory screen after this. NO “capacity” / “ouvrir une capacité” wording. Stylist: Sarah.
 
 Device: Mobile portrait ~390×844. Scrollable. Calm bridge — not a form, not a dashboard.
 
@@ -512,7 +512,7 @@ Layout (maximize whitespace):
 French UI text:
 - Banner: « Mode démo — Créez votre offre · Étape 2 sur 8 »
 - Confirmation: « Votre cadre professionnel est actif »
-- What changes: « Vous pouvez maintenant créer ce que vous proposez aux clientes. Le cadre s’applique par défaut — vous ne le redéfinirez pas à chaque fois. »
+- What changes: « Vous pouvez maintenant créer ce que vous proposez aux clientes »
 - Status chip: « Cadre professionnel actif »
 - Next title: « Créer ce que vous proposez »
 - Next body: « Choisissez une prestation, montrez comment elle se présente, dites qui prépare quoi, puis fixez prix et durée. Le planning viendra ensuite. »
@@ -528,7 +528,7 @@ Interactions: Primary → prestation configuration. Secondary → framework reca
 
 Visual: Calm premium success + studio mood — Black woman stylist with textured Afro hair. Realistic, respectful. No cartoon confetti overload.
 
-Design system Atelier Synergy: Manrope, JetBrains Mono for ACTIF / PROFESSIONAL_FRAMEWORK_ACTIVE, charcoal/gold, light surfaces, soft radii. No purple, glow, emoji, dark mode, card spam. All visible UI text in French.
+Design system Nolaya: Manrope, JetBrains Mono for ACTIF / PROFESSIONAL_FRAMEWORK_ACTIVE, charcoal/gold, light surfaces, soft radii. No purple, glow, emoji, dark mode, card spam. All visible UI text in French.
 ```
 ========== END SCREEN 10 ==========
 
@@ -536,7 +536,7 @@ Design system Atelier Synergy: Manrope, JetBrains Mono for ACTIF / PROFESSIONAL_
 ```text
 Independent screen. Generate ONLY this one screen. Do not generate other screens from this document.
 
-Product context: Atelier Synergy precursor demo — Offer step 1/4. One offer = one identifiable prestation. Épaisseur is multi-select (not single « Taille » size). Lengths are offered formats (multi-select). Demo target (dans le cadre de la démo): Knotless braids · Moyen · lengths Épaules (reference) + Mi-dos; length « Taille » optional. Each length will later have its own full price. Status OFFER_DRAFT. Banner Étape 2 sur 8. No place/slot fields. No “capacity”. Stylist: Sarah.
+Product context: Nolaya precursor demo — Offer step 1/4. One offer = one identifiable prestation. Épaisseur is multi-select (not single « Taille » size). Lengths are offered formats (multi-select). Demo target (dans le cadre de la démo): Knotless braids · Moyen · lengths Épaules (reference) + Mi-dos; length « Taille » optional. Each length will later have its own full price. Status OFFER_DRAFT. Banner Étape 2 sur 8. No place/slot fields. No “capacity”. Stylist: Sarah.
 
 Device: Mobile portrait ~390×844.
 
@@ -547,7 +547,7 @@ Layout (maximize whitespace):
 - Header back + « Prestation »
 - Badge « BROUILLON »
 - Step indicator: « Étape 1 / 4 · Prestation »
-- Vertical stepper: 1 Prestation · 2 Galerie · 3 Préparation · 4 Prix (step 1 active)
+- Vertical stepper: 1 Prestation · 2 Galerie de la prestation · 3 Préparation · 4 Prix (step 1 active)
 - Single-select catalog list
 - Épaisseur multi-select (Fin / Moyen / Épais)
 - Multi-select lengths
@@ -573,7 +573,7 @@ Interactions: Single prestation; multi épaisseur; multi lengths; CTA gated. Bac
 
 Visual: Optional editorial of knotless braids on a Black woman with textured Afro hair. Premium realistic. Any photos: Black and/or mixed-race women with coily/curly/textured hair. No straight Eurocentric hair as default.
 
-Design system Atelier Synergy: Manrope, JetBrains Mono badges, charcoal #000101, soft gold #775a19 / #fdd587 sparingly, surfaces #fbf9f8 / #ffffff, soft 0.25rem radii. No purple, glow, emoji, dark mode, pill clusters. All visible UI text in French.
+Design system Nolaya: Manrope, JetBrains Mono badges, charcoal #000101, soft gold #775a19 / #fdd587 sparingly, surfaces #fbf9f8 / #ffffff, soft 0.25rem radii. No purple, glow, emoji, dark mode, pill clusters. All visible UI text in French.
 ```
 ========== END SCREEN 11 ==========
 
@@ -581,7 +581,7 @@ Design system Atelier Synergy: Manrope, JetBrains Mono badges, charcoal #000101,
 ```text
 Independent screen. Generate ONLY this one screen. Do not generate other screens from this document.
 
-Product context: Atelier Synergy precursor demo — Offer gallery for Knotless braids only (not whole portfolio). No moderation / IN_REVIEW. Proof levels: Réalisation déclarée or Inspiration. Minimum 1 image; demo target (dans le cadre de la démo): 3 realizations. Forbidden: mixing vanilles, wigs, or other prestations. Status OFFER_DRAFT. Banner Étape 2 sur 8. No “capacity”. Stylist: Sarah.
+Product context: Nolaya precursor demo — Offer gallery for Knotless braids only (not whole portfolio). No moderation / IN_REVIEW. Proof levels: Réalisation déclarée or Inspiration. Minimum 1 image; demo target (dans le cadre de la démo): 3 realizations. Forbidden: mixing vanilles, wigs, or other prestations. Status OFFER_DRAFT. Banner Étape 2 sur 8. No “capacity”. Stylist: Sarah.
 
 Device: Mobile portrait ~390×844.
 
@@ -589,8 +589,8 @@ Screen type: OPERATIONAL. Step 2/4. One job: photos for THIS prestation.
 
 Layout (maximize whitespace):
 - Demo banner Étape 2 sur 8
-- Header + BROUILLON
-- Stepper step 2
+- Header « Galerie de la prestation » + BROUILLON
+- Stepper step 2 active — label « Galerie de la prestation » (rôle de l’étape ; not vague « Galerie » alone in header/title)
 - Context line: Knotless braids moyen — selected lengths
 - 3 photo slots (sharp media corners) + add control
 - Per-photo proof-level control
@@ -599,6 +599,7 @@ Layout (maximize whitespace):
 
 French UI text:
 - Banner: « Mode démo — Créez votre offre · Étape 2 sur 8 »
+- Header: « Galerie de la prestation »
 - Title: « Galerie de la prestation »
 - Intro: « Montrez cette prestation. Chaque photo indique si c’est une réalisation déclarée ou une inspiration. »
 - Context: « Knotless braids · Épaisseur Moyen · Épaules · Mi-dos »
@@ -613,7 +614,7 @@ Interactions: Add/remove photos; per-photo proof; CTA gated.
 
 Visual: Photo tiles MUST show Black and/or mixed-race women with coily/curly/textured Afro hair wearing knotless braids. Sharp media corners (0px). Premium, realistic, respectful. No straight Eurocentric hair as default.
 
-Design system Atelier Synergy: Manrope, JetBrains Mono for proof chips, charcoal/gold, light surfaces. Soft UI radii; sharp media. No purple, glow, emoji, dark mode. All visible UI text in French.
+Design system Nolaya: Manrope, JetBrains Mono for proof chips, charcoal/gold, light surfaces. Soft UI radii; sharp media. No purple, glow, emoji, dark mode. All visible UI text in French.
 ```
 ========== END SCREEN 12 ==========
 
@@ -621,7 +622,7 @@ Design system Atelier Synergy: Manrope, JetBrains Mono for proof chips, charcoal
 ```text
 Independent screen. Generate ONLY this one screen. Do not generate other screens from this document.
 
-Product context: Atelier Synergy precursor demo — Offer step 3/4 « Préparation ». NO « Niveau de service » tab. NO task distribution matrix. NO Pose / Finition task rows. Focus: clear client prep instruction that will appear on the client-facing prestation. Demo TARGET (dans le cadre de la démo): « Cheveux lavés et démêlés avant le rendez-vous ». Banner Étape 2 sur 8. No “capacity”. Stylist: Sarah.
+Product context: Nolaya precursor demo — Offer step 3/4 « Préparation ». NO « Niveau de service » tab. NO task distribution matrix. NO Pose / Finition task rows. Focus: clear client prep instruction that will appear on the client-facing prestation. Demo TARGET (dans le cadre de la démo): « Cheveux lavés et démêlés avant le rendez-vous ». Banner Étape 2 sur 8. No “capacity”. Stylist: Sarah.
 
 Device: Mobile portrait ~390×844.
 
@@ -650,7 +651,7 @@ Interactions: Edit textarea; CTA always available (or soft-gated if empty — pr
 
 Visual: Calm prep mood — Black woman stylist with textured hair preparing for a braid appointment. Premium respectful.
 
-Design system Atelier Synergy: Manrope, JetBrains Mono sparingly, charcoal/gold, light surfaces, soft radii. No purple, glow, emoji, dark mode. All visible UI text in French.
+Design system Nolaya: Manrope, JetBrains Mono sparingly, charcoal/gold, light surfaces, soft radii. No purple, glow, emoji, dark mode. All visible UI text in French.
 ```
 ========== END SCREEN 13 ==========
 
@@ -658,7 +659,7 @@ Design system Atelier Synergy: Manrope, JetBrains Mono sparingly, charcoal/gold,
 ```text
 Independent screen. Generate ONLY this one screen. Do not generate other screens from this document.
 
-Product context: Atelier Synergy precursor demo — Offer PRICING (final step before offer recap). Critical pricing model (NOT “base price + vague length supplement”):
+Product context: Nolaya precursor demo — Offer PRICING (final step before offer recap). Critical pricing model (NOT “base price + vague length supplement”):
 
 1) REFERENCE LENGTH = shortest activated length (Épaules) → base full price of the prestation.
 2) OTHER LENGTHS → each has its own COMPLETE adapted price (Sarah sets full price per length; not a delta-only UX).
@@ -715,7 +716,7 @@ Interactions: Edit price/duration per length; add/remove non-length option; CTA 
 
 Visual: Optional editorial close-up of finished knotless braids on Black woman with textured hair — portfolio pricing mood, NOT shopping cart / ecommerce checkout.
 
-Design system Atelier Synergy: Manrope + JetBrains Mono for amounts, durations, badges (RÉFÉRENCE). Charcoal #000101, soft gold #775a19 / #fdd587 sparingly, surfaces #fbf9f8 / #ffffff. Soft radii. No purple, glow, emoji, dark mode, multi-shadows. All visible UI text in French.
+Design system Nolaya: Manrope + JetBrains Mono for amounts, durations, badges (RÉFÉRENCE). Charcoal #000101, soft gold #775a19 / #fdd587 sparingly, surfaces #fbf9f8 / #ffffff. Soft radii. No purple, glow, emoji, dark mode, multi-shadows. All visible UI text in French.
 ```
 ========== END SCREEN 14 ==========
 
@@ -723,7 +724,7 @@ Design system Atelier Synergy: Manrope + JetBrains Mono for amounts, durations, 
 ```text
 Independent screen. Generate ONLY this one screen. Do not generate other screens from this document.
 
-Product context: Atelier Synergy precursor demo — Offer recap + deliberate activation. Instant OFFER_ACTIVE. No operator, no IN_REVIEW. MUST show client-side preview of the prestation. Include cadre actif summary (no « hérité ») AND pricing summary (full prices per length + non-length option). CRITICAL: NO place, NO slot, NO date/time — offer exists but is not yet matchable until planning is activated. Banner Étape 2 sur 8. No “capacity”. Stylist: Sarah.
+Product context: Nolaya precursor demo — Offer recap + deliberate activation. Instant OFFER_ACTIVE. No operator, no IN_REVIEW. MUST show client-side preview of the prestation. Include cadre actif summary (no « hérité ») AND pricing summary (full prices per length + non-length option). CRITICAL: NO place, NO slot, NO date/time — offer exists but is not yet matchable until planning is activated. Banner Étape 2 sur 8. No “capacity”. Stylist: Sarah.
 
 Device: Mobile portrait ~390×844.
 
@@ -756,7 +757,7 @@ Interactions: Activation via deliberate CTA → OFFER_ACTIVE. NO location or ava
 
 Visual: Gallery thumbs of Black women with textured Afro hair in knotless braids. Premium respectful. Sharp media corners.
 
-Design system Atelier Synergy: Manrope, JetBrains Mono for amounts/status, charcoal/gold, light surfaces, soft radii. No purple, glow, emoji, dark mode. All visible UI text in French.
+Design system Nolaya: Manrope, JetBrains Mono for amounts/status, charcoal/gold, light surfaces, soft radii. No purple, glow, emoji, dark mode. All visible UI text in French.
 ```
 ========== END SCREEN 15 ==========
 
@@ -764,7 +765,7 @@ Design system Atelier Synergy: Manrope, JetBrains Mono for amounts/status, charc
 ```text
 Independent screen. Generate ONLY this one screen. Do not generate other screens from this document.
 
-Product context: Atelier Synergy precursor demo — BRIDGE screen after OFFER_ACTIVE. Fuses former offer success + planning welcome into ONE screen (do not split). Demo banner switches to Étape 3 sur 8. Entry status for next act: SCHEDULE_DRAFT. No second explanatory screen after this. NO “capacity” wording. Stylist: Sarah.
+Product context: Nolaya precursor demo — BRIDGE screen after OFFER_ACTIVE. Fuses former offer success + planning welcome into ONE screen (do not split). Demo banner switches to Étape 3 sur 8. Entry status for next act: SCHEDULE_DRAFT. No second explanatory screen after this. NO “capacity” wording. Stylist: Sarah.
 
 Device: Mobile portrait ~390×844. Scrollable. Calm bridge — not a form.
 
@@ -802,7 +803,7 @@ Interactions: Primary → planning configuration. Secondary → offer recap (vis
 
 Visual: Calm premium success + calendar/planner mood — Black woman stylist with textured Afro hair. Realistic, respectful. No confetti spam.
 
-Design system Atelier Synergy: Manrope, JetBrains Mono for OFFER_ACTIVE, charcoal/gold, light surfaces, soft radii. No purple, glow, emoji, dark mode. All visible UI text in French.
+Design system Nolaya: Manrope, JetBrains Mono for OFFER_ACTIVE, charcoal/gold, light surfaces, soft radii. No purple, glow, emoji, dark mode. All visible UI text in French.
 ```
 ========== END SCREEN 16 ==========
 
@@ -810,7 +811,7 @@ Design system Atelier Synergy: Manrope, JetBrains Mono for OFFER_ACTIVE, charcoa
 ```text
 Independent screen. Generate ONLY this one screen. Do not generate other screens from this document.
 
-Product context: Atelier Synergy precursor demo — Planning configuration. Sarah defines REAL availability rules (not a single disguised slot). Contexte d’accueil and lieu MUST be dynamic from cadre data (not a static « hérité » label). Working days each have their own proposed open/close hours. Demo target (dans le cadre de la démo): En salon from cadre · Saint-Denis · Tue–Sat · 9h–18h per day · max 1 appointment/day. Preview: mini week calendar Aug 12–18 showing Saturday Aug 15 from 9h as a possible slot — CONSEQUENCE of rules, not a “capacity” object. Status SCHEDULE_DRAFT. Banner Étape 3 sur 8. Stylist: Sarah. Simple lexicon for varied education levels.
+Product context: Nolaya precursor demo — Planning configuration. Sarah defines REAL availability rules (not a single disguised slot). Contexte d’accueil and lieu MUST be dynamic from cadre data (not a static « hérité » label). Working days each have their own proposed open/close hours. Demo target (dans le cadre de la démo): En salon from cadre · Saint-Denis · Tue–Sat · 9h–18h per day · max 1 appointment/day. Preview: mini week calendar Aug 12–18 showing Saturday Aug 15 from 9h as a possible slot — CONSEQUENCE of rules, not a “capacity” object. Status SCHEDULE_DRAFT. Banner Étape 3 sur 8. Stylist: Sarah. Simple lexicon for varied education levels.
 
 Device: Mobile portrait ~390×844.
 
@@ -848,7 +849,7 @@ Interactions: Context locked from cadre; place editable; days multi-select; hour
 
 Visual: Optional calm planner/calendar mood with Black woman stylist context. Premium, not generic calendar app spam.
 
-Design system Atelier Synergy: Manrope, JetBrains Mono for times and dates in preview, charcoal #000101, soft gold sparingly, surfaces #fbf9f8 / #ffffff, soft radii. No purple, glow, emoji, dark mode. All visible UI text in French.
+Design system Nolaya: Manrope, JetBrains Mono for times and dates in preview, charcoal #000101, soft gold sparingly, surfaces #fbf9f8 / #ffffff, soft radii. No purple, glow, emoji, dark mode. All visible UI text in French.
 ```
 ========== END SCREEN 17 ==========
 
@@ -856,7 +857,7 @@ Design system Atelier Synergy: Manrope, JetBrains Mono for times and dates in pr
 ```text
 Independent screen. Generate ONLY this one screen. Do not generate other screens from this document.
 
-Product context: Atelier Synergy precursor demo — Schedule recap + deliberate activation. Instant SCHEDULE_ACTIVE (arrival state: cadre + offre + planning all active). No operator, no IN_REVIEW. Shows cadre actif + offre active summaries (no « hérité ») plus planning details and the Aug 15 9h consequence line. Banner Étape 3 sur 8. No “capacity” / CAPACITY_OPEN. Stylist: Sarah.
+Product context: Nolaya precursor demo — Schedule recap + deliberate activation. Instant SCHEDULE_ACTIVE (arrival state: cadre + offre + planning all active). No operator, no IN_REVIEW. Shows cadre actif + offre active summaries (no « hérité ») plus planning details and the Aug 15 9h consequence line. Banner Étape 3 sur 8. No “capacity” / CAPACITY_OPEN. Stylist: Sarah.
 
 Device: Mobile portrait ~390×844.
 
@@ -885,7 +886,7 @@ Interactions: Deliberate CTA → SCHEDULE_ACTIVE.
 
 Visual: Optional small calendar preview chip. Premium respectful. Any people imagery: Black and/or mixed-race women with textured Afro hair.
 
-Design system Atelier Synergy: Manrope, JetBrains Mono for schedule summary, charcoal/gold, light surfaces, soft radii. No purple, glow, emoji, dark mode. All visible UI text in French.
+Design system Nolaya: Manrope, JetBrains Mono for schedule summary, charcoal/gold, light surfaces, soft radii. No purple, glow, emoji, dark mode. All visible UI text in French.
 ```
 ========== END SCREEN 18 ==========
 
@@ -893,7 +894,7 @@ Design system Atelier Synergy: Manrope, JetBrains Mono for schedule summary, cha
 ```text
 Independent screen. Generate ONLY this one screen. Do not generate other screens from this document.
 
-Product context: Atelier Synergy precursor demo — FINAL fused success + demo closure (do not split into two product screens). Status SCHEDULE_ACTIVE (cadre + offre + planning all active). Trigger for optional Inès handoff = SCHEDULE_ACTIVE (NOT CAPACITY_OPEN). No client Inès on the success surface except as an optional handoff CTA label. Branch B opens an answerable feedback sheet/modal (not read-only questions). Without saving feedback, return is not considered collected. Banner Étape 3 sur 8. Stylist: Sarah.
+Product context: Nolaya precursor demo — FINAL fused success + demo closure (do not split into two product screens). Status SCHEDULE_ACTIVE (cadre + offre + planning all active). Trigger for optional Inès handoff = SCHEDULE_ACTIVE (NOT CAPACITY_OPEN). No client Inès on the success surface except as an optional handoff CTA label. Branch B opens an answerable feedback sheet/modal (not read-only questions). Without saving feedback, return is not considered collected. Banner Étape 3 sur 8. Stylist: Sarah.
 
 Device: Mobile portrait ~390×844. Design TWO related states of THIS screen: (A) success surface (B) feedback sheet/modal overlay. Still one screen concept — not separate journey screens.
 
@@ -949,7 +950,7 @@ Interactions:
 
 Visual: Joyful but premium success — Black woman stylist with textured Afro hair. Feedback sheet is clean form UI. Any images: Black and/or mixed-race women with coily/curly/textured hair. Premium, realistic, respectful.
 
-Design system Atelier Synergy: Manrope + JetBrains Mono for amounts/status labels (French only). Charcoal #000101, soft gold #775a19 / #fdd587 sparingly, surfaces #fbf9f8 / #ffffff, soft 0.25rem radii. No purple, glow, emoji, dark mode, multi-shadows. All visible UI text in French.
+Design system Nolaya: Manrope + JetBrains Mono for amounts/status labels (French only). Charcoal #000101, soft gold #775a19 / #fdd587 sparingly, surfaces #fbf9f8 / #ffffff, soft 0.25rem radii. No purple, glow, emoji, dark mode, multi-shadows. All visible UI text in French.
 ```
 ========== END SCREEN 19 ==========
 
