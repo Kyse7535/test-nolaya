@@ -121,3 +121,56 @@ Les onze numéros historiques ne sont pas exposés comme un long stepper. Les qu
 - Rendez-vous.
 
 Les numéros d’étapes peuvent rester dans la documentation, les événements métier et les outils internes.
+
+## Décisions admin lancement
+
+*20 août 2026. Les décisions cliente D10–D18 ne sont pas rouvertes.*
+
+## D19 — Conciergerie interne, pas un espace coiffeuse
+
+**Décision : acceptée.**
+
+Au lancement, la confirmation humaine est opérée par **Nolaya interne**, sous un rôle **admin / conciergerie**. Ce n’est pas un espace professionnel self-service : la coiffeuse n’a ni compte, ni file, ni écran de réponse.
+
+L’administration minimale des offres (`/admin`) reste distincte de cet outil de dossiers.
+
+Pont cliente : **Faire vérifier** (D12 : vérifier le *match*, pas le téléphone) crée un dossier ; personne n’est contacté à cet instant. Le dossier entre dans une **file interne**. L’effet visible côté cliente est uniquement le **Suivi** (D18 : pas d’onglet Rendez-vous).
+
+## D20 — Gestes MVP de l’outil interne
+
+**Décision : acceptée.**
+
+L’admin peut :
+
+1. ouvrir un dossier issu de Faire vérifier (fil A : demande qualifiée + candidate ; fil B : offre seule) ;
+2. lire la synthèse (besoin ou offre, raisons de matching, éléments à confirmer) ;
+3. contacter la ou les coiffeuse(s) autorisée(s) **hors application** (téléphone, WhatsApp ou messagerie habituelle) ;
+4. consigner chaque contact (canal, horodatage, interlocutrice) ;
+5. enregistrer l’issue : **accepte**, **refuse**, **précision**, **adaptation**, ou **aucune réponse**.
+
+Aucune candidate n’est présentée comme confirmée avant une réponse réelle consignée. Un match confirmé exige une réponse humaine positive **et** la reconfirmation du lieu, du budget et de la période.
+
+| Issue consignée | Suivi cliente |
+|---|---|
+| Dossier créé, pas encore de contact réel | Demande reçue |
+| Traitement ou contact en cours | Recherche en cours |
+| Question ciblée nécessaire | Précision nécessaire |
+| Acceptation + reconfirmation lieu / budget / période | Coiffeuse trouvée |
+| Politique de contact épuisée sans confirmation | Aucune coiffeuse confirmée |
+| Dossier retiré ou inactif | Demande abandonnée |
+
+La cliente ne voit pas le journal, les canaux ni les motifs internes.
+
+## D21 — Hors MVP admin et suite du protocole
+
+**Décision : acceptée.**
+
+Hors MVP :
+
+- espace coiffeuse self-service, compte professionnel, lien de réponse autonome ;
+- interface complète de conciergerie (plan de vague, stratégies de présélection, relances automatiques, messagerie libre) ;
+- OTP / vérification du canal cliente ;
+- accord versionné, double validation, paiement, fiche et onglet Rendez-vous, préparation, avis ;
+- contacter une coiffeuse non autorisée ; accepter une modification **au nom** de la cliente ; simuler un contact ou une réponse.
+
+Prochaine étape du protocole : **STEP 1 — user stories admin** (gestes D20, pont Faire vérifier → file → Suivi). Pas de storyboard, flux, specs d’écrans ni prompts Stitch à cette étape.
