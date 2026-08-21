@@ -122,9 +122,119 @@ Les onze numéros historiques ne sont pas exposés comme un long stepper. Les qu
 
 Les numéros d’étapes peuvent rester dans la documentation, les événements métier et les outils internes.
 
+## Décisions cliente MVP lancement
+
+*20 août 2026. D10–D18 verrouillent le parcours sans compte à 13 écrans. Non rouvertes avec le cadrage admin.*
+
+## D10 — Catalogue d’offres réelles, pas d’inspirations éditoriales
+
+**Décision : acceptée.**
+
+Au lancement, **Découverte** affiche un catalogue de **prestations réelles** persistées :
+
+- chaque carte = une offre identifiable proposée par une coiffeuse identifiable ;
+- ville, prix avec niveau de certitude, disponibilité **déclarée** — jamais un créneau bloqué ou un RDV confirmé ;
+- parcourir le catalogue ne crée pas de demande **QUALIFIED** et ne contacte personne.
+
+Les anciennes « inspirations éditoriales sans promesse de disponibilité » ne sont pas le modèle lancement. Un lien historique `/inspirations/:id` redirige vers `/offre/:id` de la même offre (D14).
+
+## D11 — Deux fils d’entrée : A guidé et B libre
+
+**Décision : acceptée.**
+
+| Fil | Entrée | Qualification | Soumission |
+|---|---|---|---|
+| **A — guidé** | **Trouver ma coiffeuse** | Wizard 5 écrans → **QUALIFIED** → matching 1–3 | Demande qualifiée + candidate choisie |
+| **B — libre** | **Explorer** → Découverte | Aucune ; disclaimer 1.4 **non bloquant** sur la fiche | **Offre seule**, sans QUALIFIED inventé |
+
+Les deux fils convergent sur **Tes coordonnées**, **Demande envoyée** et **Suivi**. Nolaya n’impose pas le wizard avant **Faire vérifier** en fil B.
+
+## D12 — Faire vérifier = vérifier le match, pas le téléphone
+
+**Décision : acceptée.**
+
+**Faire vérifier** signifie : la conciergerie Nolaya vérifie la **pertinence du match** entre le besoin (ou l’offre choisie) et la coiffeuse — pas la vérification OTP/SMS/e-mail de la cliente.
+
+- l’envoi crée un dossier unique ; **personne n’est contacté** à cet instant ;
+- les coordonnées collectées à la soumission sont **déclarées** (D15), distinctes de cette vérification de match ;
+- le helper produit : « Nolaya vérifie le match — pas un rendez-vous confirmé. »
+
+## D13 — Layouts distincts : carrousels 1:1 vs masonry
+
+**Décision : acceptée.**
+
+| Écran | Layout autorisé | Interdit |
+|---|---|---|
+| **Accueil** | Promesse + deux CTA | Carrousels, grille d’offres, photo héroïque géante |
+| **Découverte** | Carrousels horizontaux, cartes **1:1** | Masonry, Pinterest, héro plein écran |
+| **Résultats** | **Masonry** / hauteurs variables, 1–3 cartes | Carrousels type Découverte |
+| **Autres** | Typographie, formulaires, recap | Carrousels d’annonces, masonry |
+
+Aucun écran ne gaspille le pli avec une photo lifestyle dominante.
+
+## D14 — Une seule fiche `/offre/:id`
+
+**Décision : acceptée.**
+
+L’ancien duo « Inspiration » + « Aperçu de l’offre » fusionne en **un seul écran** `/offre/:id` :
+
+- variante **`catalog`** : arrivée depuis Découverte (fil B) ;
+- variante **`from_match`** : arrivée depuis Résultats (fil A), bandeau « Selon ta demande » ;
+- `/inspirations/:id` n’est **pas** un écran — redirection vers `/offre/:id` ou message si offre morte.
+
+## D15 — Coordonnées enregistrées telles que déclarées
+
+**Décision : acceptée.**
+
+À la soumission MVP :
+
+- prénom + **un** canal (téléphone **ou** e-mail) ;
+- **pas d’OTP**, pas de SMS/e-mail de confirmation, pas de bounce-check ;
+- avertissement obligatoire avant envoi : Nolaya **ne confirme pas** les coordonnées ;
+- les valeurs sont persistées comme **déclarées**, clairement non vérifiées côté admin.
+
+## D16 — Matching court et soumission simplifiée
+
+**Décision : acceptée.**
+
+| Objet | Règle lancement |
+|---|---|
+| Résultats après **QUALIFIED** | **1 à 3** candidates d’offres réelles — pas 5, pas comparaison 2–5 |
+| Fil A — soumission | Demande **QUALIFIED** + **une** candidate |
+| Fil B — soumission | **Une offre seule** — pas de QUALIFIED fabriqué |
+| Étapes 5 produit complet | Absentes (pas configuration multi-destinataires MVP) |
+
+Une candidate algorithmique **≠** coiffeuse confirmée.
+
+## D17 — Ville saisie, pas de géolocalisation
+
+**Décision : acceptée.**
+
+Au lancement :
+
+- la ville est **tapée** ou choisie dans une liste — jamais déduite du navigateur ;
+- **« Autour de moi »** et la permission de géolocalisation **n’existent pas** ;
+- le lieu souhaité reste salon / domicile (ville seulement) / à confirmer — jamais l’adresse exacte privée.
+
+Les user stories étape 1 conservent la géoloc comme contrat **produit complet** ; le MVP lancement s’en abstient.
+
+## D18 — Trois zones visibles, pas de Rendez-vous
+
+**Décision : acceptée.**
+
+Le chrome cliente au lancement expose **trois zones** seulement :
+
+1. **Découvrir**
+2. **Ma demande**
+3. **Suivi**
+
+L’onglet **Rendez-vous** (D09 produit complet) est **masqué** au lancement. Les numéros d’étapes métier (1–11) restent en documentation interne.
+
+Une zone inactive (Ma demande sans brouillon, Suivi sans jeton) reste **visible** mais n’ouvre **aucune destination inventée**.
+
 ## Décisions admin lancement
 
-*20 août 2026. Les décisions cliente D10–D18 ne sont pas rouvertes.*
+*20 août 2026. D19–D21 complètent D10–D18 pour l’outil interne.*
 
 ## D19 — Conciergerie interne, pas un espace coiffeuse
 
