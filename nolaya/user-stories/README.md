@@ -61,7 +61,7 @@ Les étapes 9 à 11 sont déclenchées après le rendez-vous et ne prolongent pa
 - [Étape 5 — Vérification des conditions](05-verification-des-conditions/user-stories.md)
 - [Étape 6 — Soumission de la demande](06-soumission-de-la-demande/user-stories.md) — produit complet ; le pont lancement est **Faire vérifier**, pas ce workflow (OTP, stratégie, multi-destinataires)
 - [Étape 7 — Réponse professionnelle et conciergerie](07-reponse-professionnelle-et-conciergerie/user-stories.md) — **hors lancement** (produit complet US-07.1 à US-07.5)
-- [Admin / conciergerie de lancement](admin-conciergerie-lancement/user-stories.md) — STEP 0–1 (D19–D21, US-ADM-01 à 09)
+- [Admin / conciergerie de lancement](admin-conciergerie-lancement/user-stories.md) — **STEP 1–6 faits** (US-ADM · [storyboard](../docs/storyboard-admin.md) · [user-flow admin](../docs/user-flow-admin.md) · [transitions admin](../docs/transitions-admin.md) · [screen-specs admin](../docs/screen-specs-admin.md) · [prompts Stitch admin](../docs/prompts-stitch-admin.md))
 - [Étape 8 — Accord final et préparation](08-accord-final-et-preparation/user-stories.md)
 - [Étape 9 — Réalisation et issue](09-realisation-et-issue/user-stories.md)
 - [Étape 10 — Évaluation et avis](10-evaluation-et-avis/user-stories.md)
@@ -72,7 +72,7 @@ Les étapes 9 à 11 sont déclenchées après le rendez-vous et ne prolongent pa
 - [Décisions produit retenues](decisions-produit.md)
 - [Spécifications E2E transverses](specifications-e2e-transverses.md)
 
-Prompts Stitch cliente : `docs/prompts-stitch.md` (13 écrans).
+Prompts Stitch (`docs/prompts-stitch.md`) régénérés depuis user-flow + transitions + screen-specs (13 écrans cliente).
 
 ### Cadrage admin lancement
 
@@ -80,7 +80,13 @@ Prompts Stitch cliente : `docs/prompts-stitch.md` (13 écrans).
 |---|---|---|
 | 0 | Décisions D19–D21 | Fait — [decisions-produit.md](decisions-produit.md) |
 | **1** | User stories admin / conciergerie | **Fait** — [admin-conciergerie-lancement/user-stories.md](admin-conciergerie-lancement/user-stories.md) |
-| 2–6 | Storyboard, flow, transitions, screen specs, Stitch | PR suivante |
+| **2** | Storyboard admin | **Fait** — [docs/storyboard-admin.md](../docs/storyboard-admin.md) (deux fils, A1–A10) |
+| **3** | User-flow admin | **Fait** — [docs/user-flow-admin.md](../docs/user-flow-admin.md) (5 écrans `/interne/…`) |
+| **4** | Transitions admin | **Fait** — [docs/transitions-admin.md](../docs/transitions-admin.md) (I01–I05) |
+| **5** | Specs d’écrans admin | **Fait** — [docs/screen-specs-admin.md](../docs/screen-specs-admin.md) (I01–I05) |
+| **6** | Prompts Stitch admin | **Fait** — [docs/prompts-stitch-admin.md](../docs/prompts-stitch-admin.md) (I01–I05) |
+
+Cadrage admin lancement **clos** (STEP 0–6). Suite : **audit** / **implémentation** plus tard — pas un 7ᵉ livrable de cadrage.
 
 L’étape 7 produit complet (US-07) reste dans le dépôt comme contrat hors lancement. Ne pas s’en servir comme vérité de l’outil interne de lancement.
 
