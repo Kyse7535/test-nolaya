@@ -74,6 +74,20 @@ Les étapes 9 à 11 sont déclenchées après le rendez-vous et ne prolongent pa
 
 Prompts Stitch (`docs/prompts-stitch.md`) régénérés depuis user-flow + transitions + screen-specs (13 écrans cliente).
 
+### Cadrage cliente lancement
+
+| STEP | Livrable | Statut |
+|---|---|---|
+| 0 | Décisions D10–D18 | **Fait** — [decisions-produit.md](decisions-produit.md) |
+| 1 | User stories étapes 1–3, 6 (contrat métier) | **Existant** — adaptées MVP dans specs / prompts |
+| 2 | Storyboard cliente | **Fait** — [docs/storyboard.md](../docs/storyboard.md) (Inès fil A, Léa fil B) |
+| 3 | User-flow cliente | **Fait** — [docs/user-flow.md](../docs/user-flow.md) (S01–S13) |
+| 4 | Transitions cliente | **Fait** — [docs/transitions.md](../docs/transitions.md) |
+| 5 | Screen-specs cliente | **Fait** — [docs/screen-specs.md](../docs/screen-specs.md) |
+| 6 | Prompts Stitch cliente | **Fait** — [docs/prompts-stitch.md](../docs/prompts-stitch.md) |
+
+Cadrage cliente lancement **clos** (STEP 0–6). Protocole : [docs/protocole-conception-mvp.md](../docs/protocole-conception-mvp.md).
+
 ### Cadrage admin lancement
 
 | STEP | Livrable | Statut |
